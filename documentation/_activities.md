@@ -1,5 +1,5 @@
 # Activities
-Available modes of operation: real-time
+*Available modes of operation: real-time*
 
 Long-running operations are performed asynchronously. Upon initiating those operations via an API endpoint, activity 
 tracking information is returned to the caller, which can be used to query the status of the activity later on. 
@@ -21,3 +21,16 @@ Throughout processing, activities may transition through the following states:
 * Information concerning the activity’s progression through the system is available via the API Dashboard, as well as the endpoints listed below.
 
 Available Activity Endpoints:
+
+Endpoint | HTTP Method | Description
+-------- | ----------- | -----------
+/activities/ | GET | List current activities A query string parameter ‘parent_id’ may also be used with this API to get information about sub-activities that were initiated from a batch file upload.
+/activities/{id} | GET | Return detailed information about the specified activity. API applications will receive an activity ID in the API response for all operations that are asynchronous.
+/activities/{id} | PUT | Updates an existing activity -- useful for canceling pending activities that a client application no longer wishes to execute
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/
+```
+
+```python
+```
