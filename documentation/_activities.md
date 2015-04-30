@@ -27,11 +27,37 @@ Endpoint | HTTP Method | Description
 /activities/ | GET | List current activities A query string parameter ‘parent_id’ may also be used with this API to get information about sub-activities that were initiated from a batch file upload.
 /activities/{id} | GET | Return detailed information about the specified activity. API applications will receive an activity ID in the API response for all operations that are asynchronous.
 /activities/{id} | PUT | Updates an existing activity -- useful for canceling pending activities that a client application no longer wishes to execute
+ 
+The /activities/ response includes the following fields:
+
+Field | Type | Description
+----- | ---- | -----------
+callback_url | {string} | URL that will be invoked to notify the client application that this Activity has completed. You should always use https for callback URLs used by your application.
+history | {array} | Historical status of the progress of this Activity
+id | {string} | ID of this Activity
+name | {string} | Activity name
+parameters | {dict} | The parameters that were originally supplied to the activity
+remaining_transitions | {array} | The list of remaining state transitions that the activity has yet to go through
+state | {dict} | Current state of this Activity
+transition_path | {array} | The list of state transitions that will be used for this Activity
+units_of_work | {int} | The number of 'units of work' that the activity is operating on. This will typically be 1 for real-time requests like /eligibility/. When uploading batch X12 files via the /files/ endpoint, this will be the number of ‘transactions’ within that file. For example, if a client application POSTs a file of 20 eligibility requests to the /files/ API, the units_of_work value for that activity will be 20 after the X12 file has been analyzed. If an activity does show a value greater than 1 for units_of_work, the client application can fetch detailed information about each one of the activities processing those units of work by using the /activities/?parent_id=<activity_id> API
+
+> example fetching activities for the current application
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/
 ```
 
-```python
+> example fetching information for a specific activity
 
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
+```
+
+> example to cancel an existing activity
+
+```shell
+curl -XPUT -i -H "Content-Type: application/json"
+-H "Authorization: Bearer $ACCESS_TOKEN"
+-d '{"transition": "cancel"}' https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
 ```

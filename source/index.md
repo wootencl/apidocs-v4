@@ -22,8 +22,20 @@ includes:
   - authentication
   - apidashboard
   - activities
-  - kittens
-  - errors
+  - authorizations
+  - cashprices
+  - claims
+  - claimstatus
+  - eligibility
+  - enrollment
+  - insuranceprices
+  - mpc
+  - payers
+  - plans
+  - providers
+  - referrals
+  - scheduling
+  - tradingpartners
 
 search: true
 ---
