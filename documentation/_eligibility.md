@@ -614,6 +614,7 @@ valid_request | A boolean value used to indicate that a trading partner consider
 ```
 
 Full list of possible reject_reasons on the eligibility response with description:
+
 reject_reason | Description
 ------------- | -----------
 invalid_provider_id | submitting provider (NPI) is not valid, please submit with a valid NPI
