@@ -1,4 +1,4 @@
-# Insurance Prices
+## Insurance Prices
 
 *Available modes of operation: real-time*
 

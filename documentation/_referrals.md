@@ -1,4 +1,4 @@
-# Referrals
+## Referrals
 
 *Available modes of operation: batch/async or real-time*
 

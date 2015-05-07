@@ -1,4 +1,4 @@
-# Claims Status
+## Claims Status
 *Available modes of operation: batch/async or real-time*
 
 The Claims Status resource allows an application to request information about previously submitted claims. Learn more 

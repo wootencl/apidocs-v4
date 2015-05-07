@@ -1,4 +1,4 @@
-# Enrollment
+## Enrollment
 
 *Available modes of operation: batch/async only*
 

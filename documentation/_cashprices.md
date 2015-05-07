@@ -1,4 +1,4 @@
-# Cash Prices
+## Cash Prices
 *Available modes of operation: real-time*
 
 The Cash Prices resource allows access to our internal collection of pricing data. The data comes from actual providers 

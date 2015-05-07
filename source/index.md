@@ -11,16 +11,17 @@ language_tabs:
   - haskell: Haskell
   - lua: Lua
 
-
 toc_footers:
   - <a href='https://platform.pokitdok.com/signup' target='_blank'>Sign Up for a Free API Key</a>
 
 includes:
   - overview
+  - common
   - clientlibraries
   - jsonedisupport
   - authentication
   - apidashboard
+  - endpoints
   - activities
   - authorizations
   - cashprices
@@ -28,6 +29,7 @@ includes:
   - claimstatus
   - eligibility
   - enrollment
+  - files
   - insuranceprices
   - mpc
   - payers

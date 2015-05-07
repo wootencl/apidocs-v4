@@ -1,4 +1,4 @@
-# Trading Partners
+## Trading Partners
 
 *Available modes of operation: real-time*
 

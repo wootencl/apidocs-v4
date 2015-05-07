@@ -1,4 +1,4 @@
-# Authorizations
+## Authorizations
 *Available modes of operation: batch/async or real-time*
 
 The Authorizations resource allows an application to submit a request for the review of health care in order to obtain 

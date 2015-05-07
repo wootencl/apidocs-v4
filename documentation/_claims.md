@@ -1,4 +1,4 @@
-# Claims
+## Claims
 *Available modes of operation: see below*
 
 The claims resource allows the filing of claims via the transmission of EDI 837 transaction sets to the designated 

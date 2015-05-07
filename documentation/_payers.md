@@ -1,4 +1,4 @@
-# Payers
+## Payers
 
 *Available modes of operation: real-time*
 

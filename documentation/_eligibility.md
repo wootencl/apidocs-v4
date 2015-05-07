@@ -1,4 +1,4 @@
-# Eligibility
+## Eligibility
 
 The eligibility resource makes it easy to verify a member's insurance information in real-time. You can check 
 co-insurance, copay, deductible and out of pocket amounts for a member along with other information about a member's 

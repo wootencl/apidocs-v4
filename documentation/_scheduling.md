@@ -1,4 +1,4 @@
-# Scheduling
+## Scheduling
 
 *Available modes of operation: real-time*
 

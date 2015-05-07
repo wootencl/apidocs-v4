@@ -1,4 +1,4 @@
-# Activities
+## Activities
 *Available modes of operation: real-time*
 
 Long-running operations are performed asynchronously. Upon initiating those operations via an API endpoint, activity 

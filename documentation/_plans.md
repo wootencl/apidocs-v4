@@ -1,4 +1,4 @@
-# Plans
+## Plans
 
 *Available modes of operation: real-time*
 
