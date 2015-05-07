@@ -1,16 +1,8 @@
 # Eligibility
 
-*Available modes of operation: batch/async or real-time*
-
 The eligibility resource makes it easy to verify a member's insurance information in real-time. You can check 
 co-insurance, copay, deductible and out of pocket amounts for a member along with other information about a member's 
-plan. Asynchronous eligibility requests can also be made. A callback_url can be supplied in the eligibility request to 
-indicate that your application should be notified when an asynchronous eligibility request has completed and an 
-eligibility response has been received from the trading partner. When a callback_url is specified, the full eligibility 
-request activity will be POSTed back to the callback_url. The eligibility request activity may also be monitored via the 
-[activities](#activities) API. Since some trading partners may take a few seconds (typically between 3-6 seconds) to 
-process a 'real-time' eligibility request, applications may wish to use the callback_url and async operation mode so 
-they don't block.
+plan.
 
 Use the [tradingpartners](#trading-partners) API to determine available trading_partner_id values for use with the 
 eligibility API.
@@ -20,6 +12,17 @@ Available Eligibility Endpoints:
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /eligibility/ | POST | Determine eligibility via an EDI 270 Request For Eligibility
+
+All eligibility requests must include a valid Provider NPI. Some trading partners require that the submitting provider’s 
+NPI be registered or be a participating provider with that health plan to successfully check eligibility. 
+When a request is made without a provider name and NPI, the PokitDok NPI and organization name will default in. It is 
+important to note that the PokitDok NPI may not be accepted by all trading partners.
+
+The PokitDok eligibility endpoint allows you to request eligibility for specific service types. The service_type argument 
+allows you to specify which particular service(s) you want to check eligibility for. If no service type is specified, the
+request will be made for general health benefits (health_benefit_plan_coverage). Please note that some trading partners may
+not support specific service type inquiries. A full listing of possible service_types values is included below.
+You can also request eligibility information for a specific CPT code, however not all trading partners support such requests.
 
 The /eligibility/ endpoint accepts the following parameters:
 
@@ -34,7 +37,7 @@ provider.first_name | The provider’s first name when the provider is an indivi
 provider.last_name | The provider’s last name when the provider is an individual
 provider.npi | The NPI for the provider.
 provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name
-service_types | The line(s) of coverage in the insurance policy the eligibility request is being made against. For example, health_benefit_plan_coverage may be used to perform a general benefits inquiry to learn about the service types that are supported by the member's plan. If you're only interested in a particular service type or types, you may specify those type constants in the request. If you only wish to obtain eligibility information about chiropractic care, you can specify the chiropractic service type in the request. Note that some trading partners may not support specific service type inquiries. If no service_types are specified in the eligibility request, health_benefit_plan_coverage will be used as the default. A full listing of possible service_types values is included below.
+service_types | The service type(s) the eligibility request is being made against. A full listing of possible service_types values is included below.
 trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners resource
 
 > Example eligibility request to determine general health benefit coverage
@@ -135,6 +138,11 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ' https://platform.pokitdok.com/api/v4/eligibility/
 ```
                     
+
+Eligibility and benefit responses vary depending on the trading partner and the plan a member is enrolled in. Some plans 
+may not provide deductible/out-of-pocket, copayment/coinsurance or other specific plan information. PokitDok will provide 
+all the information provided by the trading partner in the eligibility response.
+
 The /eligibility/ response contains the following fields:
 
 Field | Description
@@ -142,16 +150,16 @@ Field | Description
 coverage.active | A boolean value that is true when the member has active coverage. It is false when membership information could not be returned or when inactive coverage is indicated by the trading partner.
 coverage.coinsurance | List of co-insurance information for the member
 coverage.coinsurance.benefit_percent | A percentage that represents the patient's portion of the responsibility for a benefit. (e.g. 0.2 when the patient's portion of the responsibility is 20% )
-coverage.coinsurance.coverage_level | The coverage level that applies to this co-insurance information. When a family (or more than one person) is covered, you'll see deductible information for the family as well as the individual that was referenced in the eligibility request.
+coverage.coinsurance.coverage_level | The coverage level that applies to this co-insurance information. Possible values include: employee_only, employee_and_spouse, employee_and_children, family, individual.
 coverage.coinsurance.in_plan_network | Indicates whether or not the co-insurance information applies to in or out of network providers. If the co-insurance information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
 coverage.coinsurance.service_types | A list of service types that apply to this co-insurance information. A full list of possible values is included below.
-coverage.limitations.benefit_amount | Monetary amount for this deductible item. For calendar year deductible information, this will be the deductible for the calendar year for the associated coverage level and in/out of plan network indicator. (e.g. $7000.00 for in network, family coverage)
-coverage.limitations.coverage_level | The coverage level that applies to this co-insurance information. When a family (or more than one person) is covered, you'll see deductible information for the family as well as the individual that was referenced in the eligibility request.
-coverage.limitations.in_plan_network | Indicates whether or not the co-insurance information applies to in or out of network providers. If the co-insurance information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
-coverage.limitations.service_types | A list of service types that apply to this co-insurance information. A full list of possible values is included below.
-coverage.limitations.delivery | Specifies the delivery pattern of the health care services
-coverage.limitations.delivery.quantity | The quantity of services being requested
-coverage.limitations.delivery.quantity_qualifier | The qualifier used to indicate the quantity type (e.g. visits, month, hours, units, days)
+coverage.limitations.benefit_amount | Monetary amount for the benefit limitation.
+coverage.limitations.coverage_level | The coverage level that applies to this limitation.  This can be at family or individual levels.
+coverage.limitations.in_plan_network | Indicates whether or not the limitation applies to in or out of network providers. If the limitation is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
+coverage.limitations.service_types | A list of service types that apply to this limitation. A full list of possible values is included below.
+coverage.limitations.delivery | Specifies the delivery pattern of the health care services with limitations.
+coverage.limitations.delivery.quantity | The quantity of services being requested that have limitations.
+coverage.limitations.delivery.quantity_qualifier | The qualifier used to indicate the quantity type (e.g. visits, month, hours, units, days) for services that have limitations
 coverage.contacts | List of contacts related to the member's coverage. This may include contact information for the payer as well as vendors or third party administrators.
 coverage.contacts.name | The name of this contact.
 coverage.contacts.id | The primary identifier for this contact.
@@ -162,14 +170,14 @@ coverage.contacts.contact_type | The type of entity related to this contact info
 coverage.contacts.service_types | A list of service types that apply to this contact information. A full list of possible values is included below.
 coverage.copay | List of co-payment information for the member
 coverage.copay.copayment | Monetary amount for this copay item. (e.g. 15 for a $15 co-pay)
-coverage.copay.coverage_level | The coverage level that applies to this co-pay information. When a family (or more than one person) is covered, you'll see deductible information for the family as well as the individual that was referenced in the eligibility request.
+coverage.copay.coverage_level | The coverage level that applies to this co-pay information. Possible values include: employee_only, employee_and_spouse, employee_and_children, family, individual.
 coverage.copay.in_plan_network | Indicates whether or not the copay information applies to in or out of network providers. If the copay information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
 coverage.copay.service_types | A list of service types that apply to this co-pay information. A full list of possible values is included below.
-coverage.copay.delivery | Specifies the delivery pattern of the health care services
-coverage.copay.delivery.quantity | The quantity of services being requested
-coverage.copay.delivery.quantity_qualifier | The qualifier used to indicate the quantity type (e.g. visits, month, hours, units, days)
+coverage.copay.delivery | Specifies the delivery pattern of the health care services that have a co-pay.
+coverage.copay.delivery.quantity | The quantity of services being requested that have a co-pay.
+coverage.copay.delivery.quantity_qualifier | The qualifier used to indicate the quantity type (e.g. visits, month, hours, units, days) for services that have a co-pay.
 coverage.deductibles | List of deductible information for the member
-coverage.deductibles.benefit_amount | Monetary amount for this deductible item. For calendar year deductible information, this will be the deductible for the calendar year for the associated coverage level and in/out of plan network indicator. (e.g. $7000.00 for in network, family coverage)
+coverage.deductibles.benefit_amount | Monetary amount for this deductible item. For calendar year deductible information, this will be the deductible for the calendar year for the associated coverage level and in/out of plan network indicator. (e.g. $7000.00 for in network, family coverage).
 coverage.deductibles.coverage_level | The coverage level that applies to this deductible information. When a family (or more than one person) is covered, you'll see deductible information for the family as well as the individual that was referenced in the eligibility request.
 coverage.deductibles.in_plan_network | Indicates whether or not the deductible information applies to in or out of network providers. If the deductible information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
 coverage.deductibles.time_period | The period of time for which this deductible item applies. Possible values include: calendar_year and remaining. remaining indicates the amount that remains in the calendar year for the member to reach their deductible. calendar_year indicates that the amount represents the total deductible amount for the current year. When no time period applies to deductible information, time_period will not be included for that deductible in the response.
@@ -209,7 +217,7 @@ provider.npi | The NPI for the provider.
 provider.first_name | The provider’s first name when the provider is an individual
 provider.last_name | The provider’s last name when the provider is an individual
 provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name
-reject_reason | When a trading partner is unable to provide eligibility information for an eligibility request, they will provide a reject reason. Possible values for reject_reason include: unable_to_respond_now, invalid_provider_id, patient_birth_date_mismatch, subscriber_insured_not_found.
+reject_reason | When a trading partner is unable to provide eligibility information for an eligibility request, they will provide a reject reason. A full list of reasons and their description is included below.
 subscriber.address | The subscriber's address information
 subscriber.address.address_lines | The subscriber’s street address information as specified on their policy. (e.g. ["123 N MAIN ST"])
 subscriber.address.city | The subscriber's city (e.g. "SAN MATEO")
@@ -604,6 +612,19 @@ valid_request | A boolean value used to indicate that a trading partner consider
     "valid_request": true
 }
 ```
+
+Full list of possible reject_reasons on the eligibility response with description:
+reject_reason | Description
+------------- | -----------
+invalid_provider_id | submitting provider (NPI) is not valid, please submit with a valid NPI
+provider_not_on_file | submitting provider (NPI) is not valid, please submit with a valid NPI
+invalid_subscriber_id | subscriber id not found
+dob_mismatch | birth date does not match member found
+invalid_subscriber_insured_name | member not found
+subscriber_insured_not_found | member id/name not found
+invalid_subscriber_insured_id | member id not valid
+invalid_subscriber_insured_name | member not found
+unable_to_respond_now | trading partner is experiencing downtime and not able to complete request
                     
 > Full listing of possible service type values that may be used in an eligibility request or returned in an eligibility response
 
