@@ -1,60 +1,47 @@
 ## Claims
-*Available modes of operation: see below*
+*Available modes of operation: batch/async*
 
-The claims resource allows the filing of claims via the transmission of EDI 837 transaction sets to the designated 
-trading partner. A callback_url may be supplied in the claims request to indicate that your application should be 
-notified when the asynchronous processing is complete and a claim acknowledgement has been received from the trading 
-partner. When a callback_url is specified, the full claims request activity will be POSTed back to the callback_url. A 
-claim acknowledgement will be returned for each submitted claims request. Depending on the trading partner, claims 
-request activities may complete within an hour of being submitted. In most cases, your application should know within 
-24 hours if a claims request has passed validations and is accepted for adjudication. Once your claims request activity 
-has completed and you have a claim acknowledgement that indicates your claims request was accepted for adjudication, 
-you may use the [claims status](#claims-status) API to track the claim all the way through the adjudication/payment 
-process. The claims request activity may also be monitored via the [activities](#activities) API.
+Following the standard X12 837 format, the PokitDok claims resource allows applications to easily file claims to designated trading partners. 
 
-We can support Health Care Claim Payment/Advice (835) transactions that are generated in response to claims API requests 
-when the billing provider has authorized us to receive 835 transactions with the trading partner. When claims API 
-requests are submitted for billing providers that have not authorized PokitDok to receive 835 transactions, a claims 
-status (277) response will be returned when claims processing has been completed. Please 
-[contact](https://pokitdok.com/contact) our support team using our contact form if you'd like more information on using 
-the claims API to also receive 835 transactions and electronic payments.
-
-Learn more about our [claims API workflow](https://platform.pokitdok.com/claim-processing).
+When using the claims resource, there is an option to supply a callback_url, which indicates that your application should be
+notified when the asynchronous processing is complete and a claim acknowledgement has been received from the trading partner.
+When a callback_url is specified, the full claims request activity will be POSTed back to the callback_url. A claim
+acknowledgement will be returned for each submitted claims request.
 
 Available Claims Endpoints:
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
-/claims/ | POST | Create a new claim, via the filing of an EDI 837 Claim, to the designated Trading Partner. Available modes of operation: batch/async only
+/claims/ | POST | Submit a claim to the specified trading partner.
 
 The /claims/ endpoint accepts the following parameters:
 
 Parameter | Description | CMS 1500 Field
 --------- | ----------- | --------------
-billing_provider | Required: A dictionary of information for the provider that is billing for services | 33: Billing Provider Info
-billing_provider.address | A dictionary of information for the billing provider's address | 
+billing_provider | Required: A dictionary of information for the provider that is billing for services. | 33: Billing Provider Info
+billing_provider.address | A dictionary of information for the billing provider's address. | 
 billing_provider.address.address_lines | List of strings representing the street address for a billing provider. (e.g. ["123 MAIN ST.", "Suite 4"]) | 
-billing_provider.address.city | The city component of a billing provider's address (e.g. "SAN MATEO") | 
-billing_provider.address.state | The state component of a billing provider's address (e.g. "CA") | 
-billing_provider.address.zipcode | The billing provider's zip/postal code (e.g. "94401") | 
+billing_provider.address.city | The city component of a billing provider's address. (e.g. "SAN MATEO") | 
+billing_provider.address.state | The state component of a billing provider's address. (e.g. "CA") | 
+billing_provider.address.zipcode | The billing provider's zip/postal code. (e.g. "94401") | 
 billing_provider.first_name | The first name of the provider billing for services. Required when the billing provider is an individual. | 
 billing_provider.last_name | The last name of the provider billing for services. Required when the billing provider is an individual. | 
-billing_provider.organization_name | The billing provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name | 
+billing_provider.organization_name | The billing provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name. | 
 billing_provider.npi | The National Provider Identifier for the provider billing for services. | 33a: Billing Provider NPI
 billing_provider.tax_id | The federal tax id for the provider billing for services. For individual providers, this may be the tax id of the medical practice or organization where a provider works. | 25: Federal tax ID Number (SSN EIN)
 billing_provider.taxonomy_code | The taxonomy code for the provider billing for services. (e.g. "207Q00000X") | 24i: ID Qualifier
 claim | Dictionary of information representing a claim for services that have been performed by a health care provider for the patient. | 
-claim.onset_date | Optional: the date of first symptoms for the illness | 14: Date of current illness OR injury OR pregnancy
+claim.onset_date | Optional: the date of first symptoms for the illness. | 14: Date of current illness OR injury OR pregnancy
 claim.place_of_service | The location where services were performed. (e.g. "office") | 24b: Place of service
 claim.patient_paid_amount | Optional: The amount the patient has already paid the provider for the services listed in the claim. When reporting cash payment encounters for the purpose of contributing those amounts toward the member's deductible, the patient_paid_amount will equal the total_charge_amount. | 29: Amount Paid
 claim.patient_signature_on_file | Boolean indicator for whether or not a patient's signature is on file to authorize the release of medical records. Defaults to true if not specified. | 12: Patient's or authorized person's signature
-claim.service_lines | List of services that were performed as part of this claim | 
+claim.service_lines | List of services that were performed as part of this claim. | 
 claim.service_lines.charge_amount | The amount charged for this specific service. (e.g. 100.00) | 24f: Charges
 claim.service_lines.diagnosis_codes | A list of diagnosis codes related to this service. (e.g. 487.1) | 21: Diagnosis or nature of illness or injury
 claim.service_lines.procedure_code | The CPT code for the service that was performed | 24d: Procedures, Services, or Supplies
-claim.service_lines.procedure_modifier_codes | Optional: List of modifier codes for the specified procedure (e.g. ["GT"]) | 24d: Procedures, Services, or Supplies
-claim.service_lines.service_date | The date the service was performed | 24a: Date(s) of service (from, to)
-claim.service_lines.unit_count | Number of units of this service (e.g. 1.0) | 24g: Days or Units
+claim.service_lines.procedure_modifier_codes | Optional: List of modifier codes for the specified procedure. (e.g. ["GT"]) | 24d: Procedures, Services, or Supplies
+claim.service_lines.service_date | The date the service was performed. | 24a: Date(s) of service (from, to)
+claim.service_lines.unit_count | Number of units of this service. (e.g. 1.0) | 24g: Days or Units
 claim.total_charge_amount | The total amount charged/billed for the claim. (e.g. 100.00) | 28: Total Charge
 patient | Information about the patient that received services outlined in the claim. Patient information is only required when the patient is not the insurance subscriber. | 
 patient.address | Required: The patient’s address information. | 5: Patient's address
@@ -70,7 +57,7 @@ patient.middle_name | Optional: The patient’s middle name. | 2: Patient's Name
 patient.last_name | Required: The patient’s last name. | 2: Patient's Name
 patient.pregnant | Patient pregnancy indicator. Defaults to false. | 
 patient.relationship | Required: The patient’s relationship to the subscriber. May be one of these values: spouse, child, employee, unknown, organ_donor, cadaver_donor, life_partner, other_relationship | 6: Patient's relationship to the insured
-subscriber | Information about the insurance subscriber as it appears on their policy | 
+subscriber | Information about the insurance subscriber as it appears on their policy. | 
 subscriber.address | The subscriber’s address information as specified on their policy. | 7: Insured's address
 subscriber.address.address_lines | The subscriber’s street address information as specified on their policy. (e.g. ["123 N MAIN ST"]) | 
 subscriber.address.city | The subscriber’s city information as specified on their policy. (e.g. "SAN MATEO") | 
@@ -82,8 +69,12 @@ subscriber.gender | The subscriber’s gender as specified on their policy. | 11
 subscriber.group_name | Optional: The subscriber’s group name as specified on their policy. | 11b: Employer's name or school name
 subscriber.member_id | Required: The subscriber’s member identifier. | 1a: Insured's ID number
 subscriber.last_name | Required: The subscriber’s last name as specified on their policy. | 4: Insured's name
-trading_partner_id | Required: Unique id for the intended trading partner, as specified by the Trading Partners resource | 11c: Insurance plan name or program name
+trading_partner_id | Required: Unique id for the intended trading partner, as specified by the Trading Partners resource | 
 transaction_code | Required: The type of claim transaction that is being submitted. (e.g. "chargeable") | 
+
+Though the claim endpoint will successfully POST a claim transaction to the payer, there is a lot more that goes on with the
+claim till it is fully processed and paid.
+For details on the flow and how [claims status](#claims-status) ties in, visit [claims API workflow](https://platform.pokitdok.com/claim-processing).
 
 > Sample Claims Request
 
@@ -297,10 +288,11 @@ transaction_code | Required: The type of claim transaction that is being submitt
 }
 ```
                 
-> curl example submitting a claim
+> curl example submitting a claim with an application's callback_url specified
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    “callback_url”: “https://yourapp.com/claims/status”,
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
