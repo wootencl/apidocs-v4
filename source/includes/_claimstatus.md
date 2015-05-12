@@ -1,34 +1,41 @@
 ## Claims Status
-*Available modes of operation: batch/async or real-time*
+*Available modes of operation: real-time*
 
-The Claims Status resource allows an application to request information about previously submitted claims. Learn more 
-about our [claims API workflow](https://platform.pokitdok.com/claim-processing).
+The Claims Status endpoint allows an application to request information about previously submitted claims. You can send a
+request to a payer to determine where the claim is in their adjudication system and the status of the claim.
+
+The PokitDok claim status endpoint can be used to query multiple claims. To learn how to form such a request and understand how
+claims status ties in with [claims](#claims), visit [claims API workflow](https://platform.pokitdok.com/claim-processing).
+
+Please note that on average it takes 5-7 days for a claim to enter a payer’s adjudication system, thus it recommended to wait at
+least a week after submitting a claim to check its status.
 
 Available Claims Status Endpoints:
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /claims/status | POST | Submit a claim status request to the specified trading partner.
+
 The /claims/status endpoint accepts the following parameters:
 
 Argument | Description
 -------- | -----------
-patient.birth_date | The patient’s birth date as specified on their policy
-patient.id | The patient’s member identifier
-patient.first_name | The patient’s first name as specified on their policy
-patient.last_name | The patient’s last name as specified on their policy
-provider.first_name | The provider’s first name when the provider is an individual
-provider.last_name | The provider’s last name when the provider is an individual
+patient.birth_date | The patient’s birth date as specified on their policy.
+patient.id | The patient’s member identifier.
+patient.first_name | The patient’s first name as specified on their policy.
+patient.last_name | The patient’s last name as specified on their policy.
+provider.first_name | The provider’s first name when the provider is an individual.
+provider.last_name | The provider’s last name when the provider is an individual.
 provider.npi | The NPI for the provider.
-provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name
-service_date | The date services were performed or started for the claim service period
+provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.
+service_date | The date services were performed or started for the claim service period.
 service_end_date | Optional: The date services ended for the claim service period.
-subscriber.birth_date | Optional: The subscriber’s birth date as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
-subscriber.first_name | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
-subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber on the insurance policy.
-subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
+subscriber.birth_date | Optional: The subscriber’s birth date as specified on their policy. Specify when the patient is not the subscriber.
+subscriber.first_name | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber.
+subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.
+subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.
 tracking_id | Optional: The payer's claim tracking id. Specify a tracking id to refine the search criteria for a specific claim.
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners resource
+trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners resource.
 
 > Example claim status request when the patient is also the subscriber on the insurance policy
 
@@ -122,34 +129,34 @@ The /claim/status response contains the following fields:
 
 Field | Description
 ----- | -----------
-patient | Information about a patient including any matching claims
-patient.claims | A list of matching claims returned by the trading partner for a claims status request
-patient.claims.adjudication_finalized_date | The date adjudication was finalized for the claim
-patient.claims.applied_to_deductible | Boolean that indicates whether or not claim charges are applied to the deductible
+patient | Information about a patient including any matching claims.
+patient.claims | A list of matching claims returned by the trading partner for a claims status request.
+patient.claims.adjudication_finalized_date | The date adjudication was finalized for the claim.
+patient.claims.applied_to_deductible | Boolean that indicates whether or not claim charges are applied to the deductible.
 patient.claims.check_number | The check or EFT trace number for a claim payment.
-patient.claims.claim_control_number | The Payer's Claim Control Number
-patient.claims.claim_payment_amount | The amount that's been paid on the claim
-patient.claims.remittance_date | The date the check was issued or EFT funds became available
-patient.claims.service_date | The date services were performed or started for the claim service period
-patient.claims.service_end_date | The date services ended for the claim service period
-patient.claims.services | A list of services linked to the claim
-patient.claims.services.charge_amount | The amount charged for a particular service on the claim
-patient.claims.services.cpt_code | The CPT code indicating the type of service that was performed
-patient.claims.services.payment_amount | The amount paid for a particular service on the claim
-patient.claims.services.service_date | The date the service was performed or started for the claim service period
-patient.claims.services.service_end_date | The date the service ended for the claim service period
-patient.claims.services.statuses | A listing of status information for the claim
-patient.claims.services.statuses.status_category | A verbose message about the general category of the service's claim status (e.g. accepted, rejected, etc.) This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found here
-patient.claims.services.statuses.status_category_code | The code indicating the general category of the service's claim status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found here
-patient.claims.services.statuses.status_code | Indicates the status of the service on the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found here
-patient.claims.statuses | A listing of status information for the claim
-patient.claims.statuses.status_category | A verbose message about the general category of the claim's status (e.g. accepted, rejected, etc.) This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found here
-patient.claims.statuses.status_category_code | The code indicating the general category of the claim's status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found here
-patient.claims.statuses.status_code | Indicates the status of the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found here
-patient.claims.total_claim_amount | The total charges submitted for the claim
-patient.first_name | The patient’s first name as specified on their policy
-patient.id | The patient’s member identifier
-patient.last_name | The patient’s last name as specified on their policy
+patient.claims.claim_control_number | The Payer's Claim Control Number.
+patient.claims.claim_payment_amount | The amount that's been paid on the claim.
+patient.claims.remittance_date | The date the check was issued or EFT funds became available.
+patient.claims.service_date | The date services were performed or started for the claim service period.
+patient.claims.service_end_date | The date services ended for the claim service period.
+patient.claims.services | A list of services linked to the claim.
+patient.claims.services.charge_amount | The amount charged for a particular service on the claim.
+patient.claims.services.cpt_code | The CPT code indicating the type of service that was performed.
+patient.claims.services.payment_amount | The amount paid for a particular service on the claim.
+patient.claims.services.service_date | The date the service was performed or started for the claim service period.
+patient.claims.services.service_end_date | The date the service ended for the claim service period.
+patient.claims.services.statuses | A listing of status information for the claim.
+patient.claims.services.statuses.status_category | A verbose message about the general category of the service's claim status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).
+patient.claims.services.statuses.status_category_code | The code indicating the general category of the service's claim status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).
+patient.claims.services.statuses.status_code | Indicates the status of the service on the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-codes/).
+patient.claims.statuses | A listing of status information for the claim.
+patient.claims.statuses.status_category | A verbose message about the general category of the claim's status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).
+patient.claims.statuses.status_category_code | The code indicating the general category of the claim's status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/].
+patient.claims.statuses.status_code | Indicates the status of the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).
+patient.claims.total_claim_amount | The total charges submitted for the claim.
+patient.first_name | The patient’s first name as specified on their policy.
+patient.id | The patient’s member identifier.
+patient.last_name | The patient’s last name as specified on their policy.
 
 > Example claims status response when the trading partner is unable to locate any matching claims
 
@@ -724,6 +731,4 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 }
 ' https://platform.pokitdok.com/api/v4/claims/status
 ```
-                    
-Still have questions? Visit our [claims API workflow page](https://platform.pokitdok.com/claim-processing) for more 
-information.
+
