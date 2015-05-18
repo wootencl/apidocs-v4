@@ -2,9 +2,11 @@
 
 *Available modes of operation: batch/async only*
 
-The /enrollment/ endpoint is used for benefits enrollment and maintenance. It may be used to enroll a new member in a 
-health plan, update member information, and terminate benefits. Benefits enrollment requests generate activities that 
-may be tracked via the /activities/ API.
+The PokitDok enrollment API eases the transmission process of benefit enrollment and maintenance files. Applications can use the enrollment endpoint to submit new enrollments or enrollment changes due to life events and plan termination. These files are submitted asynchronously via batch mode.
+
+File transmission is performed on an as needed basis. The enrollment API can be utilized for all enrollment requirements including open enrollment and is able to support both full and change files.
+
+Responses to enrollment files can vary greatly from carrier to carrier. PokitDok will work with the carrier trading partner to provide confirmation of successful delivery and communicate any reports back to the client.
 
 Available Enrollment Endpoints:
 
@@ -12,7 +14,7 @@ Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /enrollment/ | POST | Submit a benefits enrollment request to the specified trading partner
 
-The /enrollment/ endpoint accepts the following parameters:
+The enrollment endpoint accepts the following parameters:
 
 Argument | Description
 -------- | -----------
