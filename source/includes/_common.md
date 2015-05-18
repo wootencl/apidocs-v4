@@ -45,12 +45,10 @@ Error information may be returned to an API client. Common error scenarios inclu
 * an API access token is not valid or no longer valid
 * insufficient credits are available for billable resources
 
-Some examples of these are included below.
+Some examples of these are included to the right.
 
 ### Unauthorized access
-
-This may be encountered when an invalid or no longer valid access token is supplied. Access tokens expire one hour after 
-being acquired. Applications should handle 401s properly and request a new access token when this is encountered.
+> Unauthorized access
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN"
@@ -64,12 +62,11 @@ Content-Length: 31
     "message": "Unauthorized"
 }
 ```
+This may be encountered when an invalid or no longer valid access token is supplied. Access tokens expire one hour after 
+being acquired. Applications should handle 401s properly and request a new access token when this is encountered.
 
 ### Insufficient credits
-
-This may be encountered when credits are not available to an application for a billable resource requested in the API 
-call. If this is encountered, the application owner will need to load more credits on their application or change their 
-billing tier.
+> Insufficient credits
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/?limit=20
@@ -82,12 +79,12 @@ Content-Length: 35
     "message": "Payment Required"
 }
 ```
+This may be encountered when credits are not available to an application for a billable resource requested in the API 
+call. If this is encountered, the application owner will need to load more credits on their application or change their 
+billing tier.
 
 ### Rate limit exceeded
-
-This may be encountered when too many API calls are made within a period of time for a rate limited resource. Rate 
-limits are currently enforced on an hourly basis. If your application receives a 403, you can wait for the rate limit 
-period to renew and then make the API call again.
+> Rate limit exceeded
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN"
@@ -101,11 +98,12 @@ Content-Length: 28
     "message": "Forbidden"
 }
 ```
+This may be encountered when too many API calls are made within a period of time for a rate limited resource. Rate 
+limits are currently enforced on an hourly basis. If your application receives a 403, you can wait for the rate limit 
+period to renew and then make the API call again.
 
 ### Required information missing or invalid
-
-You may encounter errors like this when required information is omitted from an API call. Simply supply the appropriate 
-information on the next API call to resolve.
+> Required information missing or invalid
 
 ```shell
 curl -i -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS_TOKEN" -d "{}"
@@ -146,3 +144,6 @@ charset: utf-8
     }
 }
 ```
+
+You may encounter errors like this when required information is omitted from an API call. Simply supply the appropriate 
+information on the next API call to resolve.
