@@ -1,5 +1,15 @@
 ## Providers
+> example fetching provider information by NPI
 
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/1467560003
+```
+            
+> example searching providers by zipcode and specialty:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/?zipcode=29307&specialty=rheumatology&radius=20mi
+```
 *Available modes of operation: real-time only*
 
 The Providers resource provides access to PokitDok's provider directory. The Providers endpoints can be used to search 
@@ -59,15 +69,3 @@ provider.facebook_url | {string} | Optional: (verified providers only) Provider 
 provider.small_image_url | {string} | Optional: (verified providers only) Provider small image URL
 provider.twitter_url | {string} | Optional: (verified providers only) Provider Twitter URL
 provider.website_url | {string} | Optional: (verified providers only) Provider website URL
-
-> example fetching provider information by NPI
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/1467560003
-```
-            
-> example searching providers by zipcode and specialty:
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/?zipcode=29307&specialty=rheumatology&radius=20mi
-```

@@ -1,5 +1,15 @@
 ## Trading Partners
+> example fetching trading partner information
 
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/tradingpartners/
+```
+        
+> example fetching information for a specific trading partner
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/tradingpartners/aetna
+```
 *Available modes of operation: real-time*
 
 The Trading Partners resource provides access to PokitDok's collection of Trading Partner information.
@@ -26,16 +36,3 @@ metrics.real_time_response_percentiles | {object} | Provides a percentile rank o
 monitoring | {object} | When a specific trading partner id is requested and monitoring data is available, monitoring information will be included in the response. Each key in the monitoring section corresponds to the name of an API where connectivity is enabled (e.g. authorizations, claim_status, eligibility, etc). Each API name will be associated with a monitoring status value and a timestamp to indicate when the status was last updated.
 monitoring.{api_name}.status | {string} | The most recent status for the trading partner/API combination as returned by our monitoring system. Possible values include: available, unavailable, delayed, and unknown. A status of "available" indicates that the trading partner is operating normally based successful transactions executing within their average response time range. A status of "unavailable" indicates that the trading partner is unable to respond normally at that time. This may be due to scheduled or unplanned downtime. A status of "delayed" indicates that the trading partner is able to respond successfully to requests but that response times are higher than their average response time. A status of "unknown" will be returned for new trading partners that have just been added to the system and also for cases where the monitoring system encounters an exception and is unable to determine the current status.
 monitoring.{api_name}.last_updated | {string} | The date the monitoring status was last updated (ISO 8601 format)
-
-> example fetching trading partner information
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/tradingpartners/
-```
-        
-> example fetching information for a specific trading partner
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/tradingpartners/aetna
-```
-        

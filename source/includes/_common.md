@@ -1,7 +1,7 @@
 # Common To All Endpoints
 
 ## The Meta and Data Sections
-Notice that the response payload consists of a meta key and a data key. The meta key contains 
+The response payload for all endpoints consists of a meta key and a data key. The meta key contains 
 information regarding rate limiting, linked urls for convenient paging of lists, record counts, response time and API 
 billing information. The data key contains an object, or list of objects returned from the resource.
 
@@ -37,17 +37,6 @@ offset | The number of Resources to skip when paging through a list (only for co
 sort | The field to sort the list of Resources by (only for collection requests)
 
 ## Errors
-Error information may be returned to an API client. Common error scenarios include:
-
-* the data that was provided is invalid
-* required information is missing
-* rate limits have been exceeded
-* an API access token is not valid or no longer valid
-* insufficient credits are available for billable resources
-
-Some examples of these are included to the right.
-
-### Unauthorized access
 > Unauthorized access
 
 ```shell
@@ -62,10 +51,35 @@ Content-Length: 31
     "message": "Unauthorized"
 }
 ```
-This may be encountered when an invalid or no longer valid access token is supplied. Access tokens expire one hour after 
-being acquired. Applications should handle 401s properly and request a new access token when this is encountered.
 
-### Insufficient credits
+```python
+See cURL example.
+```
+
+```ruby
+See cURL example.
+```
+
+```javascript
+See cURL example.
+```
+
+```csharp
+See cURL example.
+```
+
+```java
+See cURL example.
+```
+
+```haskell
+See cURL example.
+```
+
+```lua
+See cURL example.
+```
+
 > Insufficient credits
 
 ```shell
@@ -79,11 +93,35 @@ Content-Length: 35
     "message": "Payment Required"
 }
 ```
-This may be encountered when credits are not available to an application for a billable resource requested in the API 
-call. If this is encountered, the application owner will need to load more credits on their application or change their 
-billing tier.
 
-### Rate limit exceeded
+```python
+See cURL example.
+```
+
+```ruby
+See cURL example.
+```
+
+```javascript
+See cURL example.
+```
+
+```csharp
+See cURL example.
+```
+
+```java
+See cURL example.
+```
+
+```haskell
+See cURL example.
+```
+
+```lua
+See cURL example.
+```
+
 > Rate limit exceeded
 
 ```shell
@@ -98,11 +136,35 @@ Content-Length: 28
     "message": "Forbidden"
 }
 ```
-This may be encountered when too many API calls are made within a period of time for a rate limited resource. Rate 
-limits are currently enforced on an hourly basis. If your application receives a 403, you can wait for the rate limit 
-period to renew and then make the API call again.
 
-### Required information missing or invalid
+```python
+See cURL example.
+```
+
+```ruby
+See cURL example.
+```
+
+```javascript
+See cURL example.
+```
+
+```csharp
+See cURL example.
+```
+
+```java
+See cURL example.
+```
+
+```haskell
+See cURL example.
+```
+
+```lua
+See cURL example.
+```
+
 > Required information missing or invalid
 
 ```shell
@@ -145,5 +207,58 @@ charset: utf-8
 }
 ```
 
+```python
+See cURL example.
+```
+
+```ruby
+See cURL example.
+```
+
+```javascript
+See cURL example.
+```
+
+```csharp
+See cURL example.
+```
+
+```java
+See cURL example.
+```
+
+```haskell
+See cURL example.
+```
+
+```lua
+See cURL example.
+```
+
+Error information may be returned to an API client. Common error scenarios include:
+
+* the data that was provided is invalid
+* required information is missing
+* rate limits have been exceeded
+* an API access token is not valid or no longer valid
+* insufficient credits are available for billable resources
+
+Some examples of these are included to the right.
+
+### Unauthorized access
+This may be encountered when an invalid or no longer valid access token is supplied. Access tokens expire one hour after 
+being acquired. Applications should handle 401s properly and request a new access token when this is encountered.
+
+### Insufficient credits
+This may be encountered when credits are not available to an application for a billable resource requested in the API 
+call. If this is encountered, the application owner will need to load more credits on their application or change their 
+billing tier.
+
+### Rate limit exceeded
+This may be encountered when too many API calls are made within a period of time for a rate limited resource. Rate 
+limits are currently enforced on an hourly basis. If your application receives a 403, you can wait for the rate limit 
+period to renew and then make the API call again.
+
+### Required information missing or invalid
 You may encounter errors like this when required information is omitted from an API call. Simply supply the appropriate 
 information on the next API call to resolve.

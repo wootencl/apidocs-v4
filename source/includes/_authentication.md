@@ -1,26 +1,5 @@
 # Security And Authorization
 
-All calls to the PokitDok API are encrypted over HTTPS. Access to the API is controlled via OAuth2 (for more 
-information, reference "OAuth 2.0 Authorization Framework" [here](http://tools.ietf.org/html/rfc6749). If you've already 
-signed up and received your client id and client secret, you’ll be able to start calling APIs. Here's a quick example 
-using Python and the requests library to demonstrate how to authenticate as your application and access some information 
-about an ongoing activity.
-
-```python
-import requests
-from base64 import urlsafe_b64encode
-
-client_id = YOUR_APP_CLIENT_ID
-client_secret = YOUR_APP_CLIENT_SECRET
-access_token = requests.post('https://platform.pokitdok.com/oauth2/token',
-headers={'Authorization': 'Basic ' +
-urlsafe_b64encode(client_id + ':' + client_secret)},
-data={'grant_type':'client_credentials'}).json()['access_token']
-
-activity = requests.get('https://platform.pokitdok.com/api/v4/activities/53187d2027a27620f2ec7537',
-headers={'Authorization': 'Bearer ' + access_token}).json()
-```
-
 ```shell
 CLIENT_ID=YOUR_APP_CLIENT_ID
 CLIENT_SECRET=YOUR_APP_CLIENT_SECRET
@@ -52,3 +31,30 @@ ACCESS_TOKEN='s8KYRJGTO0rWMy0zz1CCSCwsSesDyDlbNdZoRqVR'
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN"
 https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
 ```
+
+All calls to the PokitDok API are encrypted over HTTPS. Access to the API is
+controlled via OAuth2 (for more information, reference "OAuth 2.0 Authorization
+Framework" [here](http://tools.ietf.org/html/rfc6749). Here's a quick example
+authenticating at the command line using cURL to authenticate and make a call
+to the Activities API.
+
+```python
+import requests
+from base64 import urlsafe_b64encode
+
+client_id = YOUR_APP_CLIENT_ID
+client_secret = YOUR_APP_CLIENT_SECRET
+access_token = requests.post('https://platform.pokitdok.com/oauth2/token',
+headers={'Authorization': 'Basic ' +
+urlsafe_b64encode(client_id + ':' + client_secret)},
+data={'grant_type':'client_credentials'}).json()['access_token']
+
+activity = requests.get('https://platform.pokitdok.com/api/v4/activities/53187d2027a27620f2ec7537',
+headers={'Authorization': 'Bearer ' + access_token}).json()
+```
+
+The Python tab contains an example of authentication from scratch using Python
+and the requests library. Note that if you use one of our client libraries,
+you don't have to handle authentication yourself - you just pass in your Client
+ID and Client Secret and the library does the rest. These examples are provided
+if you cannot use one of the client libraries, or are writing your own.

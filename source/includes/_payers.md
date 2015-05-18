@@ -1,5 +1,9 @@
 ## Payers
+> curl example fetching payer information
 
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/payers/
+```
 *Available modes of operation: real-time*
 
 <aside class="warning">
@@ -23,9 +27,3 @@ payer_name | {string} | Full name for the payer
 production_status | {boolean} | Specifies if the Platform supports data transmissions with the payer.
 supported_transactions | {array} | A list of X12 Transaction set codes, 270, 276, etc, the payer supports.
 trading_partner_id | {string} | An id to be used in requests/EDI files to identify this payer
-
-> curl example fetching payer information
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/payers/
-```

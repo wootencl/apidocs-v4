@@ -1,4 +1,15 @@
 ## Medical Procedure Code
+> example fetching medical procedure information by code
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/mpc/99213
+```
+        
+> curl example searching medical procedure information by consumer friendly name
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/mpc/?name=office
+```
 *Available modes of operation: real-time only*
 
 The Medical Procedure Code resource provides access to clinical and consumer friendly information related to medical 
@@ -25,15 +36,3 @@ Field | Type | Description
 code | {string} | The procedure code
 name | {string} | A consumer friendly name for the medical procedure
 description | {string} | The medical procedure's clinical description
-
-> example fetching medical procedure information by code
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/mpc/99213
-```
-        
-> curl example searching medical procedure information by consumer friendly name
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/mpc/?name=office
-```

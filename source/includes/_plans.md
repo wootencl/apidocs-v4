@@ -1,5 +1,21 @@
 ## Plans
+> example fetching plan information
 
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/plans/
+```
+        
+> example fetching information for plans in Texas
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/plans/?state=TX
+```
+
+> example fetching information for PPO plans in South Carolina
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/plans/?state=SC&plan_type=PPO
+```
 *Available modes of operation: real-time*
 
 The Plans resource provides access to information about insurance plans.
@@ -45,21 +61,3 @@ premiums.children | {int} | Number of children covered on the plan
 premiums.cost | {float} | The monthly premium cost for the plan
 state | {string} | The state where the plan is offered (e.g.: CA, SC, etc.)
 trading_partner_id | {string} | The trading partner id for the issuer of the plan
-
-> example fetching plan information
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/plans/
-```
-        
-> example fetching information for plans in Texas
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/plans/?state=TX
-```
-
-> example fetching information for PPO plans in South Carolina
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/plans/?state=SC&plan_type=PPO
-```

@@ -1,4 +1,24 @@
 ## Activities
+> example fetching activities for the current application
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/
+```
+
+> example fetching information for a specific activity
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
+```
+
+> example to cancel an existing activity
+
+```shell
+curl -XPUT -i -H "Content-Type: application/json"
+-H "Authorization: Bearer $ACCESS_TOKEN"
+-d '{"transition": "cancel"}' https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
+```
+
 *Available modes of operation: real-time*
 
 Long-running operations are performed asynchronously. Upon initiating those operations via an API endpoint, activity 
@@ -40,24 +60,4 @@ parameters | {dict} | The parameters that were originally supplied to the activi
 remaining_transitions | {array} | The list of remaining state transitions that the activity has yet to go through
 state | {dict} | Current state of this Activity
 transition_path | {array} | The list of state transitions that will be used for this Activity
-units_of_work | {int} | The number of 'units of work' that the activity is operating on. This will typically be 1 for real-time requests like /eligibility/. When uploading batch X12 files via the /files/ endpoint, this will be the number of ‘transactions’ within that file. For example, if a client application POSTs a file of 20 eligibility requests to the /files/ API, the units_of_work value for that activity will be 20 after the X12 file has been analyzed. If an activity does show a value greater than 1 for units_of_work, the client application can fetch detailed information about each one of the activities processing those units of work by using the /activities/?parent_id=<activity_id> API
-
-> example fetching activities for the current application
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/
-```
-
-> example fetching information for a specific activity
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
-```
-
-> example to cancel an existing activity
-
-```shell
-curl -XPUT -i -H "Content-Type: application/json"
--H "Authorization: Bearer $ACCESS_TOKEN"
--d '{"transition": "cancel"}' https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
-```
+units_of_work | {int} | The number of 'units of work' that the activity is operating on. This will typically be 1 for real-time requests like /eligibility/. When uploading batch X12 files via the /files/ endpoint, this will be the number of ‘transactions’ within that file. For example, if a client application POSTs a file of 20 eligibility requests to the /files/ API, the units_of_work value for that activity will be 20 after the X12 file has been analyzed. If an activity does show a value greater than 1 for units_of_work, the client application can fetch detailed information about each one of the activities processing those units of work by using the /activities/?parent_id=<activity_id> API.

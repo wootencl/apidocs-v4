@@ -1,4 +1,9 @@
 ## Cash Prices
+> example fetching cash price information
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/prices/cash?cpt_code=87799&zip_code=32218
+```
 *Available modes of operation: real-time*
 
 The Cash Prices resource allows access to our internal collection of pricing data. The data comes from actual providers 
@@ -27,9 +32,3 @@ amounts.high_price | {decimal} | The maximum price for the procedure
 amounts.low_price | {decimal} | The lowest price for the procedure
 amounts.median_price | {decimal} | The median price for the procedure
 amounts.standard_deviation | {decimal} | The standard deviation, or variation measure, of prices for the procedure
-
-> example fetching cash price information
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/prices/cash?cpt_code=87799&zip_code=32218
-```

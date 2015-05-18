@@ -1,19 +1,4 @@
 ## Scheduling
-
-*Available modes of operation: real-time*
-
-The PokitDok Scheduling API performs schedule aggregation to multiple third party scheduling applications, typically 
-commercial off-the-shelf Practice Management (PM) software, for private practices, provider networks, hospital systems, 
-etc. The PokitDok Scheduling API also provides a built-in scheduling system for providers without a PM. The API provides 
-consumers a means to schedule appointments in a manner independent of the provider's PM system. OAuth scopes are used to 
-restrict access to provider's PM systems and user's personal information.
-
-Available Scheduling Endpoints:
-
-Endpoint | HTTP Method | Description
--------- | ----------- | -----------
-/schedule/schedulers/ | GET | Get a list of supported scheduling systems and their UUIDs and descriptions.
-
 > example fetching all schedulers
 
 ```shell
@@ -34,10 +19,6 @@ Response
       }
 ]
 ```
-        
-Endpoint | HTTP Method | Description
--------- | ----------- | -----------
-/schedule/schedulers/{uuid} | GET | Retrieve the data for a specified scheduling system.
 
 > example fetching a specific scheduler
 
@@ -54,10 +35,6 @@ Response
       }
 ]
 ```
-        
-Endpoint | HTTP Method | Description
--------- | ----------- | -----------
-/schedule/appointmenttypes/ | GET | Get a list of appointment types, their UUIDs, and descriptions.
 
 > example fetching appointment types
 
@@ -79,11 +56,6 @@ Response
       }
 ]
 ```
-        
-Endpoint | HTTP Method | Description
--------- | ----------- | -----------
-/schedule/appointmenttypes/{uuid} | GET | Retrieve the data for a specified appointment type.
-
 > example fetching a specified appointment type
 
 ```shell
@@ -99,19 +71,6 @@ Response
     }
 ]
 ```
-        
-Endpoint | HTTP Method | Description | Scope
--------- | ----------- | ----------- | -----
-/schedule/appointments/ | GET | Query for open appointment slots (using pd_provider_uuid and location) or booked appointments (using patient_uuid) given query parameters. | user_schedule The /schedule/appointments/ endpoint accepts the following parameters:
-
-Field | Type | Description
------ | ---- | -----------
-appointment_type | {string} | The "appointment_type" used to identify a specific appointment procedure/category.
-start_date | {datetime} | The beginning date and UTC time of the appointment query, formatted as ISO8601.
-end_date | {datetime} | The ending date and UTC time of the appointment query, formatted as ISO8601.
-patient_uuid | {uuid} | The PokitDok unique identifier for the patient that has booked an appointment.
-pd_provider_uuid | {uuid} | The PokitDok unique identifier for the provider that has an open appointment slot.
-location | {geo-location} | The geo-location of the physical address where the provider that has an open appointment slot, formatted [latitude, longitude].
 
 > example querying for open slots and booked appointments
 
@@ -141,10 +100,6 @@ Response
     }
 ]
 ```
-        
-Endpoint | HTTP Method | Description | Scope
--------- | ----------- | ----------- | -----
-/schedule/appointments/{pd_appointment_uuid} | GET | Query for an open appointment slot or a booked appointment given a specific {pd_appointment_uuid}, the (PokitDok unique appointment identifier). | user_schedule
 
 > example querying for a specific open slot or booked appointment
 
@@ -174,10 +129,6 @@ Response
     }
 ]
 ```
-        
-Endpoint | HTTP Method | Description | Scope
--------- | ----------- | ----------- | -----
-/schedule/appointments/{pd_appointment_uuid} | PUT | Book appointment for an open slot. Post data contains patient attributes and description. | user_schedule
 
 ```shell
 Request Body
@@ -194,8 +145,7 @@ Request Body
     },
     "description": "Welcome to M0d3rN Healthcare"
 }
-```        
-
+``` 
 > example booking an appointment for an open slot:
 
 ```shell
@@ -223,17 +173,13 @@ Response
 }
 ```
 
-Endpoint | HTTP Method | Description | Scope
--------- | ----------- | ----------- | -----
-/schedule/appointments/{pd_appointment_uuid} | PUT | Update appointment description. | user_schedule
-
 ```shell
 Request Body
 
 {
     "description": "Welcome to M0d3rN Healthcare"
 }
-```       
+```
 
 > example updating an appointment description
 
@@ -252,13 +198,70 @@ Response
     "end_date": "2014-12-16T16:17:00.948117"
 }
 ```
-        
-Field | Type | Description | Scope
------ | ---- | ----------- | -----
-/schedule/appointments/{pd_appointment_uuid} | DELETE | Cancel appointment given its {pd_appointment_uuid}. | user_schedule
 
 > curl example of cancelling an appointment
 
 ```shell
 curl -i -XDELETE -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/schedule/appointments/ef987691-0a19-447f-814d-f8f3abbf4859
 ```
+
+*Available modes of operation: real-time*
+
+The PokitDok Scheduling API performs schedule aggregation to multiple third party scheduling applications, typically 
+commercial off-the-shelf Practice Management (PM) software, for private practices, provider networks, hospital systems, 
+etc. The PokitDok Scheduling API also provides a built-in scheduling system for providers without a PM. The API provides 
+consumers a means to schedule appointments in a manner independent of the provider's PM system. OAuth scopes are used to 
+restrict access to provider's PM systems and user's personal information.
+
+Available Scheduling Endpoints:
+
+Endpoint | HTTP Method | Description
+-------- | ----------- | -----------
+/schedule/schedulers/ | GET | Get a list of supported scheduling systems and their UUIDs and descriptions.
+
+        
+Endpoint | HTTP Method | Description
+-------- | ----------- | -----------
+/schedule/schedulers/{uuid} | GET | Retrieve the data for a specified scheduling system.
+
+        
+Endpoint | HTTP Method | Description
+-------- | ----------- | -----------
+/schedule/appointmenttypes/ | GET | Get a list of appointment types, their UUIDs, and descriptions.
+
+        
+Endpoint | HTTP Method | Description
+-------- | ----------- | -----------
+/schedule/appointmenttypes/{uuid} | GET | Retrieve the data for a specified appointment type.
+
+        
+Endpoint | HTTP Method | Description | Scope
+-------- | ----------- | ----------- | -----
+/schedule/appointments/ | GET | Query for open appointment slots (using pd_provider_uuid and location) or booked appointments (using patient_uuid) given query parameters. | user_schedule The /schedule/appointments/ endpoint accepts the following parameters:
+
+Field | Type | Description
+----- | ---- | -----------
+appointment_type | {string} | The "appointment_type" used to identify a specific appointment procedure/category.
+start_date | {datetime} | The beginning date and UTC time of the appointment query, formatted as ISO8601.
+end_date | {datetime} | The ending date and UTC time of the appointment query, formatted as ISO8601.
+patient_uuid | {uuid} | The PokitDok unique identifier for the patient that has booked an appointment.
+pd_provider_uuid | {uuid} | The PokitDok unique identifier for the provider that has an open appointment slot.
+location | {geo-location} | The geo-location of the physical address where the provider that has an open appointment slot, formatted [latitude, longitude].
+        
+Endpoint | HTTP Method | Description | Scope
+-------- | ----------- | ----------- | -----
+/schedule/appointments/{pd_appointment_uuid} | GET | Query for an open appointment slot or a booked appointment given a specific {pd_appointment_uuid}, the (PokitDok unique appointment identifier). | user_schedule
+
+        
+Endpoint | HTTP Method | Description | Scope
+-------- | ----------- | ----------- | -----
+/schedule/appointments/{pd_appointment_uuid} | PUT | Book appointment for an open slot. Post data contains patient attributes and description. | user_schedule       
+
+Endpoint | HTTP Method | Description | Scope
+-------- | ----------- | ----------- | -----
+/schedule/appointments/{pd_appointment_uuid} | PUT | Update appointment description. | user_schedule      
+
+        
+Field | Type | Description | Scope
+----- | ---- | ----------- | -----
+/schedule/appointments/{pd_appointment_uuid} | DELETE | Cancel appointment given its {pd_appointment_uuid}. | user_schedule
