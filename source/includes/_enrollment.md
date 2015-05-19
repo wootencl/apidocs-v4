@@ -1,4 +1,4 @@
-## Enrollment
+## Benefits Enrollment
 > Example benefits enrollment request to enroll a subscriber in benefits (Health, Dental, Vision)
 
 ```shell
