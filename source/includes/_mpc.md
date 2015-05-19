@@ -12,8 +12,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 *Available modes of operation: real-time only*
 
-The Medical Procedure Code resource provides access to clinical and consumer friendly information related to medical 
-procedures. It's useful for identifying the procedure code (or codes) that match search queries. It can also be used 
+The Medical Procedure Code endpoints provide access to clinical and consumer
+friendly information related to medical procedures. It's useful for identifying
+the procedure code (or codes) that match search queries. It can also be used 
 for determining the official descriptions for a specific procedure code.
 
 Available Medical Procedure Code Endpoints:

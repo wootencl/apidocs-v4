@@ -12,7 +12,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 *Available modes of operation: real-time*
 
-The Trading Partners resource provides access to PokitDok's collection of Trading Partner information.
+The Trading Partners endpoint provides access to the collection of Trading
+Partners PokitDok works with.
 
 Available Trading Partner Endpoints:
 
@@ -21,7 +22,7 @@ Endpoint | HTTP Method | Description
 /tradingpartners/ | GET | Get a list of trading partners
 /tradingpartners/{id} | GET | Retreive the data for a specified trading partner; the ID is the PokitDok trading partner id
 
-The /tradingpartners/ response contains the following fields
+The /tradingpartners/ response contains the following fields:
 
 Field | Type | Description
 ----- | ---- | -----------

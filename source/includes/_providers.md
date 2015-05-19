@@ -1,5 +1,5 @@
 ## Providers
-> example fetching provider information by NPI
+> example fetching provider information by NPI:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/1467560003
@@ -12,9 +12,11 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 *Available modes of operation: real-time only*
 
-The Providers resource provides access to PokitDok's provider directory. The Providers endpoints can be used to search 
-for Providers, view biographical, education and credential information, and view specialty taxonomies. Any of the above 
-listed keywords can be used to show additional fields, perform searches, and page through results.
+The Providers endpoints provide access to PokitDok's provider directory.
+The Providers endpoints can be used to search for Providers, view biographical,
+education and credential information, and view specialty taxonomies. Any of
+the above listed keywords can be used to show additional fields, perform
+searches, and page through results.
 
 Available Provider Endpoints:
 
@@ -23,7 +25,7 @@ Endpoint | HTTP Method | Description
 /providers/ | GET | Get a list of providers meeting certain search criteria
 /providers/{id} | GET | Retrieve the data for a specified provider; the ID is the provider's NPI
 
-The /providers/ endpoint accepts the following parameters
+The /providers/ endpoint accepts the following search parameters:
 
 Field | Type | Description
 ----- | ---- | -----------
@@ -36,7 +38,7 @@ specialty | {string} | The provider's specialty name (e.g. "RHEUMATOLOGY")
 state | {string} | Name of U.S. state in which to search for providers (e.g. "CA" or "SC")
 zipcode | {string} | Geographic center point in which to search for providers (e.g. "94401")
 
-The /providers/ response returns contains the following fields
+The response from the /providers/ endpoints contain the following fields:
 
 Field | Type | Description
 ----- | ---- | -----------

@@ -88,16 +88,19 @@
 ```
 *Available modes of operation: real-time*
 
-The Claims Status endpoint allows an application to request information about previously submitted claims. You can send a
-request to a payer to determine where the claim is in their adjudication system and the status of the claim.
+The Claims Status endpoint allows an application to request information about
+previously submitted claims. You can send a request to a payer to determine
+where the claim is in their adjudication system and the status of the claim.
 
-The PokitDok claim status endpoint can be used to query multiple claims. To learn how to form such a request and understand how
-claims status ties in with [claims](#claims), visit [claims API workflow](https://platform.pokitdok.com/claim-processing).
+The PokitDok claim status endpoint can be used to query the status of multiple
+claims. To learn how to form such a request and understand how the
+[claims](#claims) and [claims status](#claims_status) endpoints work together,
+see [claims API workflow](https://platform.pokitdok.com/claim-processing).
 
-Please note that on average it takes 5-7 days for a claim to enter a payer’s adjudication system, thus it recommended to wait at
-least a week after submitting a claim to check its status.
+Please note that on average it takes 5-7 days for a claim to enter a payer’s
+adjudication system, thus it recommended to wait at least a week after
+submitting a claim to check its status.
 
-Available Claims Status Endpoints:
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -122,8 +125,7 @@ subscriber.first_name | Optional: The subscriber’s first name as specified on 
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.
 tracking_id | Optional: The payer's claim tracking id. Specify a tracking id to refine the search criteria for a specific claim.
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners resource.
-
+trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
 
 > Example claims status response when the trading partner is unable to locate any matching claims
 

@@ -48,10 +48,8 @@
 
 *Available modes of operation: batch/async or real-time*
 
-The Authorizations resource allows an application to submit a request for the review of health care in order to obtain 
+The Authorizations endpoint allows an application to submit a request for the review of health care in order to obtain 
 an authorization for that health care.
-
-Available Authorizations Endpoints:
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -89,7 +87,7 @@ subscriber.birth_date | Optional: The subscriber’s birth date as specified on 
 subscriber.first_name | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber on the insurance policy.
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners resource
+trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
 
 > Example authorizations response when the trading partner has authorized the request
 
@@ -226,4 +224,4 @@ subscriber.birth_date | Optional: The subscriber’s birth date as specified on 
 subscriber.first_name | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber on the insurance policy.
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners resource
+trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.

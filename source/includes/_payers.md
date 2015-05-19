@@ -10,9 +10,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 The Payers endpoint will be deprecated in v5. Use <a href="#trading-partners">Trading Partners</a> instead.
 </aside>
 
-The Payers resource provides access to PokitDok's collection of payer information.
-
-Available Payer Endpoints:
+The Payers endpoint provides access to PokitDok's collection of payer information.
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------

@@ -18,9 +18,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 *Available modes of operation: real-time*
 
-The Plans resource provides access to information about insurance plans.
-
-Available Plans Endpoints:
+The Plans endpoint provides access to information about insurance plans.
+Currently, the plans returned are those available through the federal exchange.
+Additional plans may be added later.
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------

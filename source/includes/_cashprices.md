@@ -6,11 +6,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 *Available modes of operation: real-time*
 
-The Cash Prices resource allows access to our internal collection of pricing data. The data comes from actual providers 
+The Cash Prices endpoint allow access to our internal collection of pricing data. The data comes from actual providers 
 selling actual services. For a location where a cash price has not been collected, a price is estimated using a 
 multivariate model.
-
-Available Cash Prices Endpoints:
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -21,6 +19,7 @@ Field | Type | Description
 ----- | ---- | -----------
 cpt_code | {string} | The CPT code of the procedure in question
 zip_code | {string} | Zip code in which to search for procedures
+
 The /prices/cash response contains the following fields:
 
 Field | Type | Description

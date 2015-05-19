@@ -263,14 +263,15 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 *Available modes of operation: batch/async*
 
-Following the standard X12 837 format, the PokitDok claims resource allows applications to easily file claims to designated trading partners. 
+Following the standard X12 837 format, the PokitDok claims endpoint allows
+applications to easily file claims to designated trading partners. 
 
-When using the claims resource, there is an option to supply a callback_url, which indicates that your application should be
-notified when the asynchronous processing is complete and a claim acknowledgement has been received from the trading partner.
-When a callback_url is specified, the full claims request activity will be POSTed back to the callback_url. A claim
-acknowledgement will be returned for each submitted claims request.
-
-Available Claims Endpoints:
+When using the claims endpoint, there is an option to supply a callback_url,
+which indicates that your application should be notified when the asynchronous
+processing is complete and a claim acknowledgement has been received from the
+trading partner.When a callback_url is specified, the full claims request
+activity will be POSTed back to the callback_url. A claim acknowledgement will
+be returned for each submitted claims request.
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -331,9 +332,9 @@ subscriber.gender | The subscriber’s gender as specified on their policy. | 11
 subscriber.group_name | Optional: The subscriber’s group name as specified on their policy. | 11b: Employer's name or school name
 subscriber.member_id | Required: The subscriber’s member identifier. | 1a: Insured's ID number
 subscriber.last_name | Required: The subscriber’s last name as specified on their policy. | 4: Insured's name
-trading_partner_id | Required: Unique id for the intended trading partner, as specified by the Trading Partners resource | 
+trading_partner_id | Required: Unique id for the intended trading partner, as specified by the Trading Partners endpoint. | 
 transaction_code | Required: The type of claim transaction that is being submitted. (e.g. "chargeable") | 
 
-Though the claim endpoint will successfully POST a claim transaction to the payer, there is a lot more that goes on with the
-claim till it is fully processed and paid.
-For details on the flow and how [claims status](#claims-status) ties in, visit [claims API workflow](https://platform.pokitdok.com/claim-processing).             
+A claim goes through an entire lifecycle after its transmission to a payer.
+For details on this process, and how the [claims status](#claims-status)
+endpoint ties in, see [claims API workflow](https://platform.pokitdok.com/claim-processing).             

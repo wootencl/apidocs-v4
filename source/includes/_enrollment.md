@@ -122,4 +122,4 @@ subscriber.substance_abuse | Does the subscriber have a problem with substance a
 subscriber.suffix | The suffix for the subscriber (optional)
 subscriber.ssn | The social security number for the subscriber
 subscriber.tobacco_use | Does the subscriber use tobacco? true or false
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners resource
+trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.

@@ -8,8 +8,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 
 *Available modes of operation: real-time*
 
-The Insurance Prices resource allows access to our collection of insurance pricing data. The data comes from private 
-payer data as well as data from Medicare.
+The Insurance Prices endpoint allows access to our collection of insurance
+pricing data. The data comes from private payer data as well as data from Medicare.
 
 Available Insurance Prices Endpoints:
 

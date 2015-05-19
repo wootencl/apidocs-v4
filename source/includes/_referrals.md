@@ -44,9 +44,8 @@ insurance policy.
 
 *Available modes of operation: batch/async or real-time*
 
-The Referrals resource allows an application to request approval for a referral to another health care provider.
-
-Available Referrals Endpoints:
+The Referrals endpoint allows an application to request approval for a referral
+to another health care provider.
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -84,7 +83,7 @@ subscriber.birth_date | Optional: The subscriber’s birth date as specified on 
 subscriber.first_name | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber on the insurance policy.
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners resource
+trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint
                     
 The /referrals/ response contains the following fields:
 > Example referrals response when the trading partner has authorized the request
@@ -174,7 +173,6 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ' https://platform.pokitdok.com/api/v4/referrals/
 ```
 
-
 Field | Description
 ----- | -----------
 event | The patient event that is being submitted for approval
@@ -209,4 +207,4 @@ subscriber.birth_date | Optional: The subscriber’s birth date as specified on 
 subscriber.first_name | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber on the insurance policy.
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners resource
+trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
