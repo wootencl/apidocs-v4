@@ -706,8 +706,8 @@ mammogram_low_risk_patient |	CN
 massage_therapy |	BE
 maternity |	69
 maxillofacial_prosthetics |	27
-medical_care	1
-medically_related_transportation	56
+medical_care |	1
+medically_related_transportation |	56
 medical_equipment |	DM
 medical_equipment_purchase |	12
 medical_equipment_rental |	18
