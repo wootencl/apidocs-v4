@@ -134,7 +134,7 @@ provider.first_name | The provider’s first name when the provider is an indivi
 provider.last_name | The provider’s last name when the provider is an individual.
 provider.npi | The NPI for the provider.
 provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.
-service_types | The service type(s) the eligibility request is being made against. A full listing of possible service_types values is included below.
+service_types | The service type(s) the eligibility request is being made against. A full listing of possible service_types values is included [below](#service-type).
 trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
                     
 Eligibility and benefit responses vary depending on the trading partner and the plan a member is enrolled in. Some plans 
@@ -531,11 +531,11 @@ coverage.coinsurance | List of co-insurance information for the member.
 coverage.coinsurance.benefit_percent | A percentage that represents the patient's portion of the responsibility for a benefit. (e.g. 0.2 when the patient's portion of the responsibility is 20% )
 coverage.coinsurance.coverage_level | The coverage level that applies to this co-insurance information. Possible values include: employee_only, employee_and_spouse, employee_and_children, family, individual
 coverage.coinsurance.in_plan_network | Indicates whether or not the co-insurance information applies to in or out of network. providers. If the co-insurance information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
-coverage.coinsurance.service_types | A list of service types that apply to this co-insurance information. A full list of possible values is included below.
+coverage.coinsurance.service_types | A list of service types that apply to this co-insurance information. A full list of possible values is included [below](#service-type).
 coverage.limitations.benefit_amount | Monetary amount for the benefit limitation.
 coverage.limitations.coverage_level | The coverage level that applies to this limitation.  This can be at family or individual levels.
 coverage.limitations.in_plan_network | Indicates whether or not the limitation applies to in or out of network providers. If the limitation is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
-coverage.limitations.service_types | A list of service types that apply to this limitation. A full list of possible values is included below.
+coverage.limitations.service_types | A list of service types that apply to this limitation. A full list of possible values is included [below](#service-type).
 coverage.limitations.delivery | Specifies the delivery pattern of the health care services with limitations.
 coverage.limitations.delivery.quantity | The quantity of services being requested that have limitations.
 coverage.limitations.delivery.quantity_qualifier | The qualifier used to indicate the quantity type (e.g. visits, month, hours, units, days) for services that have limitations
@@ -546,12 +546,12 @@ coverage.contacts.email | email address that may be used for this contact.
 coverage.contacts.phone | phone number for this contact.
 coverage.contacts.url | URL for this contact. This is typically a link to the contact's web site.
 coverage.contacts.contact_type | The type of entity related to this contact information. Possible values include: vendor, third_party_administrator, plan_sponsor, payer, primary_payer, secondary_payer, tertiary_payer, utilization_management_organization
-coverage.contacts.service_types | A list of service types that apply to this contact information. A full list of possible values is included below.
+coverage.contacts.service_types | A list of service types that apply to this contact information. A full list of possible values is included [below](#service-type).
 coverage.copay | List of co-payment information for the member.
 coverage.copay.copayment | Monetary amount for this copay item. (e.g. 15 for a $15 co-pay)
 coverage.copay.coverage_level | The coverage level that applies to this co-pay information. Possible values include: employee_only, employee_and_spouse, employee_and_children, family, individual.
 coverage.copay.in_plan_network | Indicates whether or not the copay information applies to in or out of network providers. If the copay information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
-coverage.copay.service_types | A list of service types that apply to this co-pay information. A full list of possible values is included below.
+coverage.copay.service_types | A list of service types that apply to this co-pay information. A full list of possible values is included [below](#service-type).
 coverage.copay.delivery | Specifies the delivery pattern of the health care services that have a co-pay.
 coverage.copay.delivery.quantity | The quantity of services being requested that have a co-pay.
 coverage.copay.delivery.quantity_qualifier | The qualifier used to indicate the quantity type (e.g. visits, month, hours, units, days) for services that have a co-pay.
@@ -560,7 +560,7 @@ coverage.deductibles.benefit_amount | Monetary amount for this deductible item. 
 coverage.deductibles.coverage_level | The coverage level that applies to this deductible information. When a family (or more than one person) is covered, you'll see deductible information for the family as well as the individual that was referenced in the eligibility request.
 coverage.deductibles.in_plan_network | Indicates whether or not the deductible information applies to in or out of network providers. If the deductible information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
 coverage.deductibles.time_period | The period of time for which this deductible item applies. Possible values include: calendar_year and remaining. remaining indicates the amount that remains in the calendar year for the member to reach their deductible. calendar_year indicates that the amount represents the total deductible amount for the current year. When no time period applies to deductible information, time_period will not be included for that deductible in the response.
-coverage.deductibles.service_types | A list of service types that apply to this deductible information. A full list of possible values is included below.
+coverage.deductibles.service_types | A list of service types that apply to this deductible information. A full list of possible values is included [below](#service-type).
 coverage.other_payers | A list of other payers that provide coverage for the member. This list of payers is primarily used to communicate information related to the coordination of benefits.
 coverage.other_payers.coordination_of_benefits | The role of this payer in the coordination of benefits. Possible values include: primary_payer, secondary_payer, tertiary_payer
 coverage.other_payers.coordination_of_benefits_date | The date when this payer started participating in the coordination of benefits.
@@ -572,13 +572,13 @@ coverage.other_payers.subscriber.id | The id for the subscriber in this payer's 
 coverage.other_payers.subscriber.first_name | The subscriber's first name.
 coverage.other_payers.subscriber.middle_name | The subscriber's middle name.
 coverage.other_payers.subscriber.last_name | The subscriber's last name.
-coverage.other_payers.service_types | A list of service types that apply to this payer information. A full list of possible values is included below.
+coverage.other_payers.service_types | A list of service types that apply to this payer information. A full list of possible values is included [below](#service-type).
 coverage.out_of_pocket | List of out of pocket (stop loss) information for the member.
 coverage.out_of_pocket.benefit_amount | Monetary amount for this out of pocket item. For calendar year out of pocket information, this will be the out of pocket amount for the calendar year for the associated coverage level and in/out of plan network indicator. (e.g. $12600.00 for in network, family coverage)
 coverage.out_of_pocket.coverage_level | The coverage level that applies to this out of pocket information. When a family (or more than one person) is covered, you'll see out of pocket information for the family as well as the individual that was referenced in the eligibility request.
 coverage.out_of_pocket.in_plan_network | Indicates whether or not the out of pocket information applies to in or out of network providers. If the out of pocket information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
 coverage.out_of_pocket.time_period | The period of time for which this out of pocket item applies. Possible values include: calendar_year and remaining. remaining indicates the amount that remains in the calendar year for the member to reach their out of pocket amount. calendar_year indicates that the amount represents the total out of pocket amount for the current year. When no time period applies to deductible information, time_period will not be included for that out of pocket item in the response.
-coverage.out_of_pocket.service_types | A list of service types that apply to this out of pocket information. A full list of possible values is included below.
+coverage.out_of_pocket.service_types | A list of service types that apply to this out of pocket information. A full list of possible values is included [below](#service-type).
 coverage.eligibility_begin_date | The date eligibility started for the member's plan.
 coverage.group_description | Group description for the member specified in the eligibility request.
 coverage.group_number | Group number for the member specified in the eligibility request.
@@ -610,9 +610,200 @@ subscriber.gender | The subscriber’s gender as specified on their policy. Poss
 trading_partner_id | Unique id for the trading partner used to process the request.
 valid_request | A boolean value used to indicate that a trading partner considered the eligibility request valid and returned a full eligibility response. If valid_request is false, it means the trading partner was unable to respond to the request. Check the fields reject_reason and follow_up_action for more information on how to proceed when valid_request is false.
 
+<a name="service-type"></a>
+Full list of possible service_type values with the associated code (from x12 specification) that may be used in the eligiblity request or returned in an eligibility response:
 
-<a name="reject-reason"></a>
-Full list of possible reject_reasons on the eligibility response with description:
+service_type | Code (X12 Spec)
+------------ | --------------- 
+abortion |	84
+acupuncture |	64
+adjunctive_dental_services |	28
+aids |	85
+air_transportation |	57
+alcoholism |	AJ
+allergy  |	GY
+allergy_testing |	79
+alternate_method_dialysis  |	15
+ambulatory_service_facility |	13
+anesthesia |	7
+anesthesiologist |	97
+audiology_exam |	71
+blood_charges |	10
+brand_name_prescription_drug |	91
+brand_name_prescription_drug_formulary |	B2
+brand_name_prescription_drug_non_formulary |	B3
+burn_care |	B1
+cabulance |	58
+cancer |	87
+cardiac |	BL
+cardiac_rehabilitation |	BG
+case_management |	CQ
+chemotherapy |	78
+chiropractic |	33
+chiropractic_office_visits |	34
+chronic_renal_disease_equipment |	16
+cognitive_therapy |	BD
+consultation |	3
+coronary_care |	C1
+day_care_psychiatric |	BC
+dental_accident |	37
+dental_care |	35
+dental_crowns |	36
+dermatology |	DG
+diabetic_supplies |	DS
+diagnostic_dental |	23
+diagnostic_lab |	5
+diagnostic_medical |	73
+diagnostic_x_ray |	4
+dialysis |	76
+donor_procedures |	63
+drug_addiction |	AK
+emergency_services |	86
+endocrine |	BP
+endodontics |	26
+experimental_drug_therapy |	AR
+eye |	BR
+eyewear_and_accessories |	CP
+family_planning |	82
+flu_vaccination |	CO
+frames |	AM
+free_standing_prescription_drug |	89
+gastrointestinal |	BN
+general_benefits |	60
+generic_prescription_drug |	92
+generic_prescription_drug_formulary |	GF
+generic_prescription_drug_non_formulary |	GN
+gynecological |	BT
+health_benefit_plan_coverage |	30
+home_health_care |	42
+home_health_prescriptions |	43
+home_health_visits |	44
+hospice |	45
+hospital |	47
+hospital_ambulatory_surgical |	53
+hospital_emergency_accident |	51
+hospital_emergency_medical |	52
+hospital_inpatient |	48
+hospital_outpatient |	50
+hospital_room_and_board |	49
+immunizations |	80
+in_vitro_fertilization |	61
+independent_medical_evaluation |	BA
+infertility |	83
+inhalation_therapy |	72
+intensive_care |	IC
+invasive_procedures |	BS
+lenses |	AO
+licensed_ambulance |	59
+long_term_care |	54
+lymphatic |	BM
+mail_order_prescription_drug |	BX
+mail_order_prescription_drug_brand_name |	90
+mail_order_prescription_drug_generic |	BW
+major_medical |	55
+mammogram_high_risk_patient |	CM
+mammogram_low_risk_patient |	CN
+massage_therapy |	BE
+maternity |	69
+maxillofacial_prosthetics |	27
+medical_care	1
+medically_related_transportation	56
+medical_equipment |	DM
+medical_equipment_purchase |	12
+medical_equipment_rental |	18
+mental_health |	MH
+mental_health_facility_inpatient |	CG
+mental_health_facility_outpatient |	CH
+mental_health_provider_inpatient |	CE
+mental_health_provider_outpatient |	CF
+mri_cat_scan |	62
+neonatal_intensive_care |	NI
+neurology |	BQ
+newborn_care |	65
+nonmedically_necessary_physical |	AQ
+nursery |	BI
+obstetrical |	BU
+obstetrical_gynecological |	BV
+occupational_therapy |	AD
+oncology |	ON
+oral_surgery |	40
+orthodontics |	38
+orthopedic |	BK
+other_medical |	9
+otological_exam |	77
+partial_hospitalization_psychiatric |	BB
+pathology |	66
+pediatric |	BH
+periodontics |	24
+pharmacy |	88
+physical_medicine |	AE
+physical_therapy |	PT
+physician_visit_office_sick |	BY
+physician_visit_office_well |	BZ
+plan_waiting_period |	32
+pneumonia_vaccine |	19
+podiatry |	93
+podiatry_nursing_home_visits |	95
+podiatry_office_visits |	94
+pre_admission_testing |	17
+private_duty_nursing |	74
+private_duty_nursing_home |	CB
+private_duty_nursing_inpatient |	CA
+professional_physician |	96
+professional_physician_visit_home |	A3
+professional_physician_visit_inpatient |	99
+professional_physician_visit_nursing_home |	A1
+professional_physician_visit_office |	98
+professional_physician_visit_outpatient |	A0
+professional_physician_visit_skilled_nursing_facility |	A2
+prosthetic_device |	75
+prosthodontics |	39
+psychiatric |	A4
+psychiatric_inpatient |	A7
+psychiatric_outpatient |	A8
+psychiatric_room_and_board |	A5
+psychotherapy |	A6
+pulmonary |	PU
+pulmonary_rehabilitation |	BF
+radiation_therapy |	6
+rehabilitation |   A9
+rehabilitation_inpatient | 	AB
+rehabilitation_outpatient |	AC
+rehabilitation_room_and_board |	AA
+renal |	RN
+renal_supplies_in_the_home  |	14
+residential_psychiatric_treatment  |	RT
+respite_care  |	46
+restorative |	25
+routine_preventive_dental |	41
+routine_exam |	AN
+routine_physical |	81
+screening_laboratory |	CL
+screening_x_ray |	CK
+second_surgical_opinion |	20
+skilled_nursing_care |	AG
+skilled_nursing_care_room_and_board |	AH
+skin |	BJ
+smoking_cessation |	67
+social_work |	22
+speech_therapy |	AF
+substance_abuse |	AI
+substance_abuse_facility_inpatient |	CI
+substance_abuse_facility_outpatient |	CJ
+surgical |	2
+surgical_assistance |	8
+surgical_benefits_facility |	CD
+surgical_benefits_professional_physician |	CC
+third_surgical_opinion |	21
+transitional_care |	TC
+transitional_nursery_care |	TN
+transplants |	70
+urgent_care |	UC
+used_medical_equipment |	11
+vision_optometry |	AL
+well_baby_care |	68
+
+
 > Full listing of possible service type values that may be used in an eligibility request or returned in an eligibility response
 
 ```shell
@@ -808,7 +999,8 @@ Full list of possible reject_reasons on the eligibility response with descriptio
     ]
 }
 ```
-
+<a name="reject-reason"></a>
+Full list of possible reject_reasons on the eligibility response with description:
 
 reject_reason | Description
 ------------- | -----------
