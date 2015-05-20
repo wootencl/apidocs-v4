@@ -277,10 +277,11 @@ Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /claims/ | POST | Submit a claim to the specified trading partner.
 
+
 The /claims/ endpoint accepts the following parameters:
 
-Parameter | Description | CMS 1500 Field
---------- | ----------- | --------------
+Parameter | Description | CMS 1500
+--------- | ----------- | --------
 billing_provider | Required: A dictionary of information for the provider that is billing for services. | 33: Billing Provider Info
 billing_provider.address | A dictionary of information for the billing provider's address. | 
 billing_provider.address.address_lines | List of strings representing the street address for a billing provider. (e.g. ["123 MAIN ST.", "Suite 4"]) | 
@@ -334,6 +335,7 @@ subscriber.member_id | Required: The subscriber’s member identifier. | 1a: Ins
 subscriber.last_name | Required: The subscriber’s last name as specified on their policy. | 4: Insured's name
 trading_partner_id | Required: Unique id for the intended trading partner, as specified by the Trading Partners endpoint. | 
 transaction_code | Required: The type of claim transaction that is being submitted. (e.g. "chargeable") | 
+
 
 A claim goes through an entire lifecycle after its transmission to a payer.
 For details on this process, and how the [claims status](#claims-status)
