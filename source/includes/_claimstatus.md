@@ -92,7 +92,7 @@ The Claims Status endpoint allows an application to request information about
 previously submitted claims. You can send a request to a payer to determine
 where the claim is in their adjudication system and the status of the claim.
 
-The PokitDok claim status endpoint can be used to query the status of multiple
+The PokitDok Claims Status endpoint can be used to query the status of multiple
 claims. To learn how to form such a request and understand how the
 [claims](#claims) and [claims status](#claims_status) endpoints work together,
 see [claims API workflow](https://platform.pokitdok.com/claim-processing).
@@ -106,10 +106,11 @@ Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /claims/status | POST | Submit a claim status request to the specified trading partner.
 
+
 The /claims/status endpoint accepts the following parameters:
 
-Argument | Description
--------- | -----------
+Parameter | Description
+--------- | -----------
 patient.birth_date | The patient’s birth date as specified on their policy.
 patient.id | The patient’s member identifier.
 patient.first_name | The patient’s first name as specified on their policy.
@@ -701,10 +702,11 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ' https://platform.pokitdok.com/api/v4/claims/status
 ```
 
-The /claim/status response contains the following fields:
 
-Field | Description
------ | -----------
+The /claim/status response contains the following parameters:
+
+Parameter | Description
+--------- | -----------
 patient | Information about a patient including any matching claims.
 patient.claims | A list of matching claims returned by the trading partner for a claims status request.
 patient.claims.adjudication_finalized_date | The date adjudication was finalized for the claim.
