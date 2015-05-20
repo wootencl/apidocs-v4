@@ -96,29 +96,29 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 }
 ' https://platform.pokitdok.com/api/v4/eligibility/
 ```
+*Available modes of operation: batch/async or real-time*
 
-The eligibility endpoint makes it easy to verify a member's insurance information in real-time. You can check 
+The Eligibility endpoint makes it easy to verify a member's insurance information in real-time. You can check 
 co-insurance, copay, deductible and out of pocket amounts for a member along with other information about a member's 
 plan.
 
-Use the [tradingpartners](#trading-partners) API to determine available trading_partner_id values for use with the 
-eligibility API.
-
-Available Eligibility Endpoints:
+Use the [Trading Partners](#trading-partners) API to determine available trading_partner_id values for use with the 
+Eligibility API.
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
-/eligibility/ | POST | Determine eligibility via an EDI 270 Request For Eligibility
+/eligibility/ | POST | Determine eligibility via an X12 270 Request For Eligibility
+
 
 All eligibility requests must include a valid Provider NPI. Some trading partners require that the submitting provider’s 
 NPI be registered or be a participating provider with that health plan to successfully check eligibility. 
 When a request is made without a provider name and NPI, the PokitDok NPI and organization name will default in. It is 
 important to note that the PokitDok NPI may not be accepted by all trading partners.
 
-The PokitDok eligibility endpoint allows you to request eligibility for specific service types. The service_type parameter 
+The PokitDok Eligibility endpoint allows you to request eligibility for specific service types. The service_type parameter 
 allows you to specify which particular service(s) you want to check eligibility for. If no service type is specified, the
 request will be made for general health benefits (health_benefit_plan_coverage). Please note that some trading partners may
-not support specific service type inquiries. A full listing of possible service_types values is included below.
+not support specific service type inquiries. A full listing of possible service_types values is included [below](#service-type).
 You can also request eligibility information for a specific CPT code, however not all trading partners support such requests.
 
 The /eligibility/ endpoint accepts the following parameters:
@@ -136,12 +136,13 @@ provider.npi | The NPI for the provider.
 provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.
 service_types | The service type(s) the eligibility request is being made against. A full listing of possible service_types values is included [below](#service-type).
 trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
+
                     
 Eligibility and benefit responses vary depending on the trading partner and the plan a member is enrolled in. Some plans 
 may not provide deductible/out-of-pocket, copayment/coinsurance or other specific plan information. PokitDok will provide 
 all the information provided by the trading partner in the eligibility response.
 
-The /eligibility/ response contains the following fields:
+The /eligibility/ response contains the following parameters:
 > Example eligibility response when the trading partner is unable to respond at this time
 
 ```shell
@@ -524,8 +525,8 @@ The /eligibility/ response contains the following fields:
 }
 ```
 
-Field | Description
------ | -----------
+Parameter | Description
+--------- | -----------
 coverage.active | A boolean value that is true when the member has active coverage. It is false when membership information could not be returned or when inactive coverage is indicated by the trading partner.
 coverage.coinsurance | List of co-insurance information for the member.
 coverage.coinsurance.benefit_percent | A percentage that represents the patient's portion of the responsibility for a benefit. (e.g. 0.2 when the patient's portion of the responsibility is 20% )
@@ -608,7 +609,8 @@ subscriber.last_name | The subscriber’s last name as specified on their policy
 subscriber.birth_date | The subscriber’s birth date as specified on their policy.
 subscriber.gender | The subscriber’s gender as specified on their policy. Possible values include: 'female', 'male', and 'unknown'. 'unknown' will be returned when gender is not specified in the trading partner's eligibility data or when the trading partner explicitly returns a value of 'unknown'.
 trading_partner_id | Unique id for the trading partner used to process the request.
-valid_request | A boolean value used to indicate that a trading partner considered the eligibility request valid and returned a full eligibility response. If valid_request is false, it means the trading partner was unable to respond to the request. Check the fields reject_reason and follow_up_action for more information on how to proceed when valid_request is false.
+valid_request | A boolean value used to indicate that a trading partner considered the eligibility request valid and returned a full eligibility response. If valid_request is false, it means the trading partner was unable to respond to the request. Check the parameters reject_reason and follow_up_action for more information on how to proceed when valid_request is false.
+
 
 <a name="service-type"></a>
 Full list of possible service_type values with the associated code (from x12 specification) that may be used in the eligiblity request or returned in an eligibility response:
@@ -804,201 +806,6 @@ vision_optometry |	AL
 well_baby_care |	68
 
 
-> Full listing of possible service type values that may be used in an eligibility request or returned in an eligibility response
-
-```shell
-{
-    "service_types": [
-        "abortion",
-        "acupuncture",
-        "adjunctive_dental_services",
-        "aids",
-        "air_transportation",
-        "alcoholism",
-        "allergy",
-        "allergy_testing",
-        "alternate_method_dialysis",
-        "ambulatory_service_facility",
-        "anesthesia",
-        "anesthesiologist",
-        "audiology_exam",
-        "blood_charges",
-        "brand_name_prescription_drug",
-        "brand_name_prescription_drug_formulary",
-        "brand_name_prescription_drug_non_formulary",
-        "burn_care",
-        "cabulance",
-        "cancer",
-        "cardiac",
-        "cardiac_rehabilitation",
-        "case_management",
-        "chemotherapy",
-        "chiropractic",
-        "chiropractic_office_visits",
-        "chronic_renal_disease_equipment",
-        "cognitive_therapy",
-        "consultation",
-        "coronary_care",
-        "day_care_psychiatric",
-        "dental_accident",
-        "dental_care",
-        "dental_crowns",
-        "dermatology",
-        "diabetic_supplies",
-        "diagnostic_dental",
-        "diagnostic_lab",
-        "diagnostic_medical",
-        "diagnostic_x_ray",
-        "dialysis",
-        "donor_procedures",
-        "drug_addiction",
-        "emergency_services",
-        "endocrine",
-        "endodontics",
-        "experimental_drug_therapy",
-        "eye",
-        "eyewear_and_accessories",
-        "family_planning",
-        "flu_vaccination",
-        "frames",
-        "free_standing_prescription_drug",
-        "gastrointestinal",
-        "general_benefits",
-        "generic_prescription_drug",
-        "generic_prescription_drug_formulary",
-        "generic_prescription_drug_non_formulary",
-        "gynecological",
-        "health_benefit_plan_coverage",
-        "home_health_care",
-        "home_health_prescriptions",
-        "home_health_visits",
-        "hospice",
-        "hospital",
-        "hospital_ambulatory_surgical",
-        "hospital_emergency_accident",
-        "hospital_emergency_medical",
-        "hospital_inpatient",
-        "hospital_outpatient",
-        "hospital_room_and_board",
-        "immunizations",
-        "in_vitro_fertilization",
-        "independent_medical_evaluation",
-        "infertility",
-        "inhalation_therapy",
-        "intensive_care",
-        "invasive_procedures",
-        "lenses",
-        "licensed_ambulance",
-        "long_term_care",
-        "lymphatic",
-        "mail_order_prescription_drug",
-        "mail_order_prescription_drug_brand_name",
-        "mail_order_prescription_drug_generic",
-        "major_medical",
-        "mammogram_high_risk_patient",
-        "mammogram_low_risk_patient",
-        "massage_therapy",
-        "maternity",
-        "maxillofacial_prosthetics",
-        "medical_care",
-        "medical_equipment",
-        "medical_equipment_purchase",
-        "medical_equipment_rental",
-        "medically_related_transportation",
-        "mental_health",
-        "mental_health_facility_inpatient",
-        "mental_health_facility_outpatient",
-        "mental_health_provider_inpatient",
-        "mental_health_provider_outpatient",
-        "mri_cat_scan",
-        "neonatal_intensive_care",
-        "neurology",
-        "newborn_care",
-        "nonmedically_necessary_physical",
-        "nursery",
-        "obstetrical",
-        "obstetrical_gynecological",
-        "occupational_therapy",
-        "oncology",
-        "oral_surgery",
-        "orthodontics",
-        "orthopedic",
-        "other_medical",
-        "otological_exam",
-        "partial_hospitalization_psychiatric",
-        "pathology",
-        "pediatric",
-        "periodontics",
-        "pharmacy",
-        "physical_medicine",
-        "physical_therapy",
-        "physician_visit_office_sick",
-        "physician_visit_office_well",
-        "plan_waiting_period",
-        "pneumonia_vaccine",
-        "podiatry",
-        "podiatry_nursing_home_visits",
-        "podiatry_office_visits",
-        "pre_admission_testing",
-        "private_duty_nursing",
-        "private_duty_nursing_home",
-        "private_duty_nursing_inpatient",
-        "professional_physician",
-        "professional_physician_visit_home",
-        "professional_physician_visit_inpatient",
-        "professional_physician_visit_nursing_home",
-        "professional_physician_visit_office",
-        "professional_physician_visit_outpatient",
-        "professional_physician_visit_skilled_nursing_facility",
-        "prosthetic_device",
-        "prosthodontics",
-        "psychiatric",
-        "psychiatric_inpatient",
-        "psychiatric_outpatient",
-        "psychiatric_room_and_board",
-        "psychotherapy",
-        "pulmonary",
-        "pulmonary_rehabilitation",
-        "radiation_therapy",
-        "rehabilitation",
-        "rehabilitation_inpatient",
-        "rehabilitation_outpatient",
-        "rehabilitation_room_and_board",
-        "renal",
-        "renal_supplies_in_the_home",
-        "residential_psychiatric_treatment",
-        "respite_care",
-        "restorative",
-        "routine_exam",
-        "routine_physical",
-        "routine_preventive_dental",
-        "screening_laboratory",
-        "screening_x_ray",
-        "second_surgical_opinion",
-        "skilled_nursing_care",
-        "skilled_nursing_care_room_and_board",
-        "skin",
-        "smoking_cessation",
-        "social_work",
-        "speech_therapy",
-        "substance_abuse",
-        "substance_abuse_facility_inpatient",
-        "substance_abuse_facility_outpatient",
-        "surgical",
-        "surgical_assistance",
-        "surgical_benefits_facility",
-        "surgical_benefits_professional_physician",
-        "third_surgical_opinion",
-        "transitional_care",
-        "transitional_nursery_care",
-        "transplants",
-        "urgent_care",
-        "used_medical_equipment",
-        "vision_optometry",
-        "well_baby_care"
-    ]
-}
-```
 <a name="reject-reason"></a>
 Full list of possible reject_reasons on the eligibility response with description:
 
