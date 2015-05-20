@@ -263,10 +263,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 *Available modes of operation: batch/async*
 
-Following the standard X12 837 format, the PokitDok claims endpoint allows
+Following the standard X12 837 format, the PokitDok Claims endpoint allows
 applications to easily file claims to designated trading partners. 
 
-When using the claims endpoint, there is an option to supply a callback_url,
+When using the Claims endpoint, there is an option to supply a callback_url,
 which indicates that your application should be notified when the asynchronous
 processing is complete and a claim acknowledgement has been received from the
 trading partner.When a callback_url is specified, the full claims request
