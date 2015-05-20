@@ -613,7 +613,7 @@ valid_request | A boolean value used to indicate that a trading partner consider
 
 
 <a name="service-type"></a>
-Full list of possible service_type values with the associated code (from x12 specification) that may be used in the eligiblity request or returned in an eligibility response:
+Full list of possible service_type values with the associated code (from X12 specification) that may be used in the eligiblity request or returned in an eligibility response:
 
 service_type | Code (X12 Spec)
 ------------ | --------------- 
