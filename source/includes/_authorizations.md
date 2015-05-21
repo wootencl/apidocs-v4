@@ -1,8 +1,8 @@
 ## Authorizations
->Here's an example authorizations request for an abdominal ultrasound. In this example, the patient is also the subscriber on the insurance policy
+>Here's an example authorization request for an abdominal ultrasound. In this example, the patient is also the subscriber on the insurance policy.
 
 ```shell
-{
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "event": {
         "category": "health_services_review",
         "certification_type": "initial",
@@ -43,7 +43,8 @@
         "last_name": "AYA-AY"
     },
     "trading_partner_id": "MOCKPAYER"
-}
+}' https://platform.pokitdok.com/api/v4/authorizations/
+
 ```
 
 *Available modes of operation: batch/async or real-time*
@@ -89,7 +90,7 @@ subscriber.id | Optional: The subscriber’s member identifier. Specify when the
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber on the insurance policy.
 trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
 
-> Example authorizations response when the trading partner has authorized the request
+> Example authorizations response when the trading partner has authorized the request:
 
 ```shell
 {
@@ -138,54 +139,6 @@ trading_partner_id | Unique id for the intended trading partner, as specified by
     },
     "trading_partner_id": "MOCKPAYER"
 }
-```
-
-> example submitting an authorization request
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
-    "event": {
-        "category": "health_services_review",
-        "certification_type": "initial",
-        "delivery": {
-            "quantity": 1,
-            "quantity_qualifier": "visits"
-        },
-        "diagnoses": [
-            {
-                "code": "789.00",
-                "date": "2014-10-01"
-            }
-        ],
-        "place_of_service": "office",
-        "provider": {
-            "organization_name": "KELLY ULTRASOUND CENTER, LLC",
-            "npi": "1760779011",
-            "phone": "8642341234"
-        },
-        "services": [
-            {
-                "cpt_code": "76700",
-                "measurement": "unit",
-                "quantity": 1
-            }
-        ],
-        "type": "diagnostic_medical"
-    },
-    "patient": {
-        "birth_date": "1970-01-01",
-        "first_name": "JANE",
-        "last_name": "DOE",
-        "id": "1234567890"
-    },
-    "provider": {
-        "first_name": "JEROME",
-        "npi": "1467560003",
-        "last_name": "AYA-AY"
-    },
-    "trading_partner_id": "MOCKPAYER"
-}
-' https://platform.pokitdok.com/api/v4/authorizations/
 ```
 
 The /authorizations/ response contains the following fields:

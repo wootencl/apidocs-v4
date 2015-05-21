@@ -1,8 +1,8 @@
 ## Claims
-> Sample Claims Request
+> Sample Claims request:
 
 ```shell
-{
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -47,13 +47,14 @@
             }
         ]
     }
-}
+}` https://platform.pokitdok.com/api/v4/claims/
 ```
                     
-> Sample Claims Request that includes custom application data for easy handling of asynchronous responses:
+> Sample Claims request that includes custom application data for easy handling
+of asynchronous responses:
 
 ```shell
-{
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "application_data": {
         "patient_id": "ABC1234XYZ",
         "location_id": 123,
@@ -103,13 +104,14 @@
             }
         ]
     }
-}
+}' https://platform.pokitdok.com/api/v4/claims/
 ```
                     
-> Sample Claims Request using the patient paid amount to report a cash payment encounter for contributing toward a member's deductible.
+> Sample Claims Request using the patient paid amount to report a cash payment
+encounter for contributing toward a member's deductible:
 
 ```shell
-{
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -156,13 +158,15 @@
             }
         ]
     }
-}
+}' https://platform.pokitdok.com/api/v4/claims/
 ```
 
-> Sample Claims Request when using procedure modifier codes. This example uses the "GT" modifier ("via interactive audio and video telecommunications systems") which would be suitable for telehealth applications:
+> Sample Claims request when using procedure modifier codes. This example uses
+the "GT" modifier ("via interactive audio and video telecommunications
+systems") which would be suitable for telehealth applications:
 
 ```shell
-{
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -208,9 +212,9 @@
             }
         ]
     }
-}
+}' https://platform.pokitdok.com/api/v4/claims/
 ```       
-> curl example submitting a claim with an application's callback_url specified
+> Sample Claims request submitting a claim with an application's callback_url specified:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
@@ -335,7 +339,6 @@ subscriber.member_id | Required: The subscriber’s member identifier. | 1a: Ins
 subscriber.last_name | Required: The subscriber’s last name as specified on their policy. | 4: Insured's name
 trading_partner_id | Required: Unique id for the intended trading partner, as specified by the Trading Partners endpoint. | 
 transaction_code | Required: The type of claim transaction that is being submitted. (e.g. "chargeable") | 
-
 
 A claim goes through an entire lifecycle after its transmission to a payer.
 For details on this process, and how the [claims status](#claims-status)

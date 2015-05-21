@@ -27,7 +27,7 @@ rate_limit_cap | {int} | The amount of requests available per hour
 rate_limit_reset | {int} | The time (Unix Timestamp) when the rate limit amount resets
 
 ## Collection Parameters
-The below parameterss can be added to collection requests from endpoints to
+The below parameters can be added to collection requests from endpoints to
 limit and page through the returned list of results. Singular endpoint
 (/endpoint/{id}) requests do not accept these parameters.
 
