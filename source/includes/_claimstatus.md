@@ -88,13 +88,13 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 *Available modes of operation: real-time*
 
-The Claims Status endpoint allows an application to request information about
+The Claims Status Endpoint allows an application to request information about
 previously submitted claims. You can send a request to a payer to determine
 where the claim is in their adjudication system and the status of the claim.
 
-The PokitDok Claims Status endpoint can be used to query the status of multiple
+The PokitDok Claims Status Endpoint can be used to query the status of multiple
 claims. To learn how to form such a request and understand how the
-[claims](#claims) and [claims status](#claims_status) endpoints work together,
+[Claims](#claims) and [Claims Status](#claims_status) Endpoints work together,
 see [claims API workflow](https://platform.pokitdok.com/claim-processing).
 
 Please note that on average it takes 5-7 days for a claim to enter a payer’s
@@ -126,7 +126,7 @@ subscriber.first_name | Optional: The subscriber’s first name as specified on 
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.
 tracking_id | Optional: The payer's claim tracking id. Specify a tracking id to refine the search criteria for a specific claim.
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
+trading_partner_id | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.
 
 > Example claims status response when the trading partner is unable to locate
 any matching claims:
