@@ -12,10 +12,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 *Available modes of operation: real-time*
 
-The Trading Partners endpoint provides access to the collection of trading
+The Trading Partners Endpoint provides access to the collection of trading
 partners PokitDok works with.
 
-Available Trading Partner endpoints:
+Available Trading Partner Endpoints:
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -30,7 +30,7 @@ Parameter | Type | Description
 id | {string} | The "trading_partner_id" used in requests/EDI files to identify this trading partner.
 is_enabled | {boolean} | Indicates if the connection to this trading partner is enabled.
 name | {string} | Full name for the trading partner.
-supported_transactions | {array} | Identifies the x12 transaction sets (270, 276, 837, etc.) the trading partner supports. The list of supported transactions also indicates the API endpoints that are enabled for the trading partner. If the trading partner supports 270 transactions, you may use that trading_partner_id with the eligibility API. If 276 transactions are supported, you may use that trading_partner_id with the claim status API. If 837 transactions are supported, you may use that trading_partner_id with the claims API.
+supported_transactions | {array} | Identifies the x12 transaction sets (270, 276, 837, etc.) the trading partner supports. The list of supported transactions also indicates the API Endpoints that are enabled for the trading partner. If the trading partner supports 270 transactions, you may use that trading_partner_id with the eligibility API. If 276 transactions are supported, you may use that trading_partner_id with the claim status API. If 837 transactions are supported, you may use that trading_partner_id with the claims API.
 enrollment_required | {array} | Identifies the x12 transaction sets (270, 276, 837, etc.) that require additional enrollment steps before they may be used by your API application. Contact us if you'd like to use a transaction with a trading partner that requires enrollment prior to use.
 metrics | {object} | When a specific trading partner id is requested and metrics are available, they will be included in the response. Timings are in milliseconds unless otherwise specified.
 metrics.real_time_response_average | {float} | The average response time (milliseconds) for requests to this trading partner.
