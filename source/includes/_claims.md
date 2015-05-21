@@ -341,5 +341,5 @@ trading_partner_id | Required: Unique id for the intended trading partner, as sp
 transaction_code | Required: The type of claim transaction that is being submitted. (e.g. "chargeable") | 
 
 A claim goes through an entire lifecycle after its transmission to a payer.
-For details on this process, and how the [claims status](#claims-status)
+For details on this process, and how the [Claims Status](#claims-status)
 Endpoint ties in, see [claims API workflow](https://platform.pokitdok.com/claim-processing).             
