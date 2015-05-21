@@ -98,11 +98,11 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 *Available modes of operation: batch/async or real-time*
 
-The Eligibility endpoint makes it easy to verify a member's insurance information in real-time. You can check 
+The Eligibility Endpoint makes it easy to verify a member's insurance information in real-time. You can check 
 co-insurance, copay, deductible and out of pocket amounts for a member along with other information about a member's 
 plan.
 
-Use the [Trading Partners](#trading-partners) API to determine available trading_partner_id values for use with the 
+Use the [Trading Partners](#trading-partners) Endpoint to determine available trading_partner_id values for use with the 
 Eligibility API.
 
 Endpoint | HTTP Method | Description
@@ -115,7 +115,7 @@ NPI be registered or be a participating provider with that health plan to succes
 When a request is made without a provider name and NPI, the PokitDok NPI and organization name will default in. It is 
 important to note that the PokitDok NPI may not be accepted by all trading partners.
 
-The PokitDok Eligibility endpoint allows you to request eligibility for specific service types. The service_type parameter 
+The PokitDok Eligibility Endpoint allows you to request eligibility for specific service types. The service_type parameter 
 allows you to specify which particular service(s) you want to check eligibility for. If no service type is specified, the
 request will be made for general health benefits (health_benefit_plan_coverage). Please note that some trading partners may
 not support specific service type inquiries. A full listing of possible service_types values is included [below](#service-type).
@@ -135,7 +135,7 @@ provider.last_name | The provider’s last name when the provider is an individu
 provider.npi | The NPI for the provider.
 provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.
 service_types | The service type(s) the eligibility request is being made against. A full listing of possible service_types values is included [below](#service-type).
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
+trading_partner_id | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.
 
                     
 Eligibility and benefit responses vary depending on the trading partner and the plan a member is enrolled in. Some plans 
