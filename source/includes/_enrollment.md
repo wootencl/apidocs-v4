@@ -77,9 +77,9 @@
 
 *Available modes of operation: batch/async only*
 
-The PokitDok enrollment API eases the transmission process of benefit enrollment and maintenance files. Applications can use the enrollment endpoint to submit new enrollments or enrollment changes due to life events and plan termination. These files are submitted asynchronously via batch mode.
+The PokitDok Enrollment API eases the transmission process of benefit enrollment and maintenance files. Applications can use the Enrollment Endpoint to submit new enrollments or enrollment changes due to life events and plan termination. These files are submitted asynchronously via batch mode.
 
-File transmission is performed depending on carrier and group requirements. The enrollment API can be utilized for all enrollment requirements including open enrollment and is able to support both full and change files.
+File transmission is performed depending on carrier and group requirements. The Enrollment API can be utilized for all enrollment requirements including open enrollment and is able to support both full and change files.
 
 Available Enrollment Endpoints:
 
@@ -87,7 +87,7 @@ Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /enrollment/ | POST | Submit a benefits enrollment request to the specified trading partner
 
-The enrollment endpoint accepts the following parameters:
+The Enrollment Endpoint accepts the following parameters:
 
 Argument | Description
 -------- | -----------
