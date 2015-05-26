@@ -46,6 +46,7 @@ insurance policy.
 
 The Referrals endpoint allows an application to request approval for a referral
 to another health care provider.
+
 Primary Care Physicians can enable their patients to receive the consult and services 
 of a specialist or specialist entity. This request will be sent to the reviewing 
 entity (e.g. Utilization Management Organization) for approval.
