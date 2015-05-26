@@ -54,7 +54,9 @@ Providers can request permission (authorization) from the reviewing entity (e.g.
 
 The authorization request can also be used  to request permission to admit their patient and/or gain authorization to deliver specific health care services to a patient that requires review. 
 
-Applications interesting in sending a referral for approval to a specialist should check out PokitDok’s [Referrals](#referrals) endpoint.
+Interested in requesting approval for a referral to a specialist? See PokitDok’s [Referrals](#referrals) endpoint.
+
+Available Authorizations Endpoints:
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -92,7 +94,7 @@ subscriber.birth_date | Optional: The subscriber’s birth date as specified on 
 subscriber.first_name | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber.
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
+trading_partner_id | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.
 
 > Example authorizations response when the trading partner has authorized the request:
 
@@ -183,4 +185,4 @@ subscriber.birth_date | Optional: The subscriber’s birth date as specified on 
 subscriber.first_name | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber.
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.
-trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
+trading_partner_id | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.
