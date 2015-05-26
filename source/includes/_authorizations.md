@@ -54,7 +54,7 @@ Providers can request permission (authorization) from the reviewing entity (e.g.
 
 The authorization request can also be used  to request permission to admit their patient and/or gain authorization to deliver specific health care services to a patient that requires review. 
 
-Applications interesting in sending a referral for approval to a specialist should check out PokitDok’s [Referral](#referral) endpoint.
+Applications interesting in sending a referral for approval to a specialist should check out PokitDok’s [Referrals](#referrals) endpoint.
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
