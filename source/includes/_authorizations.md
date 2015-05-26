@@ -54,8 +54,6 @@ Providers can request permission (authorization) from the reviewing entity (e.g.
 
 The authorization request can also be used  to request permission to admit their patient and/or gain authorization to deliver specific health care services to a patient that requires review. 
 
-Interested in requesting approval for a referral to a specialist? See PokitDok’s [Referrals](#referrals) endpoint.
-
 Available Authorizations Endpoints:
 
 Endpoint | HTTP Method | Description
@@ -186,3 +184,6 @@ subscriber.first_name | Optional: The subscriber’s first name as specified on 
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.
 subscriber.last_name | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.
 trading_partner_id | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.
+
+
+Interested in requesting approval for a referral to a specialist? See PokitDok’s [Referrals](#referrals) endpoint.
