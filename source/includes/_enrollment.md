@@ -89,7 +89,7 @@ Endpoint | HTTP Method | Description
 
 The Enrollment endpoint accepts the following parameters:
 
-Argument | Description
+Resource | Description
 -------- | -----------
 coverage_level | The coverage level of the subscriber.
 dependents | A list of dependents covered under benefits by the subscriber. Each dependent list item may utilize the same request fields as a subscriber.
