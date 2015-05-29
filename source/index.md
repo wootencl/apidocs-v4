@@ -20,11 +20,11 @@ includes:
   - endpoints
   - activities
   - authorizations
+  - enrollment
   - cashprices
   - claims
   - claimstatus
   - eligibility
-  - enrollment
   - files
   - insuranceprices
   - mpc
