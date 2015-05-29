@@ -1,5 +1,19 @@
 # Common To All Endpoints
 
+## Collection Parameters
+The below query parameters can be added to collection requests from endpoints
+to limit and page through the returned list of results. Singular endpoint
+(/endpoint/{id}) requests do not accept these parameters.
+
+Argument | Description
+-------- | -----------
+async | Whether the API call is asynchronous.  For endpoints that offer both synchronous and asynchronous operation, a boolean can be used for this parameter to specify which mode of operation you desire; if the async parameter is omitted, the synchronous mode will be used. For POST requests, the async parameter should be included along with other JSON data being POSTed. When async is true, the API client has the option of including a callback URL so that it can be notified when the asynchronous processing is complete.
+application_data | API client applications may include custom application data in requests to help support scenarios where an application is unable to store the activity id and wishes to include application specific data in their API requests so that the information will be stored on the request's activity and returned to the application in asynchronous callbacks. This can be useful for scenarios where you want to directly associate a PokitDok Platform API request with some identifier(s) in your system so that you can do direct lookups to associate responses with the appropriate information. For example, suppose you wish to fire off a number of eligibility or claims requests and want to include some identifiers specific to your application. By including the identifier(s) you need in the request's application_data section, you can easily do direct lookups using those identifiers when you receive the API response.
+dir | The direction that a list is sorted, ascending or descending (only for collection requests)
+limit | The number of objects to return in a list (only for collection requests)
+offset | The number of objects to skip when paging through a list (only for collection requests)
+sort | The field to sort the list of objects by (only for collection requests)
+
 ## The Meta and Data Sections
 The response payload for all endpoints consists of a meta key and a data key.
 The meta key contains information regarding rate limiting, linked urls for
@@ -25,20 +39,6 @@ processing_time | {int} | The time to process the request in milliseconds
 rate_limit_amount | {int} | The amount of requests made during the current rate limit period
 rate_limit_cap | {int} | The amount of requests available per hour
 rate_limit_reset | {int} | The time (Unix Timestamp) when the rate limit amount resets
-
-## Collection Parameters
-The below parameters can be added to collection requests from endpoints to
-limit and page through the returned list of results. Singular endpoint
-(/endpoint/{id}) requests do not accept these parameters.
-
-Argument | Description
--------- | -----------
-async | Whether the API call is asynchronous.  For endpoints that offer both synchronous and asynchronous operation, a boolean can be used for this parameter to specify which mode of operation you desire; if the async parameter is omitted, the synchronous mode will be used. For POST requests, the async parameter should be included along with other JSON data being POSTed. When async is true, the API client has the option of including a callback URL so that it can be notified when the asynchronous processing is complete.
-application_data | API client applications may include custom application data in requests to help support scenarios where an application is unable to store the activity id and wishes to include application specific data in their API requests so that the information will be stored on the request's activity and returned to the application in asynchronous callbacks. This can be useful for scenarios where you want to directly associate a PokitDok Platform API request with some identifier(s) in your system so that you can do direct lookups to associate responses with the appropriate information. For example, suppose you wish to fire off a number of eligibility or claims requests and want to include some identifiers specific to your application. By including the identifier(s) you need in the request's application_data section, you can easily do direct lookups using those identifiers when you receive the API response.
-dir | The direction that a list is sorted, ascending or descending (only for collection requests)
-limit | The number of objects to return in a list (only for collection requests)
-offset | The number of objects to skip when paging through a list (only for collection requests)
-sort | The field to sort the list of objects by (only for collection requests)
 
 ## Errors
 > Unauthorized access

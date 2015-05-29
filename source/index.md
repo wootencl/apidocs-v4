@@ -16,11 +16,11 @@ toc_footers:
 
 includes:
   - overview
-  - common
   - clientlibraries
-  - jsonedisupport
   - authentication
+  - common
   - apidashboard
+  - jsonedisupport
   - endpoints
   - activities
   - authorizations
