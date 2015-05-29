@@ -91,21 +91,32 @@ The Enrollment endpoint accepts the following parameters:
 
 Argument | Description
 -------- | -----------
+coverage_level | The coverage level of the subscriber.
 dependents | A list of dependents covered under benefits by the subscriber. Each dependent list item may utilize the same request fields as a subscriber.
+eligibility_begin_date | The date the subscriber is eligible for benefits.
+employment_status | The employment status of the subscriber.
+gender | The gender of the subscriber.
+group_or_policy_number | The group or policy number.
+handicapped | Is the subscriber handicapped? Yes or No.
+late_enrollment | Is the subscriber a late enrollee? True or False
+maintenance_reason | The maintenance reason of this list item.
+primary_communication_number | The primary communication number for the subscriber. 
+primary_communication_type | The type of primary communication above. 
 sponsor | The employer/sponsor of the benefits.
 sponsor.name | The name of the sponsor.
 sponsor.tax_id | The tax id of the sponsor.
 subscriber | The subscriber/employee of the benefits.
+subscriber_number | If applicable the number for the subscriber. 
 subscriber.address | The address for the subscriber.
+subscriber.address.city | The city for the subscriber.
+subscriber.address.county | The county for the subscriber.
 subscriber.address.line | The first address line for the subscriber.
 subscriber.address.line2 | The second address line for the subscriber. (Optional)
-subscriber.address.city | The city for the subscriber.
 subscriber.address.postal_code | The postal/zip code for the subscriber.
-subscriber.address.county | The county for the subscriber.
 subscriber.benefits | The list of benefits for the subscriber.
 subscriber.benefits.begin_date | The date benefits start for this list item.
-subscriber.benefits.end_date | The date benefits end for this list item.
 subscriber.benefits.benefit_type | The type of benefit. (Health, Dental, Vision, etc.)
+subscriber.benefits.end_date | The date benefits end for this list item.
 subscriber.benefits.late_enrollment | Is the benefit enrolling late? True or False.
 subscriber.benefits.maintenance_type | The type of benefit maintenance. (Addition, Cancellation or Termination, Delete, Reinstatement, etc)
 subscriber.birth_date | The date of birth for the subscriber.
@@ -113,12 +124,12 @@ subscriber.eligibility_begin_date | The date benefits become eligible for the su
 subscriber.employment_status | The employment status for the subscriber. (Full-time, Executive, Hourly, etc.)
 subscriber.first_name | The first name for the subscriber.
 subscriber.gender | The gender for the subscriber.
+subscriber.last_name | The last name for the subscriber.
 subscriber.member_id | The member id for the subscriber if already enrolled in benefits.
 subscriber.middle_name | The middle name for the subscriber.
-subscriber.last_name | The last name for the subscriber.
+subscriber.ssn | The social security number for the subscriber.
 subscriber.substance_abuse | Does the subscriber have a problem with substance abuse? True or False.
 subscriber.suffix | The suffix for the subscriber. (Optional)
-subscriber.ssn | The social security number for the subscriber.
 subscriber.tobacco_use | Does the subscriber use tobacco? True or False.
 trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
 
