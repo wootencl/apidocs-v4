@@ -17,10 +17,6 @@ toc_footers:
 includes:
   - overview
   - clientlibraries
-  - authentication
-  - common
-  - apidashboard
-  - jsonedisupport
   - endpoints
   - activities
   - authorizations
@@ -38,6 +34,11 @@ includes:
   - referrals
   - scheduling
   - tradingpartners
+  - authentication
+  - common
+  - apidashboard
+  - jsonedisupport
+
 
 search: true
 ---
