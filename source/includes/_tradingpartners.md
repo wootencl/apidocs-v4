@@ -12,10 +12,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 *Available modes of operation: real-time*
 
-The Trading Partners Endpoint provides access to the collection of trading
-partners PokitDok works with.
+The Trading Partners endpoint provides access to the collection of PokitDok's trading
+partners PokitDok.
 
-Available Trading Partner Endpoints:
+Available Trading Partner endpoints:
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
