@@ -51,7 +51,7 @@ Primary Care Physicians can enable their patients to receive the consult and ser
 of a specialist or specialist entity. This request will be sent to the reviewing 
 entity (e.g. Utilization Management Organization) for approval.
 
-Available Referrals Endpoints:
+Available Referrals endpoints:
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -59,7 +59,7 @@ Endpoint | HTTP Method | Description
 
 The /referrals/ endpoint accepts the following parameters:
 
-Argument | Description
+Parameter | Description
 -------- | -----------
 event | The patient event that is being submitted for approval.
 event.category | The category of the event being submitted for review. For referrals to specialists, a category value of "specialty_care_review" should always be used.
@@ -181,7 +181,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ' https://platform.pokitdok.com/api/v4/referrals/
 ```
 
-Field | Description
+Parameter | Description
 ----- | -----------
 event | The patient event that is being submitted for approval.
 event.category | The category of the event being submitted for review. For referrals to specialists, a category value of "specialty_care_review" should always be used.
