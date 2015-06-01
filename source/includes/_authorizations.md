@@ -62,7 +62,7 @@ Endpoint | HTTP Method | Description
 
 The /authorizations/ endpoint accepts the following parameters:
 
-Argument | Description
+Parameter | Description
 -------- | -----------
 event | The patient event that is being submitted for review.
 event.category | The category of the event being submitted for review.
@@ -149,7 +149,7 @@ If the authorization request is sent using a real-time interface, an authorizati
 
 The /authorizations/ response contains the following fields:
 
-Field | Description
+Parameter | Description
 ----- | -----------
 event | The patient event that is being submitted for approval.
 event.category | The category of the event being submitted for review.
