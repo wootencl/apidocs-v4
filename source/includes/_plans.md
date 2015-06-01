@@ -19,7 +19,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 *Available modes of operation: real-time*
 
 The Plans endpoint provides access to information about insurance plans.
-Currently, the plans returned are those available through the federal exchange.
+The plans returned are those currently available through the federal exchange.
 Additional plans may be added later.
 
 Endpoint | HTTP Method | Description
@@ -28,7 +28,7 @@ Endpoint | HTTP Method | Description
 
 The /plans/ endpoint accepts the following parameters:
 
-Argument | Description
+Parameter | Description
 -------- | -----------
 trading_partner_id | The trading partner id of the payer offering the plan
 county | The county in which the plan is available
