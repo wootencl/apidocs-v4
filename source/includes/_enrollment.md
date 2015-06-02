@@ -106,12 +106,12 @@ Argument | Description
 -------- | -----------
 dependents | A list of dependents covered under benefits by the subscriber. Each dependent list item may utilize the same request fields as a subscriber.
 master_policy_number | The master policy number for the sponsor.
-reference.number |The reference number for this transaction.  
+reference.number |The reference number for the transaction.  
 sponsor | The employer/sponsor of the benefits.
 sponsor.name | The name of the sponsor.
 sponsor.tax_id | The tax id of the sponsor.
 subscriber | The subscriber/employee of the benefits.
-subscriber_number | If applicable the number for the subscriber. 
+subscriber_number | The subscribers identification number. 
 subscriber.address | The address for the subscriber.
 subscriber.address.city | The city for the subscriber.
 subscriber.address.county | The county for the subscriber.
@@ -137,11 +137,11 @@ subscriber.member_id | The member id for the subscriber if already enrolled in b
 subscriber.middle_name | The middle name for the subscriber.
 subscriber.primary_communication_number | The primary communication number for the subscriber. 
 subscriber.primary_communication_type | The type of primary communication above. 
-subscriber.secondary_communication_number | The primary communication number for the subscriber. 
-subscriber.secondary_communication_type | The type of primary communication above. 
+subscriber.secondary_communication_number | The secondary communication number for the subscriber. 
+subscriber.secondary_communication_type | The type of secondary communication above. (Optional)
 subscriber.ssn | The social security number for the subscriber.
 subscriber.substance_abuse | Does the subscriber have a problem with substance abuse? True or False.
-subscriber.suffix | The suffix for the subscriber. (Optional)
+subscriber.suffix | The suffix for the subscriber. 
 subscriber.tobacco_use | Does the subscriber use tobacco? True or False.
 trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
 
