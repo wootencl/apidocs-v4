@@ -3,75 +3,88 @@
 
 ```shell
 {
-    "action": "Change",
-    "dependents": [],
+    "action": "Change", 
+    "client_id": "x12parse", 
+    "correlation_id": "x12parse-correlation-id", 
+    "deleted": false, 
+    "dependents": [], 
+    "insert_dt": "2015-01-01", 
+    "master_policy_number": "ABCD012354", 
     "payer": {
-        "tax_id": "111222333"
-    },
-    "purpose": "Original",
-    "reference_number": "12456",
+        "tax_id": "654456654"
+    }, 
+    "purpose": "Original", 
+    "reference_number": "12456", 
     "sponsor": {
-        "name": "Acme, Inc.",
         "tax_id": "999888777"
-    },
+    }, 
     "subscriber": {
         "address": {
-            "city": "SAN MATEO",
-            "county": "SAN MATEO",
-            "line": "123 Main Street",
-            "line2": "APT 1",
-            "postal_code": "94403",
-            "state": "CA"
-        },
-        "benefit_status": "Active",
+            "city": "CAMP HILL", 
+            "county": "CUMBERLAND", 
+            "line": "100 MARKET ST", 
+            "line2": "APT 3G", 
+            "postal_code": "17011", 
+            "state": "PA"
+        }, 
+        "benefit_status": "Active", 
         "benefits": [
             {
-                "begin_date": "2014-01-01",
-                "benefit_type": "Health",
-                "coverage_level": "Employee Only",
-                "late_enrollment": false,
+                "begin_date": " 2015-01-01", 
+                "benefit_type": "Health", 
+                "coordination_of_benefits": [
+                    {
+                        "group_or_policy_number": "890111", 
+                        "payer_responsibility": "Primary", 
+                        "status": "Unknown"
+                    }
+                ], 
+                "late_enrollment": false, 
                 "maintenance_type": "Addition"
-            },
+            }, 
             {
-                "begin_date": "2014-01-01",
-                "benefit_type": "Dental",
-                "late_enrollment": false,
+                "begin_date": "2015-01-01", 
+                "benefit_type": "Dental", 
+                "late_enrollment": false, 
                 "maintenance_type": "Addition"
-            },
+            }, 
             {
-                "begin_date": "2014-01-01",
-                "benefit_type": "Vision",
-                "late_enrollment": false,
+                "begin_date": "2015-01-01", 
+                "benefit_type": "Vision", 
+                "late_enrollment": false, 
                 "maintenance_type": "Addition"
             }
-        ],
-        "birth_date": "1970-01-01",
+        ], 
+        "birth_date": "1940-01-01", 
         "contacts": [
             {
-                "communication_number2": "7172341240",
-                "communication_type2": "Work Phone Number",
-                "primary_communication_number": "7172343334",
+                "communication_number2": "7172341240", 
+                "communication_type2": "Work Phone Number", 
+                "primary_communication_number": "7172343334", 
                 "primary_communication_type": "Home Phone Number"
             }
-        ],
-        "eligibility_begin_date": "2014-01-01",
-        "employment_status": "Full-time",
-        "first_name": "JANE",
-        "gender": "Female",
-        "group_or_policy_number": "123456001",
-        "handicapped": false,
-        "last_name": "DOE",
-        "maintenance_reason": "Active",
-        "maintenance_type": "Addition",
-        "member_id": "123456789",
-        "middle_name": "P",
-        "relationship": "Self",
-        "ssn": "123456789",
-        "subscriber_number": "123456789",
-        "substance_abuse": false,
+        ], 
+        "eligibility_begin_date": "2014-01-01", 
+        "employment_status": "Full-time", 
+        "first_name": "JOHN", 
+        "gender": "Male", 
+        "group_or_policy_number": "123456001", 
+        "handicapped": false, 
+        "last_name": "DOE", 
+        "maintenance_reason": "Active", 
+        "maintenance_type": "Addition", 
+        "member_id": "123456789", 
+        "middle_name": "P", 
+        "relationship": "Self", 
+        "ssn": "123456789", 
+        "subscriber_number": "123456789", 
+        "substance_abuse": false, 
         "tobacco_use": false
-    },
-    "trading_partner_id": "MOCKPAYER",
+    }, 
+    "trading_partner_id": "MOCKPAYER", 
+    "update_dt": "2015-01-01",
+    "version": "4.0.0",
+    "major_version": "4"
 }
 ```
 
@@ -91,17 +104,9 @@ The Enrollment endpoint accepts the following parameters:
 
 Argument | Description
 -------- | -----------
-coverage_level | The coverage level of the subscriber.
 dependents | A list of dependents covered under benefits by the subscriber. Each dependent list item may utilize the same request fields as a subscriber.
-eligibility_begin_date | The date the subscriber is eligible for benefits.
-employment_status | The employment status of the subscriber.
-gender | The gender of the subscriber.
-group_or_policy_number | The group or policy number.
-handicapped | Is the subscriber handicapped? Yes or No.
-late_enrollment | Is the subscriber a late enrollee? True or False
-maintenance_reason | The maintenance reason of this list item.
-primary_communication_number | The primary communication number for the subscriber. 
-primary_communication_type | The type of primary communication above. 
+master_policy_number | The master policy number for the sponsor.
+reference.number |The reference number for this transaction.  
 sponsor | The employer/sponsor of the benefits.
 sponsor.name | The name of the sponsor.
 sponsor.tax_id | The tax id of the sponsor.
@@ -124,9 +129,16 @@ subscriber.eligibility_begin_date | The date benefits become eligible for the su
 subscriber.employment_status | The employment status for the subscriber. (Full-time, Executive, Hourly, etc.)
 subscriber.first_name | The first name for the subscriber.
 subscriber.gender | The gender for the subscriber.
+subscriber.benefits.group_or_policy_number | The group or policy number for this list item.
+subscriber.handicapped | Is the subscriber handicapped? True or False.
 subscriber.last_name | The last name for the subscriber.
+subscriber.late_enrollment | Is the subscriber a late enrollee? True or False.
 subscriber.member_id | The member id for the subscriber if already enrolled in benefits.
 subscriber.middle_name | The middle name for the subscriber.
+subscriber.primary_communication_number | The primary communication number for the subscriber. 
+subscriber.primary_communication_type | The type of primary communication above. 
+subscriber.secondary_communication_number | The primary communication number for the subscriber. 
+subscriber.secondary_communication_type | The type of primary communication above. 
 subscriber.ssn | The social security number for the subscriber.
 subscriber.substance_abuse | Does the subscriber have a problem with substance abuse? True or False.
 subscriber.suffix | The suffix for the subscriber. (Optional)
