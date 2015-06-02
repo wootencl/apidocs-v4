@@ -1,83 +1,8 @@
 ## Benefits Enrollment
-> Example benefits enrollment request to enroll a subscriber in benefits (Health, Dental, Vision)
-
-```shell
-{
-    "action": "Change",
-    "dependents": [],
-    "payer": {
-        "tax_id": "111222333"
-    },
-    "purpose": "Original",
-    "reference_number": "12456",
-    "sponsor": {
-        "name": "Acme, Inc.",
-        "tax_id": "999888777"
-    },
-    "subscriber": {
-        "address": {
-            "city": "SAN MATEO",
-            "county": "SAN MATEO",
-            "line": "123 Main Street",
-            "line2": "APT 1",
-            "postal_code": "94403",
-            "state": "CA"
-        },
-        "benefit_status": "Active",
-        "benefits": [
-            {
-                "begin_date": "2014-01-01",
-                "benefit_type": "Health",
-                "coverage_level": "Employee Only",
-                "late_enrollment": false,
-                "maintenance_type": "Addition"
-            },
-            {
-                "begin_date": "2014-01-01",
-                "benefit_type": "Dental",
-                "late_enrollment": false,
-                "maintenance_type": "Addition"
-            },
-            {
-                "begin_date": "2014-01-01",
-                "benefit_type": "Vision",
-                "late_enrollment": false,
-                "maintenance_type": "Addition"
-            }
-        ],
-        "birth_date": "1970-01-01",
-        "contacts": [
-            {
-                "communication_number2": "7172341240",
-                "communication_type2": "Work Phone Number",
-                "primary_communication_number": "7172343334",
-                "primary_communication_type": "Home Phone Number"
-            }
-        ],
-        "eligibility_begin_date": "2014-01-01",
-        "employment_status": "Full-time",
-        "first_name": "JANE",
-        "gender": "Female",
-        "group_or_policy_number": "123456001",
-        "handicapped": false,
-        "last_name": "DOE",
-        "maintenance_reason": "Active",
-        "maintenance_type": "Addition",
-        "member_id": "123456789",
-        "middle_name": "P",
-        "relationship": "Self",
-        "ssn": "123456789",
-        "subscriber_number": "123456789",
-        "substance_abuse": false,
-        "tobacco_use": false
-    },
-    "trading_partner_id": "MOCKPAYER",
-}
-```
 
 *Available modes of operation: batch/async only*
 
-The PokitDok Enrollment API eases the transmission process of benefit enrollment and maintenance files. Applications can use the Enrollment endpoint to submit new enrollments or enrollment changes due to life events and plan termination. These files are submitted asynchronously via batch mode.
+The PokitDok Enrollment API eases the creation and transmission process of benefit enrollment and maintenance files. Applications can use the Enrollment endpoint to submit new enrollments, enrollment changes due to life events and plan termination. These files are submitted asynchronously via batch mode.
 
 File transmission is performed depending on carrier and group requirements. The Enrollment API can be utilized for all enrollment requirements including open enrollment and is able to support both full and change files.
 
@@ -91,22 +16,14 @@ The Enrollment endpoint accepts the following parameters:
 
 Argument | Description
 -------- | -----------
-coverage_level | The coverage level of the subscriber.
 dependents | A list of dependents covered under benefits by the subscriber. Each dependent list item may utilize the same request fields as a subscriber.
-eligibility_begin_date | The date the subscriber is eligible for benefits.
-employment_status | The employment status of the subscriber.
-gender | The gender of the subscriber.
-group_or_policy_number | The group or policy number.
-handicapped | Is the subscriber handicapped? Yes or No.
-late_enrollment | Is the subscriber a late enrollee? True or False
-maintenance_reason | The maintenance reason of this list item.
-primary_communication_number | The primary communication number for the subscriber. 
-primary_communication_type | The type of primary communication above. 
+master_policy_number | The master policy number for the sponsor.
+reference.number |The reference number for the transaction.  
 sponsor | The employer/sponsor of the benefits.
 sponsor.name | The name of the sponsor.
 sponsor.tax_id | The tax id of the sponsor.
 subscriber | The subscriber/employee of the benefits.
-subscriber_number | If applicable the number for the subscriber. 
+subscriber_number | The subscribers identification number. 
 subscriber.address | The address for the subscriber.
 subscriber.address.city | The city for the subscriber.
 subscriber.address.county | The county for the subscriber.
@@ -124,13 +41,215 @@ subscriber.eligibility_begin_date | The date benefits become eligible for the su
 subscriber.employment_status | The employment status for the subscriber. (Full-time, Executive, Hourly, etc.)
 subscriber.first_name | The first name for the subscriber.
 subscriber.gender | The gender for the subscriber.
+subscriber.benefits.group_or_policy_number | The group or policy number for this list item.
+subscriber.handicapped | Is the subscriber handicapped? True or False.
 subscriber.last_name | The last name for the subscriber.
+subscriber.late_enrollment | Is the subscriber a late enrollee? True or False.
 subscriber.member_id | The member id for the subscriber if already enrolled in benefits.
 subscriber.middle_name | The middle name for the subscriber.
+subscriber.primary_communication_number | The primary communication number for the subscriber. 
+subscriber.primary_communication_type | The type of primary communication above. 
+subscriber.secondary_communication_number | The secondary communication number for the subscriber. 
+subscriber.secondary_communication_type | The type of secondary communication above. (Optional)
 subscriber.ssn | The social security number for the subscriber.
 subscriber.substance_abuse | Does the subscriber have a problem with substance abuse? True or False.
-subscriber.suffix | The suffix for the subscriber. (Optional)
+subscriber.suffix | The suffix for the subscriber. 
 subscriber.tobacco_use | Does the subscriber use tobacco? True or False.
 trading_partner_id | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
 
 Responses to enrollment files can vary greatly from carrier to carrier. PokitDok will work with the carrier trading partner to provide confirmation of successful delivery and communicate any reports back to the client.
+
+> Example enrollment request to enroll a subscriber in benefits. (Health, Dental, Vision)
+
+```shell
+{
+    "action": "Change", 
+    "client_id": "x12parse", 
+    "correlation_id": "x12parse-correlation-id", 
+    "deleted": false, 
+    "dependents": [], 
+    "insert_dt": "2015-01-01", 
+    "master_policy_number": "ABCD012354", 
+    "payer": {
+        "tax_id": "654456654"
+    }, 
+    "purpose": "Original", 
+    "reference_number": "12456", 
+    "sponsor": {
+        "tax_id": "999888777"
+    }, 
+    "subscriber": {
+        "address": {
+            "city": "CAMP HILL", 
+            "county": "CUMBERLAND", 
+            "line": "100 MARKET ST", 
+            "line2": "APT 3G", 
+            "postal_code": "17011", 
+            "state": "PA"
+        }, 
+        "benefit_status": "Active", 
+        "benefits": [
+            {
+                "begin_date": " 2015-01-01", 
+                "benefit_type": "Health", 
+                "coordination_of_benefits": [
+                    {
+                        "group_or_policy_number": "890111", 
+                        "payer_responsibility": "Primary", 
+                        "status": "Unknown"
+                    }
+                ], 
+                "late_enrollment": false, 
+                "maintenance_type": "Addition"
+            }, 
+            {
+                "begin_date": "2015-01-01", 
+                "benefit_type": "Dental", 
+                "late_enrollment": false, 
+                "maintenance_type": "Addition"
+            }, 
+            {
+                "begin_date": "2015-01-01", 
+                "benefit_type": "Vision", 
+                "late_enrollment": false, 
+                "maintenance_type": "Addition"
+            }
+        ], 
+        "birth_date": "1940-01-01", 
+        "contacts": [
+            {
+                "communication_number2": "7172341240", 
+                "communication_type2": "Work Phone Number", 
+                "primary_communication_number": "7172343334", 
+                "primary_communication_type": "Home Phone Number"
+            }
+        ], 
+        "eligibility_begin_date": "2014-01-01", 
+        "employment_status": "Full-time", 
+        "first_name": "JOHN", 
+        "gender": "Male", 
+        "group_or_policy_number": "123456001", 
+        "handicapped": false, 
+        "last_name": "DOE", 
+        "maintenance_reason": "Active", 
+        "maintenance_type": "Addition", 
+        "member_id": "123456789", 
+        "middle_name": "P", 
+        "relationship": "Self", 
+        "ssn": "123456789", 
+        "subscriber_number": "123456789", 
+        "substance_abuse": false, 
+        "tobacco_use": false
+    }, 
+    "trading_partner_id": "MOCKPAYER", 
+    "update_dt": "2015-01-01",
+    "version": "4.0.0",
+    "major_version": "4"
+}
+```
+>Example change request to add a dependent due to a qualifying life event. (Health)
+
+```shell
+{
+    "action": "Change", 
+    "client_id": "x12parse", 
+    "correlation_id": "x12parse-correlation-id", 
+    "deleted": false, 
+    "dependents": [
+        {
+            "benefit_status": "Active", 
+            "benefits": [
+                {
+                    "begin_date": "2014-01-01", 
+                    "benefit_type": "Health", 
+                    "late_enrollment": false, 
+                    "maintenance_type": "Addition"
+                }
+            ], 
+            "birth_date": "1999-01-01", 
+            "education_end_date": "2016-01-01", 
+            "first_name": "JAMES", 
+            "gender": "Male", 
+            "group_or_policy_number": "123456001", 
+            "handicapped": false, 
+            "last_name": "DOE", 
+            "maintenance_reason": "Initial Enrollment", 
+            "maintenance_type": "Addition", 
+            "middle_name": "E", 
+            "relationship": "Child", 
+            "school": {
+                "name": "PENN STATE UNIVERSITY"
+            }, 
+            "ssn": "987654321", 
+            "student_status": "Full-time", 
+            "subscriber_number": "123456789", 
+            "substance_abuse": false, 
+            "tobacco_use": false
+        }
+    ], 
+    "insert_dt": "2015-01-01", 
+    "master_policy_number": "ABCD012354", 
+    "payer": {
+        "tax_id": "654456654"
+    }, 
+    "purpose": "Original", 
+    "reference_number": "12456", 
+    "sponsor": {
+        "tax_id": "999888777"
+    }, 
+    "subscriber": {
+        "contacts": [], 
+        "handicapped": false, 
+        "member_id": "987654321", 
+        "substance_abuse": false, 
+        "tobacco_use": false
+    }, 
+    "trading_partner_id": "MOCKPAYER", 
+    "update_dt": "2015-01-01",
+    "version": "4.0.0",
+    "major_version": "4"
+}
+```
+> Example request to terminate a subscribers benefits.
+
+```shell
+{
+    "action": "Change", 
+    "client_id": "x12parse", 
+    "correlation_id": "x12parse-correlation-id", 
+    "deleted": false, 
+    "dependents": [], 
+    "insert_dt": "2015-01-01", 
+    "payer": {
+        "tax_id": "654456654"
+    }, 
+    "purpose": "Original", 
+    "reference_number": "12456", 
+    "sponsor": {
+        "tax_id": "999888777"
+    }, 
+    "subscriber": {
+        "benefit_status": "Active", 
+        "contacts": [], 
+        "eligibility_end_date": "2015-01-01", 
+        "employment_status": "Terminated", 
+        "first_name": "JOHN", 
+        "group_or_policy_number": "123456001", 
+        "handicapped": false, 
+        "last_name": "DOE", 
+        "maintenance_reason": "Termination of Employment", 
+        "maintenance_type": "Cancellation or Termination", 
+        "member_id": "123456789", 
+        "middle_name": "E", 
+        "relationship": "Self", 
+        "ssn": "123456788", 
+        "subscriber_number": "123456789", 
+        "substance_abuse": false, 
+        "tobacco_use": false
+    }, 
+    "trading_partner_id": "MOCKPAYER", 
+    "update_dt": "2015-01-01",
+    "version": "4.0.0",
+    "major_version": "4"
+}
+```

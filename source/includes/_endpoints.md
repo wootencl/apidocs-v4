@@ -1,1 +1,1 @@
-# Available Endpoints
+# Available API Endpoints

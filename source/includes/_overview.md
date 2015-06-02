@@ -1,6 +1,6 @@
 # Overview
 
-The PokitDok API allows you to perform X12 transactions, schedule appointments
+The PokitDok API allows you to transmit X12 transactions, schedule appointments
 into a number of EMRs, as well as search our curated databases of healthcare
 providers, procedure pricing, medical procedure codes, and more. The API is
 designed according to REST (Representational State Transfer) principles. The
