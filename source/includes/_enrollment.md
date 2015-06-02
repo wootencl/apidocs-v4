@@ -14,7 +14,7 @@ Endpoint | HTTP Method | Description
 
 The Enrollment endpoint accepts the following parameters:
 
-Argument | Description
+Resource | Description
 -------- | -----------
 dependents | A list of dependents covered under benefits by the subscriber. Each dependent list item may utilize the same request fields as a subscriber.
 master_policy_number | The master policy number for the sponsor.
