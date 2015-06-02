@@ -1,5 +1,5 @@
 ## Benefits Enrollment
-> Example benefits enrollment request to enroll a subscriber in benefits (Health, Dental, Vision)
+> Example benefits enrollment request to enroll a subscriber in benefits. (Health, Dental, Vision)
 
 ```shell
 {
@@ -77,6 +77,112 @@
         "middle_name": "P", 
         "relationship": "Self", 
         "ssn": "123456789", 
+        "subscriber_number": "123456789", 
+        "substance_abuse": false, 
+        "tobacco_use": false
+    }, 
+    "trading_partner_id": "MOCKPAYER", 
+    "update_dt": "2015-01-01",
+    "version": "4.0.0",
+    "major_version": "4"
+}
+```
+>Example benefits change request to add a dependent due to a qualifying life event. (Health)
+
+```shell
+{
+    "action": "Change", 
+    "client_id": "x12parse", 
+    "correlation_id": "x12parse-correlation-id", 
+    "deleted": false, 
+    "dependents": [
+        {
+            "benefit_status": "Active", 
+            "benefits": [
+                {
+                    "begin_date": "2014-01-01", 
+                    "benefit_type": "Health", 
+                    "late_enrollment": false, 
+                    "maintenance_type": "Addition"
+                }
+            ], 
+            "birth_date": "1999-01-01", 
+            "education_end_date": "2016-01-01", 
+            "first_name": "JAMES", 
+            "gender": "Male", 
+            "group_or_policy_number": "123456001", 
+            "handicapped": false, 
+            "last_name": "DOE", 
+            "maintenance_reason": "Initial Enrollment", 
+            "maintenance_type": "Addition", 
+            "middle_name": "E", 
+            "relationship": "Child", 
+            "school": {
+                "name": "PENN STATE UNIVERSITY"
+            }, 
+            "ssn": "987654321", 
+            "student_status": "Full-time", 
+            "subscriber_number": "123456789", 
+            "substance_abuse": false, 
+            "tobacco_use": false
+        }
+    ], 
+    "insert_dt": "2015-01-01", 
+    "master_policy_number": "ABCD012354", 
+    "payer": {
+        "tax_id": "654456654"
+    }, 
+    "purpose": "Original", 
+    "reference_number": "12456", 
+    "sponsor": {
+        "tax_id": "999888777"
+    }, 
+    "subscriber": {
+        "contacts": [], 
+        "handicapped": false, 
+        "member_id": "987654321", 
+        "substance_abuse": false, 
+        "tobacco_use": false
+    }, 
+    "trading_partner_id": "MOCKPAYER", 
+    "update_dt": "2015-01-01",
+    "version": "4.0.0",
+    "major_version": "4"
+}
+```
+> Example benefits request to terminate a subscribers benefits. (Health, Dental, Vision)
+
+```shell
+{
+    "action": "Change", 
+    "client_id": "x12parse", 
+    "correlation_id": "x12parse-correlation-id", 
+    "deleted": false, 
+    "dependents": [], 
+    "insert_dt": "2015-01-01", 
+    "payer": {
+        "tax_id": "654456654"
+    }, 
+    "purpose": "Original", 
+    "reference_number": "12456", 
+    "sponsor": {
+        "tax_id": "999888777"
+    }, 
+    "subscriber": {
+        "benefit_status": "Active", 
+        "contacts": [], 
+        "eligibility_end_date": "2015-01-01", 
+        "employment_status": "Terminated", 
+        "first_name": "JOHN", 
+        "group_or_policy_number": "123456001", 
+        "handicapped": false, 
+        "last_name": "DOE", 
+        "maintenance_reason": "Termination of Employment", 
+        "maintenance_type": "Cancellation or Termination", 
+        "member_id": "123456789", 
+        "middle_name": "E", 
+        "relationship": "Self", 
+        "ssn": "123456788", 
         "subscriber_number": "123456789", 
         "substance_abuse": false, 
         "tobacco_use": false
