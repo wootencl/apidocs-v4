@@ -37,8 +37,6 @@ includes:
   - authentication
   - common
   - apidashboard
-  - jsonedisupport
-
 
 search: true
 ---
