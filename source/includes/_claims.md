@@ -332,13 +332,13 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 *Available modes of operation: batch/async*
 
-Following the standard X12 837 format, the PokitDok Claims Endpoint allows
+Following the standard X12 837 format, the PokitDok Claims endpoint allows
 applications to easily file claims to designated trading partners. 
 
-When using the Claims Endpoint, there is an option to supply a callback_url,
+When using the Claims endpoint, there is an option to supply a callback_url,
 which indicates that your application should be notified when the asynchronous
 processing is complete and a claim acknowledgement has been received from the
-trading partner.When a callback_url is specified, the full claims request
+trading partner. When a callback_url is specified, the full claims request
 activity will be POSTed back to the callback_url. A claim acknowledgement will
 be returned for each submitted claims request.
 
@@ -402,9 +402,9 @@ subscriber.gender | The subscriber’s gender as specified on their policy. | 11
 subscriber.group_name | Optional: The subscriber’s group name as specified on their policy. | 11b: Employer's name or school name
 subscriber.member_id | Required: The subscriber’s member identifier. | 1a: Insured's ID number
 subscriber.last_name | Required: The subscriber’s last name as specified on their policy. | 4: Insured's name
-trading_partner_id | Required: Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint. | 
+trading_partner_id | Required: Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint. | 
 transaction_code | Required: The type of claim transaction that is being submitted. (e.g. "chargeable") | 
 
 A claim goes through an entire lifecycle after its transmission to a payer.
 For details on this process, and how the [Claims Status](#claims-status)
-Endpoint ties in, see [claims API workflow](https://platform.pokitdok.com/claim-processing).             
+Endpoint ties in, see our [claims API workflow](https://platform.pokitdok.com/claim-processing).             
