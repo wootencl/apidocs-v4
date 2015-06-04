@@ -176,5 +176,319 @@ address’|Address SubSchema||
 ##Validation Codes
 
 |API_RELATIONSHIPS|
+|:----------------|
+|spouse|
+|father |
+|mother |
+|grandfather|
+|grandmother |
+|grandson |
+|granddaughter |
+|aunt |
+|uncle |
+|nephew |
+|niece |
+|cousin |
+|adopted_child |
+|foster_child |
+|son_in_law |
+|daughter_in_law |
+|brother_in_law |
+|sister_in_law |
+|mother_in_law |
+|father_in_law |
+|brother |
+|sister |
+|ward |
+|step_parent |
+|step_son |
+|step_daughter |
+|self |
+|child |
+|sponsored_dependent |
+|dependent_of_minor_dependent |
+|ex_spouse |
+|guardian |
+|court_appointed_guardian |
+|collateral_dependent |
+|life_partner |
+|annuitant |
+|trustee |
+|other_relationship |
+|other_relative |
+
+|COVERAGE_LEVEL_CODES|
+|:-------------------|
+|Children Only|
+|Dependents Only|
+|Employee and One Dependent|
+|Employee and Two Dependents|
+|Employee and Three Dependents|
+|Employee and One or More Dependents|
+|Employee and Two or More Dependents|
+|Employee and Three or More Dependents|
+|Employee and Four or More Dependents|
+|Employee and Five or More Dependents|
+|Employee and Children|
+|Employee Only|
+|Employee and Spouse|
+|Family|
+|Individual|
+|Spouse and Children|
+|Spouse Only|
+|Two Party|
+
+|DOMAIN_PURPOSE_CODES|
+|:-------------------|
+|Original|
+|Re-Submission|
+|Information Copy|
+
+|DOMAIN_ACTION_CODES|
+|:------------------|
+|Change|
+|Verify|
+|Replace|
+
+|DOMAIN_GENDER_CODES|
+|:------------------|
+|Female|
+|Male|
+|Unknown|
+
+|DOMAIN_MAINTENANCE_TYPE_CODES|
+|:----------------------------|
+|Change|
+|Delete|
+|Addition|
+|Cancellation or Termination|
+|Reinstatement|
+|Correction|
+|Audit or Compare|
+|Employee Information Not Applicable|
+
+|DOMAIN_MAINTENANCE_REASON_CODES|
+|:------------------------------|
+|Divorce|
+|Birth|
+|Death|
+|Retirement|
+|Adoption|
+|Strike|
+|Termination of Benefits|
+|Termination of Employment|
+|Consolidation Omnibus Budget Reconciliation Act (COBRA)|
+|Consolidation Omnibus Budget Reconciliation Act (COBRA) Premium Paid|
+|Surviving Spouse|
+|Voluntary Withdrawal|
+|Primary Care Provider (PCP) Change|
+|Quit|
+|Fired|
+|Suspended|
+|Active|
+|Disability|
+|Plan Change|
+|Change in Identifying Data Elements|
+|Declined Coverage|
+|Pre-Enrollment|
+|Initial Enrollment|
+|Benefit Selection|
+|Legal Separation|
+|Marriage|
+|Personnel Data|
+|Leave of Absence with Benefits|
+|Leave of Absence without Benefits|
+|Lay Off with Benefits|
+|Lay Off without Benefits|
+|Re-enrollment|
+|Change of Location|
+|Non Payment|
+
+|DOMAIN_BENEFIT_STATUS_CODES|
+|:--------------------------|
+|Active|
+|Consolidated Omnibus Budget Reconciliation Act (COBRA)|
+|Surviving Insured|
+|Tax Equity and Fiscal Responsibility Act (TEFRA)|
+
+|DOMAIN_MEDICARE_PLAN_CODES|
+|:-------------------------|
+|Medicare Part A|
+|Medicare Part B|
+|Medicare Part A and B|
+|Medicare|
+|No Medicare|
+
+|DOMAIN_MEDICARE_ELIGIBILITY_REASON_CODES|
+|:---------------------------------------|
+|Age|
+|Disability|
+|End Stage Renal Disease (ESRD)|
+
+|DOMAIN_COBRA_QUALIFYING_EVENT_CODES|
+|:----------------------------------|
+|Termination of Employment|
+|Reduction of work hours|
+|Medicare|
+|Death|
+|Divorce|
+|Separation|
+|Ineligible Child|
+|"""Bankruptcy of Retirees Former Employer ( U.S.C. B(f)()(F))"""|
+|Layoff|
+|Leave of Absence|
+|ZZ Mutually Defined|
+
+|DOMAIN_EMPLOYMENT_STATUS_CODES|
 |:-----------------------------|
-|spouse |
+|Active|
+|Active Military - Overseas|
+|Active Military - USA|
+|Full-time|
+|Leave of Absence|
+|Part-time|
+|Retired|
+|Terminated|
+
+|DOMAIN_STUDENT_STATUS_CODES|
+|:--------------------------|
+|Full-time|
+|Not a Student|
+|Part-time|
+
+|DOMAIN_INSURANCE_LINE_CODES|
+|:--------------------------|
+|Preventative Care/Wellness|
+|24 Hour Care|
+|Medicare Risk|
+|Mental Health|
+|Dental Capitation|
+|Dental|
+|Exclusive Provider Organization|
+|Facility|
+|Hearing|
+|Health|
+|Health Maintenance Organization|
+|Long-Term Care|
+|Long-Term Disability|
+|Major Medical|
+|Mail Order Drug|
+|Prescription Drug|
+|Point of Service|
+|Preferred Provider Organization|
+|Practitioners|
+|Short-Term Disability|
+|Utilization Review|
+|Vision|
+
+|DOMAIN_PAYER_RESPONSIBILITY_CODES|
+|:--------------------------------|
+|Primary|
+|Secondary|
+|Tertiary|
+|Unknown|
+
+
+|API_COORDINATION_OF_BENEFITS_STATUS|
+|:----------------------------------|
+|coordination_of_benefits |
+|no_coordination_of_benefits|
+|unknown |
+
+|DOMAIN_MARITAL_STATUS_CODES|
+|:--------------------------|
+|Widowed|
+|Legally Separated|
+|Registered Domestic Partner|
+|Divorced|
+|Single|
+|Married|
+|Unreported|
+|Separated|
+|Unmarried (Single or Divorced or Widowed)|
+
+|DOMAIN_ETHNICITY_CODES|
+|:---------------------|
+|Not Provided|
+|Not Applicable|
+|Asian or Pacific Islander|
+|Black|
+|Caucasian|
+|Subcontinent Asian American|
+|Other Race or Ethnicity|
+|Asian Pacific American|
+|Native American|
+|Hispanic|
+|American Indian or Alaskan Native|
+|Native Hawaiian|
+|Black (Non-Hispanic)|
+|White (Non-Hispanic)|
+|Pacific Islander|
+|Mutually Defined|
+
+|DOMAIN_CITIZENSHIP_STATUS_CODES|
+|:------------------------------|
+|U.S. Citizen|
+|Non-Resident Alien|
+|Resident Alien|
+|Illegal Alien|
+|Alien|
+|U.S. Citizen - Non-Resident|
+|U.S. Citizen - Resident|
+
+|DOMAIN_EMPLOYMENT_CLASS_CODES|
+|:----------------------------|
+|Union|
+|Non-Union|
+|Executive|
+|Non-Executive|
+|Management|
+|Non-Management|
+|Hourly|
+|Salaried|
+|Administrative|
+|Non-Administrative|
+|Exempt|
+|Non-Exempt|
+|Highly Compensated|
+|Key-Employee|
+|Bargaining|
+|Non-Bargaining|
+|Owner|
+|President|
+|Vice President|
+
+|DOMAIN_WAGES_PAID_FREQUENCY_CODES|
+|:--------------------------------|
+|Weekly|
+|Biweekly|
+|Semimonthly|
+|Monthly|
+|Daily|
+|Annual|
+|Two Calendar Months|
+|Lump-Sum Separation Allowance|
+|Year-to-Date|
+|Single|
+|Hourly|
+|Quarterly|
+|Semiannual|
+|Unknown|
+
+|COMMUNICATION_TYPE_CODES|
+|:-----------------------|
+|Electronic Mail|
+|Telephone Extension|
+|Facsimile|
+|Telephone|
+|Home Phone Number|
+|Work Phone Number|
+|Cellular Phone|
+|Beeper Number|
+|Alternate Telephone|
+
+|ENTITY_TYPE_CODES|
+|:----------------|
+|Person|
+|Non-Person Entity|
+
