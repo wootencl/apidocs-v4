@@ -338,9 +338,12 @@ applications to easily file claims to designated trading partners.
 When using the Claims endpoint, there is an option to supply a callback_url,
 which indicates that your application should be notified when the asynchronous
 processing is complete and a claim acknowledgement has been received from the
-trading partner. When a callback_url is specified, the full claims request
-activity will be POSTed back to the callback_url. A claim acknowledgement will
-be returned for each submitted claims request.
+trading partner. The full claims request activity will be POSTed back to the
+callback_url. A claim acknowledgement will be returned for each submitted
+claims request. Once a claim is adjudicated, an 835 Electronic Remittance
+Advice transaction will be return which provides claim payment information.
+If you are interested in receiving 835 files, please contact  
+our team: platform@pokitdok.com.
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
