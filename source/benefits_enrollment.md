@@ -1,8 +1,8 @@
 # Benefits Enrollment Overview
 
 ## JSON Schema for 834 Benefits Enrollment
-| Name                 | Type                     | Required? | String Validation Codes |
-|:---------------------|:-------------------------|:----------|:------------------------|
+| Parameters          | Type                     | Required? | String Validation Codes |
+|:--------------------|:-------------------------|:----------|:------------------------|
 reference_number|{string}|Yes|
 purpose|{string}|Yes|DOMAIN_PURPOSE_CODES
 action|{string}|Yes|DOMAIN_ACTION_CODES
@@ -16,26 +16,26 @@ dependents|List of Member Subschema||
 application_data|Dict||
 
 ### Payer Subschema
-| Name   | Type     | Required? | String Validation Codes |
-|:-------|:---------|:----------|:------------------------|
+| Parameters   | Type     | Required? | String Validation Codes |
+|:-------------|:---------|:----------|:------------------------|
 name|{string}||
 tax_id|{string}||
 
 ### Sponsor Subschema
-| Name   | Type     | Required? | String Validation Codes |
-|:-------|:---------|:----------|:------------------------|
+| Parameters   | Type     | Required? | String Validation Codes |
+|:-------------|:---------|:----------|:------------------------|
 name|{string}||
 tax_id|{string}||
 
 ### Broker Subschema
-| Name            | Type     | Required? | String Validation Codes |
-|:----------------|:---------|:----------|:------------------------|
+| Parameters   | Type     | Required? | String Validation Codes |
+|:-------------|:---------|:----------|:------------------------|
 name|{string}||
 tax_id|{string}||
 account_numbers|{string}||
 
 ### Member Subschema
-| Name                        | Type                      | Required?                                                        | String Validation Codes |
+| Parameters              | Type                      | Required?                                                        | String Validation Codes |
 |:----------------------------|:--------------------------|:-----------------------------------------------------------------|:------------------------|
 name|{string}||
 last_name|{string}||
@@ -86,7 +86,7 @@ benefits|List of Coverage Schema||
 maintenance_effective_date|datetime||
 
 #### Address Subschema
-| Name        | Type     | Required? | String Validation Codes |
+| Parameter   | Type     | Required? | String Validation Codes |
 |:------------|:---------|:----------|:-------|
 line|{string}|Yes|
 line2|{string}||
@@ -97,19 +97,19 @@ country|{string}||
 county|{string}||
 
 #### Medicare Subschema
-| Name               | Type     | Required? | String Validation Codes |
-|:-------------------|:---------|:----------|:------------------------|
+| Parameters      | Type     | Required? | String Validation Codes |
+|:----------------|:---------|:----------|:------------------------|
 plan|{string}|Yes|DOMAIN_MEDICARE_PLAN_CODES
 eligibility_reason|{string}||DOMAIN_MEDICARE_ELIGIBILITY_REASON_CODES
 
 #### School Subschema
-| Name | Type     | Required? | String Validation Codes |
-|:-----|:---------|:----------|:------------------------|
+| Parameters | Type     | Required? | String Validation Codes |
+|:-----------|:---------|:----------|:------------------------|
 name|{string}||
 
 #### Contact Subschema
-| Name                         | Type     | Required? | String Validation Codes |
-|:-----------------------------|:---------|:----------|:------------------------|
+| Parameters              | Type     | Required? | String Validation Codes |
+|:------------------------|:---------|:----------|:------------------------|
 name|{string}||
 primary_communication_type|{string}|yes|COMMUNICATION_TYPE_CODES
 primary_communication_number|{string}|yes|
@@ -124,8 +124,8 @@ communication_number3|{string}||
 Fix Me! Get the Monetary Amount Schema|||
 
 #### Coverage Subschema
-| Name                        | Type                                       | Required? | String Validation Codes |
-|:----------------------------|:-------------------------------------------|:----------|:------------------------|
+| Parameters           | Type                                       | Required? | String Validation Codes |
+|:---------------------|:-------------------------------------------|:----------|:------------------------|
 maintenance_type|{string}|Yes|DOMAIN_MAINTENANCE_TYPE_CODES
 benefit_type|{string}||DOMAIN_INSURANCE_LINE_CODES
 description|{string}||
@@ -148,14 +148,14 @@ providers|List of Provider SubSchema||
 
 
 ##### Coordination of Benefits Subschema
-| Name                   | Type     | Required? | String Validation Codes |
+| Parameters             | Type     | Required? | String Validation Codes |
 |:-----------------------|:---------|:----------|:------------------------|
 payer_responsibility|{string}|Yes|DOMAIN_PAYER_RESPONSIBILITY_CODES
 group_or_policy_number|{string}||
 status|{string}|Yes|DOMAIN_COORDINATION_OF_BENEFITS_CODES
 
 ##### Provider Subschema
-| Name                      | Type              | Required? | String Validation Codes |
+| Parameters                | Type              | Required? | String Validation Codes |
 |:--------------------------|:------------------|:----------|:------------------------|
 type|{string}|Yes|DOMAIN_PROVIDER_TYPE_CODES
 entity_type|{string}|Yes|ENTITY_TYPE_CODES
