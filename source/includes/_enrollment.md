@@ -12,11 +12,10 @@ Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /enrollment/ | POST | Submit a benefits enrollment request to the specified trading partner
 
-The Enrollment endpoint accepts the following parameters:
+These are some of the most commonly used parameters accepted by the enrollment endpoint. 
 
 Parameters  | Description
 ----------- | -----------
-action | 
 dependents | A list of dependents covered under benefits by the subscriber. Each dependent list item may utilize the same request fields as a subscriber.
 master_policy_number | The master policy number for the sponsor.
 reference.number |The reference number for the transaction.  
