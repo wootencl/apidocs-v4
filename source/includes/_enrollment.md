@@ -208,6 +208,7 @@ Available Enrollment Endpoints:
 | /enrollment/ | POST        | Submit a benefits enrollment request to the specified trading partner |
 
 These are some of the most commonly used parameters accepted by the enrollment endpoint.
+<a name="enrollment_table"></a>
 
 | Parameters                                 | Description                                                                                                                                             |
 |:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -261,105 +262,76 @@ Responses to enrollment submissions can vary greatly from carrier to carrier. Po
 
 ### Validation Codes
 
+The following are the acceptable values for various fields in the table above.
+
 <a name="api_relationships"></a>
 
-| Relationship Codes           |
-|:-----------------------------|
-| spouse                       |
-| father                       |
-| mother                       |
-| grandfather                  |
-| grandmother                  |
-| grandson                     |
-| granddaughter                |
-| aunt                         |
-| uncle                        |
-| nephew                       |
-| niece                        |
-| cousin                       |
-| adopted_child                |
-| foster_child                 |
-| son_in_law                   |
-| daughter_in_law              |
-| brother_in_law               |
-| sister_in_law                |
-| mother_in_law                |
-| father_in_law                |
-| brother                      |
-| sister                       |
-| ward                         |
-| step_parent                  |
-| step_son                     |
-| step_daughter                |
-| self                         |
-| child                        |
-| sponsored_dependent          |
-| dependent_of_minor_dependent |
-| ex_spouse                    |
-| guardian                     |
-| court_appointed_guardian     |
-| collateral_dependent         |
-| life_partner                 |
-| annuitant                    |
-| trustee                      |
-| other_relationship           |
-| other_relative               |
-
-<a name="coverage_level_codes"></a>
-
-| Coverage Level Codes                  |
-|:--------------------------------------|
-| Children Only                         |
-| Dependents Only                       |
-| Employee and One Dependent            |
-| Employee and Two Dependents           |
-| Employee and Three Dependents         |
-| Employee and One or More Dependents   |
-| Employee and Two or More Dependents   |
-| Employee and Three or More Dependents |
-| Employee and Four or More Dependents  |
-| Employee and Five or More Dependents  |
-| Employee and Children                 |
-| Employee Only                         |
-| Employee and Spouse                   |
-| Family                                |
-| Individual                            |
-| Spouse and Children                   |
-| Spouse Only                           |
-| Two Party                             |
-
-<a name="action_codes"></a>
-
-| Action Codes |
-|:-------------|
-| Change       |
-| Verify       |
-| Replace      |
+| Relationship Codes (<a href="#enrollment_table">back</a>) |
+|:----------------------------------------------------------|
+| spouse                                                    |
+| father                                                    |
+| mother                                                    |
+| grandfather                                               |
+| grandmother                                               |
+| grandson                                                  |
+| granddaughter                                             |
+| aunt                                                      |
+| uncle                                                     |
+| nephew                                                    |
+| niece                                                     |
+| cousin                                                    |
+| adopted_child                                             |
+| foster_child                                              |
+| son_in_law                                                |
+| daughter_in_law                                           |
+| brother_in_law                                            |
+| sister_in_law                                             |
+| mother_in_law                                             |
+| father_in_law                                             |
+| brother                                                   |
+| sister                                                    |
+| ward                                                      |
+| step_parent                                               |
+| step_son                                                  |
+| step_daughter                                             |
+| self                                                      |
+| child                                                     |
+| sponsored_dependent                                       |
+| dependent_of_minor_dependent                              |
+| ex_spouse                                                 |
+| guardian                                                  |
+| court_appointed_guardian                                  |
+| collateral_dependent                                      |
+| life_partner                                              |
+| annuitant                                                 |
+| trustee                                                   |
+| other_relationship                                        |
+| other_relative                                            |
 
 <a name="gender_codes"></a>
 
-| Gender Codes |
-|:-------------|
-| Female       |
-| Male         |
-| Unknown      |
+| Gender Codes (<a href="#enrollment_table">back</a>) |
+|:----------------------------------------------------|
+| Female                                              |
+| Male                                                |
+| Unknown                                             |
 
 <a name="maintenance_type_codes"></a>
 
-| Maintenance Type Codes              |
-|:------------------------------------|
-| Change                              |
-| Delete                              |
-| Addition                            |
-| Cancellation or Termination         |
-| Reinstatement                       |
-| Correction                          |
-| Audit or Compare                    |
-| Employee Information Not Applicable |
+| Maintenance Type Codes (<a href="#enrollment_table">back</a>) |
+|:--------------------------------------------------------------|
+| Change                                                        |
+| Delete                                                        |
+| Addition                                                      |
+| Cancellation or Termination                                   |
+| Reinstatement                                                 |
+| Correction                                                    |
+| Audit or Compare                                              |
+| Employee Information Not Applicable                           |
 
 <a name="maintenance_reason_codes"></a>
 
-| Maintenance Reason Codes                                             |
+| Maintenance Reason Codes (<a href="#enrollment_table">back</a>)      |
 |:---------------------------------------------------------------------|
 | Divorce                                                              |
 | Birth                                                                |
@@ -418,43 +390,16 @@ Responses to enrollment submissions can vary greatly from carrier to carrier. Po
 | Retired                    |
 | Terminated                 |
 
-<a name="insurance_line_codes"></a>
-
-| Insurance Line Codes            |
-|:--------------------------------|
-| Preventative Care/Wellness      |
-| 24 Hour Care                    |
-| Medicare Risk                   |
-| Mental Health                   |
-| Dental Capitation               |
-| Dental                          |
-| Exclusive Provider Organization |
-| Facility                        |
-| Hearing                         |
-| Health                          |
-| Health Maintenance Organization |
-| Long-Term Care                  |
-| Long-Term Disability            |
-| Major Medical                   |
-| Mail Order Drug                 |
-| Prescription Drug               |
-| Point of Service                |
-| Preferred Provider Organization |
-| Practitioners                   |
-| Short-Term Disability           |
-| Utilization Review              |
-| Vision                          |
-
 <a name="communication_type_codes"></a>
 
-| COMMUNICATION_TYPE_CODES |
-|:-------------------------|
-| Electronic Mail          |
-| Telephone Extension      |
-| Facsimile                |
-| Telephone                |
-| Home Phone Number        |
-| Work Phone Number        |
-| Cellular Phone           |
-| Beeper Number            |
-| Alternate Telephone      |
+| Communication Type Codes (<a href="#enrollment_table">back</a>) |
+|:----------------------------------------------------------------|
+| Electronic Mail                                                 |
+| Telephone Extension                                             |
+| Facsimile                                                       |
+| Telephone                                                       |
+| Home Phone Number                                               |
+| Work Phone Number                                               |
+| Cellular Phone                                                  |
+| Beeper Number                                                   |
+| Alternate Telephone                                             |
