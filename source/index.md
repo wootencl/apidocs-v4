@@ -39,4 +39,6 @@ includes:
   - apidashboard
 
 search: true
+
+enrollment_codes: enrollment_codes
 ---
