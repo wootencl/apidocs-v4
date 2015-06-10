@@ -266,47 +266,29 @@ The following are the acceptable values for various fields in the table above.
 
 <a name="api_relationships"></a>
 
-| Relationship Codes (<a href="#enrollment_table">back</a>) |
-|:----------------------------------------------------------|
-| spouse                                                    |
-| father                                                    |
-| mother                                                    |
-| grandfather                                               |
-| grandmother                                               |
-| grandson                                                  |
-| granddaughter                                             |
-| aunt                                                      |
-| uncle                                                     |
-| nephew                                                    |
-| niece                                                     |
-| cousin                                                    |
-| adopted_child                                             |
-| foster_child                                              |
-| son_in_law                                                |
-| daughter_in_law                                           |
-| brother_in_law                                            |
-| sister_in_law                                             |
-| mother_in_law                                             |
-| father_in_law                                             |
-| brother                                                   |
-| sister                                                    |
-| ward                                                      |
-| step_parent                                               |
-| step_son                                                  |
-| step_daughter                                             |
-| self                                                      |
-| child                                                     |
-| sponsored_dependent                                       |
-| dependent_of_minor_dependent                              |
-| ex_spouse                                                 |
-| guardian                                                  |
-| court_appointed_guardian                                  |
-| collateral_dependent                                      |
-| life_partner                                              |
-| annuitant                                                 |
-| trustee                                                   |
-| other_relationship                                        |
-| other_relative                                            |
+| Relationship Codes (<a href="#enrollment_table">back</a>) |                              |
+|:----------------------------------------------------------|:-----------------------------|
+| spouse                                                    | father                       |
+| mother                                                    | grandfather                  |
+| grandmother                                               | grandson                     |
+| granddaughter                                             | aunt                         |
+| uncle                                                     | nephew                       |
+| niece                                                     | cousin                       |
+| adopted_child                                             | foster_child                 |
+| son_in_law                                                | daughter_in_law              |
+| brother_in_law                                            | sister_in_law                |
+| mother_in_law                                             | father_in_law                |
+| brother                                                   | sister                       |
+| ward                                                      | step_parent                  |
+| step_son                                                  | step_daughter                |
+| self                                                      | child                        |
+| sponsored_dependent                                       | dependent_of_minor_dependent |
+| ex_spouse                                                 | guardian                     |
+| court_appointed_guardian                                  | collateral_dependent         |
+| life_partner                                              | annuitant                    |
+| trustee                                                   | other_relationship           |
+| other_relative                                            |                              |
+
 
 <a name="gender_codes"></a>
 
@@ -318,88 +300,57 @@ The following are the acceptable values for various fields in the table above.
 
 <a name="maintenance_type_codes"></a>
 
-| Maintenance Type Codes (<a href="#enrollment_table">back</a>) |
-|:--------------------------------------------------------------|
-| Change                                                        |
-| Delete                                                        |
-| Addition                                                      |
-| Cancellation or Termination                                   |
-| Reinstatement                                                 |
-| Correction                                                    |
-| Audit or Compare                                              |
-| Employee Information Not Applicable                           |
+| Maintenance Type Codes (<a href="#enrollment_table">back</a>) |                                     |
+|:--------------------------------------------------------------|:------------------------------------|
+| Change                                                        | Delete                              |
+| Addition                                                      | Cancellation or Termination         |
+| Reinstatement                                                 | Correction                          |
+| Audit or Compare                                              | Employee Information Not Applicable |
 
 <a name="maintenance_reason_codes"></a>
 
-| Maintenance Reason Codes (<a href="#enrollment_table">back</a>)      |
-|:---------------------------------------------------------------------|
-| Divorce                                                              |
-| Birth                                                                |
-| Death                                                                |
-| Retirement                                                           |
-| Adoption                                                             |
-| Strike                                                               |
-| Termination of Benefits                                              |
-| Termination of Employment                                            |
-| Consolidation Omnibus Budget Reconciliation Act (COBRA)              |
-| Consolidation Omnibus Budget Reconciliation Act (COBRA) Premium Paid |
-| Surviving Spouse                                                     |
-| Voluntary Withdrawal                                                 |
-| Primary Care Provider (PCP) Change                                   |
-| Quit                                                                 |
-| Fired                                                                |
-| Suspended                                                            |
-| Active                                                               |
-| Disability                                                           |
-| Plan Change                                                          |
-| Change in Identifying Data Elements                                  |
-| Declined Coverage                                                    |
-| Pre-Enrollment                                                       |
-| Initial Enrollment                                                   |
-| Benefit Selection                                                    |
-| Legal Separation                                                     |
-| Marriage                                                             |
-| Personnel Data                                                       |
-| Leave of Absence with Benefits                                       |
-| Leave of Absence without Benefits                                    |
-| Lay Off with Benefits                                                |
-| Lay Off without Benefits                                             |
-| Re-enrollment                                                        |
-| Change of Location                                                   |
-| Non Payment                                                          |
+| Maintenance Reason Codes (<a href="#enrollment_table">back</a>) |                                                                      |
+|:----------------------------------------------------------------|:---------------------------------------------------------------------|
+| Divorce                                                         | Birth                                                                |
+| Death                                                           | Retirement                                                           |
+| Adoption                                                        | Strike                                                               |
+| Termination of Benefits                                         | Termination of Employment                                            |
+| Consolidation Omnibus Budget Reconciliation Act (COBRA)         | Consolidation Omnibus Budget Reconciliation Act (COBRA) Premium Paid |
+| Surviving Spouse                                                | Voluntary Withdrawal                                                 |
+| Primary Care Provider (PCP) Change                              | Quit                                                                 |
+| Fired                                                           | Suspended                                                            |
+| Active                                                          | Disability                                                           |
+| Plan Change                                                     | Change in Identifying Data Elements                                  |
+| Declined Coverage                                               | Pre-Enrollment                                                       |
+| Initial Enrollment                                              | Benefit Selection                                                    |
+| Legal Separation                                                | Marriage                                                             |
+| Personnel Data                                                  | Leave of Absence with Benefits                                       |
+| Leave of Absence without Benefits                               | Lay Off with Benefits                                                |
+| Lay Off without Benefits                                        | Re-enrollment                                                        |
+| Change of Location                                              | Non Payment                                                          |
 
 <a name="benefit_status_codes"></a>
 
-| Benefit Status Codes                                   |
-|:-------------------------------------------------------|
-| Active                                                 |
-| Consolidated Omnibus Budget Reconciliation Act (COBRA) |
-| Surviving Insured                                      |
-| Tax Equity and Fiscal Responsibility Act (TEFRA)       |
+| Benefit Status Codes |                                                        |
+|:---------------------|:-------------------------------------------------------|
+| Active               | Consolidated Omnibus Budget Reconciliation Act (COBRA) |
+| Surviving Insured    | Tax Equity and Fiscal Responsibility Act (TEFRA)       |
 
 <a name="employment_status_codes"></a>
 
-| Employment Status Codes    |
-|:---------------------------|
-| Active                     |
-| Active Military - Overseas |
-| Active Military - USA      |
-| Full-time                  |
-| Leave of Absence           |
-| Part-time                  |
-| Retired                    |
-| Terminated                 |
+| Employment Status Codes |                            |
+|:------------------------|:---------------------------|
+| Active                  | Active Military - Overseas |
+| Active Military - USA   | Full-time                  |
+| Leave of Absence        | Part-time                  |
+| Retired                 | Terminated                 |
 
 <a name="communication_type_codes"></a>
 
-| Communication Type Codes (<a href="#enrollment_table">back</a>) |
-|:----------------------------------------------------------------|
-| Electronic Mail                                                 |
-| Telephone Extension                                             |
-| Facsimile                                                       |
-| Telephone                                                       |
-| Home Phone Number                                               |
-| Work Phone Number                                               |
-| Cellular Phone                                                  |
-| Beeper Number                                                   |
-| Alternate Telephone                                             |
+| Communication Type Codes (<a href="#enrollment_table">back</a>) |                     |
+|:----------------------------------------------------------------|:--------------------|
+| Electronic Mail                                                 | Telephone Extension |
+| Facsimile                                                       | Telephone           |
+| Home Phone Number                                               | Work Phone Number   |
+| Cellular Phone                                                  | Beeper Number       |
+| Alternate Telephone                                             |                     |
