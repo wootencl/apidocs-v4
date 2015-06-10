@@ -49,6 +49,71 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     }
 }` https://platform.pokitdok.com/api/v4/claims/
 ```
+> Sample Claims request where the patient is not the subscriber:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+"transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    “patient": {
+        "first_name": “John",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1971-01-01",
+        "gender": “male"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 100.0,
+        "service_lines": [
+            {
+                "procedure_code": "99201",
+                "procedure_modifier_codes": ["GT"],
+                "charge_amount": 100.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+}' https://platform.pokitdok.com/api/v4/claims/
+```
+
                     
 > Sample Claims request that includes custom application data for easy handling
 of asynchronous responses:
@@ -267,15 +332,18 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 *Available modes of operation: batch/async*
 
-Following the standard X12 837 format, the PokitDok Claims Endpoint allows
+Following the standard X12 837 format, the PokitDok Claims endpoint allows
 applications to easily file claims to designated trading partners. 
 
-When using the Claims Endpoint, there is an option to supply a callback_url,
+When using the Claims endpoint, there is an option to supply a callback_url,
 which indicates that your application should be notified when the asynchronous
 processing is complete and a claim acknowledgement has been received from the
-trading partner.When a callback_url is specified, the full claims request
-activity will be POSTed back to the callback_url. A claim acknowledgement will
-be returned for each submitted claims request.
+trading partner. The full claims request activity will be POSTed back to the
+callback_url. A claim acknowledgement will be returned for each submitted
+claims request. Once a claim is adjudicated, an 835 Electronic Remittance
+Advice transaction will be return which provides claim payment information.
+If you are interested in receiving 835 files, please contact  
+our team: platform@pokitdok.com.
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -337,9 +405,9 @@ subscriber.gender | The subscriber’s gender as specified on their policy. | 11
 subscriber.group_name | Optional: The subscriber’s group name as specified on their policy. | 11b: Employer's name or school name
 subscriber.member_id | Required: The subscriber’s member identifier. | 1a: Insured's ID number
 subscriber.last_name | Required: The subscriber’s last name as specified on their policy. | 4: Insured's name
-trading_partner_id | Required: Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint. | 
+trading_partner_id | Required: Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint. | 
 transaction_code | Required: The type of claim transaction that is being submitted. (e.g. "chargeable") | 
 
 A claim goes through an entire lifecycle after its transmission to a payer.
 For details on this process, and how the [Claims Status](#claims-status)
-Endpoint ties in, see [claims API workflow](https://platform.pokitdok.com/claim-processing).             
+Endpoint ties in, see our [claims API workflow](https://platform.pokitdok.com/claim-processing).             

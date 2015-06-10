@@ -37,8 +37,8 @@ includes:
   - authentication
   - common
   - apidashboard
-  - jsonedisupport
-
 
 search: true
+
+enrollment_codes: enrollment_codes
 ---
