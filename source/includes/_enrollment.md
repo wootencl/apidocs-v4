@@ -213,7 +213,7 @@ These are some of the most commonly used parameters accepted by the enrollment e
 | Parameters                                 | Description                                                                                                                                             |
 |:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | dependents                                 | A list of dependents covered under benefits by the subscriber.                                                                                          |
-|                                            | Each dependent list item may utilize the same request fields as a subscriber.                                                                           |
+|                                            | Each dependent list item may utilize the same request parameters as a subscriber.                                                                           |
 | master_policy_number                       | The master policy number for the sponsor.                                                                                                               |
 | reference.number                           | The reference number for the transaction.                                                                                                               |
 | relationship                               | The relationship of the subject of the transaction to the policy holder.<br/>Acceptable values: see <a href="#api_relationships">relationship codes</a> |
@@ -262,7 +262,7 @@ Responses to enrollment submissions can vary greatly from carrier to carrier. Po
 
 ### Validation Codes
 
-The following are the acceptable values for various fields in the table above.
+The following are the acceptable values for various parameters in the table above.
 
 <a name="api_relationships"></a>
 
