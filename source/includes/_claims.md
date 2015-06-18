@@ -415,7 +415,7 @@ Endpoint ties in, see our [claims API workflow](https://platform.pokitdok.com/cl
 Full list of possible values that can be used in the claim.place_of_service parameter on the claim:
 
 place_of_service Values |                        
------------------------ |                        
+----------------------- | ------------------------                        
 ambulance_air_or_water | mobile_unit
 ambulance_land | nursing
 assisted_living | office
