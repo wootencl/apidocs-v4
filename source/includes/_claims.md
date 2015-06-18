@@ -414,48 +414,48 @@ Endpoint ties in, see our [claims API workflow](https://platform.pokitdok.com/cl
 <a name="place-of-service"></a>
 Full list of possible values that can be used in the claim.place_of_service parameter on the claim:
 
-place_of_service Values |                        
------------------------ | ------------------------                        
-ambulance_air_or_water | mobile_unit
-ambulance_land | nursing
-assisted_living | office
-birthing_center | other
-custodial | outpatient_hospital
-end_stage_renal | outpatient_rehab
-er_hospital | pharmacy
-federal_qualified | prison
-group_home | psych_partial_hospital
-home | public_clinic
-hospice | residential_substance_abuse
-ihs_freestanding | rural_clinic
-ihs_provider | school
-immunization | shelter
-independent_clinic | skilled_nursing
-independent_lab | surgical_center
-inpatient_hospital | temp_lodging
-inpatient_psych | tribal_638_freestanding
-inpatient_rehab | tribal_638_provider
-mental_health_center | urgent_care
-mentally_retarded | walkin_clinic
-military | worksite
+| place_of_service Values |                            |
+|:------------------------|:---------------------------|                    
+| ambulance_air_or_water  | mobile_unit                |
+| ambulance_land          | nursing                    |
+| assisted_living         | office                     |
+| birthing_center         | other                      |
+| custodial               | outpatient_hospital        |
+| end_stage_renal         | outpatient_rehab           |
+| er_hospital             | pharmacy                   |
+| federal_qualified       | prison                     |
+| group_home              | psych_partial_hospital     |
+| home                    | public_clinic              |
+| hospice                 | residential_substance_abuse|
+| ihs_freestanding        | rural_clinic               |
+| ihs_provider            | school                     |
+| immunization            | shelter                    |
+| independent_clinic      | skilled_nursing            |
+| independent_lab         | surgical_center            |
+| inpatient_hospital      | temp_lodging               |
+| inpatient_psych         | tribal_638_freestanding    |
+| inpatient_rehab         | tribal_638_provider        |
+| mental_health_center    | urgent_care                |
+| mentally_retarded       | walkin_clinic              |
+| military                | worksite                   |
 
 
 <a name="relationships"></a>
 Full list of possible values that can be used in the patient.relationships parameter on the claim:
 
-relationship Values |
-------------------- | -------------------
-cadaver_donor | organ_donor
-child | other_relationship
-employee | spouse
-life_partner | unknown
+| relationship Values |                            |
+|:--------------------|:---------------------------|
+| cadaver_donor       | organ_donor                |
+| child               | other_relationship         |
+| employee            | spouse                     |
+| life_partner        | unknown                    |
 
 
 <a name="transaction_codes"></a>
 Full list of possible values that can be used in the claim.place_of_service parameter on the claim:
 
-transaction_code Values |
------------------------ | ----------------------
-subrogation_demand |
-chargeable |
-reporting |
+| transaction_code Values |                            |
+|:------------------------|:---------------------------|
+| subrogation_demand      |                            |
+| chargeable              |                            |
+| reporting               |                            |
