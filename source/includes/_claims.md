@@ -414,8 +414,8 @@ Endpoint ties in, see our [claims API workflow](https://platform.pokitdok.com/cl
 <a name="place-of-service"></a>
 Full list of possible values that can be used in the claim.place_of_service parameter on the claim:
 
-place_of_service Values |
-------------------------|-----------------------
+place_of_service Values |                        
+----------------------- |                        
 ambulance_air_or_water | mobile_unit
 ambulance_land | nursing
 assisted_living | office
@@ -444,7 +444,7 @@ military | worksite
 Full list of possible values that can be used in the patient.relationships parameter on the claim:
 
 relationship Values |
---------------------|--------------------
+------------------- | -------------------
 cadaver_donor | organ_donor
 child | other_relationship
 employee | spouse
@@ -455,7 +455,7 @@ life_partner | unknown
 Full list of possible values that can be used in the claim.place_of_service parameter on the claim:
 
 transaction_code Values |
-------------------------|-----------------------
-subrogation_demand
-chargeable
-reporting
+----------------------- | ----------------------
+subrogation_demand |
+chargeable |
+reporting |
