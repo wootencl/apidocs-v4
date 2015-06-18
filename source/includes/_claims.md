@@ -367,7 +367,7 @@ billing_provider.tax_id | The federal tax id for the provider billing for servic
 billing_provider.taxonomy_code | The taxonomy code for the provider billing for services. (e.g. "207Q00000X") | 24i: ID Qualifier
 claim | Dictionary of information representing a claim for services that have been performed by a health care provider for the patient. | 
 claim.onset_date | Optional: the date of first symptoms for the illness. | 14: Date of current illness OR injury OR pregnancy
-claim.place_of_service | The location where services were performed (e.g. office). A full list of possible values is included [below](#place-of-service) | 24b: Place of service
+claim.place_of_service | The location where services were performed (e.g. office). A full list of possible values is included [below](#place-of-service). | 24b: Place of service
 claim.patient_paid_amount | Optional: The amount the patient has already paid the provider for the services listed in the claim. When reporting cash payment encounters for the purpose of contributing those amounts toward the member's deductible, the patient_paid_amount will equal the total_charge_amount. | 29: Amount Paid
 claim.patient_signature_on_file | Boolean indicator for whether or not a patient's signature is on file to authorize the release of medical records. Defaults to true if not specified. | 12: Patient's or authorized person's signature
 claim.service_lines | List of services that were performed as part of this claim. | 
@@ -391,7 +391,7 @@ patient.member_id | Required: The patient’s member identifier. |
 patient.middle_name | Optional: The patient’s middle name. | 2: Patient's Name
 patient.last_name | Required: The patient’s last name. | 2: Patient's Name
 patient.pregnant | Patient pregnancy indicator. Defaults to false. | 
-patient.relationship | Required: The patient’s relationship to the subscriber. A fill list of possible values is included [below](#relationships) | 6: Patient's relationship to the insured
+patient.relationship | Required: The patient’s relationship to the subscriber. A fill list of possible values is included [below](#relationships). | 6: Patient's relationship to the insured
 subscriber | Information about the insurance subscriber as it appears on their policy. | 
 subscriber.address | The subscriber’s address information as specified on their policy. | 7: Insured's address
 subscriber.address.address_lines | The subscriber’s street address information as specified on their policy. (e.g. ["123 N MAIN ST"]) | 
@@ -451,7 +451,7 @@ Full list of possible values that can be used in the patient.relationships param
 | life_partner        | unknown                    |
 
 
-<a name="transaction_codes"></a>
+<a name="transaction-codes"></a>
 Full list of possible values that can be used in the claim.place_of_service parameter on the claim:
 
 | transaction_code Values |
