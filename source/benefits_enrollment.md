@@ -3,176 +3,175 @@
 ## JSON Schema for 834 Benefits Enrollment
 | Parameters          | Type                     | Description | Required? |
 |:--------------------|:-------------------------|:------------|:----------|
-reference_number|{string}|The reference number for the transaction. |Yes|
-purpose|{string}|"See ""Purpose Codes"" table below."|Yes|
-action|{string}|"See ""Action Codes"" table below."|Yes|
-master_policy_number|{string}|If applicable the master policy number for the account.|No|
-payer|Payer Subschema|"See the ""Payer"" subschema below."|Yes|
-sponsor|Sponser Subschema|"See the ""Sponser"" subschema below."|Yes|
-broker|Broker SubSchema|"See the ""Broker"" subschema below."|No|
-tpa|Broker SubSchema|"See the ""Broker"" subschema below."|No|
-subscriber|Member Subschema|"See the ""Member"" subschema below."|Yes|
-dependents|List of Member Subschema|"See the ""Member"" subschema below."|No|
-application_data|Dict|"See ""Application Data"" in Common to all Requests."|No|
+reference_number|{string}|The reference number for the transaction.|Yes
+purpose|{string}|The purpose of the transaction. Acceptable values see purpose codes.|Yes
+action|{string}|The action of the transaction. Acceptable values see action codes. |Yes
+master_policy_number|{string}|The master policy number for the sponsor.|No
+payer|Payer Subschema|"The payer segment for the transaction. <br/>Reference: the <a href=""### Payer Subschema>payer subschema.</a>"|Yes
+sponsor|Sponsor Subschema|The employer/sponsor segment for the transaction. See the sponsor subschema. |Yes
+broker|Broker SubSchema|The broker segment for the transaction. See the broker subschema. |No
+tpa|Broker SubSchema|The third party administrator segment for the transaction. See the broker subschema. |No
+subscriber|Member Subschema|The subscriber/employee segment for the transaction. See the member subschema. |Yes
+dependents|List of Member Subschema|A list of dependents covered under benefits by the subscriber. This should be based off of the same parameters as the member subschema. See the member subschema. |No
+application_data|Dict|Reference the application data definition.|No
 
+"<a name=""### Payer Subschema""></a>"
 ### Payer Subschema
 | Parameters   | Type     | Description | Required? |
 |:-------------|:---------|:------------|:----------|
-name|{string}|The name of of the carrier/payer. |
-tax_id|{string}|The tax ID of the carrier/payer. |
+name|{string}|The name of of the carrier/payer.|
+tax_id|{string}|The tax ID of the carrier/payer.|
 
 ### Sponsor Subschema
 | Parameters   | Type     | Description | Required? |
 |:-------------|:---------|:------------|:----------|
-name|{string}|The name of the sponser. |
-tax_id|{string}|The tax ID of the sponser.|
+name|{string}|The employer/sponsor of the benefits.|
+tax_id|{string}|The tax id of the sponsor.|
 
 ### Broker Subschema
 | Parameters   | Type     | Description | Required? |
 |:-------------|:---------|:------------|:----------|
-name|{string}|The name of the broker. |
+name|{string}|The name of the broker.|
 tax_id|{string}|The tax ID of the broker.|
-account_numbers|{string}|The account number of the broker. |
+account_numbers|{string}|The account numbers of the broker.|
 
 ### Member Subschema
 | Parameters              | Type                      | Description      | Required?                 |
 |:------------------------|:--------------------------|:-----------------|:--------------------------|
-name|{string}|The name of the member.|
-last_name|{string}|The last name of the member.|
-first_name|{string}|The first name of the member.|
-middle_name|{string}|The middle name of the subscriber.|
-suffix|{string}|The suffix of the subscriber.|
-address|Address Subschema|"See the ""Address"" subschema below."|
-ssn|{string}|The social security number of the subscriber. |
-member_id|{string}|The memeber ID of the subscriber where applicable. |
-subscriber_number|{string}|The subscriber number of the subscriber. |
-gender:|{string}|"See ""Gender Codes"" table below."|
-group_or_policy_number|{string}|The group or policy number.|
-relationship|{string}|"See ""Member Relationship Codes"" table below."|
-maintenance_type|{string}|"See ""Maintenance Codes"" table below."|
-maintenance_reason|{string}|"See ""Maintenance Reason Codes"" table below."|
-benefit_status|{string}|"See ""Benefit Status Codes"" table below."|
-employment_status|{string}|"See ""Employment Status Codes"" table below."|
-student_status|{string}|"See ""Student Status Codes"" table below."|
-marital_status|{string}|"See ""Marital Status Codes"" table below."|
-citizenship_status|{string}|"See ""Citizenship Status Codes"" table below."|
-ethnicity|{string}|"See ""Ethnicity Codes"" table below."|
-handicapped|Bool (Default: False)|If the subscriber is handicapped it would need to be defined as True. The default is false for this parameter. |
-cobra_qualifying_event|{string}|"See ""Cobra Qualifying Event Codes"" table below."|
-confidentiality|{string}||
-medicare|Medicare SubSchema|"See the ""Medicare"" subschema below."|
-school|School SubSchema|"See the ""School"" subschema below."|
-eligibility_begin_date|Datetime|The eligibility begin date for the subscriber. |
-eligibility_end_date|Datetime|The eligibility end date for the subscriber. |
-education_end_date|Datetime|The education end date for the subscriber. |
-birth_date|Datetime|The birthdate of the subscriber. |
-birth_sequence|Int|The birth sequence of the subscriber. This is only required when family members have the same birth date. |#Required when reporting family members with the same birth date
-death_date|Datetime|The death date of the subscriber. |#Member Individual Death Date
-contacts:|List of Contact SubSchema|"See the ""Contact"" subschema below."|
-employment_classes|List of String|"See ""Employment Class Codes"" table below."|
-wages_amount|Monetary Amount Schema|"See the ""Monetary"" subschema below."|
-wages_paid_frequency|{string}|"See ""Wages Paid Frequency Codes"" table below"|
-spend_down_amount|Monetary Amount Schema|"See the ""Monetary Amount"" subschema below."|
-premium_amount|Monetary Amount Schema|"See the ""Monetary Amount"" subschema below."|
-expected_expenditure_amount|Monetary Amount Schema|"See the ""Monetary Amount"" subschema below."| 
-deductible_amount|Monetary Amount Schema|"See the ""Monetary Amount"" subschema below."|
-copayment_amount|Monetary Amount Schema|"See the ""Monetary Amount"" subschema below."|
-coinsurance_amount’|Monetary Amount Schema|"See the ""Monetary Amount"" subschema below."|
-substance_abuse|Bool (Default: False)|If the subscriber has a substance abuse this parameter would need to be defined as True. The default is False for this parameter. |
-tobacco_use|Bool (Default: False)|If the subscriber uses tobacco this parameter would need to be defined as True. The default is False for this parameter. |
-height|{string}|The height of the subscriber. |
-weight|{string}|The weight of the subscriber. |
-benefits|List of Coverage SubSchema|"See the ""Coverage"" subschema below."|
-maintenance_effective_date|datetime|The maintenance effective date of the subscriber. |
+last_name|{string}|The first name for the subscriber.|
+first_name|{string}|The last name for the subscriber|
+middle_name|{string}|The middle name for the subscriber.|
+suffix|{string}|The suffix for the subscriber.|
+address|Address Subschema|The address segment for the subscriber. See the address subschema. |
+ssn|{string}|The social security number for the subscriber.|
+member_id|{string}|The member id for the subscriber if already enrolled in benefits.|
+subscriber_number|{string}|The subscriber number or ssn for the subscriber.|
+gender|{string}|The gender for the subscriber. Acceptable values: see gender codes.|
+group_or_policy_number|{string}|The group or policy number for this list item.|
+relationship|{string}|The relationship of the subject of the transaction to the policyholder. Acceptable values: see relationship codes. |
+maintenance_type|{string}|The type of benefit maintenance. Acceptable values: see types.|
+maintenance_reason|{string}|The reason for benefit maintenance. Acceptable values: see reason codes.|
+benefit_status|{string}|The benefit status for the subscriber. Acceptable values: see benefit status codes.|
+employment_status|{string}|The employment status for the subscriber. Acceptable values: see employment status codes.|
+student_status|{string}|The student status for the subscriber. Acceptable values: see student status codes.|
+marital_status|{string}|The marital status for the subscriber. Acceptable values: see marital status codes.|
+citizenship_status|{string}|The citizenship status for the subscriber. Acceptable values: see citizenship status codes.|
+ethnicity|{string}|The ethnicity of the subscriber. Acceptable values: see ethnicity codes table below.|
+handicapped|Bool (Default: False)|If the subscriber is handicapped it would need to be defined as True. The default is false for this parameter.|
+cobra_qualifying_event|{string}|The cobra qualifying event for the subscriber. Acceptable values: See cobra qualifying event codes. |
+confidentiality|{string}|The code indicating the address to insured information. |
+medicare|Medicare SubSchema|The medicare segment for the transaction. See the medicare subschema. |
+school|School SubSchema|The school segment for the transaction. See the school subschema. |
+eligibility_begin_date|Datetime|The date benefits become eligible for the subscriber.|
+eligibility_end_date|Datetime|The date benefits become ineligible for the subscriber.|
+education_end_date|Datetime|The education end date for the subscriber.|
+birth_date|Datetime|The date of birth for the subscriber.|
+birth_sequence|Int|The birth sequence of the subscriber. This is only required when family members have the same birth date.|#Required when reporting family members with the same birth date
+death_date|Datetime|The death date of the subscriber.|#Member Individual Death Date
+contacts|List of Contact SubSchema|A list of contact information for the subscriber. See the contact subschema. |
+employment_classes|List of String|The employment class codes for the subscriber. Acceptable values: see employment class codes. |
+wages_amount|Monetary Amount Schema|The wage paid to the subscriber. Reference the monetary subschema. |
+wages_paid_frequency|{string}|The frequency the subscriber is paid. Acceptable values: see wages paid frequency. |
+spend_down_amount|Monetary Amount Schema|The spend down amount for the subscriber. Reference the monetary subschema. |
+premium_amount|Monetary Amount Schema|The premium amount for to the subscriber. Reference the monetary subschema. |
+expected_expenditure_amount|Monetary Amount Schema|The expected expenditure amount paid of the subscriber. Reference the monetary subschema. |
+deductible_amount|Monetary Amount Schema|The deductible amount for the subscriber. Reference the monetary subschema. |
+copayment_amount|Monetary Amount Schema|The co-payment amount for the subscriber. Reference the monetary subschema. |
+coinsurance_amount|Monetary Amount Schema|The co-insurance selection amount for the subscriber. Reference the monetary subschema. |
+substance_abuse|Bool (Default: False)|If the subscriber has a substance abuse this parameter would need to be defined as True. The default is False for this parameter.|
+tobacco_use|Bool (Default: False)|If the subscriber uses tobacco this parameter would need to be defined as True. The default is False for this parameter.|
+height|{string}|The height of the subscriber.|
+weight|{string}|The weight of the subscriber.|
+benefits|List of Coverage SubSchema|The list of benefit segment for the subscriber. See the coverage subschema below. |
+maintenance_effective_date|datetime|The maintenance effective date of the subscriber.|
 
 
 #### Address Subschema
 | Parameter   | Type     | Description | Required? |
 |:------------|:---------|:------------|:----------|
-line|{string}|The first address line of the subsriber. |Yes
-line2|{string}|The second address line of the subscriber. |
-city|{string}|The city of the subscriber. |Yes
-state|{string}|The state of the subscriber. |
-postal_code|{string}|The postal code of the subscriber. |
-country|{string}|The country of the subscriber. |
-county|{string}|The county of the subscriber. |
+line|{string}|The subscriber’s street address information. (e.g. [“123 N MAIN ST”])|Yes
+line2|{string}|The subscriber’s street address information. (e.g. [“123 N MAIN ST”])|
+city|{string}|The subscriber’s city information. (e.g. “SAN MATEO”)|Yes
+state|{string}|The subscriber’s state information. (e.g. “CA”)|
+postal_code|{string}|The subscriber’s zip/postal code. (e.g. “94401”)|
+country|{string}|The subscriber's country information. (e.g. “USA”)|
+county|{string}|The subscriber's county information. (e.g. “SAN MATEO”)|
 
 #### Medicare Subschema
 | Parameters      | Type     | Description | Required? |
 |:----------------|:---------|:------------|:----------|
-plan|{string}|"See ""Medicare Plan Codes"" table below."|Yes
-eligibility_reason|{string}|"See ""Medicare Eligiblity Reason Codes"" table below."|
+plan|{string}|The medicare plan value for the subscriber. Acceptable values: see medicare plan codes.|Yes
+eligibility_reason|{string}|The medicare eligibility reason codes for the subscriber. Acceptable values: see medicare eligibility reason codes.|
 
 #### School Subschema
 | Parameters | Type     | Description | Required? |
 |:-----------|:---------|:------------|:----------|
-name|{string}|The name of the subscribers school. |
+name|{string}|The name of the dependents school.|
 
 #### Contact Subschema
 | Parameters              | Type     | Description | Required? |
 |:------------------------|:---------|:------------|:-----------|
-name|{string}|?|
-primary_communication_type|{string}|"See ""Communication Type Codes"" table below."|Yes
-primary_communication_number|{string}|The primary communication number for the subscriber. |Yes
-communication_type2|{string}|"See ""Communication Type Codes"" table below."|
-‘communication_number2|{string}|The secondary communication number for the subscriber. |
-communication_type3|{string}|"See ""Communication Type Codes"" table below."|
-communication_number3|{string}|The tertiary communication number for the subscriber. |
+primary_communication_type|{string}|The type of primary communication. Acceptable values: see communication types.|Yes
+primary_communication_number|{string}|The primary communication number for the subscriber.|Yes
+communication_type2|{string}|The type of secondary communication. Acceptable values: see communication types.|
+â€˜communication_number2|{string}|The secondary communication number for the subscriber.|
+communication_type3|{string}|The type of tertiary communication. Acceptable values: see communication types.|
+communication_number3|{string}|The tertiary communication number for the subscriber.|
 
 
 #### Monetary Amount Subschema
 | Parameters                             | Type | Description | Required? |
 |:---------------------------------------|:-----|:------------|:----------|
-Fix Me! Get the Monetary Amount Schema|||
+currency|{string}|The type of currency. (e. g. USD)|
+amount|{string}|The amount of currency. |
 
 #### Coverage Subschema
 | Parameters           | Type                                       | Description | Required? |
 |:---------------------|:-------------------------------------------|:------------|:----------|
-maintenance_type|{string}|"See ""Maintenance Type Codes"" table below."|Yes
-benefit_type|{string}|"See ""Insurance Line Codes"" table below."|
-description|{string}|(?)|
-coverage_level|{string}|"See ""Coverage Level Codes"" table below."|
-late_enrollment|Bool (Default : False)|If the subscriber is a late enrollee it would need to be defined as True. The default is False for this parameter. |
-begin_date |datetime|The begining date of coverage for the subscriber. |
-end_date|datetime|The end date of coverage for the subscriber. |
-enrollment_signature_date|datetime|The enrollment signature date for the subscriber. (?)|
-maintenance_effective_date|datetime|The maitenance effective date for the subscriber. |
-premium_paid_to_date|datetime|The premuim paid to date for the subscriber. (?)|
-last_premium_paid_date|datetime|The last premuum paid date for the subscriber. (?)|
+maintenance_type|{string}|The type of benefit maintenance. Acceptable values: see maintenance type codes. |Yes
+benefit_type|{string}|The benefit type. Acceptable values: see insurance line codes. |
+coverage_level|{string}|The coverage level of the subscriber. Acceptable values; see coverage level codes. |
+late_enrollment|Bool (Default : False)|If the subscriber is a late enrollee it would need to be defined as True. The default is False for this parameter.|
+begin_date|datetime|The beginning date of coverage for the subscriber.|
+end_date|datetime|The end date of coverage for the subscriber.|
+enrollment_signature_date|datetime|The enrollment signature date for the subscriber.|
+maintenance_effective_date|datetime|The maintenance effective date for the subscriber.|
+premium_paid_to_date|datetime|The premium paid to date for the subscriber. |
+last_premium_paid_date|datetime|The last premium paid date for the subscriber. |
 spend_down_amount|Monetary Amount SubSchema|"See the ""Monetary Amount"" subschema below."|
 premium_amount|Monetary Amount SubSchema|"See the ""Monetary Amount"" subschema below."|
 expected_expenditure_amount|Monetary Amount SubSchema|"See the ""Monetary Amount"" subschema below."|
 deductible_amount|Monetary Amount SubSchema|"See the ""Monetary Amount"" subschema below."|
 copayment_amount|Monetary Amount SubSchema|"See the ""Monetary Amount"" subschema below."|
 coinsurance_amount|Monetary Amount SubSchema|"See the ""Monetary Amount"" subschema below."|
-coordination_of_benefits|List of Coordination of Benefits SubSchema|"See the ""Coordination of Benefits"" subschema below."|
-providers|List of Provider SubSchema|"See the ""Provider"" subschema below."|
+coordination_of_benefits|List of Coordination of Benefits SubSchema|List of the coordination of benefits segment. See the coordination of benefits subschema. |
+providers|List of Provider SubSchema|List of the provider segment. See the provider subschema. |
 
 
 
 ##### Coordination of Benefits Subschema
 | Parameters                | Type              | Description | Required? |
 |:--------------------------|:------------------|:------------|:----------|
-payer_responsibility|{string}|"See ""Payer Responsibility Codes"" table below."|Yes
-group_or_policy_number|{string}|The group or policy number for the subscribers additional plan. |
-status|{string}|"See ""Coordination of Benefits Codes"" table below."|Yes
+payer_responsibility|{string}|The payer responsibility. Acceptable values: see payer responsibility codes. |Yes
+group_or_policy_number|{string}|The group or policy number for the subscribers additional plan.|
+status|{string}|The status of the coordination of benefits. Acceptable values:  coordination of benefits codes.|Yes
 
 ##### Provider Subschema
 | Parameters                | Type              | Description | Required? |
 |:--------------------------|:------------------|:------------|:----------|
-type|{string}|"See ""Domain Provider Type Codes"" table below."|Yes
-entity_type|{string}|"See ""Entity Type Codes"" table below."|Yes
-patient_status|{string}|"See ""Established Patient Codes"" table below."|
-last_or_organization_name|{string}|Last name of the provider or the name of the organization. |
-first_name|{string}|The first name of the provider. ?|
-middle_name|{string}|The middle name of the provider. ?|
-prefix|{string}|The prefix of the provider. ?|
-suffix|{string}|The suffix of the provider. ?|
-ssn|{string}|The SSN of the provider?|
-service_provider_number|{string}|The service provider number. |
-npi_id|{string}|The NPI ID of the provider. |
-tax_id|{string}|The tax ID of the provider. |
-address’|Address SubSchema|"See the ""Address"" subschema below."|
+type|{string}|The type of provider. Acceptable values: see provider type codes. |Yes
+entity_type|{string}|The entity type of the provider. Acceptable values: see entity type codes. |Yes
+patient_status|{string}|The patient status for the provider. Acceptable values: see established patient codes. |
+last_or_organization_name|{string}|Last name of the provider or the name of the organization.|
+first_name|{string}|The first name of the provider. |
+middle_name|{string}|The middle name of the provider. |
+prefix|{string}|The prefix of the provider. |
+suffix|{string}|The suffix of the provider. |
+ssn|{string}|The SSN of the provider. |
+service_provider_number|{string}|The provider service number. |
+npi_id|{string}|The NPI id of the provider. |
+tax_id|{string}|The tax id of the provider. |
+addressâ€™|Address SubSchema|The address of the provider. See the address subschema. |
 
 
 ##
