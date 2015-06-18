@@ -451,7 +451,7 @@ Full list of possible values that can be used in the patient.relationships param
 | life_partner        | unknown                    |
 
 
-<a name="transaction-codes"></a>
+<a name="transaction-code"></a>
 Full list of possible values that can be used in the claim.place_of_service parameter on the claim:
 
 | transaction_code Values |
