@@ -454,8 +454,8 @@ Full list of possible values that can be used in the patient.relationships param
 <a name="transaction_codes"></a>
 Full list of possible values that can be used in the claim.place_of_service parameter on the claim:
 
-| transaction_code Values |                            |
-|:------------------------|:---------------------------|
-| subrogation_demand      |                            |
-| chargeable              |                            |
-| reporting               |                            |
+| transaction_code Values |
+|:------------------------|
+| subrogation_demand      |
+| chargeable              |
+| reporting               |
