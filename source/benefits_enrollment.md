@@ -2,7 +2,7 @@
 layout: 2column
 ---
 
-# Benefit Enrollment Overview
+# Benefits Enrollment Reference
 &nbsp;
 
 # Enrollment Object

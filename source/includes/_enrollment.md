@@ -207,13 +207,15 @@ Available Enrollment Endpoints:
 |:-------------|:------------|:----------------------------------------------------------------------|
 | /enrollment/ | POST        | Submit a benefits enrollment request to the specified trading partner |
 
-These are some of the most commonly used parameters accepted by the enrollment endpoint.
+These are some of the most commonly used parameters accepted by the enrollment
+endpoint. For a complete reference to all possible values in an enrollment
+request, see our [benefits enrollment reference](benefits_enrollment.html).
 <a name="enrollment_table"></a>
 
 | Parameters                                 | Description                                                                                                                                             |
 |:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | dependents                                 | A list of dependents covered under benefits by the subscriber.                                                                                          |
-|                                            | Each dependent list item may utilize the same request parameters as a subscriber.                                                                           |
+|                                            | Each dependent list item may utilize the same request parameters as a subscriber.                                                                       |
 | master_policy_number                       | The master policy number for the sponsor.                                                                                                               |
 | reference.number                           | The reference number for the transaction.                                                                                                               |
 | relationship                               | The relationship of the subject of the transaction to the policy holder.<br/>Acceptable values: see <a href="#api_relationships">relationship codes</a> |
