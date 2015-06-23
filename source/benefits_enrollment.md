@@ -3,7 +3,7 @@ layout: 2column
 ---
 
 # Benefit Enrollment Overview
-&nbsp
+&nbsp;
 
 # Enrollment Object
 <a name="benefits_enrollment">
