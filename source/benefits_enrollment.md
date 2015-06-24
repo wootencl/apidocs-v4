@@ -282,6 +282,7 @@ specifics about this, contact PokitDok Platform Support.
 
 <a name="maintenance_type_codes"></a>
 ## Maintenance Type Codes
+|                                     |
 |:------------------------------------|
 | Change                              |
 | Delete                              |
@@ -459,15 +460,15 @@ specifics about this, contact PokitDok Platform Support.
 
 <a name="citizenship_status_codes"></a>
 ## Citizenship Status Codes
-| CITIZENSHIP_STATUS_CODES  (<a href="#benefits_enrollment">back</a>) |
-|:--------------------------------------------------------------------|
-| U.S. Citizen                                                        |
-| Non-Resident Alien                                                  |
-| Resident Alien                                                      |
-| Illegal Alien                                                       |
-| Alien                                                               |
-| U.S. Citizen - Non-Resident                                         |
-| U.S. Citizen - Resident                                             |
+|                             |
+|:----------------------------|
+| U.S. Citizen                |
+| Non-Resident Alien          |
+| Resident Alien              |
+| Illegal Alien               |
+| Alien                       |
+| U.S. Citizen - Non-Resident |
+| U.S. Citizen - Resident     |
 
 (<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
@@ -537,7 +538,7 @@ specifics about this, contact PokitDok Platform Support.
 
 <a name="application_data_definition"></a>
 # Application Data
-API client applications may include custom application data in requests to help  
+API client applications may include custom application data in requests to help
 support scenarios where an application is unable to store the activity id and
 wishes to include application specific data in their API requests so that the
 information will be stored on the request’s activity and returned to the
