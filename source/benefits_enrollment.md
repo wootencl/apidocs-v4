@@ -3,10 +3,28 @@ layout: 2column
 ---
 
 # Benefits Enrollment Reference
+The PokitDok Enrollment API eases the creation and transmission process of
+benefit enrollment and maintenance files. Applications can use the
+Enrollment endpoint to submit new enrollments, enrollment changes due to
+life events and plan termination. These files are submitted asynchronously
+via batch mode.
+
+File transmission is performed depending on carrier and group requirements.
+The Enrollment API can be utilized for all enrollment requirements including
+open enrollment and is able to support both full and change files.
+
 This document describes the PokitDok benefit enrollment (834) request format.
 All possible subobjects and acceptable field values are presented. Note that
 payers will differ in their requirements for an enrollment submission. For
-specifics about this, contact PokitDok Platform Support.
+specifics about this, contact PokitDok Platform Support at
+<platform@pokitdok.com>.
+
+The benefits enrollment request consists of a top-level JSON object, described
+in the "Enrollment Object" section below. This object can contain a number
+of sub-objects as needed to describe the request, such as subscriber or
+dependent information. Each sub-object is described in its own table, which
+is linked from the "Type" parameter. Note that some sub-objects can themselves
+be comprised of other objects.
 
 # Enrollment Object
 <a name="benefits_enrollment"></a>
@@ -215,7 +233,10 @@ specifics about this, contact PokitDok Platform Support.
 
 (<a href="#coverage_object">Back to Coverage object</a>)
 
-# Valid Codes And Values
+# Codes
+Many of the parameters above only accept a limited range of valid
+inputs. These values are transformed into the appropriate EDI X12 code values
+for submission to the payer.
 
 <a name="relationship_codes"></a>
 ## Relationship Codes
