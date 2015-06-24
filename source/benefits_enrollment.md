@@ -3,7 +3,7 @@ layout: 2column
 ---
 
 # Benefits Enrollment Reference
-This document describes the PokitDok benefit enrollment (837) request format.
+This document describes the PokitDok benefit enrollment (834) request format.
 All possible subobjects and acceptable field values are presented. Note that
 payers will differ in their requirements for an enrollment submission. For
 specifics about this, contact PokitDok Platform Support.
