@@ -580,6 +580,20 @@ html, body {
   }
 }
 
+.content-2column {
+  &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+    margin-right: 0;
+    padding: 0 $main-padding;
+    display: block;
+    border: 0;
+
+    @extend %left-col;
+  }
+
+  @extend .content;
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // RESPONSIVE DESIGN
 ////////////////////////////////////////////////////////////////////////////////
