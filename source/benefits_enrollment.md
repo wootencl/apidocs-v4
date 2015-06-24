@@ -12,6 +12,8 @@ for all enrollment requirements including open enrollment and is able to
 support both full and change files.
 
 This document describes the PokitDok benefit enrollment (834) request format.
+It's meant to accompany the summary of benefits enrollment functionality in
+the [PokitDok Platform API Documentation](/documentation/v4).
 All possible subobjects and acceptable field values are presented. Note that
 payers will differ in their requirements for an enrollment submission. For
 specifics about this, contact PokitDok Platform Support at
