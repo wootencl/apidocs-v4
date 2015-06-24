@@ -3,15 +3,13 @@ layout: 2column
 ---
 
 # Benefits Enrollment Reference
-The PokitDok Enrollment API eases the creation and transmission process of
+
+The Enrollment endpoint eases the creation and transmission process of
 benefit enrollment and maintenance files. Applications can use the
 Enrollment endpoint to submit new enrollments, enrollment changes due to
-life events and plan termination. These files are submitted asynchronously
-via batch mode.
-
-File transmission is performed depending on carrier and group requirements.
-The Enrollment API can be utilized for all enrollment requirements including
-open enrollment and is able to support both full and change files.
+life events and plan termination. The Enrollment endpoint can be utilized
+for all enrollment requirements including open enrollment and is able to
+support both full and change files.
 
 This document describes the PokitDok benefit enrollment (834) request format.
 All possible subobjects and acceptable field values are presented. Note that
@@ -25,6 +23,13 @@ of sub-objects as needed to describe the request, such as subscriber or
 dependent information. Each sub-object is described in its own table, which
 is linked from the "Type" parameter. Note that some sub-objects can themselves
 be comprised of other objects.
+
+PokitDok only transmits 834 files and responses to and from carriers. We do
+not perform scrubbing or editing of submissions, or provide front-end interfaces
+to manage benefits. File transmission is subject to carrier and group
+requirements. Since enrollment requirements vary greatly between carriers,
+please [contact us](/contact) to get started integrating benefits enrollment
+and maintenance into your solution.
 
 # Enrollment Object
 <a name="benefits_enrollment"></a>
