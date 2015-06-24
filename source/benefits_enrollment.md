@@ -26,38 +26,36 @@ specifics about this, contact PokitDok Platform Support.
 | application_data     | {dict}                                              | See the <a href="#application_data_definition">application data definition.</a>                                                      | No        |
 
 <a name="payer_object"></a>
-
 ## Payer object
-(<a href="#benefits_enrollment">back</a>)
-
 | Parameters | Type     | Description                       | Required? |
 |:-----------|:---------|:----------------------------------|:----------|
 | name       | {string} | The name of of the carrier/payer. |           |
 | tax_id     | {string} | The tax ID of the carrier/payer.  |           |
 
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
+
 <a name="sponsor_object"></a>
 ## Sponsor object
-(<a href="#benefits_enrollment">back</a>)
-
 | Parameters | Type     | Description                           | Required? |
 |:-----------|:---------|:--------------------------------------|:----------|
 | name       | {string} | The employer/sponsor of the benefits. |           |
 | tax_id     | {string} | The tax id of the sponsor.            |           |
 
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
+
+
 <a name="broker_object"></a>
 ## Broker object
-(<a href="#benefits_enrollment">back</a>)
-
 | Parameters      | Type     | Description                        | Required? |
 |:----------------|:---------|:-----------------------------------|:----------|
 | name            | {string} | The name of the broker.            |           |
 | tax_id          | {string} | The tax ID of the broker.          |           |
 | account_numbers | {string} | The account numbers of the broker. |           |
 
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
+
 <a name="member_object"></a>
 ## Member object
-(<a href="#benefits_enrollment">back</a>)
-
 | Parameters                  | Type                                                    | Description                                                                                                                                                                         | Required?                                                        |
 |:----------------------------|:--------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
 | last_name                   | {string}                                                | The first name for the subscriber.                                                                                                                                                  |                                                                  |
@@ -107,10 +105,10 @@ specifics about this, contact PokitDok Platform Support.
 | benefits                    | List of <a href="#coverage_object">Coverage objects</a> | The list of benefit segments for the subscriber.                                                                                                                                    |                                                                  |
 | maintenance_effective_date  | {datetime}                                              | The maintenance effective date of the subscriber.                                                                                                                                   |                                                                  |
 
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
+
 <a name="address_object"></a>
 ## Address object
-(<a href="#member_object">back</a>)
-
 | Parameter   | Type     | Description                                                           | Required? |
 |:------------|:---------|:----------------------------------------------------------------------|:----------|
 | line        | {string} | The subscriber’s street address information. (e.g. [“123 N MAIN ST”]) | Yes       |
@@ -121,27 +119,27 @@ specifics about this, contact PokitDok Platform Support.
 | country     | {string} | The subscriber's country information. (e.g. “USA”)                    |           |
 | county      | {string} | The subscriber's county information. (e.g. “SAN MATEO”)               |           |
 
+(<a href="#member_object">Back to Member object</a>)
+
 <a name="medicare_object"></a>
 ## Medicare object
-(<a href="#member_object">back</a>)
-
 | Parameters         | Type     | Description                                                                                                                                                               | Required? |
 |:-------------------|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | plan               | {string} | The medicare plan value for the subscriber. <br/>Acceptable values: see <a href="#medicare_plan_codes">medicare plan codes.</a>                                           | Yes       |
 | eligibility_reason | {string} | The medicare eligibility reason codes for the subscriber. <br/>Acceptable values: see <a href="#medicare_eligibility_reason_codes">medicare eligibility reason codes.</a> |           |
 
+(<a href="#member_object">Back to Member object</a>)
+
 <a name="school_object"></a>
 ## School object
-(<a href="#member_object">back</a>)
-
 | Parameters | Type     | Description                        | Required? |
 |:-----------|:---------|:-----------------------------------|:----------|
 | name       | {string} | The name of the dependents school. |           |
 
+(<a href="#member_object">Back to Member object</a>)
+
 <a name="contact_object"></a>
 ## Contact object
-(<a href="#member_object">back</a>)
-
 | Parameters                   | Type     | Description                                                                                                                      | Required? |
 |:-----------------------------|:---------|:---------------------------------------------------------------------------------------------------------------------------------|:----------|
 | primary_communication_type   | {string} | The type of primary communication. <br/>Acceptable values: see <a href="#communication_type_codes">communication type codes.</a> | Yes       |
@@ -151,19 +149,19 @@ specifics about this, contact PokitDok Platform Support.
 | communication_type3          | {string} | The type of tertiary communication. <a href="#communication_type_codes">communication type codes.</a>                            |           |
 | communication_number3        | {string} | The tertiary communication number for the subscriber.                                                                            |           |
 
+(<a href="#member_object">Back to Member object</a>)
+
 <a name="monetary_object"></a>
 ## Monetary Amount object
-(<a href="#member_object">back</a>)
-
 | Parameters | Type     | Description                       | Required? |
 |:-----------|:---------|:----------------------------------|:----------|
 | currency   | {string} | The type of currency. (e. g. USD) |           |
 | amount     | {string} | The amount of currency.           |           |
 
+(<a href="#member_object">Back to Member object</a>)
+
 <a name="coverage_object"></a>
 ## Coverage object
-(<a href="#member_object">back</a>)
-
 | Parameters                  | Type                                                                                    | Description                                                                                                                 | Required? |
 |:----------------------------|:----------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:----------|
 | maintenance_type            | {string}                                                                                | The type of benefit maintenance. <br/>Acceptable values: see <a href="#maintenance_type_codes">maintenance type codes.</a>  | Yes       |
@@ -185,20 +183,20 @@ specifics about this, contact PokitDok Platform Support.
 | coordination_of_benefits    | List of <a href="#coordination_of_benefits_object">Coordination of Benefits objects</a> | List of the coordination of benefits segment.                                                                               |           |
 | providers                   | List of Provider object                                                                 | List of the provider segment.                                                                                               |           |
 
+(<a href="#member_object">Back to Member object</a>)
+
 <a name="coordination_of_benefits_object"></a>
 ## Coordination of Benefits object
-(<a href="#coverage_object">back</a>)
-
 | Parameters             | Type     | Description                                                                                                                                                        | Required? |
 |:-----------------------|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------|
 | payer_responsibility   | {string} | The payer responsibility. <br/>Acceptable values: see <a href="#payer_responsibility_codes">payer responsibility codes.</a>                                        | Yes       |
 | group_or_policy_number | {string} | The group or policy number for the subscribers additional plan.                                                                                                    |           |
 | status                 | {string} | The status of the coordination of benefits. <br/>Acceptable values: see <a href="#coordination_of_benefit_status_codes">coordnination of benefit status codes.</a> | Yes       |
 
+(<a href="#coverage_object">Back to Coverage object</a>)
+
 <a name="provider_object"></a>
 ## Provider object
-(<a href="#coverage_object">back</a>)
-
 | Parameters                | Type                                         | Description                                                                                                      | Required? |
 |:--------------------------|:---------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:----------|
 | type                      | {string}                                     | The type of provider. <br/>Acceptable values: see <a href="#provider_type_codes">provider_type_codes.</a>        | Yes       |
@@ -214,6 +212,8 @@ specifics about this, contact PokitDok Platform Support.
 | npi_id                    | {string}                                     | The NPI id of the provider.                                                                                      |           |
 | tax_id                    | {string}                                     | The tax id of the provider.                                                                                      |           |
 | address                   | <a href="#address_object">Address object</a> | The address of the provider.                                                                                     |           |
+
+(<a href="#coverage_object">Back to Coverage object</a>)
 
 # Valid Codes And Values
 
