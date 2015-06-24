@@ -3,10 +3,13 @@ layout: 2column
 ---
 
 # Benefits Enrollment Reference
-&nbsp;
+This document describes the PokitDok benefit enrollment (837) request format.
+All possible subobjects and acceptable field values are presented. Note that
+payers will differ in their requirements for an enrollment submission. For
+specifics about this, contact PokitDok Platform Support.
 
 # Enrollment Object
-<a name="benefits_enrollment">
+<a name="benefits_enrollment"></a>
 
 | Parameters           | Type                                                | Description                                                                                                                          | Required? |
 |:---------------------|:----------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|:----------|
@@ -51,7 +54,7 @@ layout: 2column
 | tax_id          | {string} | The tax ID of the broker.          |           |
 | account_numbers | {string} | The account numbers of the broker. |           |
 
-<a name="member_object">
+<a name="member_object"></a>
 ## Member object
 (<a href="#benefits_enrollment">back</a>)
 
@@ -67,7 +70,7 @@ layout: 2column
 | subscriber_number           | {string}                                                | The subscriber number or SSN for the subscriber.                                                                                                                                    |                                                                  |
 | gender                      | {string}                                                | The gender for the subscriber. <br/>Acceptable values: see <a href="#gender_codes">gender codes.</a>                                                                                |                                                                  |
 | group_or_policy_number      | {string}                                                | The group or policy number for this list item.                                                                                                                                      |                                                                  |
-| relationship                | {string}                                                | The relationship of the subject of the transaction to the policyholder. <br/>Acceptable values: see <a href="#api_relationship_codes">relationship codes.</a>                       |                                                                  |
+| relationship                | {string}                                                | The relationship of the subject of the transaction to the policyholder. <br/>Acceptable values: see <a href="#relationship_codes">relationship codes.</a>                           |                                                                  |
 | maintenance_type            | {string}                                                | The type of benefit maintenance.  <br/>Acceptable values: see <a href="#maintenance_type_codes">maintenance type codes.</a>                                                         |                                                                  |
 | maintenance_reason          | {string}                                                | The reason for benefit maintenance. <br/>Acceptable values: see <a href="#maintenance_reason_codes">maintenance reason codes.</a>                                                   |                                                                  |
 | benefit_status              | {string}                                                | The benefit status for the subscriber. <br/>Acceptable values: see <a href="#benefit_status_codes">benefit status codes.</a>                                                        |                                                                  |
@@ -104,7 +107,7 @@ layout: 2column
 | benefits                    | List of <a href="#coverage_object">Coverage objects</a> | The list of benefit segments for the subscriber.                                                                                                                                    |                                                                  |
 | maintenance_effective_date  | {datetime}                                              | The maintenance effective date of the subscriber.                                                                                                                                   |                                                                  |
 
-<a name="address_object">
+<a name="address_object"></a>
 ## Address object
 (<a href="#member_object">back</a>)
 
@@ -118,7 +121,7 @@ layout: 2column
 | country     | {string} | The subscriber's country information. (e.g. “USA”)                    |           |
 | county      | {string} | The subscriber's county information. (e.g. “SAN MATEO”)               |           |
 
-<a name="medicare_object">
+<a name="medicare_object"></a>
 ## Medicare object
 (<a href="#member_object">back</a>)
 
@@ -127,7 +130,7 @@ layout: 2column
 | plan               | {string} | The medicare plan value for the subscriber. <br/>Acceptable values: see <a href="#medicare_plan_codes">medicare plan codes.</a>                                           | Yes       |
 | eligibility_reason | {string} | The medicare eligibility reason codes for the subscriber. <br/>Acceptable values: see <a href="#medicare_eligibility_reason_codes">medicare eligibility reason codes.</a> |           |
 
-<a name="school_object">
+<a name="school_object"></a>
 ## School object
 (<a href="#member_object">back</a>)
 
@@ -135,7 +138,7 @@ layout: 2column
 |:-----------|:---------|:-----------------------------------|:----------|
 | name       | {string} | The name of the dependents school. |           |
 
-<a name="contact_object">
+<a name="contact_object"></a>
 ## Contact object
 (<a href="#member_object">back</a>)
 
@@ -148,7 +151,7 @@ layout: 2column
 | communication_type3          | {string} | The type of tertiary communication. <a href="#communication_type_codes">communication type codes.</a>                            |           |
 | communication_number3        | {string} | The tertiary communication number for the subscriber.                                                                            |           |
 
-<a name="monetary_object">
+<a name="monetary_object"></a>
 ## Monetary Amount object
 (<a href="#member_object">back</a>)
 
@@ -157,7 +160,7 @@ layout: 2column
 | currency   | {string} | The type of currency. (e. g. USD) |           |
 | amount     | {string} | The amount of currency.           |           |
 
-<a name="coverage_object">
+<a name="coverage_object"></a>
 ## Coverage object
 (<a href="#member_object">back</a>)
 
@@ -182,7 +185,7 @@ layout: 2column
 | coordination_of_benefits    | List of <a href="#coordination_of_benefits_object">Coordination of Benefits objects</a> | List of the coordination of benefits segment.                                                                               |           |
 | providers                   | List of Provider object                                                                 | List of the provider segment.                                                                                               |           |
 
-<a name="coordination_of_benefits_object">
+<a name="coordination_of_benefits_object"></a>
 ## Coordination of Benefits object
 (<a href="#coverage_object">back</a>)
 
@@ -192,7 +195,7 @@ layout: 2column
 | group_or_policy_number | {string} | The group or policy number for the subscribers additional plan.                                                                                                    |           |
 | status                 | {string} | The status of the coordination of benefits. <br/>Acceptable values: see <a href="#coordination_of_benefit_status_codes">coordnination of benefit status codes.</a> | Yes       |
 
-<a name="provider_object">
+<a name="provider_object"></a>
 ## Provider object
 (<a href="#coverage_object">back</a>)
 
@@ -214,75 +217,87 @@ layout: 2column
 
 # Valid Codes And Values
 
-<a name="api_relationship_codes">
+<a name="relationship_codes"></a>
+## Relationship Codes
+|                          |                              |                |                 |
+|:-------------------------|:-----------------------------|:---------------|:----------------|
+| spouse                   | father                       | mother         | grandfather     |
+| grandmother              | grandson                     | granddaughter  | aunt            |
+| uncle                    | nephew                       | niece          | cousin          |
+| adopted_child            | foster_child                 | son_in_law     | daughter_in_law |
+| brother_in_law           | sister_in_law                | mother_in_law  | father_in_law   |
+| brother                  | sister                       | ward           | step_parent     |
+| step_son                 | step_daughter                | self           | child           |
+| sponsored_dependent      | dependent_of_minor_dependent | ex_spouse      | guardian        |
+| court_appointed_guardian | collateral_dependent         | life_partner   | annuitant       |
+| trustee                  | other_relationship           | other_relative |                 |
 
-| API RELATIONSHIP CODES (<a href="#benefits_enrollment">back</a>) |                              |                |                 |
-|:-----------------------------------------------------------------|:-----------------------------|:---------------|:----------------|
-| spouse                                                           | father                       | mother         | grandfather     |
-| grandmother                                                      | grandson                     | granddaughter  | aunt            |
-| uncle                                                            | nephew                       | niece          | cousin          |
-| adopted_child                                                    | foster_child                 | son_in_law     | daughter_in_law |
-| brother_in_law                                                   | sister_in_law                | mother_in_law  | father_in_law   |
-| brother                                                          | sister                       | ward           | step_parent     |
-| step_son                                                         | step_daughter                | self           | child           |
-| sponsored_dependent                                              | dependent_of_minor_dependent | ex_spouse      | guardian        |
-| court_appointed_guardian                                         | collateral_dependent         | life_partner   | annuitant       |
-| trustee                                                          | other_relationship           | other_relative |                 |
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-<a name="coverage_level_codes">
+<a name="coverage_level_codes"></a>
+## Coverage Level Codes
+|                                      |                                       |
+|:-------------------------------------|:--------------------------------------|
+| Children Only                        | Dependents Only                       |
+| Employee and One Dependent           | Employee and Two Dependents           |
+| Employee and Three Dependents        | Employee and One or More Dependents   |
+| Employee and Two or More Dependents  | Employee and Three or More Dependents |
+| Employee and Four or More Dependents | Employee and Five or More Dependents  |
+| Employee and Children                | Employee Only                         |
+| Employee and Spouse                  | Family                                |
+| Individual                           | Spouse and Children                   |
+| Spouse Only                          | Two Party                             |
 
-| COVERAGE LEVEL CODES (<a href="#benefits_enrollment">back</a>) |                                       |
-|:---------------------------------------------------------------|:--------------------------------------|
-| Children Only                                                  | Dependents Only                       |
-| Employee and One Dependent                                     | Employee and Two Dependents           |
-| Employee and Three Dependents                                  | Employee and One or More Dependents   |
-| Employee and Two or More Dependents                            | Employee and Three or More Dependents |
-| Employee and Four or More Dependents                           | Employee and Five or More Dependents  |
-| Employee and Children                                          | Employee Only                         |
-| Employee and Spouse                                            | Family                                |
-| Individual                                                     | Spouse and Children                   |
-| Spouse Only                                                    | Two Party                             |
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-<a name="purpose_codes"/>
+<a name="purpose_codes"></a>
+## Purpose Codes
+|                  |
+|:-----------------|
+| Original         |
+| Re-Submission    |
+| Information Copy |
 
-| PURPOSE CODES   (<a href="#benefits_enrollment">back</a>) |
-|:----------------------------------------------------------|
-| Original                                                  |
-| Re-Submission                                             |
-| Information Copy                                          |
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-<a name="action_codes">
+<a name="action_codes"></a>
+## Action Codes
+|         |
+|:--------|
+| Change  |
+| Verify  |
+| Replace |
 
-| ACTION CODES (<a href="#benefits_enrollment">back</a>) |
-|:-------------------------------------------------------|
-| Change                                                 |
-| Verify                                                 |
-| Replace                                                |
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-<a name="gender_codes">
+<a name="gender_codes"></a>
+## Gender Codes
+|         |
+|:--------|
+| Female  |
+| Male    |
+| Unknown |
 
-| GENDER CODES (<a href="#benefits_enrollment">back</a>) |
-|:-------------------------------------------------------|
-| Female                                                 |
-| Male                                                   |
-| Unknown                                                |
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-<a name="maintenance_type_codes">
+<a name="maintenance_type_codes"></a>
+## Maintenance Type Codes
+| MAINTENANCE TYPE CODES              |
+|:------------------------------------|
+| Change                              |
+| Delete                              |
+| Addition                            |
+| Cancellation or Termination         |
+| Reinstatement                       |
+| Correction                          |
+| Audit or Compare                    |
+| Employee Information Not Applicable |
 
-| MAINTENANCE TYPE CODES          (<a href="#benefits_enrollment">back</a>) |
-|:--------------------------------------------------------------------------|
-| Change                                                                    |
-| Delete                                                                    |
-| Addition                                                                  |
-| Cancellation or Termination                                               |
-| Reinstatement                                                             |
-| Correction                                                                |
-| Audit or Compare                                                          |
-| Employee Information Not Applicable                                       |
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-<a name="maintenance_reason_codes">
-
-| REASON CODES (<a href="#benefits_enrollment">back</a>)  |                                                                      |
+<a name="maintenance_reason_codes"></a>
+## Maintenance Reason Codes
+|                                                         |                                                                      |
 |:--------------------------------------------------------|:---------------------------------------------------------------------|
 | Divorce                                                 | Birth                                                                |
 | Death                                                   | Retirement                                                           |
@@ -302,127 +317,149 @@ layout: 2column
 | Lay Off without Benefits                                | Re-enrollment                                                        |
 | Change of Location                                      | Non Payment                                                          |
 
-<a name="benefit_status_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| BENEFIT_STATUS_CODES            (<a href="#benefits_enrollment">back</a>) |
-|:--------------------------------------------------------------------------|
-| Active                                                                    |
-| Consolidated Omnibus Budget Reconciliation Act (COBRA)                    |
-| Surviving Insured                                                         |
-| Tax Equity and Fiscal Responsibility Act (TEFRA)                          |
+<a name="benefit_status_codes"></a>
+## Benefit Status Codes
+|                                                        |
+|:-------------------------------------------------------|
+| Active                                                 |
+| Consolidated Omnibus Budget Reconciliation Act (COBRA) |
+| Surviving Insured                                      |
+| Tax Equity and Fiscal Responsibility Act (TEFRA)       |
 
-<a name="medicare_plan_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| MEDICARE_PLAN_CODES  (<a href="#benefits_enrollment">back</a>) |
-|:---------------------------------------------------------------|
-| Medicare Part A                                                |
-| Medicare Part B                                                |
-| Medicare Part A and B                                          |
-| Medicare                                                       |
-| No Medicare                                                    |
+<a name="medicare_plan_codes"></a>
+## Medicare Plan Codes
+|                       |
+|:----------------------|
+| Medicare Part A       |
+| Medicare Part B       |
+| Medicare Part A and B |
+| Medicare              |
+| No Medicare           |
 
-<a name="medicare_eligibility_reason_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| MEDICARE_ELIGIBILITY_REASON_CODES (<a href="#benefits_enrollment">back</a>) |
-|:----------------------------------------------------------------------------|
-| Age                                                                         |
-| Disability                                                                  |
-| End Stage Renal Disease (ESRD)                                              |
+<a name="medicare_eligibility_reason_codes"></a>
+## Medicare Eligibility Reason Codes
+|                                |
+|:-------------------------------|
+| Age                            |
+| Disability                     |
+| End Stage Renal Disease (ESRD) |
 
-<a name="cobra_qualifying_event_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| COBRA_QUALIFYING_EVENT_CODES (<a href="#benefits_enrollment">back</a>) |                                                            |
-|:-----------------------------------------------------------------------|:-----------------------------------------------------------|
-| Termination of Employment                                              | Reduction of work hours                                    |
-| Medicare                                                               | Death                                                      |
-| Divorce                                                                | Separation                                                 |
-| Ineligible Child                                                       | Bankruptcy of Retirees Former Employer ( U.S.C. B(f)()(F)) |
-| Layoff                                                                 | Leave of Absence                                           |
-| ZZ Mutually Defined                                                    |                                                            |
+<a name="cobra_qualifying_event_codes"></a>
+## COBRA Qualifying Event Codes
+|                           |                                                            |
+|:--------------------------|:-----------------------------------------------------------|
+| Termination of Employment | Reduction of work hours                                    |
+| Medicare                  | Death                                                      |
+| Divorce                   | Separation                                                 |
+| Ineligible Child          | Bankruptcy of Retirees Former Employer ( U.S.C. B(f)()(F)) |
+| Layoff                    | Leave of Absence                                           |
+| ZZ Mutually Defined       |                                                            |
 
-<a name="employment_status_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| EMPLOYMENT_STATUS_CODES (<a href="#benefits_enrollment">back</a>) |
-|:------------------------------------------------------------------|
-| Active                                                            |
-| Active Military - Overseas                                        |
-| Active Military - USA                                             |
-| Full-time                                                         |
-| Leave of Absence                                                  |
-| Part-time                                                         |
-| Retired                                                           |
-| Terminated                                                        |
+<a name="employment_status_codes"></a>
+## Employment Status Codes
+|                            |
+|:---------------------------|
+| Active                     |
+| Active Military - Overseas |
+| Active Military - USA      |
+| Full-time                  |
+| Leave of Absence           |
+| Part-time                  |
+| Retired                    |
+| Terminated                 |
 
-<a name="student_status">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| STUDENT_STATUS_CODES (<a href="#benefits_enrollment">back</a>) |
-|:---------------------------------------------------------------|
-| Full-time                                                      |
-| Not a Student                                                  |
-| Part-time                                                      |
+<a name="student_status"></a>
+## Student Status Codes
+|               |
+|:--------------|
+| Full-time     |
+| Not a Student |
+| Part-time     |
 
-<a name="insurance_line_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| INSURANCE_LINE_CODES (<a href="#benefits_enrollment">back</a>) |                                 |
-|:---------------------------------------------------------------|:--------------------------------|
-| Preventative Care/Wellness                                     | 24 Hour Care                    |
-| Medicare Risk                                                  | Mental Health                   |
-| Dental Capitation                                              | Dental                          |
-| Exclusive Provider Organization                                | Facility                        |
-| Hearing                                                        | Health                          |
-| Health Maintenance Organization                                | Long-Term Care                  |
-| Long-Term Disability                                           | Major Medical                   |
-| Mail Order Drug                                                | Prescription Drug               |
-| Point of Service                                               | Preferred Provider Organization |
-| Practitioners                                                  | Short-Term Disability           |
-| Utilization Review                                             | Vision                          |
+<a name="insurance_line_codes"></a>
+## Insurance Line Codes
+|                                 |                                 |
+|:--------------------------------|:--------------------------------|
+| Preventative Care/Wellness      | 24 Hour Care                    |
+| Medicare Risk                   | Mental Health                   |
+| Dental Capitation               | Dental                          |
+| Exclusive Provider Organization | Facility                        |
+| Hearing                         | Health                          |
+| Health Maintenance Organization | Long-Term Care                  |
+| Long-Term Disability            | Major Medical                   |
+| Mail Order Drug                 | Prescription Drug               |
+| Point of Service                | Preferred Provider Organization |
+| Practitioners                   | Short-Term Disability           |
+| Utilization Review              | Vision                          |
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-<a name="payer_responsibility_codes">
+<a name="payer_responsibility_codes"></a>
+## Payer Responsibility Codes
+|           |
+|:----------|
+| Primary   |
+| Secondary |
+| Tertiary  |
+| Unknown   |
 
-| PAYER_RESPONSIBILITY_CODES (<a href="#benefits_enrollment">back</a>) |
-|:---------------------------------------------------------------------|
-| Primary                                                              |
-| Secondary                                                            |
-| Tertiary                                                             |
-| Unknown                                                              |
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-<a name="coordination_of_benefit_status_codes">
+<a name="coordination_of_benefit_status_codes"></a>
+## Coordination Of Benefits Status Codes
+|                             |
+|:----------------------------|
+| coordination_of_benefits    |
+| no_coordination_of_benefits |
+| unknown                     |
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| COORDINATION_OF_BENEFITS_STATUS CODES (<a href="#benefits_enrollment">back</a>) |
-|:--------------------------------------------------------------------------------|
-| coordination_of_benefits                                                        |
-| no_coordination_of_benefits                                                     |
-| unknown                                                                         |
+<a name="marital_status_codes"></a>
+## Marital Status Codes
+|                                           |
+|:------------------------------------------|
+| Widowed                                   |
+| Legally Separated                         |
+| Registered Domestic Partner               |
+| Divorced                                  |
+| Single                                    |
+| Married                                   |
+| Unreported                                |
+| Separated                                 |
+| Unmarried (Single or Divorced or Widowed) |
 
-<a name="marital_status_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| MARITAL_STATUS_CODES               (<a href="#benefits_enrollment">back</a>) |
-|:-----------------------------------------------------------------------------|
-| Widowed                                                                      |
-| Legally Separated                                                            |
-| Registered Domestic Partner                                                  |
-| Divorced                                                                     |
-| Single                                                                       |
-| Married                                                                      |
-| Unreported                                                                   |
-| Separated                                                                    |
-| Unmarried (Single or Divorced or Widowed)                                    |
+<a name="ethnicity_codes"></a>
+## Ethnicity Codes
+|                                   |                             |
+|:----------------------------------|:----------------------------|
+| Not Provided                      | Not Applicable              |
+| Asian or Pacific Islander         | Black                       |
+| Caucasian                         | Subcontinent Asian American |
+| Other Race or Ethnicity           | Asian Pacific American      |
+| Native American                   | Hispanic                    |
+| American Indian or Alaskan Native | Native Hawaiian             |
+| Black (Non-Hispanic)              | White (Non-Hispanic)        |
+| Pacific Islander                  | Mutually Defined            |
 
-<a name="ethnicity_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| ETHNICITY_CODES (<a href="#benefits_enrollment">back</a>) |                             |
-|:----------------------------------------------------------|:----------------------------|
-| Not Provided                                              | Not Applicable              |
-| Asian or Pacific Islander                                 | Black                       |
-| Caucasian                                                 | Subcontinent Asian American |
-| Other Race or Ethnicity                                   | Asian Pacific American      |
-| Native American                                           | Hispanic                    |
-| American Indian or Alaskan Native                         | Native Hawaiian             |
-| Black (Non-Hispanic)                                      | White (Non-Hispanic)        |
-| Pacific Islander                                          | Mutually Defined            |
-
-<a name="citizenship_status_codes">
-
+<a name="citizenship_status_codes"></a>
+## Citizenship Status Codes
 | CITIZENSHIP_STATUS_CODES  (<a href="#benefits_enrollment">back</a>) |
 |:--------------------------------------------------------------------|
 | U.S. Citizen                                                        |
@@ -433,73 +470,83 @@ layout: 2column
 | U.S. Citizen - Non-Resident                                         |
 | U.S. Citizen - Resident                                             |
 
-<a name="employment_class_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| EMPLOYMENT_CLASS_CODES (<a href="#benefits_enrollment">back</a>) |                    |
-|:-----------------------------------------------------------------|:-------------------|
-| Union                                                            | Non-Union          |
-| Executive                                                        | Non-Executive      |
-| Management                                                       | Non-Management     |
-| Hourly                                                           | Salaried           |
-| Administrative                                                   | Non-Administrative |
-| Exempt                                                           | Non-Exempt         |
-| Highly Compensated                                               | Key-Employee       |
-| Bargaining                                                       | Non-Bargaining     |
-| Owner                                                            | President          |
-| Vice President                                                   |                    |
+<a name="employment_class_codes"></a>
+## Employment Class Codes
+|                    |                    |
+|:-------------------|:-------------------|
+| Union              | Non-Union          |
+| Executive          | Non-Executive      |
+| Management         | Non-Management     |
+| Hourly             | Salaried           |
+| Administrative     | Non-Administrative |
+| Exempt             | Non-Exempt         |
+| Highly Compensated | Key-Employee       |
+| Bargaining         | Non-Bargaining     |
+| Owner              | President          |
+| Vice President     |                    |
 
-<a name="wages_paid_frequency_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| WAGES PAID FREQUENCY CODES  (<a href="#benefits_enrollment">back</a>) |                               |
-|:----------------------------------------------------------------------|:------------------------------|
-| Weekly                                                                | Biweekly                      |
-| Semimonthly                                                           | Monthly                       |
-| Daily                                                                 | Annual                        |
-| Two Calendar Months                                                   | Lump-Sum Separation Allowance |
-| Year-to-Date                                                          | Single                        |
-| Hourly                                                                | Quarterly                     |
-| Semiannual                                                            | Unknown                       |
+<a name="wages_paid_frequency_codes"></a>
+## Wages Paid Frequency Codes
+|                     |                               |
+|:--------------------|:------------------------------|
+| Weekly              | Biweekly                      |
+| Semimonthly         | Monthly                       |
+| Daily               | Annual                        |
+| Two Calendar Months | Lump-Sum Separation Allowance |
+| Year-to-Date        | Single                        |
+| Hourly              | Quarterly                     |
+| Semiannual          | Unknown                       |
 
-<a name="communication_type_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| COMMUNICATION TYPE CODES (<a href="#benefits_enrollment">back</a>) |                     |
-|:-------------------------------------------------------------------|:--------------------|
-| Electronic Mail                                                    | Telephone Extension |
-| Facsimile                                                          | Telephone           |
-| Home Phone Number                                                  | Work Phone Number   |
-| Cellular Phone                                                     | Beeper Number       |
-| Alternate Telephone                                                |                     |
+<a name="communication_type_codes"></a>
+## Communication Type Codes
+|                     |                     |
+|:--------------------|:--------------------|
+| Electronic Mail     | Telephone Extension |
+| Facsimile           | Telephone           |
+| Home Phone Number   | Work Phone Number   |
+| Cellular Phone      | Beeper Number       |
+| Alternate Telephone |                     |
 
-<a name="provider_type_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| PROVIDER TYPE CODES (<a href="#benefits_enrollment">back</a>) |                                    |
-|:--------------------------------------------------------------|:-----------------------------------|
-| Laboratory                                                    | Obstetrics and Gynecology Facility |
-| Hospital                                                      | Facility                           |
-| Doctor of Optometry                                           | Primary Care Provider              |
-| Pharmacy                                                      | Dentist                            |
-| Managed Care Organization                                     |                                    |
+<a name="provider_type_codes"></a>
+## Provider Type Codes
+|                           |                                    |
+|:--------------------------|:-----------------------------------|
+| Laboratory                | Obstetrics and Gynecology Facility |
+| Hospital                  | Facility                           |
+| Doctor of Optometry       | Primary Care Provider              |
+| Pharmacy                  | Dentist                            |
+| Managed Care Organization |                                    |
 
-<a name="entity_type_codes">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| ENTITY_TYPE_CODES (<a href="#benefits_enrollment">back</a>) |
-|:------------------------------------------------------------|
-| Person                                                      |
-| Non-Person Entity                                           |
+<a name="entity_type_codes"></a>
+## Entity Type Codes
+|                   |
+|:------------------|
+| Person            |
+| Non-Person Entity |
 
-<a name="application_data_definition">
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
-| Application Data (<a href="#benefits_enrollment">back</a>)                       |
-|:---------------------------------------------------------------------------------|
-| API client applications may include custom application data in requests to help  |
-| support scenarios where an application is unable to store the activity id and    |
-| wishes to include application specific data in their API requests so that the    |
-| information will be stored on the request’s activity and returned to the         |
-| application in asynchronous callbacks. This can be useful for scenarios where    |
-| you want to directly associate a PokitDok Platform API request with some         |
-| identifier(s) in your system so that you can do direct lookups to associate      |
-| responses with the appropriate information. For example, suppose you wish to     |
-| fire off a number of eligibility or claims requests and want to include some     |
-| identifiers specific to your application. By including the identifier(s) you     |
-| need in the request’s application_data section, you can easily do direct lookups |
-| using those identifiers when you receive the API response.                       |
+<a name="application_data_definition"></a>
+# Application Data
+API client applications may include custom application data in requests to help  
+support scenarios where an application is unable to store the activity id and
+wishes to include application specific data in their API requests so that the
+information will be stored on the request’s activity and returned to the
+application in asynchronous callbacks. This can be useful for scenarios where
+you want to directly associate a PokitDok Platform API request with some
+identifier(s) in your system so that you can do direct lookups to associate
+responses with the appropriate information. For example, suppose you wish to
+fire off a number of eligibility or claims requests and want to include some
+identifiers specific to your application. By including the identifier(s) you
+need in the request’s application_data section, you can easily do direct lookups
+using those identifiers when you receive the API response.

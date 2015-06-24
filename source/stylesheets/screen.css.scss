@@ -587,14 +587,8 @@ html, body {
     display: block;
     border: 0;
 
-    table {
-      th {
-        border: 0;
-      }
-    }
     @extend %left-col;
   }
-
 
   @extend .content;
 }
