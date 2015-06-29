@@ -36,6 +36,7 @@ includes:
   - tradingpartners
   - authentication
   - common
+  - apicallbacks
   - apidashboard
 
 search: true
