@@ -6,5 +6,6 @@ following functionality:
 * Monitoring of system health, connectivity, and uptime
 * Account usage and billing information
 * Management of API keys and authentication details for access
+* App security settings for API callbacks
 * Documentation, examples, and API references
 * System messages and notifications, such as for scheduled maintenance downtime
