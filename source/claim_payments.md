@@ -29,9 +29,9 @@ be comprised of other objects.
 | adjudication_system_version     | {string}                                                                                  | The version number of the adjudication system that generated the claim payments.                                         | No        |
 | authorization_number            | {string}                                                                                  | The authorization number associated with the claim                                                                       | No        |
 | claim_payments                  | List of <a href="#claim_payment_object">Claim Payment objects</a>                         | A list of payments that were processed as part of this claim.                                                            | Yes       |
-| coverage_amount                 | <a href="#monetary_object">Coverage Amount object</a>                                     | Monetary amount to report the total covered charges for the claim.                                                       | No        |
+| coverage_amount                 | <a href="#monetary_object">Monetary Amount object</a>                                     | Monetary amount to report the total covered charges for the claim.                                                       | No        |
 | coverage_expiration_date        | {string}                                                                                  | The coverage expiration date                                                                                             | No        |
-| discount_amount                 | <a href="#monetary_object">Discount Amount object</a>                                     | Monetary amount representing discounts applied to the claim based on contractual obligations, etc.                       | No        |
+| discount_amount                 | <a href="#monetary_object">Monetary Amount object</a>                                     | Monetary amount representing discounts applied to the claim based on contractual obligations, etc.                       | No        |
 | financial_information           | <a href="#financial_information_object">Financial Information object</a>                  | Financial institution information related to the claim payment                                                           | Yes       |
 | insurance_policy_number         | {string}                                                                                  | The insurance policy number associated with the claim                                                                    | No        |
 | insured                         | <a href="#insured_object">Insured object</a>                                              | The insured information related to the claim.  This will be set when the patient is not also the insured.                | No        |
@@ -39,7 +39,7 @@ be comprised of other objects.
 | patient                         | <a href="#patient_object">Patient object</a>                                              | The patient information related to the claim.                                                                            | Yes       |
 | payee                           | <a href="#payee_object">Payee object</a>                                                  | The payee information related to the claim.                                                                              | Yes       |
 | payer                           | <a href="#payer_object">Payer object</a>                                                  | The payer information related to the claim.                                                                              | Yes       |
-| payment_responsibility_amount   | <a href="#monetary_object">Patient Responsibility Amount object</a>                       | Monetary amount left to be paid by the patient/insured                                                                   | No        |
+| payment_responsibility_amount   | <a href="#monetary_object">Monetary Amount object</a>                                     | Monetary amount left to be paid by the patient/insured                                                                   | No        |
 | prior_authorization_number      | {string}                                                                                  | The prior authorization number associated with the claim                                                                 | No        |
 | production_date                 | {string}                                                                                  | The date the claim was processed                                                                                         | No        |
 | received_date                   | {string}                                                                                  | The date the claim was received.                                                                                         | No        |
@@ -68,12 +68,12 @@ be comprised of other objects.
 
 <a name="adjustment_object"></a>
 ## Adjustment object
-| Parameters   | Type                                         | Description                                                                                                                 | Required? |
-|:-------------|:---------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:----------|
-| amount       | <a href="#monetary_object">Amount object</a> | The amount of the adjustment.                                                                                               |           |
-| group        | {string}                                     | The group classification of the adjustment. Possible values are listed in <a href="#adjustment_group_codes">Group Codes</a> |           |
-| reason       | {string}                                     | The reason for the adjustment.                                                                                              |           |
-| quantity     | {string}                                     | The number of items impacted by the adjustment.                                                                             |           |
+| Parameters   | Type                                                  | Description                                                                                                                 | Required? |
+|:-------------|:------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:----------|
+| amount       | <a href="#monetary_object">Monetary Amount object</a> | The amount of the adjustment.                                                                                               |           |
+| group        | {string}                                              | The group classification of the adjustment. Possible values are listed in <a href="#adjustment_group_codes">Group Codes</a> |           |
+| reason       | {string}                                              | The reason for the adjustment.                                                                                              |           |
+| quantity     | {string}                                              | The number of items impacted by the adjustment.                                                                             |           |
 
 
 (<a href="#claim_payment_object">Back to Claim Payment Object</a>)
@@ -84,8 +84,8 @@ be comprised of other objects.
 | Parameters                       | Type                                                            | Description                                                           | Required? |
 |:---------------------------------|:----------------------------------------------------------------|:----------------------------------------------------------------------|:----------|
 | adjudicated_procedure_code       | {string}                                                        | The procedure code that was adjudicated for the service.              | Yes       |
-| charge_amount                    | <a href="#monetary_object">Charge Amount object</a>             | The amount charged for the service on the claim.                      | Yes       |
-| provider_payment_amount          | <a href="#monetary_object">Provider Payment Amount object</a>   | The amount the provider was paid for the service.                     | Yes       |
+| charge_amount                    | <a href="#monetary_object">Monetary Amount object</a>           | The amount charged for the service on the claim.                      | Yes       |
+| provider_payment_amount          | <a href="#monetary_object">Monetaty Amount object</a>           | The amount the provider was paid for the service.                     | Yes       |
 | submitted_procedure_code         | {string}                                                        | The procedure code that was submitted in the claim for the service.   | No        |
 | service_units_paid               | {int}                                                           | The number of service units that were paid.                           | No        |
 | service_units_submitted          | {int}                                                           | The number of service units that were submitted on the claim.         | No        |
@@ -104,7 +104,7 @@ be comprised of other objects.
 | originating_company_id       | {string}                                                                 | The originating company id associated with this financial information                                                    | No       |
 | originating_institution      | <a href="#financial_institution_object">Financial Institution object</a> | The originating institution associated with this financial information                                                   | No       |
 | receiving_institution        | <a href="#financial_institution_object">Financial Institution object</a> | The receiving institution associated with this financial information                                                     | No       |
-| payment_amount               | <a href="#monetary_object">Payment Amount object</a>                     | The amount paid.                                                                                                         | Yes      |
+| payment_amount               | <a href="#monetary_object">Monetary Amount object</a>                    | The amount paid.                                                                                                         | Yes      |
 | payment_method               | {string}                                                                 | The method used to pay the claim.  See <a href="#payment_method_codes">Payment Method Codes</a> for possible values.     | Yes      |
 | transaction_handling         | {string}                                                                 | The payment transaction type.  See <a href="#transaction_type_codes">Transaction Type Codes</a> for possible values.     | Yes      |
 
