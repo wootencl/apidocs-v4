@@ -342,6 +342,8 @@ trading partner. The full claims request activity will be POSTed back to the
 callback_url. A claim acknowledgement will be returned for each submitted
 claims request. Once a claim is adjudicated, an 835 Electronic Remittance
 Advice transaction will be returned which provides claim payment information.
+For a complete reference to all possible values in a claim payment result,
+see our [claim payments reference](claim_payments.html)
 If you are interested in receiving 835 files, please <a href="http://pokitdok.com/contact?context=PokitDok">contact us</a>.
 
 Endpoint | HTTP Method | Description

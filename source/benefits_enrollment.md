@@ -54,7 +54,7 @@ and maintenance into your solution.
 ## Payer object
 | Parameters | Type     | Description                       | Required? |
 |:-----------|:---------|:----------------------------------|:----------|
-| name       | {string} | The name of of the carrier/payer. |           |
+| name       | {string} | The name of the carrier/payer.    |           |
 | tax_id     | {string} | The tax ID of the carrier/payer.  |           |
 
 (<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
