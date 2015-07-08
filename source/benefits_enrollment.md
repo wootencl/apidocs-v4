@@ -4,7 +4,7 @@ layout: 2column
 
 # Benefits Enrollment Reference
 
-The Enrollment endpoint eases the creation and transmission process of
+Following the standard X12 834 format, the PokitDok Enrollment endpoint eases the creation and transmission process of
 benefit enrollment and maintenance files. Applications can use the
 Enrollment endpoint to submit new enrollments, enrollment changes due to
 life events and plan termination. The Enrollment endpoint can be utilized
