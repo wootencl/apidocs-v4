@@ -60,9 +60,9 @@ provider.organization_name | {string} | The business practice name
 provider.phone | {string} | The provider's phone number
 provider.prefix | {string} | The provider's prefix (Mr., Mrs., Dr., etc)
 provider.residencies | {array} | Provider residency and fellowship information
-provider.specialty | {string} | List of specialties from the specialty taxonomy associated with the provider
-provider.specialty_primary | {array} | The provider's primary specialties
-provider.specialty_secondary | {array} | The provider's secondary specialties
+provider.specialty | {array} | List of specialties from the specialty taxonomy associated with the provider
+provider.specialty_primary | {array} | List of provider's primary specialties
+provider.specialty_secondary | {array} | List of provider's secondary specialties
 provider.suffix | {string} | The provider's suffix (MD, Jr., etc)
 provider.uuid | {uuid} | The provider's unique PokitDok Platform identifier
 provider.verified | {boolean} | Provider PokitDok verification status
