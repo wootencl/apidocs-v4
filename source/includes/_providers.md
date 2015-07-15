@@ -37,7 +37,7 @@ radius | {string} | Search distance from geographic centerpoint, with unit (e.g.
 specialty | {string} | The provider's specialty name (e.g. "RHEUMATOLOGY")
 state | {string} | Name of U.S. state in which to search for providers (e.g. "CA" or "SC")
 zipcode | {string} | Geographic center point in which to search for providers (e.g. "94401")
-sort | {string} | Acceptable values include 'distance' (the default) or 'rank' for sorting.  By default results are sorted by increasing distance from city/state or zipcode centroid location.
+sort | {string} | Accepted values include 'distance' (default) or 'rank'.  'distance' sort requires city & state or zipcode parameters otherwise results will sorted by 'rank'.
 
 
 The response from the /providers/ endpoints contain the following fields:
