@@ -73,4 +73,4 @@ provider.facebook_url | {string} | Optional: (verified providers only) Provider 
 provider.small_image_url | {string} | Optional: (verified providers only) Provider small image URL
 provider.twitter_url | {string} | Optional: (verified providers only) Provider Twitter URL
 provider.website_url | {string} | Optional: (verified providers only) Provider website URL
-distance | {string} | When location data is provided and sort is 'distance' (the default) this is the distance from the city+state or zipcode centroid
+distance | {string} | When sort is 'distance' (default) this is the distance from the city & state or zipcode centroid
