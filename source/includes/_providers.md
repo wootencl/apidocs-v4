@@ -37,6 +37,8 @@ radius | {string} | Search distance from geographic centerpoint, with unit (e.g.
 specialty | {string} | The provider's specialty name (e.g. "RHEUMATOLOGY")
 state | {string} | Name of U.S. state in which to search for providers (e.g. "CA" or "SC")
 zipcode | {string} | Geographic center point in which to search for providers (e.g. "94401")
+sort | {string} | Accepted values include 'distance' (default) or 'rank'.  'distance' sort requires city & state or zipcode parameters otherwise sort will be 'rank'.
+
 
 The response from the /providers/ endpoints contain the following fields:
 
@@ -71,3 +73,4 @@ provider.facebook_url | {string} | Optional: (verified providers only) Provider 
 provider.small_image_url | {string} | Optional: (verified providers only) Provider small image URL
 provider.twitter_url | {string} | Optional: (verified providers only) Provider Twitter URL
 provider.website_url | {string} | Optional: (verified providers only) Provider website URL
+distance | {string} | When sort is 'distance' (default) this is the distance from the city & state or zipcode centroid
