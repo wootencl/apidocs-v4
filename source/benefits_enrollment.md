@@ -4,17 +4,17 @@ layout: 2column
 
 # Benefits Enrollment Reference
 
-Following the standard X12 834 format, the PokitDok Enrollment endpoint eases the creation and transmission process of
-benefit enrollment and maintenance files. Applications can use the
-Enrollment endpoint to submit new enrollments, enrollment changes due to
-life events and plan termination. The Enrollment endpoint can be utilized
-for all enrollment requirements including open enrollment and is able to
-support both full and change files.
+Following the standard X12 834 format, the PokitDok Benefits Enrollment endpoint
+eases the creation and transmission process of benefit enrollment and
+maintenance files. Applications can use the Enrollment endpoint to submit new
+enrollments, enrollment changes due to life events and plan termination. The
+Enrollment endpoint can be utilized for all enrollment requirements including
+open enrollment and is able to support both full and change files.
 
 This document describes the PokitDok benefit enrollment (834) request format.
 It's meant to accompany the summary of benefits enrollment functionality in
 the [PokitDok Platform API Documentation](/documentation/v4).
-All possible subobjects and acceptable field values are presented. Note that
+All possible sub-objects and acceptable field values are presented. Note that
 payers will differ in their requirements for an enrollment submission. For
 specifics about this, contact PokitDok Platform Support at
 <platform@pokitdok.com>.
@@ -52,10 +52,10 @@ and maintenance into your solution.
 
 <a name="payer_object"></a>
 ## Payer object
-| Parameters | Type     | Description                       | Required? |
-|:-----------|:---------|:----------------------------------|:----------|
-| name       | {string} | The name of the carrier/payer.    |           |
-| tax_id     | {string} | The tax ID of the carrier/payer.  |           |
+| Parameters | Type     | Description                      | Required? |
+|:-----------|:---------|:---------------------------------|:----------|
+| name       | {string} | The name of the carrier/payer.   |           |
+| tax_id     | {string} | The tax ID of the carrier/payer. |           |
 
 (<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
