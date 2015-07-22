@@ -6,6 +6,8 @@ The PokitDok Enrollment API eases the creation and transmission process of benef
 
 File transmission is performed depending on carrier and group requirements. The Enrollment API can be utilized for all enrollment requirements including open enrollment and is able to support both full and change files.
 
+Learn more about our [benefit enrollment API workflow](https://platform.pokitdok.com/benefit-enrollment). 
+
 > Example enrollment request to enroll a subscriber in benefits. (Health, Dental, Vision)
 
 ```shell
