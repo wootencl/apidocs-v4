@@ -368,17 +368,37 @@ billing_provider.npi | The National Provider Identifier for the provider billing
 billing_provider.tax_id | The federal tax id for the provider billing for services. For individual providers, this may be the tax id of the medical practice or organization where a provider works. | 25: Federal tax ID Number (SSN EIN)
 billing_provider.taxonomy_code | The taxonomy code for the provider billing for services. (e.g. "207Q00000X") | 24i: ID Qualifier
 claim | Dictionary of information representing a claim for services that have been performed by a health care provider for the patient. | 
+claim.admission_date | (_Institutional claim specific_) The date the patient was admitted.  | 
+claim.admission_source | (_Institutional claim specific_) The source of the patient's admission. A full list of possible values can be found [below](#admitsource). | 
+claim.admission_type | (_Institutional claim specific_) The admission/type priority of the patient's admission. A full list of possible values can be found [below](#admittype). | 
+claim.facility_type | (_Institutional claim specific_) The type of facility where the patient was admitted. | 
+claim.medical_record_number | The patient's medical record number. | 
 claim.onset_date | Optional: the date of first symptoms for the illness. | 14: Date of current illness OR injury OR pregnancy
 claim.place_of_service | The location where services were performed (e.g. office). A full list of possible values is included [below](#place-of-service). | 24b: Place of service
 claim.patient_paid_amount | Optional: The amount the patient has already paid the provider for the services listed in the claim. When reporting cash payment encounters for the purpose of contributing those amounts toward the member's deductible, the patient_paid_amount will equal the total_charge_amount. | 29: Amount Paid
 claim.patient_signature_on_file | Boolean indicator for whether or not a patient's signature is on file to authorize the release of medical records. Defaults to true if not specified. | 12: Patient's or authorized person's signature
+claim.patient_status | (_Institutional claim specific_) The patient's status as of the dates covered through the statement. A full list of possible values can be found [below](#patstatus). | 
+claim.statement_date | The (start) date of this statement. | 
+claim.statement_end_date | The end date of this statement. | 
+claim.value_information | (_Institutional claim specific_) The value code that applies to this claim. A full list of possible values can be found [below](#valuecode). | 
+claim.attending_provider | A dictionary of information for the attending provider on this claim. | 
+claim.attending_provider.first_name | The first name of the attending provider. | 
+claim.attending_provider.last_name | The last name of the attending provider. | 
+claim.attending_provider.npi | The National Provider Identifier for the attending provider. | 
+claim.attending_provider.taxonomy_code | The taxonomy code for the attending provider. | 
+claim.occurrence_information | (_Institutional claim specific_) A dictionary of information related to the occurrence/frequency of the claim. | 
+claim.occurence_information.occurrence_type | (_Institutional claim specific_) The type of claim-related occurrence for specifc dates. A full list of possible values can be found [below](#occtype). | 
+claim.occurence_information.occurrence_dates | (_Institutional claim specific_) The specific dates for the claim-related occurence type. | 
 claim.service_lines | List of services that were performed as part of this claim. | 
 claim.service_lines.charge_amount | The amount charged for this specific service. (e.g. 100.00) | 24f: Charges
 claim.service_lines.diagnosis_codes | A list of diagnosis codes related to this service. (e.g. 487.1) | 21: Diagnosis or nature of illness or injury
 claim.service_lines.procedure_code | The CPT code for the service that was performed | 24d: Procedures, Services, or Supplies
 claim.service_lines.procedure_modifier_codes | Optional: List of modifier codes for the specified procedure. (e.g. ["GT"]) | 24d: Procedures, Services, or Supplies
+claim.service_lines.provider_control_number | The provider's control number. | 
+claim.service_lines.revenue_code | (_Institutional claim specific_) The revenue code related to this service. | 
 claim.service_lines.service_date | The date the service was performed. | 24a: Date(s) of service (from, to)
 claim.service_lines.unit_count | Number of units of this service. (e.g. 1.0) | 24g: Days or Units
+claim.service_lines.unit_type | The type of unit being described for this particular service's unit count. Possible values include: units, days | 
 claim.total_charge_amount | The total amount charged/billed for the claim. (e.g. 100.00) | 28: Total Charge
 patient | Information about the patient that received services outlined in the claim. Patient information is only required when the patient is not the insurance subscriber. | 
 patient.address | Required: The patient’s address information. | 5: Patient's address
@@ -393,7 +413,7 @@ patient.member_id | Required: The patient’s member identifier. |
 patient.middle_name | Optional: The patient’s middle name. | 2: Patient's Name
 patient.last_name | Required: The patient’s last name. | 2: Patient's Name
 patient.pregnant | Patient pregnancy indicator. Defaults to false. | 
-patient.relationship | Required: The patient’s relationship to the subscriber. A fill list of possible values is included [below](#relationships). | 6: Patient's relationship to the insured
+patient.relationship | Required: The patient’s relationship to the subscriber. A full list of possible values is included [below](#relationships). | 6: Patient's relationship to the insured
 subscriber | Information about the insurance subscriber as it appears on their policy. | 
 subscriber.address | The subscriber’s address information as specified on their policy. | 7: Insured's address
 subscriber.address.address_lines | The subscriber’s street address information as specified on their policy. (e.g. ["123 N MAIN ST"]) | 
