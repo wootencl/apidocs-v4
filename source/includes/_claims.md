@@ -330,6 +330,94 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     }
 }' https://platform.pokitdok.com/api/v4/claims/
 ```
+
+
+> Sample Institutional claim for continuing/hospice care:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+  "billing_provider": {
+    "address": {
+      "address_lines": [
+        "100 New Street"
+      ],
+      "city": "New Town",
+      "state": "CA",
+      "zipcode": "941001001"
+    },
+    "npi": "1912301953",
+    "organization_name": "TEST FACILITY,LLC",
+    "taxonomy_code": "251G00000X",
+    "tax_id": "123456789"
+  },
+  "claim": {
+    "admission_date": "2011-08-05",
+    "statement_date": "2015-03-01",
+    "statement_end_date": "2015-03-31",
+    "admission_type": "elective",
+    "admission_source": "not_available",
+    "patient_status": "still_patient",
+    "attending_provider": {
+      "npi": "1467560003",
+      "first_name": "JEAN",
+      "last_name": "SMITH",
+      "taxonomy_code": "251G00000X"
+    },
+    "claim_frequency": "interim_continuing_claims",
+    "direct_payment": "y",
+    "information_release": "informed_consent",
+    "medical_record_number": "661",
+    "facility_type": "nonhospital_based_hospice",
+    "plan_participation": "assigned",
+    "occurrence_information": [
+      {
+        "occurrence_type": "hospice_certification",
+        "occurrence_date": "2013-03-27"
+      }
+    ],
+    "value_information": [
+      {
+        "value_type": "service_furnished_location_number",
+        "value": "36420"
+      }
+    ],
+    "service_lines": [
+      {
+        "charge_amount": "4000",
+        "diagnosis_codes": [
+          "29411"
+        ],
+        "procedure_code": "Q5002",
+        "revenue_code": "0651",
+        "service_date": "2015-03-01",
+        "unit_count": "31",
+        "unit_type": "days",
+        "provider_control_number": "6750000"
+      }
+    ],
+    "total_charge_amount": "4000"
+  },
+  "subscriber": {
+    "address": {
+      "address_lines": [
+        "1234 MAIN AVE"
+      ],
+      "city": "NEW TOWN",
+      "state": "CA",
+      "zipcode": "941001001"
+    },
+    "birth_date": "1920-07-25",
+    "claim_filing_code": "medicare_part_a",
+    "first_name": "JOHN",
+    "gender": "male",
+    "last_name": "SMITH",
+    "member_id": "R12345678",
+    "payer_responsibility": "primary"
+  },
+  "trading_partner_id": "MOCKPAYER",
+  "transaction_code": "chargeable"
+}' https://platform.pokitdok.com/api/v4/claims/
+```
 *Available modes of operation: batch/async*
 
 Following the standard X12 837 format, the PokitDok Claims endpoint allows
@@ -345,6 +433,9 @@ Advice transaction will be returned which provides claim payment information.
 For a complete reference to all possible values in a claim payment result,
 see our [claim payments reference](claim_payments.html)
 If you are interested in receiving 835 files, please <a href="http://pokitdok.com/contact?context=PokitDok">contact us</a>.
+
+The PokitDok Claims endpoint gives clients the ability to submit either professional (837P) or institutional (837I) claims, using the same claims endpoint. If a claims request includes an _Institutional claim specific (837I)_ parameter, then the Claims endpoint will validate the request as an institutional claim and submit it accordingly. If no _Institutional claim specific_ parameter is passed in the request, then the request will be validated and transmitted as a professional claim.
+Parameters that are specific to Institutional claims only have (_Insitutional claim specific_) in the Description column in the below endpoint parameter table.
 
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
@@ -368,17 +459,37 @@ billing_provider.npi | The National Provider Identifier for the provider billing
 billing_provider.tax_id | The federal tax id for the provider billing for services. For individual providers, this may be the tax id of the medical practice or organization where a provider works. | 25: Federal tax ID Number (SSN EIN)
 billing_provider.taxonomy_code | The taxonomy code for the provider billing for services. (e.g. "207Q00000X") | 24i: ID Qualifier
 claim | Dictionary of information representing a claim for services that have been performed by a health care provider for the patient. | 
+claim.admission_date | (_Institutional claim specific_) The date the patient was admitted. UB-04 field: *12. Admission Date* | 
+claim.admission_source | (_Institutional claim specific_) The source of the patient's admission. A full list of possible values can be found [below](#admitsource). UB-04 field: *15. Admission Source* | 
+claim.admission_type | (_Institutional claim specific_) The admission/type priority of the patient's admission. A full list of possible values can be found [below](#admittype).  UB-04 field: *14. Priority (Type) of Visit* | 
+claim.facility_type | (_Institutional claim specific_) The type of facility where the patient was admitted. A full list of possible values can be found [below](#faciltype). | 
+claim.medical_record_number | The patient's medical record number. | 
 claim.onset_date | Optional: the date of first symptoms for the illness. | 14: Date of current illness OR injury OR pregnancy
 claim.place_of_service | The location where services were performed (e.g. office). A full list of possible values is included [below](#place-of-service). | 24b: Place of service
 claim.patient_paid_amount | Optional: The amount the patient has already paid the provider for the services listed in the claim. When reporting cash payment encounters for the purpose of contributing those amounts toward the member's deductible, the patient_paid_amount will equal the total_charge_amount. | 29: Amount Paid
 claim.patient_signature_on_file | Boolean indicator for whether or not a patient's signature is on file to authorize the release of medical records. Defaults to true if not specified. | 12: Patient's or authorized person's signature
+claim.patient_status | (_Institutional claim specific_) The patient's status as of the dates covered through the statement. A full list of possible values can be found [below](#patstatus).  UB-04 field: *17. Patient Discharge Status* | 
+claim.statement_date | The (start) date of this statement. | 
+claim.statement_end_date | The end date of this statement. | 
+claim.value_information | (_Institutional claim specific_) The value code that applies to this claim. A full list of possible values can be found [below](#valuecode). | 
+claim.attending_provider | A dictionary of information for the attending provider on this claim. | 
+claim.attending_provider.first_name | The first name of the attending provider. | 
+claim.attending_provider.last_name | The last name of the attending provider. | 
+claim.attending_provider.npi | The National Provider Identifier for the attending provider. | 
+claim.attending_provider.taxonomy_code | The taxonomy code for the attending provider. | 
+claim.occurrence_information | (_Institutional claim specific_) A dictionary of information related to the occurrence/frequency of the claim. | 
+claim.occurrence_information.occurrence_type | (_Institutional claim specific_) The type of claim-related occurrence for specifc dates. A full list of possible values can be found [below](#occtype). UB-04 field: *31. Occurrence Code* | 
+claim.occurrence_information.occurrence_dates | (_Institutional claim specific_) The specific dates for the claim-related occurrence type. UB-04 field: *31. Occurrence Date* | 
 claim.service_lines | List of services that were performed as part of this claim. | 
 claim.service_lines.charge_amount | The amount charged for this specific service. (e.g. 100.00) | 24f: Charges
 claim.service_lines.diagnosis_codes | A list of diagnosis codes related to this service. (e.g. 487.1) | 21: Diagnosis or nature of illness or injury
 claim.service_lines.procedure_code | The CPT code for the service that was performed | 24d: Procedures, Services, or Supplies
 claim.service_lines.procedure_modifier_codes | Optional: List of modifier codes for the specified procedure. (e.g. ["GT"]) | 24d: Procedures, Services, or Supplies
+claim.service_lines.provider_control_number | The provider's control number. | 
+claim.service_lines.revenue_code | (_Institutional claim specific_) The revenue code related to this service. UB-04 field: *42. Revenue Code* | 
 claim.service_lines.service_date | The date the service was performed. | 24a: Date(s) of service (from, to)
 claim.service_lines.unit_count | Number of units of this service. (e.g. 1.0) | 24g: Days or Units
+claim.service_lines.unit_type | The type of unit being described for this particular service's unit count. Possible values include: units, days | 
 claim.total_charge_amount | The total amount charged/billed for the claim. (e.g. 100.00) | 28: Total Charge
 patient | Information about the patient that received services outlined in the claim. Patient information is only required when the patient is not the insurance subscriber. | 
 patient.address | Required: The patient’s address information. | 5: Patient's address
@@ -393,7 +504,7 @@ patient.member_id | Required: The patient’s member identifier. |
 patient.middle_name | Optional: The patient’s middle name. | 2: Patient's Name
 patient.last_name | Required: The patient’s last name. | 2: Patient's Name
 patient.pregnant | Patient pregnancy indicator. Defaults to false. | 
-patient.relationship | Required: The patient’s relationship to the subscriber. A fill list of possible values is included [below](#relationships). | 6: Patient's relationship to the insured
+patient.relationship | Required: The patient’s relationship to the subscriber. A full list of possible values is included [below](#relationships). | 6: Patient's relationship to the insured
 subscriber | Information about the insurance subscriber as it appears on their policy. | 
 subscriber.address | The subscriber’s address information as specified on their policy. | 7: Insured's address
 subscriber.address.address_lines | The subscriber’s street address information as specified on their policy. (e.g. ["123 N MAIN ST"]) | 
@@ -461,3 +572,154 @@ Full list of possible values that can be used in the claim.place_of_service para
 | subrogation_demand      |
 | chargeable              |
 | reporting               |
+
+
+<a name="admitsource"></a>
+Full list of possible values that can be used in the claim.admission_source parameter on the claim:
+
+| admission_source Values |                            |
+|:------------------------|:---------------------------|                    
+| clinic                  | immediate_care_facility    |
+| emergency_room          | law_enforcement            |
+| health_care_facility    | not_available              |
+| hospice_transfer        | physician_referral         |
+| hospital_transfer       | surgery_center             |
+
+
+<a name="admittype"></a>
+Full list of possible values that can be used in the claim.admission_type parameter on the claim:
+
+| admission_type Values    |                            |
+|:-------------------------|:---------------------------|                    
+| elective                 | newborn                    |
+| emergency                | trauma_center              |
+| information_not_available| urgent                     |
+
+
+<a name="faciltype"></a>
+Full list of possible values that can be used in the claim.facility_type parameter on the claim:
+
+| facility_type Values             |                                 |
+|:---------------------------------|:--------------------------------|                    
+| clinic_corf                      | hospital_inpatient_part_b       |
+| clinic_ersd                      | hospital_other_part_b           |
+| clinic_opt                       | hospital_outpatient_asc         |
+| clinic_rural_health              | hospital_outpatient             |
+| community_mental_health_center   | hospital_swing_bed              |
+| critical_access_hospital         | nonhospital_based_hospice       |
+| federally_qualified_health_center| religious_nonmedical_institution|
+| home_health_part_b               | skilled_nursing_inpatient_part_b|
+| home_health                      | skilled_nursing_inpatient       |
+| hospital_based_hospice           | skilled_nursing_outpatient      |
+| hospital_inpatient_part_a        | skilled_nursing_swing_bed       |
+
+
+<a name="patstatus"></a>
+Full list of possible values that can be used in the claim.patient_status parameter on the claim:
+
+| patient_status Values                       |                                                       |
+|:--------------------------------------------|:------------------------------------------------------|                    
+| expired_at_home                             | transferred_to_hospice_at_home                        |
+| expired_in_medical_facility                 | transferred_to_hospice_medical_facility               |
+| expired_place_unknown                       | transferred_to_inpatient_rehab                        |
+| expired                                     | transferred_to_intermediate_care_facility             |
+| inpatient_at_this_hospital                  | transferred_to_long_term_care_hospital                |
+| left_against_medical_advice                 | transferred_to_nursing_facility_not_medicare_certified|
+| routine_discharge                           | transferred_to_other_health_care_institution          |
+| still_patient                               | transferred_to_psychiatric_hospital                   |
+| transferred_to_cancer_center                | transferred_to_short_term_hospital                    |
+| transferred_to_critical_access_hospital     | transferred_to_skilled_nursing_facility               |
+| transferred_to_federal_hospital             | transferred_to_swing_bed                              |
+| transferred_to_home_with_home_health_service|                                                       |
+
+
+<a name="occtype"></a>
+Full list of possible values that can be used in the claim.occurrence_information.occurrence_type parameter on the claim:
+
+| occurrence_type Values                              |                                                            |
+|:----------------------------------------------------|:-----------------------------------------------------------|
+| accident_employment_related                         | guarantee_of_payment                                       |
+| accident_medical_coverage                           | home_iv_therapy_started                                    |
+| accident_no_medical_coverage                        | hospice_certification                                      |
+| accident_tort_liability                             | inpatient_hospital_discharge_non_covered_transplant_patient|
+| active_care_ended                                   | inpatient_hospital_discharge_transplant_patient            |
+| admission_scheduled                                 | insurance_denied                                           |
+| beneficiary_notified_of_intent_to_bill_accomodations| last_menstrual_period                                      |
+| beneficiary_notified_of_intent_to_bill_procedures   | last_therapy                                               |
+| benefits_exhausted_payer_a                          | no_fault_insurance_involved                                |
+| benefits_exhausted_payer_b                          | occupational_therapy_started                               |
+| benefits_exhausted_payer_c                          | onset_for_chronically_dependent_individual                 |
+| benefits_terminated_primary_payer                   | onset_of_symptoms                                          |
+| birth_date_insured_a                                | outpatient_occupational_therapy_plan_reviewed              |
+| birth_date_insured_b                                | outpatient_physical_therapy_plan_reviewed                  |
+| birth_date_insured_c                                | outpatient_speech_pathology_plan_reviewed                  |
+| canceled_surgery_scheduled                          | physical_therapy_started                                   |
+| cardiac_rehab_started                               | pre_admission_testing                                      |
+| comprehensive_outpatient_rehab_plan_reviewed        | retirement_spouse                                          |
+| cost_outlier_status_begins                          | retirement                                                 |
+| crime_victim                                        | snf_bed_became_available                                   |
+| discharge                                           | speech_therapy_started                                     |
+| discharged_on_continuous_course_iv_therapy          | split_bill_date                                            |
+| effective_date_insured_a                            | start_coordination_period_for_esrd_beneficiaries           |
+| effective_date_insured_b                            | start_infertility_treatement_cycle                         |
+| effective_date_insured_c                            | ur_notice_received                                         |
+| election_of_extended_care_facilities                |                                                            |
+
+
+<a name="valuecode"></a>
+Full list of possible values that can be used in the claim.value_information parameter on the claim:
+
+| value_information Values                                     |                                                            |
+|:-------------------------------------------------------------|:-----------------------------------------------------------|
+| accident_hour                                                | medicare_blood_deductible                                  |
+| any_liability_insurance                                      | medicare_coinsurance_amount_first_year                     |
+| arterial_blood_gas                                           | medicare_coinsurance_amount_second_year                    |
+| black_lung                                                   | medicare_lifetime_reserve_amount_first_year                |
+| blood_deductible_pints                                       | medicare_lifetime_reserve_amount_second_year               |
+| blood_pints_furnished                                        | medicare_new_technology_add_on_payment                     |
+| blood_pints_replaced                                         | medicare_spend_down_amount                                 |
+| cardiac_rehab_visits                                         | most_common_semi_private_rate                              |
+| catastrophic                                                 | multiple_patient_ambulance_transport                       |
+| chiropractic_services_offset_patient_payment_amount          | new_coverage_not_implemented_by_managed_care_plan          |
+| coinsurance_days                                             | newborn_birth_weight                                       |
+| coinsurance_payer_a                                          | no_fault_insurance                                         |
+| coinsurance_payer_b                                          | non_covered_days                                           |
+| coinsurance_payer_c                                          | occupational_therapy_visits                                |
+| conventional_provider_payment_amount_non_demonstration_claims| operating_disproportionate_share_amount                    |
+| copayment_payer_a                                            | operating_indirect_medical_education_amount                |
+| copayment_payer_b                                            | operating_outlier_amount                                   |
+| copayment_payer_c                                            | other_assessments_payer_a                                  |
+| covered_days                                                 | other_assessments_payer_b                                  |
+| covered_self_administrable_drugs_diagnostic_study            | other_assessments_payer_c                                  |
+| covered_self_administrable_drugs_emergency                   | other_medical_services_offset_patient_payment_amount       |
+| covered_self_administrable_drugs_not_self_administrable      | oxygen_saturation                                          |
+| deductible_payer_a                                           | part_a_demonstration_payment                               |
+| deductible_payer_b                                           | part_b_coinsurance                                         |
+| deductible_payer_c                                           | part_b_demonstration_payment                               |
+| dental_services_offset_patient_payment_amount                | patient_estimated_responsibility                           |
+| disabled_beneficiary_under_65_with_lghp                      | patient_height                                             |
+| eligibility_threshold_charity_care                           | patient_liability_amount                                   |
+| epo_units_provided                                           | patient_weight                                             |
+| esrd_beneficiary_in_medicare_coordination_period_with_eghp   | peritoneal_dialysis                                        |
+| esrd_network_funding                                         | phs                                                        |
+| estimated_responsibility_payer_a                             | physical_therapy_visits                                    |
+| estimated_responsibility_payer_b                             | podiatric_services_offset_patient_payment_amount           |
+| estimated_responsibility_payer_c                             | prescription_drugs_offset_patient_payment_amount           |
+| flat_rate_surgery_charge                                     | professional_charges_included_and_billed_separately        |
+| grace_days                                                   | provider_amount_agreed_to_accept_primary_payer             |
+| health_insurance_premiums_offset_patient_payment_amount      | providers_interim_rate                                     |
+| hearing_ear_services_offset_patient_payment_amount           | recurring_monthly_income                                   |
+| hematocrit_reading                                           | regulatory_surcharges_payer_a                              |
+| hemoglobin_reading                                           | regulatory_surcharges_payer_b                              |
+| hh_reimbursements_part_a                                     | regulatory_surcharges_payer_c                              |
+| hh_reimbursements_part_b                                     | service_furnished_location_number                          |
+| hh_visits_part_a                                             | skilled_nurse_home_visit_hours                             |
+| hh_visits_part_b                                             | special_zip_code_reporting                                 |
+| hha_branch_msa                                               | speech_therapy_visits                                      |
+| home_health_aide_home_visit_hours                            | state_charity_care_percent                                 |
+| hospital_no_semi_private_rooms                               | surplus                                                    |
+| inpatient_professional_charges_combined_billed               | veterans_affairs                                           |
+| interest_amount                                              | vision_eye_services_offset_patient_payment_amount          |
+| lifetime_reserve_days                                        | workers_compensation                                       |
+| medicaid_rate_code                                           | working_age_beneficiary_spouse_with_eghp                   |
+
