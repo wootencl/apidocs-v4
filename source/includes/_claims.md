@@ -581,6 +581,57 @@ Full list of possible values that can be used in the claim.occurrence_informatio
 <a name="valuecode"></a>
 Full list of possible values that can be used in the claim.value_information parameter on the claim:
 
-| value_information Values                            |                                                            |
-|:----------------------------------------------------|:-----------------------------------------------------------|
-|                                                     |                                                            |
+| value_information Values                                     |                                                            |
+|:-------------------------------------------------------------|:-----------------------------------------------------------|
+| accident_hour                                                | medicare_blood_deductible                                  |
+| any_liability_insurance                                      | medicare_coinsurance_amount_first_year                     |
+| arterial_blood_gas                                           | medicare_coinsurance_amount_second_year                    |
+| black_lung                                                   | medicare_lifetime_reserve_amount_first_year                |
+| blood_deductible_pints                                       | medicare_lifetime_reserve_amount_second_year               |
+| blood_pints_furnished                                        | medicare_new_technology_add_on_payment                     |
+| blood_pints_replaced                                         | medicare_spend_down_amount                                 |
+| cardiac_rehab_visits                                         | most_common_semi_private_rate                              |
+| catastrophic                                                 | multiple_patient_ambulance_transport                       |
+| chiropractic_services_offset_patient_payment_amount          | new_coverage_not_implemented_by_managed_care_plan          |
+| coinsurance_days                                             | newborn_birth_weight                                       |
+| coinsurance_payer_a                                          | no_fault_insurance                                         |
+| coinsurance_payer_b                                          | non_covered_days                                           |
+| coinsurance_payer_c                                          | occupational_therapy_visits                                |
+| conventional_provider_payment_amount_non_demonstration_claims| operating_disproportionate_share_amount                    |
+| copayment_payer_a                                            | operating_indirect_medical_education_amount                |
+| copayment_payer_b                                            | operating_outlier_amount                                   |
+| copayment_payer_c                                            | other_assessments_payer_a                                  |
+| covered_days                                                 | other_assessments_payer_b                                  |
+| covered_self_administrable_drugs_diagnostic_study            | other_assessments_payer_c                                  |
+| covered_self_administrable_drugs_emergency                   | other_medical_services_offset_patient_payment_amount       |
+| covered_self_administrable_drugs_not_self_administrable      | oxygen_saturation                                          |
+| deductible_payer_a                                           | part_a_demonstration_payment                               |
+| deductible_payer_b                                           | part_b_coinsurance                                         |
+| deductible_payer_c                                           | part_b_demonstration_payment                               |
+| dental_services_offset_patient_payment_amount                | patient_estimated_responsibility                           |
+| disabled_beneficiary_under_65_with_lghp                      | patient_height                                             |
+| eligibility_threshold_charity_care                           | patient_liability_amount                                   |
+| epo_units_provided                                           | patient_weight                                             |
+| esrd_beneficiary_in_medicare_coordination_period_with_eghp   | peritoneal_dialysis                                        |
+| esrd_network_funding                                         | phs                                                        |
+| estimated_responsibility_payer_a                             | physical_therapy_visits                                    |
+| estimated_responsibility_payer_b                             | podiatric_services_offset_patient_payment_amount           |
+| estimated_responsibility_payer_c                             | prescription_drugs_offset_patient_payment_amount           |
+| flat_rate_surgery_charge                                     | professional_charges_included_and_billed_separately        |
+| grace_days                                                   | provider_amount_agreed_to_accept_primary_payer             |
+| health_insurance_premiums_offset_patient_payment_amount      | providers_interim_rate                                     |
+| hearing_ear_services_offset_patient_payment_amount           | recurring_monthly_income                                   |
+| hematocrit_reading                                           | regulatory_surcharges_payer_a                              |
+| hemoglobin_reading                                           | regulatory_surcharges_payer_b                              |
+| hh_reimbursements_part_a                                     | regulatory_surcharges_payer_c                              |
+| hh_reimbursements_part_b                                     | service_furnished_location_number                          |
+| hh_visits_part_a                                             | skilled_nurse_home_visit_hours                             |
+| hh_visits_part_b                                             | special_zip_code_reporting                                 |
+| hha_branch_msa                                               | speech_therapy_visits                                      |
+| home_health_aide_home_visit_hours                            | state_charity_care_percent                                 |
+| hospital_no_semi_private_rooms                               | surplus                                                    |
+| inpatient_professional_charges_combined_billed               | veterans_affairs                                           |
+| interest_amount                                              | vision_eye_services_offset_patient_payment_amount          |
+| lifetime_reserve_days                                        | workers_compensation                                       |
+| medicaid_rate_code                                           | working_age_beneficiary_spouse_with_eghp                   |
+
