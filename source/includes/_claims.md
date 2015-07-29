@@ -330,6 +330,94 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     }
 }' https://platform.pokitdok.com/api/v4/claims/
 ```
+
+
+> Sample Institutional claim for continuing/hospice care:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+  "billing_provider": {
+    "address": {
+      "address_lines": [
+        "100 New Street"
+      ],
+      "city": "New Town",
+      "state": "CA",
+      "zipcode": "941001001"
+    },
+    "npi": "1912301953",
+    "organization_name": "TEST FACILITY,LLC",
+    "taxonomy_code": "251G00000X",
+    "tax_id": "123456789"
+  },
+  "claim": {
+    "admission_date": "2011-08-05",
+    "statement_date": "2015-03-01",
+    "statement_end_date": "2015-03-31",
+    "admission_type": "elective",
+    "admission_source": "not_available",
+    "patient_status": "still_patient",
+    "attending_provider": {
+      "npi": "1467560003",
+      "first_name": "JEAN",
+      "last_name": "SMITH",
+      "taxonomy_code": "251G00000X"
+    },
+    "claim_frequency": "interim_continuing_claims",
+    "direct_payment": "y",
+    "information_release": "informed_consent",
+    "medical_record_number": "661",
+    "facility_type": "nonhospital_based_hospice",
+    "plan_participation": "assigned",
+    "occurrence_information": [
+      {
+        "occurrence_type": "hospice_certification",
+        "occurrence_date": "2013-03-27"
+      }
+    ],
+    "value_information": [
+      {
+        "value_type": "service_furnished_location_number",
+        "value": "36420"
+      }
+    ],
+    "service_lines": [
+      {
+        "charge_amount": "4000",
+        "diagnosis_codes": [
+          "29411"
+        ],
+        "procedure_code": "Q5002",
+        "revenue_code": "0651",
+        "service_date": "2015-03-01",
+        "unit_count": "31",
+        "unit_type": "days",
+        "provider_control_number": "6750000"
+      }
+    ],
+    "total_charge_amount": "4000"
+  },
+  "subscriber": {
+    "address": {
+      "address_lines": [
+        "1234 MAIN AVE"
+      ],
+      "city": "NEW TOWN",
+      "state": "CA",
+      "zipcode": "941001001"
+    },
+    "birth_date": "1920-07-25",
+    "claim_filing_code": "medicare_part_a",
+    "first_name": "JOHN",
+    "gender": "male",
+    "last_name": "SMITH",
+    "member_id": "R12345678",
+    "payer_responsibility": "primary"
+  },
+  "trading_partner_id": "MOCKPAYER",
+  "transaction_code": "chargeable"
+}' https://platform.pokitdok.com/api/v4/claims/
+```
 *Available modes of operation: batch/async*
 
 Following the standard X12 837 format, the PokitDok Claims endpoint allows
