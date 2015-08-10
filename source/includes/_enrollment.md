@@ -23,7 +23,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
     "correlation_id": "x12parse-correlation-id",
     "deleted": false,
     "dependents": [],
-    "insert_dt": "2015-01-01",
     "master_policy_number": "ABCD012354",
     "payer": {
         "tax_id": "654456654"
@@ -97,9 +96,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
         "tobacco_use": false
     },
     "trading_partner_id": "MOCKPAYER",
-    "update_dt": "2015-01-01",
-    "version": "4.0.0",
-    "major_version": "4"
 }
 ```
 >Example change request to add a dependent due to a qualifying life event. (Health)
@@ -142,7 +138,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
             "tobacco_use": false
         }
     ],
-    "insert_dt": "2015-01-01",
     "master_policy_number": "ABCD012354",
     "payer": {
         "tax_id": "654456654"
@@ -160,9 +155,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
         "tobacco_use": false
     },
     "trading_partner_id": "MOCKPAYER",
-    "update_dt": "2015-01-01",
-    "version": "4.0.0",
-    "major_version": "4"
 }
 ```
 > Example request to terminate a subscribers benefits.
@@ -174,7 +166,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
     "correlation_id": "x12parse-correlation-id",
     "deleted": false,
     "dependents": [],
-    "insert_dt": "2015-01-01",
     "payer": {
         "tax_id": "654456654"
     },
@@ -203,9 +194,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
         "tobacco_use": false
     },
     "trading_partner_id": "MOCKPAYER",
-    "update_dt": "2015-01-01",
-    "version": "4.0.0",
-    "major_version": "4"
 }
 ```
 
