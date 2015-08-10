@@ -38,7 +38,6 @@ and maintenance into your solution.
 
 | Parameters           | Type                                                | Description                                                                                                                          | Required? |
 |:---------------------|:----------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|:----------|
-| reference_number     | {string}                                            | The reference number for the transaction.                                                                                            | Yes       |
 | purpose              | {string}                                            | The purpose of the transaction. <br/>Acceptable values: see <a href="#purpose_codes">purpose codes.</a>                              | Yes       |
 | action               | {string}                                            | The action of the transaction. <br/>Acceptable values: see <a href="#action_codes">action codes.</a>                                 | Yes       |
 | master_policy_number | {string}                                            | The master policy number for the sponsor.                                                                                            | No        |
