@@ -19,17 +19,12 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
 ```shell
 {
     "action": "Change",
-    "client_id": "x12parse",
-    "correlation_id": "x12parse-correlation-id",
-    "deleted": false,
     "dependents": [],
-    "insert_dt": "2015-01-01",
     "master_policy_number": "ABCD012354",
     "payer": {
         "tax_id": "654456654"
     },
     "purpose": "Original",
-    "reference_number": "12456",
     "sponsor": {
         "tax_id": "999888777"
     },
@@ -97,9 +92,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
         "tobacco_use": false
     },
     "trading_partner_id": "MOCKPAYER",
-    "update_dt": "2015-01-01",
-    "version": "4.0.0",
-    "major_version": "4"
 }
 ```
 >Example change request to add a dependent due to a qualifying life event. (Health)
@@ -107,9 +99,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
 ```shell
 {
     "action": "Change",
-    "client_id": "x12parse",
-    "correlation_id": "x12parse-correlation-id",
-    "deleted": false,
     "dependents": [
         {
             "benefit_status": "Active",
@@ -142,13 +131,11 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
             "tobacco_use": false
         }
     ],
-    "insert_dt": "2015-01-01",
     "master_policy_number": "ABCD012354",
     "payer": {
         "tax_id": "654456654"
     },
     "purpose": "Original",
-    "reference_number": "12456",
     "sponsor": {
         "tax_id": "999888777"
     },
@@ -160,9 +147,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
         "tobacco_use": false
     },
     "trading_partner_id": "MOCKPAYER",
-    "update_dt": "2015-01-01",
-    "version": "4.0.0",
-    "major_version": "4"
 }
 ```
 > Example request to terminate a subscribers benefits.
@@ -170,16 +154,11 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
 ```shell
 {
     "action": "Change",
-    "client_id": "x12parse",
-    "correlation_id": "x12parse-correlation-id",
-    "deleted": false,
     "dependents": [],
-    "insert_dt": "2015-01-01",
     "payer": {
         "tax_id": "654456654"
     },
     "purpose": "Original",
-    "reference_number": "12456",
     "sponsor": {
         "tax_id": "999888777"
     },
@@ -203,9 +182,6 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
         "tobacco_use": false
     },
     "trading_partner_id": "MOCKPAYER",
-    "update_dt": "2015-01-01",
-    "version": "4.0.0",
-    "major_version": "4"
 }
 ```
 
@@ -225,7 +201,6 @@ request, see our [benefits enrollment reference](benefits_enrollment.html).
 | dependents                                 | A list of dependents covered under benefits by the subscriber.                                                                                          |
 |                                            | Each dependent list item may utilize the same request parameters as a subscriber.                                                                       |
 | master_policy_number                       | The master policy number for the sponsor.                                                                                                               |
-| reference.number                           | The reference number for the transaction.                                                                                                               |
 | relationship                               | The relationship of the subject of the transaction to the policy holder.<br/>Acceptable values: see <a href="#api_relationships">relationship codes</a> |
 | sponsor                                    | The employer/sponsor of the benefits.                                                                                                                   |
 | sponsor.name                               | The name of the sponsor.                                                                                                                                |
