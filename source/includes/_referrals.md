@@ -199,9 +199,9 @@ event.provider.last_name | The event provider’s last name when the provider is
 event.provider.npi | The NPI for the event provider.
 event.provider.organization_name | The event provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.
 event.review | Information about the outcome of a health care services review.
-event.review.certification_action | Indicates the outcome of the review. For example, "certified_in_total" will be returned when the event is certified/authorized.
+event.review.certification_action | Indicates the outcome of the review. For example, "certified_in_total" will be returned when the event is certified/authorized.  A full list of possible values can be found [below](#certaction).
 event.review.certification_number | The review certification/reference number.
-event.review.decision_reason | If the event is not authorized, the reason for that decision.
+event.review.decision_reason | If the event is not authorized, the reason for that decision.  A full list of possible values can be found [below](#decision).
 event.type | The type of service being requested. For example, a value of "consultation" would be used when referring to a specialist for an initial consultation.
 patient.birth_date | The patient’s birth date as specified on their policy.
 patient.id | The patient’s member identifier.
@@ -220,3 +220,48 @@ trading_partner_id | Unique id for the intended trading partner, as specified by
 
 Interested in requesting authorization for a particular service for a patient? See PokitDok’s 
 [Authorizations](#authorizations) endpoint.
+
+
+<a name="certaction"></a>
+Full list of possible values that can be returned in the event.review.certification_action parameter on the authorization response:
+
+| certification_action Values                                  |                                                            |
+|:-------------------------------------------------------------|:-----------------------------------------------------------|
+| cancelled                                                    | modified                                                   |
+| certified_in_total                                           | no_action_required                                         |
+| certified_partial                                            | not_certified                                              |
+| contact_payer                                                | pended                                                     |
+
+
+<a name="decision"></a>
+Full list of possible values that can be returned in the event.review.decision_reason parameter on the authorization response:
+
+| decision_reason Values                                       |                                                            |
+|:-------------------------------------------------------------|:-----------------------------------------------------------|
+| additional_patient_information_required                      | patient_in_premium_payment_grace_period_second_month       |
+| administrative_cancellation                                  | patient_in_premium_payment_grace_period_third_month        |
+| ambulance_certification_transport_address_mismatch           | patient_restricted_to_specific_provider                    |
+| authorization_restrictions                                   | pre_existing_condition                                     |
+| authorized_quantity_exceeded                                 | price_authorization_expired                                |
+| certification_not_required_service                           | price_authorization_no_longer_required                     |
+| certification_responsibility_external_review_organization    | pricing                                                    |
+| computed_mileage_transport_information_mismatch              | primary_care_service                                       |
+| contractual_geographic_restriction                           | product_delivery_pattern                                   |
+| contractual_guidelines_not_followed                          | product_not_on_the_price_authorization                     |
+| cosmetic                                                     | provider_not_primary_care_physician                        |
+| disposition_pending_review                                   | request_forwarded_to_external_review_organization          |
+| duplicate_request                                            | requested_information_not_received                         |
+| exceeds_plan_maximums                                        | requires_medical_review                                    |
+| experimental_service                                         | requires_pcp_authorization                                 |
+| inappropriate_facility_type                                  | service_authorized_for_another_provider                    |
+| level_of_care_not_appropriate                                | service_inconsistent_with_diagnosis                        |
+| mileage_cant_be_computed_based_on_data_submitted             | service_inconsistent_with_patient_age                      |
+| missing_provider_role                                        | service_inconsistent_with_patient_gender                   |
+| no_credit_allowed                                            | service_inconsistent_with_provider_type                    |
+| no_prior_approval                                            | services_not_considered_due_to_other_errors                |
+| non_covered_service                                          | special_cost_incorrect                                     |
+| not_medically_necessary                                      | testing_not_included                                       |
+| notification_received                                        | time_limits_not_met                                        |
+| once_in_a_lifetime_restriction_applies                       | transport_request_denied                                   |
+| out_of_network                                               | unit_resale_higher_than_authorized                         |
+| patient_in_premium_payment_grace_period_first_month          |                                                            |
