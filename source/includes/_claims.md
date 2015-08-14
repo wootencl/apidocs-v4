@@ -512,6 +512,7 @@ subscriber.address.city | The subscriber’s city information as specified on th
 subscriber.address.state | The subscriber’s state information as specified on their policy. (e.g. "CA") | 
 subscriber.address.zipcode | The subscriber’s zip/postal code as specified on their policy. (e.g. "94401") | 
 subscriber.birth_date | The subscriber’s birth date as specified on their policy. | 11a: Insured's date of birth
+subscriber.claim_filing_code | Indicates the type of payment for the claim. It is an optional field and when left blank or not passed in the request, defaults to "mutually_defined". A full list of possible values is included [below](#filing). | 
 subscriber.first_name | Required: The subscriber’s first name as specified on their policy. | 4: Insured's name
 subscriber.gender | The subscriber’s gender as specified on their policy. | 11a: Insured's sex
 subscriber.group_name | Optional: The subscriber’s group name as specified on their policy. | 11b: Employer's name or school name
@@ -564,8 +565,27 @@ Full list of possible values that can be used in the patient.relationships param
 | life_partner        | unknown                    |
 
 
+<a name="filing"></a>
+Full list of possible values that can be used in the subscriber.filing_code parameter on the claim:
+
+| filing_code Values               |                                   |
+|:---------------------------------|:----------------------------------|                    
+| automobile_medical               | medicaid                          |
+| blue_cross_blue_shield           | medicare_part_a                   |
+| champus                          | medicare_part_b                   |
+| commercial_insurance_co          | mutualy_defined                   |
+| dental_maintenance_organization  | other_federal_program             |
+| disability                       | other_non_federal_program         |
+| epo                              | pos                               |
+| federal_employee_program         | ppo                               |
+| hmo                              | title_v                           |
+| hmo_medicare_risk                | veterans_affairs_plan             |
+| indemnity_insurance              | workers_compensation_health_claim |
+| liability_medical                |                                   |
+
+
 <a name="transaction-code"></a>
-Full list of possible values that can be used in the claim.place_of_service parameter on the claim:
+Full list of possible values that can be used in the transaction_code parameter on the claim:
 
 | transaction_code Values |
 |:------------------------|
