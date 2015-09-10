@@ -2,7 +2,7 @@
 > Example eligibility request to determine general health benefit coverage
 
 ```shell
-{
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
         "birth_date": "1970-01-01",
         "first_name": "Jane",
@@ -15,13 +15,29 @@
         "npi": "1467560003"
     },
     "trading_partner_id": "MOCKPAYER"
-}
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+```python
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
 ```
                     
 > Example eligibility request when operating on behalf of a member and a specific provider is not yet known
 
 ```shell
-{
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
         "birth_date": "1970-01-01",
         "first_name": "Jane",
@@ -29,13 +45,24 @@
         "id": "W000000000"
     },
     "trading_partner_id": "MOCKPAYER"
-}
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+```python
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
 ```
                     
 > Some trading partners support eligibility requests using a CPT code. Here's an example using a CPT code to request eligibility information
 
 ```shell
-{
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
         "birth_date": "1970-01-01",
         "first_name": "Jane",
@@ -49,13 +76,30 @@
     },
     "cpt_code": "81291",
     "trading_partner_id": "MOCKPAYER"
-}
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+```python
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "cpt_code": "81291",
+    "trading_partner_id": "MOCKPAYER"
+})
 ```
                     
 > Example eligibility request using custom application data for easy handling of asynchronous responses
 
 ```shell
-{
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
         "birth_date": "1970-01-01",
         "first_name": "Jane",
@@ -73,13 +117,10 @@
         "location_id": 123,
         "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
     }
-}
+}' https://platform.pokitdok.com/api/v4/eligibility/
 ```
-                    
-> example submitting an eligibility request:
-
-```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+```python
+pd.eligibility({
     "member": {
         "birth_date": "1970-01-01",
         "first_name": "Jane",
@@ -91,11 +132,15 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "last_name": "AYA-AY",
         "npi": "1467560003"
     },
-    "service_types": ["health_benefit_plan_coverage"],
-    "trading_partner_id": "MOCKPAYER"
-}
-' https://platform.pokitdok.com/api/v4/eligibility/
+    "trading_partner_id": "MOCKPAYER",
+    "application_data": {
+        "patient_id": "ABC1234XYZ",
+        "location_id": 123,
+        "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
+    }
+})
 ```
+                    
 *Available modes of operation: batch/async or real-time*
 
 The Eligibility Endpoint makes it easy to verify a member's insurance information in real-time. You can check 

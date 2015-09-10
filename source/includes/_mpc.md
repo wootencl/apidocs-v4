@@ -4,12 +4,19 @@
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/mpc/99213
 ```
+```python
+pd.mpc(code='99213')
+```
         
 > curl example searching medical procedure information by consumer friendly name
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/mpc/?name=office
 ```
+```python
+pd.mpc(name='office')
+```
+
 *Available modes of operation: real-time only*
 
 The Medical Procedure Code endpoints provide access to clinical and consumer

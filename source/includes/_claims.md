@@ -49,6 +49,54 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     }
 }` https://platform.pokitdok.com/api/v4/claims/
 ```
+```python
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
 > Sample Claims request where the patient is not the subscriber:
 
 ```shell
@@ -70,7 +118,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         },
         "tax_id": "123456789"
     },
-    “patient": {
+    "patient": {
         "first_name": “John",
         "last_name": "Doe",
         "member_id": "W000000000",
@@ -81,7 +129,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "zipcode": "29301"
         },
         "birth_date": "1971-01-01",
-        "gender": “male"
+        "gender": "male"
     },
     "subscriber": {
         "first_name": "Jane",
@@ -114,6 +162,68 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 }' https://platform.pokitdok.com/api/v4/claims/
 ```
 
+```python
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "patient": {
+        "first_name": “John",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1971-01-01",
+        "gender": "male"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 100.0,
+        "service_lines": [
+            {
+                "procedure_code": "99201",
+                "procedure_modifier_codes": ["GT"],
+                "charge_amount": 100.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
                     
 > Sample Claims request that includes custom application data for easy handling
 of asynchronous responses:
@@ -171,6 +281,60 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     }
 }' https://platform.pokitdok.com/api/v4/claims/
 ```
+
+```python
+pd.claims({
+    "application_data": {
+        "patient_id": "ABC1234XYZ",
+        "location_id": 123,
+        "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
+    },
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
                     
 > Sample Claims Request using the patient paid amount to report a cash payment
 encounter for contributing toward a member's deductible:
@@ -226,6 +390,57 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 }' https://platform.pokitdok.com/api/v4/claims/
 ```
 
+```python
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "1703 John B White Blvd, Unit A"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "JOHN",
+        "last_name": "DOE",
+        "member_id": "W199000000",
+        "address": {
+            "address_lines": ["123 MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "male"
+    },
+    "claim": {
+        "place_of_service": "office",
+        "total_charge_amount": 150.0,
+        "patient_paid_amount": 150.0,
+        "service_lines": [
+            {
+                "procedure_code": "11100",
+                "charge_amount": 150.00,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "701.9"
+                ],
+                "service_date": "2014-11-24"
+            }
+        ]
+    }
+})
+```
+
 > Sample Claims request when using procedure modifier codes. This example uses
 the "GT" modifier ("via interactive audio and video telecommunications
 systems") which would be suitable for telehealth applications:
@@ -278,7 +493,58 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         ]
     }
 }' https://platform.pokitdok.com/api/v4/claims/
-```       
+```
+
+```python
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 100.0,
+        "service_lines": [
+            {
+                "procedure_code": "99201",
+                "procedure_modifier_codes": ["GT"],
+                "charge_amount": 100.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
+
 > Sample Claims request submitting a claim with an application's callback_url specified:
 
 ```shell
@@ -330,7 +596,55 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     }
 }' https://platform.pokitdok.com/api/v4/claims/
 ```
-
+```python
+pd.claims({
+    “callback_url”: “https://yourapp.com/claims/status”,
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
 
 > Sample Institutional claim for continuing/hospice care:
 
@@ -418,6 +732,204 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
   "transaction_code": "chargeable"
 }' https://platform.pokitdok.com/api/v4/claims/
 ```
+
+```python
+pd.claims({
+  "billing_provider": {
+    "address": {
+      "address_lines": [
+        "100 New Street"
+      ],
+      "city": "New Town",
+      "state": "CA",
+      "zipcode": "941001001"
+    },
+    "npi": "1912301953",
+    "organization_name": "TEST FACILITY,LLC",
+    "taxonomy_code": "251G00000X",
+    "tax_id": "123456789"
+  },
+  "claim": {
+    "admission_date": "2011-08-05",
+    "statement_date": "2015-03-01",
+    "statement_end_date": "2015-03-31",
+    "admission_type": "elective",
+    "admission_source": "not_available",
+    "patient_status": "still_patient",
+    "attending_provider": {
+      "npi": "1467560003",
+      "first_name": "JEAN",
+      "last_name": "SMITH",
+      "taxonomy_code": "251G00000X"
+    },
+    "claim_frequency": "interim_continuing_claims",
+    "direct_payment": "y",
+    "information_release": "informed_consent",
+    "medical_record_number": "661",
+    "facility_type": "nonhospital_based_hospice",
+    "plan_participation": "assigned",
+    "occurrence_information": [
+      {
+        "occurrence_type": "hospice_certification",
+        "occurrence_date": "2013-03-27"
+      }
+    ],
+    "value_information": [
+      {
+        "value_type": "service_furnished_location_number",
+        "value": "36420"
+      }
+    ],
+    "service_lines": [
+      {
+        "charge_amount": "4000",
+        "diagnosis_codes": [
+          "29411"
+        ],
+        "procedure_code": "Q5002",
+        "revenue_code": "0651",
+        "service_date": "2015-03-01",
+        "unit_count": "31",
+        "unit_type": "days",
+        "provider_control_number": "6750000"
+      }
+    ],
+    "total_charge_amount": "4000"
+  },
+  "subscriber": {
+    "address": {
+      "address_lines": [
+        "1234 MAIN AVE"
+      ],
+      "city": "NEW TOWN",
+      "state": "CA",
+      "zipcode": "941001001"
+    },
+    "birth_date": "1920-07-25",
+    "claim_filing_code": "medicare_part_a",
+    "first_name": "JOHN",
+    "gender": "male",
+    "last_name": "SMITH",
+    "member_id": "R12345678",
+    "payer_responsibility": "primary"
+  },
+  "trading_partner_id": "MOCKPAYER",
+  "transaction_code": "chargeable"
+})
+```
+
+> Claims request registering a callback_url and requesting a mock claim payment callback.  Your application will receive
+two callbacks.  The first will contain a claims acknowledgement result.  The second will contain a mock claim payment where
+85% of the charged amount is paid, 5% is adjusted due to contractual obligations and 10% is left to be paid by the patient.
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "callback_url": "https://your-application.com/callback/1234",
+    "application_data": {
+        "mock_claim_payment": true
+    },
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+}` https://platform.pokitdok.com/api/v4/claims/
+```
+
+```python
+pd.claims({
+    "callback_url": "https://your-application.com/callback/1234",
+    "application_data": {
+        "mock_claim_payment": True
+    },
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
+
+
+
 *Available modes of operation: batch/async*
 
 Following the standard X12 837 format, the PokitDok Claims endpoint allows
@@ -429,8 +941,11 @@ processing is complete and a claim acknowledgement has been received from the
 trading partner. The full claims request activity will be POSTed back to the
 callback_url. A claim acknowledgement will be returned for each submitted
 claims request. Once a claim is adjudicated, an 835 Electronic Remittance
-Advice transaction will be returned which provides claim payment information.
-For a complete reference to all possible values in a claim payment result,
+Advice transaction will be returned to applications that are registered to receive them.
+If a callback_url was registered on the claims request and claim payment information is received,
+the full claims request activity will be POSTed back to the callback_url a second time.  The claim payment information will be
+contained in the result section of the claims activity JSON.   The original claims acknowledgement will move to
+the result_history section of the claims activity.  For a complete reference to all possible values in a claim payment result,
 see our [claim payments reference](claim_payments.html)
 If you are interested in receiving 835 files, please <a href="http://pokitdok.com/contact?context=PokitDok">contact us</a>.
 

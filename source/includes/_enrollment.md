@@ -94,6 +94,84 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
     "trading_partner_id": "MOCKPAYER",
 }
 ```
+```python
+pd.enrollment({
+    "action": "Change",
+    "dependents": [],
+    "master_policy_number": "ABCD012354",
+    "payer": {
+        "tax_id": "654456654"
+    },
+    "purpose": "Original",
+    "sponsor": {
+        "tax_id": "999888777"
+    },
+    "subscriber": {
+        "address": {
+            "city": "CAMP HILL",
+            "county": "CUMBERLAND",
+            "line": "100 MARKET ST",
+            "line2": "APT 3G",
+            "postal_code": "17011",
+            "state": "PA"
+        },
+        "benefit_status": "Active",
+        "benefits": [
+            {
+                "begin_date": " 2015-01-01",
+                "benefit_type": "Health",
+                "coordination_of_benefits": [
+                    {
+                        "group_or_policy_number": "890111",
+                        "payer_responsibility": "Primary",
+                        "status": "Unknown"
+                    }
+                ],
+                "late_enrollment": False,
+                "maintenance_type": "Addition"
+            },
+            {
+                "begin_date": "2015-01-01",
+                "benefit_type": "Dental",
+                "late_enrollment": False,
+                "maintenance_type": "Addition"
+            },
+            {
+                "begin_date": "2015-01-01",
+                "benefit_type": "Vision",
+                "late_enrollment": False,
+                "maintenance_type": "Addition"
+            }
+        ],
+        "birth_date": "1940-01-01",
+        "contacts": [
+            {
+                "communication_number2": "7172341240",
+                "communication_type2": "Work Phone Number",
+                "primary_communication_number": "7172343334",
+                "primary_communication_type": "Home Phone Number"
+            }
+        ],
+        "eligibility_begin_date": "2014-01-01",
+        "employment_status": "Full-time",
+        "first_name": "JOHN",
+        "gender": "Male",
+        "group_or_policy_number": "123456001",
+        "handicapped": False,
+        "last_name": "DOE",
+        "maintenance_reason": "Active",
+        "maintenance_type": "Addition",
+        "member_id": "123456789",
+        "middle_name": "P",
+        "relationship": "Self",
+        "ssn": "123456789",
+        "subscriber_number": "123456789",
+        "substance_abuse": False,
+        "tobacco_use": False
+    },
+    "trading_partner_id": "MOCKPAYER",
+})
+```
 >Example change request to add a dependent due to a qualifying life event. (Health)
 
 ```shell
@@ -149,6 +227,59 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
     "trading_partner_id": "MOCKPAYER",
 }
 ```
+```python
+pd.enrollment({
+    "action": "Change",
+    "dependents": [
+        {
+            "benefit_status": "Active",
+            "benefits": [
+                {
+                    "begin_date": "2014-01-01",
+                    "benefit_type": "Health",
+                    "late_enrollment": False,
+                    "maintenance_type": "Addition"
+                }
+            ],
+            "birth_date": "1999-01-01",
+            "education_end_date": "2016-01-01",
+            "first_name": "JAMES",
+            "gender": "Male",
+            "group_or_policy_number": "123456001",
+            "handicapped": False,
+            "last_name": "DOE",
+            "maintenance_reason": "Initial Enrollment",
+            "maintenance_type": "Addition",
+            "middle_name": "E",
+            "relationship": "Child",
+            "school": {
+                "name": "PENN STATE UNIVERSITY"
+            },
+            "ssn": "987654321",
+            "student_status": "Full-time",
+            "subscriber_number": "123456789",
+            "substance_abuse": False,
+            "tobacco_use": False
+        }
+    ],
+    "master_policy_number": "ABCD012354",
+    "payer": {
+        "tax_id": "654456654"
+    },
+    "purpose": "Original",
+    "sponsor": {
+        "tax_id": "999888777"
+    },
+    "subscriber": {
+        "contacts": [],
+        "handicapped": False,
+        "member_id": "987654321",
+        "substance_abuse": False,
+        "tobacco_use": False
+    },
+    "trading_partner_id": "MOCKPAYER",
+})
+```
 > Example request to terminate a subscribers benefits.
 
 ```shell
@@ -183,6 +314,39 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
     },
     "trading_partner_id": "MOCKPAYER",
 }
+```
+```python
+pd.enrollment({
+    "action": "Change",
+    "dependents": [],
+    "payer": {
+        "tax_id": "654456654"
+    },
+    "purpose": "Original",
+    "sponsor": {
+        "tax_id": "999888777"
+    },
+    "subscriber": {
+        "benefit_status": "Active",
+        "contacts": [],
+        "eligibility_end_date": "2015-01-01",
+        "employment_status": "Terminated",
+        "first_name": "JOHN",
+        "group_or_policy_number": "123456001",
+        "handicapped": False,
+        "last_name": "DOE",
+        "maintenance_reason": "Termination of Employment",
+        "maintenance_type": "Cancellation or Termination",
+        "member_id": "123456789",
+        "middle_name": "E",
+        "relationship": "Self",
+        "ssn": "123456788",
+        "subscriber_number": "123456789",
+        "substance_abuse": False,
+        "tobacco_use": False
+    },
+    "trading_partner_id": "MOCKPAYER",
+})
 ```
 
 Available Enrollment Endpoints:

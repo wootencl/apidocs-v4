@@ -4,12 +4,19 @@
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/1467560003
 ```
+```python
+pd.providers(npi='1467560003')
+```
             
 > example searching providers by zipcode and specialty:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/?zipcode=29307&specialty=rheumatology&radius=20mi
 ```
+```python
+pd.providers(zipcode='29307', specialty='rheumatology', radius='20mi')
+```
+
 *Available modes of operation: real-time only*
 
 The Providers endpoints provide access to PokitDok's provider directory.
