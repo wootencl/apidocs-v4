@@ -4,11 +4,17 @@
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/tradingpartners/
 ```
+```python
+pd.trading_partners()
+```
         
 > example fetching information for a specific trading partner
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/tradingpartners/aetna
+```
+```python
+pd.trading_partners('aetna')
 ```
 *Available modes of operation: real-time*
 

@@ -5,10 +5,20 @@
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/
 ```
 
+```python
+#retrieve an index of activities
+pd.activities()
+```
+
 > example fetching information for a specific activity
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
+```
+
+```python
+#check on a specific activity
+pd.activities(activity_id='5362b5a064da150ef6f2526c')
 ```
 
 > example to cancel an existing activity

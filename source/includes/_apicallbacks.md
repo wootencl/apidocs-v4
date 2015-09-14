@@ -16,3 +16,13 @@ https is required for all callback_url values.  Application developers may also 
 to a specific network location and use basic http authentication to protect their callback endpoints.
 If you wish to enable those additional security settings for API callbacks, you may do so by editing your App details
 in the API Dashboard.
+
+
+If you're testing API callbacks on claims API requests using the MOCKPAYER trading partner id, you can get a second
+callback that simulates claim payment results by adding
+```
+    "application_data": {
+        "mock_claim_payment": true
+    }
+```
+to your claims API test requests.

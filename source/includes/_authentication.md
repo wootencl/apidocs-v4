@@ -39,6 +39,7 @@ authenticating at the command line using cURL to authenticate and make a call
 to the Activities API.
 
 ```python
+# not using the PokitDok Python client library
 import requests
 from base64 import urlsafe_b64encode
 
@@ -51,6 +52,13 @@ data={'grant_type':'client_credentials'}).json()['access_token']
 
 activity = requests.get('https://platform.pokitdok.com/api/v4/activities/53187d2027a27620f2ec7537',
 headers={'Authorization': 'Bearer ' + access_token}).json()
+```
+
+```python
+# using https://github.com/pokitdok/pokitdok-python
+import pokitdok
+
+pd = pokitdok.api.connect('<your client id>', '<your client secret>')
 ```
 
 The Python tab contains an example of authentication from scratch using Python
