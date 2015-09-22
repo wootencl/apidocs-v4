@@ -144,8 +144,7 @@ pd.eligibility({
 *Available modes of operation: batch/async or real-time*
 
 The Eligibility Endpoint makes it easy to verify a member's insurance information in real-time. You can check 
-co-insurance, copay, deductible and out of pocket amounts for a member along with other information about a member's 
-plan.
+co-insurance, copay, deductible and out of pocket amounts for a member along with other benefit information.
 
 Use the [Trading Partners](#trading-partners) Endpoint to determine available trading_partner_id values for use with the 
 Eligibility API.
