@@ -932,7 +932,7 @@ pd.claims({
 
 *Available modes of operation: batch/async*
 
-Following the standard X12 837 format, the PokitDok Claims endpoint allows
+Following the standard X12 837 format, the Claims endpoint allows
 applications to easily file claims to designated trading partners.
 
 When using the Claims endpoint, there is an option to supply a callback_url,
