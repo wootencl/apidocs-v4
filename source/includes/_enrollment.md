@@ -2,7 +2,7 @@
 
 *Available modes of operation: batch/async only*
 
-The Benefits Enrollment API eases the creation and transmission process
+Following the X12 834 format, the Benefits Enrollment API eases the creation and transmission process
 of benefits enrollment and maintenance files. Applications can use the Enrollment
 endpoint to submit new enrollments, enrollment changes due to life events and
 plan termination. These files are submitted asynchronously via batch mode.
