@@ -128,6 +128,11 @@ patient.birth_date | The patient’s birth date as specified on their policy.
 patient.id | The patient’s member identifier.
 patient.first_name | The patient’s first name as specified on their policy.
 patient.last_name | The patient’s last name as specified on their policy.
+patient.last_menstrual_date | Optional: The last menustral date of the patient
+patient.ssn | Optional: The social security number of the patient
+patient.group_number | Optional: The group number of the patient. 
+patient.estimated_date_of_birth | Optional: The estimated date of birth of the patient.
+patient.illness_date | Optional: The date the patient became ill.
 provider.first_name | The requesting provider’s first name when the provider is an individual.
 provider.last_name | The requesting provider’s last name when the provider is an individual.
 provider.npi | The NPI for the requesting provider.
