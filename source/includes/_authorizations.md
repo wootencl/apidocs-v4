@@ -93,10 +93,10 @@ pd.authorizations({
 
 *Available modes of operation: batch/async or real-time*
 
-The Authorizations endpoint allows an application to submit a request for the review of a health care service in order to obtain an authorization.
+The Authorizations endpoint allows an application to submit a request for an authorization for a health care service.
 Providers can request permission (authorization) from the reviewing entity (e.g. Utilization Management Organization) to deliver health care services to a patient.
 
-The authorization request can also be used  to request permission to admit their patient and/or gain authorization to deliver specific health care services to a patient that requires review. 
+The authorization request can also be used  to request permission to admit a patient and/or gain authorization to deliver specific health care services to a patient that requires review. 
 
 Available Authorizations Endpoints:
 
