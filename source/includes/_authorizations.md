@@ -106,43 +106,44 @@ Available Authorizations Endpoints:
 
 The /authorizations/ endpoint accepts the following parameters:
 
-| Parameter                         | Description                                                                                                                                     |
-|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------|
-| event                             | The patient event that is being submitted for review.                                                                                           |
-| event.category                    | The category of the event being submitted for review.                                                                                           |
-| event.certification_type          | The type of certification being requested. For new authorization requests, a certification value of "initial" should be used.                   |
-| event.delivery                    | Specifies the delivery pattern of the health care services.                                                                                     |
-| event.delivery.quantity           | The quantity of services being requested.                                                                                                       |
-| event.delivery.quantity_qualifier | The qualifier used to indicate the quantity type. (e.g. visits, month, hours, units, days)                                                      |
-| event.diagnoses                   | An array of diagnosis information related to the event.                                                                                         |
-| event.diagnoses.code              | The diagnosis code. (e.g. 789.00)                                                                                                               |
-| event.diagnoses.date              | The date of the diagnosis.                                                                                                                      |
-| event.place_of_service            | The location where health care services are rendered.                                                                                           |
-| event.provider                    | Information about the provider being requested for this event.                                                                                  |
-| event.provider.first_name         | The event provider’s first name when the provider is an individual.                                                                             |
-| event.provider.last_name          | The event provider’s last name when the provider is an individual.                                                                              |
-| event.provider.npi                | The NPI for the event provider.                                                                                                                 |
-| event.provider.organization_name  | The event provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.      |
-| event.type                        | The type of service being requested. For example, a value of "diagnostic_medical" would be used when an abdominal ultrasound for a patient.     |
-| patient.birth_date                | The patient’s birth date as specified on their policy.                                                                                          |
-| patient.id                        | The patient’s member identifier.                                                                                                                |
-| patient.first_name                | The patient’s first name as specified on their policy.                                                                                          |
-| patient.last_name                 | The patient’s last name as specified on their policy.                                                                                           |
-| patient.last_menstrual_date       | Optional: The last menstrual date of the patient                                                                                                |
-| patient.ssn                       | Optional: The social security number of the patient                                                                                             |
-| patient.group_number              | Optional: The group number of the patient.                                                                                                      |
-| patient.estimated_date_of_birth   | Optional: The estimated date of birth of the patient.                                                                                           |
-| patient.illness_date              | Optional: The date the patient became ill.                                                                                                      |
-| provider.first_name               | The requesting provider’s first name when the provider is an individual.                                                                        |
-| provider.last_name                | The requesting provider’s last name when the provider is an individual.                                                                         |
-| provider.npi                      | The NPI for the requesting provider.                                                                                                            |
-| provider.organization_name        | The requesting provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name. |
-| subscriber.birth_date             | Optional: The subscriber’s birth date as specified on their policy. Specify when the patient is not the subscriber.                             |
-| subscriber.first_name             | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber.                             |
-| subscriber.id                     | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.                                                   |
-| subscriber.last_name              | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.                              |
-| trading_partner_id                | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.                                 |
-
+| Parameter                         | Description                                                                                                                                                                                  |
+|:----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| event                             | The patient event that is being submitted for review.                                                                                                                                        |
+| event.category                    | The category of the event being submitted for review.                                                                                                                                        |
+| event.certification_type          | The type of certification being requested. For new authorization requests, a certification value of "initial" should be used.                                                                |
+| event.delivery                    | Specifies the delivery pattern of the health care services.                                                                                                                                  |
+| event.delivery.quantity           | The quantity of services being requested.                                                                                                                                                    |
+| event.delivery.quantity_qualifier | The qualifier used to indicate the quantity type. (e.g. visits, month, hours, units, days)                                                                                                   |
+| event.diagnoses                   | An array of diagnosis information related to the event.                                                                                                                                      |
+| event.diagnoses.code              | The diagnosis code. (e.g. 789.00)                                                                                                                                                            |
+| event.diagnoses.date              | The date of the diagnosis.                                                                                                                                                                   |
+| event.place_of_service            | The location where health care services are rendered.                                                                                                                                        |
+| event.provider                    | Information about the provider being requested for this event.                                                                                                                               |
+| event.provider.first_name         | The event provider’s first name when the provider is an individual.                                                                                                                          |
+| event.provider.last_name          | The event provider’s last name when the provider is an individual.                                                                                                                           |
+| event.provider.npi                | The NPI for the event provider.                                                                                                                                                              |
+| event.provider.organization_name  | The event provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                                   |
+| event.type                        | The type of service being requested. For example, a value of "diagnostic_medical" would be used when an abdominal ultrasound for a patient.                                                  |
+| event.start_date                  | Optional: The start date of the given event. For a single date, provide only event.start_date. For a date range, provide event.start_date and event.end_date. Given in ISO8601 (YYYY-MM-DD). |
+| event.end_date                    | Optional: The end date of the given event. Only provide the end_date if the start_date is also given. Given in ISO8601 (YYYY-MM-DD).                                                         |
+| patient.birth_date                | The patient’s birth date as specified on their policy.                                                                                                                                       |
+| patient.id                        | The patient’s member identifier.                                                                                                                                                             |
+| patient.first_name                | The patient’s first name as specified on their policy.                                                                                                                                       |
+| patient.last_name                 | The patient’s last name as specified on their policy.                                                                                                                                        |
+| patient.last_menstrual_date       | Optional: The last menstrual date of the patient                                                                                                                                             |
+| patient.ssn                       | Optional: The social security number of the patient                                                                                                                                          |
+| patient.group_number              | Optional: The group number of the patient.                                                                                                                                                   |
+| patient.estimated_date_of_birth   | Optional: The estimated date of birth of the patient.                                                                                                                                        |
+| patient.illness_date              | Optional: The date the patient became ill.                                                                                                                                                   |
+| provider.first_name               | The requesting provider’s first name when the provider is an individual.                                                                                                                     |
+| provider.last_name                | The requesting provider’s last name when the provider is an individual.                                                                                                                      |
+| provider.npi                      | The NPI for the requesting provider.                                                                                                                                                         |
+| provider.organization_name        | The requesting provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                              |
+| subscriber.birth_date             | Optional: The subscriber’s birth date as specified on their policy. Specify when the patient is not the subscriber.                                                                          |
+| subscriber.first_name             | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber.                                                                          |
+| subscriber.id                     | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.                                                                                                |
+| subscriber.last_name              | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.                                                                           |
+| trading_partner_id                | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.                                                                              |
 > Example authorizations response when the trading partner has authorized the request:
 
 ```shell
