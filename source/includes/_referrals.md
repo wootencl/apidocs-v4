@@ -115,6 +115,8 @@ event.provider.last_name | The event provider’s last name when the provider is
 event.provider.npi | The NPI for the event provider.
 event.provider.organization_name | The event provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.
 event.type | The type of service being requested. For example, a value of consultation would be used when referring to a specialist for an initial consultation.
+event.start_date | Optional: The start date of the given event. For a single date, provide only event.start_date. For a date range, provide event.start_date and event.end_date. Given in ISO8601 (YYYY-MM-DD).
+event.end_date | Optional: The end date of the given event. Only provide the end_date if the start_date is also given. Given in ISO8601 (YYYY-MM-DD).
 patient.birth_date | The patient’s birth date as specified on their policy.
 patient.id | The patient’s member identifier.
 patient.first_name | The patient’s first name as specified on their policy.
