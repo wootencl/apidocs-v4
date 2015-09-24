@@ -123,6 +123,7 @@ provider.first_name | The referring provider’s first name when the provider is
 provider.last_name | The referring provider’s last name when the provider is an individual.
 provider.npi | The NPI for the referring provider.
 provider.organization_name | The referring provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.
+patient.illness_date | Optional: The date the patient became ill.
 subscriber.birth_date | Optional: The subscriber’s birth date as specified on their policy. Specify when the patient is not the subscriber.
 subscriber.first_name | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber.
 subscriber.id | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.
