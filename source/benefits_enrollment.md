@@ -129,6 +129,19 @@ and maintenance into your solution.
 | weight                      | {string}                                                | The weight of the subscriber.                                                                                                                                                       |                                                                  |
 | benefits                    | List of <a href="#coverage_object">Coverage objects</a> | The list of benefit segments for the subscriber.                                                                                                                                    |                                                                  |
 | maintenance_effective_date  | {datetime}                                              | The maintenance effective date of the subscriber.                                                                                                                                   |                                                                  |
+| client_reporting_category       | {string} | The client reporting category.   |           |
+| client_number     | {string} | The client number. |           |
+| case_number       | {string} | The case number.   |           |
+| pin       | {string} | Personal Identification Number (PIN)  Used to transmit a password associated with a member. |           |
+| cross_reference_number     | {string} | The cross reference number for the member.            |           |
+| personal_id_number       | {string} | The personal ID number for the member. |           |
+| pharmacy_number     | {string} | The pharmacy number for the member.            |           |
+| department_number       | {string} | The department number for the member. |           |
+| hic_number       | {string} | The health insurance claim number. |           |
+| position_code       | {string} | The members position code. Represents the code used to represent the member's employment position|           |
+| prior_identifier_number     | {string} | The members prior identification number.            |           |
+| unit_number       | {string} | The unit number. Used when members are set up as different units under the terms of the insurance policy. |           |
+| supplemental_identifier       | {string} | The "Mutually Defined" supplemental identifier. |           |
 
 (<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
@@ -208,7 +221,20 @@ and maintenance into your solution.
 | coinsurance_amount          | <a href="#monetary_object">Monetary Amount object</a>                                   | The coinsurance amount for the subscriber.                                                                                  |           |
 | coordination_of_benefits    | List of <a href="#coordination_of_benefits_object">Coordination of Benefits objects</a> | List of the coordination of benefits segment.                                                                               |           |
 | providers                   | List of Provider object                                                                 | List of the provider segment.                                                                                               |           |
-
+| client_reporting_category       | {string} | The client reporting category.   |           |
+| group_number     | {string} | The group number. |           |
+| payment_category       | {string} | The payment category.   |           |
+| contract_code       | {string} | The contract code.  |           |
+| service_contract_number     | {string} | The service contract number.             |           |
+| medical_assistance_category       | {string} | The medical assistance category.  |           |
+| program_identification_number     | {string} | The program identification number.            |           |
+| rate_code_number       | {string} | The rate code number. |           |
+| internal_control_number       | {string} | The internal control number. |           |
+| issuer_number       | {string} | The issuer number. |           |
+| special_program_code     | {string} | The special program code.            |           |
+| service_area_code       | {string} | The service area code. |           |
+| county_code       | {string} | The country code. |           |
+| policy_number       | {string} | The policy number. |           |
 (<a href="#member_object">Back to Member object</a>)
 
 <a name="coordination_of_benefits_object"></a>
