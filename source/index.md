@@ -24,9 +24,11 @@ includes:
   - enrollment
   - cashprices
   - claims
+  - claimsconvert
   - claimstatus
   - eligibility
   - files
+  - icdconvert
   - insuranceprices
   - mpc
   - payers

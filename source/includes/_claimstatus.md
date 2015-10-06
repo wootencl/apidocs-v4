@@ -263,7 +263,7 @@ any matching claims:
         "last_name": "Aya-Ay"
     },
     "trading_partner_id": "MOCKPAYER"
-}' https://platform.pokitdok.com/api/v4/claims/status
+}
 ```
                     
 > Example claims status response when adjudication is finalized and the claim
