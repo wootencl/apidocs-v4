@@ -129,6 +129,8 @@ and maintenance into your solution.
 | weight                      | {string}                                                | The weight of the subscriber.                                                                                                                                                       |                                                                  |
 | benefits                    | List of <a href="#coverage_object">Coverage objects</a> | The list of benefit segments for the subscriber.                                                                                                                                    |                                                                  |
 | maintenance_effective_date  | {datetime}                                              | The maintenance effective date of the subscriber.                                                                                                                                   |                                                                  |
+| reporting_categories                | <a href="#reporting_categories">Reporting Category object</a>   | The additional reporting categories that may be included for each member within an enrollment transaction                                                                                                                                                    |                                                                  |
+
 
 (<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
@@ -185,6 +187,17 @@ and maintenance into your solution.
 
 (<a href="#member_object">Back to Member object</a>)
 
+<a name="reporting_categorie"></a>
+## Report Category Object
+| Parameters | Type     | Description                       | Required? |
+|:-----------|:---------|:----------------------------------|:----------|
+| name       | {string} | The name of the report category. |           |
+| qualifier     | {string} | The qualifier for the report category. <br/>Acceptable values: see <a href="#report_category_qualifiers">report category qualifiers.</a>           |           |
+| value   | {string} | The value of the report category.  |    Yes       |
+| effective_date     | {string} | The effective date of the report category.           |           |
+| effective_end_date   | {string} | The effective end date of the category. |           |
+(<a href="#member_object">Back to Member object</a>)
+
 <a name="coverage_object"></a>
 ## Coverage object
 | Parameters                  | Type                                                                                    | Description                                                                                                                 | Required? |
@@ -209,6 +222,17 @@ and maintenance into your solution.
 | coordination_of_benefits    | List of <a href="#coordination_of_benefits_object">Coordination of Benefits objects</a> | List of the coordination of benefits segment.                                                                               |           |
 | providers                   | List of Provider object                                                                 | List of the provider segment.                                                                                               |           |
 
+(<a href="#member_object">Back to Member object</a>)
+
+<a name="reporting_categories"></a>
+## Report Category Object
+| Parameters | Type     | Description                       | Required? |
+|:-----------|:---------|:----------------------------------|:----------|
+| name       | {string} | The name of the report category. |           |
+| qualifier     | {string} | The qualifier for the report category. <br/>Acceptable values: see <a href="#report_category_qualifiers">report category qualifiers.</a>           |           |
+| value   | {string} | The value of the report category.  |    Yes       |
+| effective_date     | {string} | The effective date of the report category.           |           |
+| effective_end_date   | {string} | The effective end date of the category. |           |
 (<a href="#member_object">Back to Member object</a>)
 
 <a name="coordination_of_benefits_object"></a>
@@ -562,6 +586,22 @@ for submission to the payer.
 |:------------------|
 | Person            |
 | Non-Person Entity |
+
+(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
+
+<a name="report_category_qualifiers"></a>
+## Report Category Qualifiers
+|                                      |                                       |
+|:-------------------------------------|:--------------------------------------|
+|Service Area Code | Application Number |
+|Contracting District Number | Special Program Code |
+|Mutually Defined | Account Category |
+|Client Reporting Category| Geographic Number |
+|Division Identifier | Location Number |
+|Plan Number | Geographic Key |
+|Program Identification Number | Branch Identifier |
+|Union Number | Payment Category |
+
 
 (<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
