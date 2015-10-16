@@ -11,6 +11,13 @@ File transmission is performed depending on carrier and group requirements. The
 Benefits Enrollment API can be utilized for all enrollment requirements
 including open enrollment and is able to support both full and change files.
 
+PokitDok only transmits 834 files and responses to and from carriers. We do
+not perform scrubbing or editing of submissions, or provide front-end interfaces
+to manage benefits. File transmission is subject to carrier and group
+requirements. Since enrollment requirements vary greatly between carriers,
+please [contact us](/contact) to get started integrating benefits enrollment
+and maintenance into your solution.
+
 Learn more about our [Benefits Enrollment API
 workflow](https://platform.pokitdok.com/benefit-enrollment).
 
