@@ -175,7 +175,7 @@ see [claims API workflow](https://platform.pokitdok.com/claim-processing).
 
 Please note that on average it takes 5-7 days for a claim to enter a payer’s
 adjudication system, thus it recommended to wait at least a week after
-submitting a claim to check its status.
+submitting a claim to check its status.  
 
 
 Endpoint | HTTP Method | Description
@@ -265,7 +265,53 @@ any matching claims:
     "trading_partner_id": "MOCKPAYER"
 }
 ```
-                    
+> Example claims status response when there is an error in the formatting of the providers NPI or name and they are unable to find a match:
+
+```shell
+{  
+   "meta":{  
+      "rate_limit_amount":18,
+      "rate_limit_reset":1441131787,
+      "application_mode":"production",
+      "processing_time":15852,
+      "rate_limit_cap":1000,
+      "credits_remaining":-16,
+      "activity_id":"55e5e4c13fe8fa011dc43d7c",
+      "credits_billed":1
+   },
+   "data":{  
+      "client_id":"fFFgqPeK5GETjZkC3JPB",
+      "payer":{  
+         "name":"MOCKPAYER",
+         "id":"MOCKPAYER"
+      },
+      "providers":[  
+         {  
+            "trace_number":"0",
+            "first_name":"Jerome",
+            "last_name":"Aya-Ay",
+            "npi":"123456789",
+            "statuses":[  
+               {  
+                  "status_code":"Entity's National Provider Identifier (NPI).",
+                  "status_category":"Data Search Unsuccessful - The payer is unable to return status on the requested claim(s) based on the submitted search criteria.",
+                  "status_effective_date":"2015-09-01",
+                  "status_category_code":"D0"
+               }
+            ]
+         }
+      ],
+      "correlation_id":"37045a41-634a-4439-a555-d8d6cbb445ce",
+      "trading_partner_id":"MOCKPAYER",
+      "submitter":{  
+         "first_name":"Jerome",
+         "last_name":"Aye-Ay",
+         "id":"MOCKPAYER"
+      }
+   }
+}
+```
+
 > Example claims status response when adjudication is finalized and the claim
 has been paid:
 
