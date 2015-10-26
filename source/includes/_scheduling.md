@@ -47,12 +47,17 @@ Response
       {
         "type": "OV1",
         "appointment_type_uuid": "ef987691-0a19-447f-814d-f8f3abbf4860",
-        "description": "Office Visit"
+        "description": "Office Visit",
+        "scheduler_uuid": "967d207f-b024-41cc-8cac-89575a1f6fef",
+        "duration": 30
       },
       {
         "type": "PC1",
         "appointment_type_uuid": "ef987692-0a19-447f-814d-f8f3abbf4860",
-        "description": "Routine Preventive Care"
+        "description": "Routine Preventive Care",
+        "scheduler_uuid": "967d207f-b024-41cc-8cac-89575a1f6fef",
+        "duration": 15
+
       }
 ]
 ```
@@ -67,9 +72,37 @@ Response
     {
       "type": "OV1",
       "appointment_type_uuid": "ef987693-0a19-447f-814d-f8f3abbf4860",
-      "description": "Office Visit"
+      "description": "Office Visit",
+      "scheduler_uuid": "967d207f-b024-41cc-8cac-89575a1f6fef",
+      "duration": 35
     }
 ]
+```
+> example registering a patient with a provider's scheduling system
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/schedule/patient/
+
+Request Body
+
+{
+    "pd_patient_uuid": "2773f6ff-00cb-460f-823f-5ff2208511e7",
+    "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
+    "location": [32.788110, -79.932364]
+}
+
+Response
+
+{
+    "uuid': "2773f6ff-00cb-460f-823f-5ff2208511e7",
+    "email': "peg@emailprovider.com",
+    "phone': "5553331122",
+    "birth_date": "1990-01-13",
+    "first_name": "Peg",
+    "last_name": 'Patient",
+    "member_id": "PD20150001"
+
+
+}
 ```
 
 > example querying for open slots and booked appointments
@@ -229,12 +262,22 @@ Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /schedule/appointmenttypes/ | GET | Get a list of appointment types, their UUIDs, and descriptions.
 
-        
+
 Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /schedule/appointmenttypes/{uuid} | GET | Retrieve the data for a specified appointment type.
 
-        
+
+Endpoint | HTTP Method | Description | Scope
+-------- | ----------- | ----------- | -----
+/schedule/patient/ | POST | Registers an existing PokitDok user as a patient within a provider's scheduling system. | user_schedule The /schedule/patient/ endpoint accepts the following parameters:
+
+Field | Type | Description
+----- | ---- | -----------
+pd_patient_uuid | {string} | The PokitDok unique identifier for the user record.
+pd_provider_uuid | {string} | The PokitDok unique identifier for the provider record.
+location | {geo-location} | The geo-location of the provider's physical address.
+
 Endpoint | HTTP Method | Description | Scope
 -------- | ----------- | ----------- | -----
 /schedule/appointments/ | GET | Query for open appointment slots (using pd_provider_uuid and location) or booked appointments (using patient_uuid) given query parameters. | user_schedule The /schedule/appointments/ endpoint accepts the following parameters:
