@@ -22,6 +22,7 @@ includes:
   - activities
   - authorizations
   - enrollment
+  - enrollmentsnapshot
   - cashprices
   - claims
   - claimsconvert
