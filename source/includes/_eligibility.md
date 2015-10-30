@@ -186,6 +186,9 @@ Eligibility and benefit responses vary depending on the trading partner and the 
 may not provide deductible/out-of-pocket, copayment/coinsurance or other specific plan information. PokitDok will provide 
 all the information provided by the trading partner in the eligibility response.
 
+PokitDok adds a Summary section in the eligibility response for convenience.  This should not be seen as a total replacement for the detailed deductible and out-of-pocket information in the coverage section of the eligibility response.  The Summary section contains deductible and out-of-pocket information for the overall health benefit plan coverage.  If specific information for other service types is desired, the information will be located in the coverage section of the response.
+
+
 The /eligibility/ response contains the following parameters:
 > Example eligibility response when the trading partner is unable to respond at this time
 
@@ -290,7 +293,133 @@ The /eligibility/ response contains the following parameters:
 > Sample eligibility response for a successfully executed eligibility request
 
 ```shell
-{
+{    "summary": {
+         "deductible": {
+             "individual": {
+                  "in_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "16.43"
+                     },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "3000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "2983.57"
+                      }
+                    },
+                  "out_of_network": {
+                       "applied": {
+                          "currency": "USD",
+                          "amount": "16.43"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "6000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "5983.57"
+                      }
+                  }
+              },
+              "family": {
+                 "in_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "43.91"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "6000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "5956.09"
+                      }
+                 },
+                  "out_of_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "43.91"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "12000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "11956.09"
+                      }
+                  }
+              }
+          },
+          "out_of_pocket": {
+              "individual": {
+                  "in_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "16.43"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "3000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "2983.57"
+                      }
+                  },
+                  "out_of_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "16.43"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "12500"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "12483.57"
+                      }
+                  }
+              },
+              "family": {
+                  "in_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "43.91"
+                      },
+                     "limit": {
+                          "currency": "USD",
+                          "amount": "6000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "5956.09"
+                      }
+                 },
+                  "out_of_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "43.91"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "25000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "24956.09"
+                      }
+                  }
+              }
+          }
+      },
+
     "coverage": {
         "coinsurance": [
             {
