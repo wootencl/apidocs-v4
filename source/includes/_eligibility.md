@@ -783,7 +783,14 @@ subscriber.birth_date | The subscriber’s birth date as specified on their poli
 subscriber.gender | The subscriber’s gender as specified on their policy. Possible values include: 'female', 'male', and 'unknown'. 'unknown' will be returned when gender is not specified in the trading partner's eligibility data or when the trading partner explicitly returns a value of 'unknown'.
 trading_partner_id | Unique id for the trading partner used to process the request.
 valid_request | A boolean value used to indicate that a trading partner considered the eligibility request valid and returned a full eligibility response. If valid_request is false, it means the trading partner was unable to respond to the request. Check the parameters reject_reason and follow_up_action for more information on how to proceed when valid_request is false.
-
+summary.deductible | List of deductible information for the member for overall health benefit plan coverage.
+summary.deductible.benefit_amount | Monetary amount for this deductible item. For calendar year deductible information, this will be the deductible for the calendar year for the associated coverage level and in/out of plan network indicator.
+summary.deductible.coverage_level | The coverage level that applies to this deductible information. When a family (or more than one person) is covered, you'll see deductible information for the family as well as the individual that was referenced in the eligibility request.
+summary.deductible.in_plan_network | Indicates whether or not the deductible information applies to in or out of network providers. If the deductible information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
+summary.out_of_pocket | List of out of pocket (stop loss) information for the member for overall health benefit plan coverage.
+summary.out_of_pocket.benefit_amount | Monetary amount for this out of pocket item. For calendar year out of pocket information, this will be the out of pocket amount for the calendar year for the associated coverage level and in/out of plan network indicator.
+summary.out_of_pocket.coverage_level | The coverage level that applies to this out of pocket information. When a family (or more than one person) is covered, you'll see out of pocket information for the family as well as the individual that was referenced in the eligibility request.
+summary.out_of_pocket.in_plan_network | Indicates whether or not the out of pocket information applies to in or out of network providers. If the out of pocket information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
 
 <a name="service-type"></a>
 Full list of possible service_type values with the associated code (from X12 specification) that may be used in the eligiblity request or returned in an eligibility response:
