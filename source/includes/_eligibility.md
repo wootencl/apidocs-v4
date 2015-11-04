@@ -186,6 +186,9 @@ Eligibility and benefit responses vary depending on the trading partner and the 
 may not provide deductible/out-of-pocket, copayment/coinsurance or other specific plan information. PokitDok will provide 
 all the information provided by the trading partner in the eligibility response.
 
+PokitDok adds a Summary section in the eligibility response for convenience.  This should not be seen as a total replacement for the detailed deductible and out-of-pocket information in the coverage section of the eligibility response.  The Summary section contains deductible and out-of-pocket information for the overall health benefit plan coverage.  If specific information for other service types is desired, the information will be located in the coverage section of the response.
+
+
 The /eligibility/ response contains the following parameters:
 > Example eligibility response when the trading partner is unable to respond at this time
 
@@ -290,7 +293,133 @@ The /eligibility/ response contains the following parameters:
 > Sample eligibility response for a successfully executed eligibility request
 
 ```shell
-{
+{    "summary": {
+         "deductible": {
+             "individual": {
+                  "in_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "16.43"
+                     },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "3000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "2983.57"
+                      }
+                    },
+                  "out_of_network": {
+                       "applied": {
+                          "currency": "USD",
+                          "amount": "16.43"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "6000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "5983.57"
+                      }
+                  }
+              },
+              "family": {
+                 "in_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "43.91"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "6000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "5956.09"
+                      }
+                 },
+                  "out_of_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "43.91"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "12000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "11956.09"
+                      }
+                  }
+              }
+          },
+          "out_of_pocket": {
+              "individual": {
+                  "in_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "16.43"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "3000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "2983.57"
+                      }
+                  },
+                  "out_of_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "16.43"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "12500"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "12483.57"
+                      }
+                  }
+              },
+              "family": {
+                  "in_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "43.91"
+                      },
+                     "limit": {
+                          "currency": "USD",
+                          "amount": "6000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "5956.09"
+                      }
+                 },
+                  "out_of_network": {
+                      "applied": {
+                          "currency": "USD",
+                          "amount": "43.91"
+                      },
+                      "limit": {
+                          "currency": "USD",
+                          "amount": "25000"
+                      },
+                      "remaining": {
+                          "currency": "USD",
+                          "amount": "24956.09"
+                      }
+                  }
+              }
+          }
+      },
+
     "coverage": {
         "coinsurance": [
             {
@@ -654,7 +783,14 @@ subscriber.birth_date | The subscriber’s birth date as specified on their poli
 subscriber.gender | The subscriber’s gender as specified on their policy. Possible values include: 'female', 'male', and 'unknown'. 'unknown' will be returned when gender is not specified in the trading partner's eligibility data or when the trading partner explicitly returns a value of 'unknown'.
 trading_partner_id | Unique id for the trading partner used to process the request.
 valid_request | A boolean value used to indicate that a trading partner considered the eligibility request valid and returned a full eligibility response. If valid_request is false, it means the trading partner was unable to respond to the request. Check the parameters reject_reason and follow_up_action for more information on how to proceed when valid_request is false.
-
+summary.deductible | List of deductible information for the member for overall health benefit plan coverage.
+summary.deductible.benefit_amount | Monetary amount for this deductible item. For calendar year deductible information, this will be the deductible for the calendar year for the associated coverage level and in/out of plan network indicator.
+summary.deductible.coverage_level | The coverage level that applies to this deductible information. When a family (or more than one person) is covered, you'll see deductible information for the family as well as the individual that was referenced in the eligibility request.
+summary.deductible.in_plan_network | Indicates whether or not the deductible information applies to in or out of network providers. If the deductible information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
+summary.out_of_pocket | List of out of pocket (stop loss) information for the member for overall health benefit plan coverage.
+summary.out_of_pocket.benefit_amount | Monetary amount for this out of pocket item. For calendar year out of pocket information, this will be the out of pocket amount for the calendar year for the associated coverage level and in/out of plan network indicator.
+summary.out_of_pocket.coverage_level | The coverage level that applies to this out of pocket information. When a family (or more than one person) is covered, you'll see out of pocket information for the family as well as the individual that was referenced in the eligibility request.
+summary.out_of_pocket.in_plan_network | Indicates whether or not the out of pocket information applies to in or out of network providers. If the out of pocket information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
 
 <a name="service-type"></a>
 Full list of possible service_type values with the associated code (from X12 specification) that may be used in the eligiblity request or returned in an eligibility response:
