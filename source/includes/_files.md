@@ -5,7 +5,7 @@
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -XPOST -F file=@eligibility_requests.270 -F trading_partner_id=MOCKPAYER  https://platform.pokitdok.com/api/v4/files/
 ```
 ```python
-pd.files('eligibility_requests.270')
+pd.files('MOCKPAYER', 'eligibility_requests.270')
 ```
 
 *Available modes of operation: batch/async*
