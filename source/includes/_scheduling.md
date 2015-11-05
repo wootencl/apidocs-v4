@@ -105,6 +105,37 @@ Response
 }
 ```
 
+> example creating an open slot
+```shell
+curl -s -XPOST -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/schedule/slots/"
+
+Request Body
+
+{
+    "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
+    "location": [32.788110, -79.932364],
+    "appointment_type": "AT1",
+    "start_date": "2014-12-16T15:09:34.197709",
+    "end_date": "2014-12-16T16:09:34.197717"
+}
+
+Response Body
+{
+    "pd_appointment_uuid": "ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2",
+    "provider_scheduler_uuid": "8b21efa4-8535-11e4-a6cb-0800272e8da1",
+    "appointment_id": "W4MEM00001",
+    "appointment_type": "AT1",
+    "start_date": "2014-12-16T15:09:34.197709",
+    "end_date": "2014-12-16T16:09:34.197717",
+    "booked": false
+}
+```
+
+> example deleting an open slot
+```shell
+curl -s -XDELETE -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/schedule/slots/ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2"
+
+
 > example querying for open slots and booked appointments
 
 ```shell
@@ -277,6 +308,23 @@ Field | Type | Description
 pd_patient_uuid | {string} | The PokitDok unique identifier for the user record.
 pd_provider_uuid | {string} | The PokitDok unique identifier for the provider record.
 location | {geo-location} | The geo-location of the provider's physical address.
+
+Endpoint | HTTP Method | Description | Scope
+-------- | ----------- | ----------- | -----
+/schedule/slots/ | POST | Creates an open scheduling slot. | business_schedule The /schedule/slots/ endpoint accepts the following parameters:
+
+Field | Type | Description
+----- | ---- | -----------
+pd_provider_uuid | {string} | The PokitDok unique identifier for the provider record.
+location | {geo-location} | The geo-location of the provider's physical address.
+appointment_type | {string} | The "appointment_type" used to identify a specific appointment procedure/category.
+start_date | {datetime} | The beginning date and UTC time of the appointment query, formatted as ISO8601.
+end_date | {datetime} | The ending date and UTC time of the appointment query, formatted as ISO8601.
+
+Endpoint | HTTP Method | Description | Scope
+-------- | ----------- | ----------- | -----
+/schedule/slots/{pd_appointment_uuid} | DELETE | Deletes an open scheduling slot. | business_schedule
+
 
 Endpoint | HTTP Method | Description | Scope
 -------- | ----------- | ----------- | -----
