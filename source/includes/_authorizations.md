@@ -202,8 +202,8 @@ The /authorizations/ response contains the following fields:
 | Parameter                         | Description                                                                                                                                                                                        |
 |:----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | event                             | The patient event that is being submitted for approval.                                                                                                                                            |
-| event.category                    | The category of the event being submitted for review.                                                                                                                                              |
-| event.certification_type          | The type of certification being requested.                                                                                                                                                         |
+| event.category                    | The category of the event being submitted for review. A full list of possible values can be found [below](#category).                                                                                                                                             |
+| event.certification_type          | The type of certification being requested.  A full list of possible values can be found [below](#certification_type).                                                                                                                                                         |
 | event.delivery                    | Specifies the delivery pattern of the health care services.                                                                                                                                        |
 | event.delivery.quantity           | The quantity of services being requested.                                                                                                                                                          |
 | event.delivery.quantity_qualifier | The qualifier used to indicate the quantity type. (e.g. visits, month, hours, units, days)                                                                                                         |
@@ -282,3 +282,22 @@ Full list of possible values that can be returned in the event.review.decision_r
 | once_in_a_lifetime_restriction_applies                    | transport_request_denied                             |
 | out_of_network                                            | unit_resale_higher_than_authorized                   |
 | patient_in_premium_payment_grace_period_first_month       |                                                      |
+
+<a name="certification_type"></a>
+Full list of possible values that can be returned in the event.certification_type parameter on the authorization response:
+
+| certification_type |                    |
+|:----------------------------|:-------------------|
+| appeal_immediate                   | initial           |
+| appeal_standard          | reconsideration |
+| cancel           | renewal      |
+| extension               | revised             |
+
+<a name="category"></a>
+Full list of possible values that can be returned in the event.category parameter on the authorization response:
+
+| category |                    |
+|:----------------------------|:-------------------|
+| admission_review                   | individual           |
+| health_services_review          | specialty_care_review |
+
