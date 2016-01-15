@@ -30,6 +30,7 @@ includes:
   - eligibility
   - files
   - icdconvert
+  - identity
   - insuranceprices
   - mpc
   - payers
