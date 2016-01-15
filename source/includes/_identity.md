@@ -193,8 +193,8 @@ The location and provider_uuid values correspond to provider resources accessed 
 
 | Endpoint           | HTTP Method | Description                                                    |
 |--------------------|-------------|----------------------------------------------------------------|
-| /identity/<uuid>   | GET         | Returns a single identity resource                             |
-| /identity?<params> | GET         | Returns one or more identity resources meeting search criteria |
+| /identity/{uuid}   | GET         | Returns a single identity resource                             |
+| /identity?{params} | GET         | Returns one or more identity resources meeting search criteria |
 
 Supported query parameters include:
 
@@ -214,4 +214,4 @@ Supported query parameters include:
 
 | Endpoint         | HTTP Method | Description                                                         |
 |------------------|-------------|---------------------------------------------------------------------|
-| /identity/<uuid> | PUT         | Updates an existing identity resource. Returns the updated resource |
+| /identity/{uuid} | PUT         | Updates an existing identity resource. Returns the updated resource |
