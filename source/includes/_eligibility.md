@@ -698,6 +698,311 @@ The /eligibility/ response contains the following parameters:
 }
 ```
 
+> Sample medicare_national eligibility response for a member with Medicare Part D coverage.
+  Notice that medicare members with part D coverage will have pharmacy.is_eligible set to true and the pharmacy.plan_number will contain their medicare part D plan number.
+
+```shell
+{
+    "coverage": {
+        "active": true,
+        "coinsurance": [
+            {
+                "benefit_percent": 0.2,
+                "service_types": [
+                    "health_benefit_plan_coverage"
+                ]
+            },
+            {
+                "benefit_percent": 0.0,
+                "service_types": [
+                    "alcoholism",
+                    "smoking_cessation",
+                    "home_health_care"
+                ]
+            }
+        ],
+        "deductibles": [
+            {
+                "benefit_amount": {
+                    "amount": "1288",
+                    "currency": "USD"
+                },
+                "insurance_type": "medicare_part_a",
+                "service_types": [
+                    "health_benefit_plan_coverage"
+                ],
+                "time_period": "episode"
+            },
+            {
+                "benefit_amount": {
+                    "amount": "1288",
+                    "currency": "USD"
+                },
+                "insurance_type": "medicare_part_a",
+                "service_types": [
+                    "health_benefit_plan_coverage"
+                ],
+                "time_period": "remaining"
+            },
+            {
+                "benefit_amount": {
+                    "amount": "0",
+                    "currency": "USD"
+                },
+                "insurance_type": "medicare_part_a",
+                "service_types": [
+                    "hospice",
+                    "home_health_care"
+                ],
+                "time_period": "episode"
+            },
+            {
+                "benefit_amount": {
+                    "amount": "166",
+                    "currency": "USD"
+                },
+                "coverage_level": "individual",
+                "in_plan_network": "unknown",
+                "insurance_type": "medicare_part_b",
+                "service_types": [
+                    "health_benefit_plan_coverage"
+                ],
+                "time_period": "calendar_year"
+            },
+            {
+                "benefit_amount": {
+                    "amount": "166",
+                    "currency": "USD"
+                },
+                "coverage_level": "individual",
+                "in_plan_network": "unknown",
+                "insurance_type": "medicare_part_b",
+                "service_types": [
+                    "health_benefit_plan_coverage"
+                ],
+                "time_period": "remaining"
+            },
+            {
+                "benefit_amount": {
+                    "amount": "0",
+                    "currency": "USD"
+                },
+                "coverage_level": "individual",
+                "in_plan_network": "unknown",
+                "insurance_type": "medicare_part_b",
+                "service_types": [
+                    "alcoholism",
+                    "smoking_cessation",
+                    "home_health_care"
+                ],
+                "time_period": "calendar_year"
+            }
+        ],
+        "insurance_type": "medicare_part_b",
+        "non_covered": [
+            {
+                "benefit_amount": {
+                    "amount": "0",
+                    "currency": "USD"
+                },
+                "service_types": [
+                    "long_term_care",
+                    "routine_preventive_dental"
+                ]
+            }
+        ],
+        "other_payers": [
+            {
+                "coordination_of_benefits": "primary_payer",
+                "name": "UNITEDHEALTHCARE INSURANCE COMPANY",
+                "service_types": [
+                    "pharmacy"
+                ]
+            }
+        ],
+        "plan_begin_date": "2016-01-01",
+        "plan_end_date": "2016-12-31",
+        "service_types": [
+            "health_benefit_plan_coverage",
+            "urgent_care",
+            "medical_equipment",
+            "obstetrical_gynecological",
+            "obstetrical",
+            "gynecological",
+            "vision_optometry",
+            "drug_addiction",
+            "alcoholism",
+            "substance_abuse",
+            "psychiatric_outpatient",
+            "psychotherapy",
+            "psychiatric",
+            "professional_physician_visit_office",
+            "emergency_services",
+            "infertility",
+            "dialysis",
+            "diagnostic_medical",
+            "maternity",
+            "smoking_cessation",
+            "hospital_ambulatory_surgical",
+            "hospital_emergency_medical",
+            "hospital_emergency_accident",
+            "hospital_outpatient",
+            "home_health_care",
+            "oral_surgery",
+            "prosthodontics",
+            "orthodontics",
+            "dental_accident",
+            "dental_crowns",
+            "chiropractic",
+            "consultation",
+            "adjunctive_dental_services",
+            "maxillofacial_prosthetics",
+            "endodontics",
+            "restorative",
+            "periodontics",
+            "diagnostic_dental",
+            "surgical"
+        ]
+    },
+    "pharmacy": {
+        "benefits_manager": {
+            "name": "UNITEDHEALTHCARE INSURANCE COMPANY",
+            "phone": "8778423210",
+            "url": "www.AARPMedicareRx.com"
+        },
+        "is_eligible": true,
+        "plan_number": "S5820 003"
+    },
+    "service_types": [
+        "health_benefit_plan_coverage",
+        "urgent_care",
+        "medical_equipment",
+        "obstetrical_gynecological",
+        "obstetrical",
+        "gynecological",
+        "vision_optometry",
+        "drug_addiction",
+        "alcoholism",
+        "substance_abuse",
+        "psychiatric_outpatient",
+        "psychotherapy",
+        "psychiatric",
+        "professional_physician_visit_office",
+        "emergency_services",
+        "infertility",
+        "dialysis",
+        "diagnostic_medical",
+        "maternity",
+        "smoking_cessation",
+        "hospital_ambulatory_surgical",
+        "hospital_emergency_medical",
+        "hospital_emergency_accident",
+        "hospital_outpatient",
+        "home_health_care",
+        "oral_surgery",
+        "prosthodontics",
+        "orthodontics",
+        "dental_accident",
+        "dental_crowns",
+        "chiropractic",
+        "consultation",
+        "adjunctive_dental_services",
+        "maxillofacial_prosthetics",
+        "endodontics",
+        "restorative",
+        "periodontics",
+        "diagnostic_dental",
+        "surgical"
+    ],
+    "subscriber": {
+        "address": {
+            "address_lines": [
+                "123 MAIN ST",
+                "APT 123"
+            ],
+            "city": "ENGLEWOOD",
+            "state": "NJ",
+            "zipcode": "07631"
+        },
+        "birth_date": "1940-01-01",
+        "first_name": "JANE",
+        "gender": "female",
+        "id": "000000000A",
+        "last_name": "DOE",
+        "middle_name": "M"
+    },
+    "summary": {
+        "deductible": {
+            "individual": {
+                "in_network": {
+                    "applied": {
+                        "amount": "0.00",
+                        "currency": "USD"
+                    },
+                    "limit": {
+                        "amount": "166",
+                        "currency": "USD"
+                    },
+                    "remaining": {
+                        "amount": "166",
+                        "currency": "USD"
+                    }
+                },
+                "out_of_network": {
+                    "applied": {
+                        "amount": "0.00",
+                        "currency": "USD"
+                    },
+                    "limit": {
+                        "amount": "166",
+                        "currency": "USD"
+                    },
+                    "remaining": {
+                        "amount": "166",
+                        "currency": "USD"
+                    }
+                }
+            }
+        },
+        "out_of_pocket": {
+            "individual": {
+                "in_network": {
+                    "applied": {
+                        "amount": "0.00",
+                        "currency": "USD"
+                    },
+                    "limit": {
+                        "amount": "0",
+                        "currency": "USD"
+                    },
+                    "remaining": {
+                        "amount": "0",
+                        "currency": "USD"
+                    }
+                },
+                "out_of_network": {
+                    "applied": {
+                        "amount": "0.00",
+                        "currency": "USD"
+                    },
+                    "limit": {
+                        "amount": "0",
+                        "currency": "USD"
+                    },
+                    "remaining": {
+                        "amount": "0",
+                        "currency": "USD"
+                    }
+                }
+            }
+        }
+    },
+    "trading_partner_id": "medicare_national",
+    "valid_request": true
+}
+```
+
+
 Parameter | Description
 --------- | -----------
 coverage.active | A boolean value that is true when the member has active coverage. It is false when membership information could not be returned or when inactive coverage is indicated by the trading partner.
@@ -766,6 +1071,12 @@ coverage.service_date | The date the eligibility request was processed.
 follow_up_action | When an eligibility request is rejected, a follow up action will be provided to inform your application how to proceed. Possible values include: correct_and_resubmit, resubmit_original, resubmission_not_allowed
 payer.id | Payer ID returned by the trading partner for the eligibility request.
 payer.name | Payer name returned by the trading partner for the eligibility request.
+pharmacy.benefits_manager | The pharmacy benefits manager information.
+pharmacy.benefits_manager.name | The name of the entity that is responsible for managing pharmacy benefits
+pharmacy.benefits_manager.phone | Contact phone number for the pharmacy benefits manager
+pharmacy.benefits_manager.url | The pharmacy benefits manager's web site.
+pharmacy.is_eligible | A boolean value used to indicate if the member specified in the eligibility request has active pharmacy benefits.
+pharmacy.plan_number | Plan ID/number for the member's pharmacy benefits.  A pharmacy plan number will be present when trading partners include it in their eligibility response.  For example, medicare members will have pharmacy.plan_number populated if they're enrolled in a Medicare Part D Prescription Drug Plan.
 provider.npi | The NPI for the provider.
 provider.first_name | The provider’s first name when the provider is an individual.
 provider.last_name | The provider’s last name when the provider is an individual.
