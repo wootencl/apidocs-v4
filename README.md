@@ -16,8 +16,8 @@ This repository contains developer docs for the [PokitDok APIs](https://platform
 Or use the included Dockerfile! (must install Docker first)
 
 ```shell
-docker build -t slate .
-docker run -d -p 4567:4567 slate
+build_server
+start_server
 ```
 
 You can now see the docs at <http://localhost:4567>. Whoa! That was fast!
