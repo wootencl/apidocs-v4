@@ -424,9 +424,13 @@ The /eligibility/ response contains the following parameters:
         "coinsurance": [
             {
                 "benefit_percent": 0.0,
+                "authorization_required": "yes",
                 "coverage_level": "employee_and_spouse",
                 "in_plan_network": "yes",
                 "messages": [],
+                "service_type_codes": [
+                    "98"
+                ],
                 "service_types": [
                     "professional_physician_visit_office"
                 ]
@@ -436,6 +440,9 @@ The /eligibility/ response contains the following parameters:
                 "coverage_level": "employee_and_spouse",
                 "in_plan_network": "no",
                 "messages": [],
+                "service_type_codes": [
+                    "98"
+                ],
                 "service_types": [
                     "professional_physician_visit_office"
                 ]
@@ -443,6 +450,7 @@ The /eligibility/ response contains the following parameters:
         ],
         "copay": [
             {
+                "authorization_required": "yes",
                 "copayment": {
                     "amount": "0",
                     "currency": "USD"
@@ -453,6 +461,9 @@ The /eligibility/ response contains the following parameters:
                     {
                         "message": "PRIMARY OFFICE"
                     }
+                ],
+                "service_type_codes": [
+                    "98"
                 ],
                 "service_types": [
                     "professional_physician_visit_office"
@@ -493,6 +504,9 @@ The /eligibility/ response contains the following parameters:
                     {
                         "message": "Pre-Existing may apply"
                     }
+                ],
+                "service_type_codes": [
+                    "98"
                 ],
                 "service_types": [
                     "professional_physician_visit_office"
@@ -663,6 +677,9 @@ The /eligibility/ response contains the following parameters:
         "plan_begin_date": "2013-02-15",
         "plan_number": "0000000",
         "service_date": "2013-08-10",
+        "service_type_codes": [
+            "98"
+        ],
         "service_types": [
             "professional_physician_visit_office"
         ]
@@ -676,6 +693,9 @@ The /eligibility/ response contains the following parameters:
         "last_name": "JEROME AYA-AY",
         "npi": "1467560003"
     },
+    "service_type_codes": [
+        "98"
+    ],
     "service_types": [
         "professional_physician_visit_office"
     ],
@@ -708,12 +728,18 @@ The /eligibility/ response contains the following parameters:
         "coinsurance": [
             {
                 "benefit_percent": 0.2,
+                "service_type_codes": [
+                    "98"
+                ],
                 "service_types": [
                     "health_benefit_plan_coverage"
                 ]
             },
             {
                 "benefit_percent": 0.0,
+                "service_type_codes": [
+                    "98"
+                ],
                 "service_types": [
                     "alcoholism",
                     "smoking_cessation",
@@ -728,6 +754,9 @@ The /eligibility/ response contains the following parameters:
                     "currency": "USD"
                 },
                 "insurance_type": "medicare_part_a",
+                "service_type_codes": [
+                    "30"
+                ],
                 "service_types": [
                     "health_benefit_plan_coverage"
                 ],
@@ -739,6 +768,9 @@ The /eligibility/ response contains the following parameters:
                     "currency": "USD"
                 },
                 "insurance_type": "medicare_part_a",
+                "service_type_codes": [
+                    "30"
+                ],
                 "service_types": [
                     "health_benefit_plan_coverage"
                 ],
@@ -750,6 +782,10 @@ The /eligibility/ response contains the following parameters:
                     "currency": "USD"
                 },
                 "insurance_type": "medicare_part_a",
+                "service_type_codes": [
+                    "45",
+                    "42"
+                ],
                 "service_types": [
                     "hospice",
                     "home_health_care"
@@ -764,6 +800,9 @@ The /eligibility/ response contains the following parameters:
                 "coverage_level": "individual",
                 "in_plan_network": "unknown",
                 "insurance_type": "medicare_part_b",
+                "service_type_codes": [
+                    "30"
+                ],
                 "service_types": [
                     "health_benefit_plan_coverage"
                 ],
@@ -777,6 +816,9 @@ The /eligibility/ response contains the following parameters:
                 "coverage_level": "individual",
                 "in_plan_network": "unknown",
                 "insurance_type": "medicare_part_b",
+                "service_type_codes": [
+                    "30"
+                ],
                 "service_types": [
                     "health_benefit_plan_coverage"
                 ],
@@ -790,6 +832,11 @@ The /eligibility/ response contains the following parameters:
                 "coverage_level": "individual",
                 "in_plan_network": "unknown",
                 "insurance_type": "medicare_part_b",
+                "service_type_codes": [
+                    "AJ",
+                    "67",
+                    "42"
+                ],
                 "service_types": [
                     "alcoholism",
                     "smoking_cessation",
@@ -805,6 +852,10 @@ The /eligibility/ response contains the following parameters:
                     "amount": "0",
                     "currency": "USD"
                 },
+                "service_type_codes": [
+                    "54",
+                    "41"
+                ],
                 "service_types": [
                     "long_term_care",
                     "routine_preventive_dental"
@@ -815,6 +866,9 @@ The /eligibility/ response contains the following parameters:
             {
                 "coordination_of_benefits": "primary_payer",
                 "name": "UNITEDHEALTHCARE INSURANCE COMPANY",
+                "service_type_codes": [
+                    "88"
+                ],
                 "service_types": [
                     "pharmacy"
                 ]
@@ -822,6 +876,47 @@ The /eligibility/ response contains the following parameters:
         ],
         "plan_begin_date": "2016-01-01",
         "plan_end_date": "2016-12-31",
+        "service_type_codes": [
+            "30",
+            "UC",
+            "DM",
+            "BV",
+            "BU",
+            "BT",
+            "AL",
+            "AK",
+            "AJ",
+            "AI",
+            "A8",
+            "A6",
+            "A4",
+            "98",
+            "86",
+            "83",
+            "76",
+            "73",
+            "69",
+            "67",
+            "53",
+            "52",
+            "51",
+            "50",
+            "42",
+            "40",
+            "39",
+            "38",
+            "37",
+            "36",
+            "33",
+            "3",
+            "28",
+            "27",
+            "26",
+            "25",
+            "24",
+            "23",
+            "2"
+        ],
         "service_types": [
             "health_benefit_plan_coverage",
             "urgent_care",
@@ -873,6 +968,47 @@ The /eligibility/ response contains the following parameters:
         "is_eligible": true,
         "plan_number": "S5820 003"
     },
+    "service_type_codes": [
+        "30",
+        "UC",
+        "DM",
+        "BV",
+        "BU",
+        "BT",
+        "AL",
+        "AK",
+        "AJ",
+        "AI",
+        "A8",
+        "A6",
+        "A4",
+        "98",
+        "86",
+        "83",
+        "76",
+        "73",
+        "69",
+        "67",
+        "53",
+        "52",
+        "51",
+        "50",
+        "42",
+        "40",
+        "39",
+        "38",
+        "37",
+        "36",
+        "33",
+        "3",
+        "28",
+        "27",
+        "26",
+        "25",
+        "24",
+        "23",
+        "2"
+    ],
     "service_types": [
         "health_benefit_plan_coverage",
         "urgent_care",
@@ -1008,12 +1144,15 @@ Parameter | Description
 coverage.active | A boolean value that is true when the member has active coverage. It is false when membership information could not be returned or when inactive coverage is indicated by the trading partner.
 coverage.coinsurance | List of co-insurance information for the member.
 coverage.coinsurance.benefit_percent | A percentage that represents the patient's portion of the responsibility for a benefit. (e.g. 0.2 when the patient's portion of the responsibility is 20% )
+coverage.coinsurance.authorization_required | The authorization or certification required indicator. A full list of possible values is included [below](#authz-req).
 coverage.coinsurance.coverage_level | The coverage level that applies to this co-insurance information. Possible values include: employee_only, employee_and_spouse, employee_and_children, family, individual
 coverage.coinsurance.in_plan_network | Indicates whether or not the co-insurance information applies to in or out of network. providers. If the co-insurance information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
+coverage.coinsurance.service_type_codes | A list of service type codes (matching the service types) that apply to this payer information. A full list of possible values is included [below](#service-type).
 coverage.coinsurance.service_types | A list of service types that apply to this co-insurance information. A full list of possible values is included [below](#service-type).
 coverage.limitations.benefit_amount | Monetary amount for the benefit limitation.
 coverage.limitations.coverage_level | The coverage level that applies to this limitation.  This can be at family or individual levels.
 coverage.limitations.in_plan_network | Indicates whether or not the limitation applies to in or out of network providers. If the limitation is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
+coverage.limitations.service_type_codes | A list of service type codes (matching the service types) that apply to this payer information. A full list of possible values is included [below](#service-type).
 coverage.limitations.service_types | A list of service types that apply to this limitation. A full list of possible values is included [below](#service-type).
 coverage.limitations.delivery | Specifies the delivery pattern of the health care services with limitations.
 coverage.limitations.delivery.quantity | The quantity of services being requested that have limitations.
@@ -1025,11 +1164,14 @@ coverage.contacts.email | email address that may be used for this contact.
 coverage.contacts.phone | phone number for this contact.
 coverage.contacts.url | URL for this contact. This is typically a link to the contact's web site.
 coverage.contacts.contact_type | The type of entity related to this contact information. Possible values include: vendor, third_party_administrator, plan_sponsor, payer, primary_payer, secondary_payer, tertiary_payer, utilization_management_organization
+coverage.contacts.service_type_codes | A list of service type codes (matching the service types) that apply to this payer information. A full list of possible values is included [below](#service-type).
 coverage.contacts.service_types | A list of service types that apply to this contact information. A full list of possible values is included [below](#service-type).
 coverage.copay | List of co-payment information for the member.
+coverage.copy.authorization_required | The authorization or certification required indicator. A full list of possible values is included [below](#authz-req).
 coverage.copay.copayment | Monetary amount for this copay item. (e.g. 15 for a $15 co-pay)
 coverage.copay.coverage_level | The coverage level that applies to this co-pay information. Possible values include: employee_only, employee_and_spouse, employee_and_children, family, individual.
 coverage.copay.in_plan_network | Indicates whether or not the copay information applies to in or out of network providers. If the copay information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
+coverage.copay.service_type_codes | A list of service type codes (matching the service types) that apply to this payer information. A full list of possible values is included [below](#service-type).
 coverage.copay.service_types | A list of service types that apply to this co-pay information. A full list of possible values is included [below](#service-type).
 coverage.copay.delivery | Specifies the delivery pattern of the health care services that have a co-pay.
 coverage.copay.delivery.quantity | The quantity of services being requested that have a co-pay.
@@ -1039,6 +1181,7 @@ coverage.deductibles.benefit_amount | Monetary amount for this deductible item. 
 coverage.deductibles.coverage_level | The coverage level that applies to this deductible information. When a family (or more than one person) is covered, you'll see deductible information for the family as well as the individual that was referenced in the eligibility request.
 coverage.deductibles.in_plan_network | Indicates whether or not the deductible information applies to in or out of network providers. If the deductible information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
 coverage.deductibles.time_period | The period of time for which this deductible item applies. Possible values include: calendar_year and remaining. remaining indicates the amount that remains in the calendar year for the member to reach their deductible. calendar_year indicates that the amount represents the total deductible amount for the current year. When no time period applies to deductible information, time_period will not be included for that deductible in the response.
+coverage.deductibles.service_type_codes | A list of service type codes (matching the service types) that apply to this payer information. A full list of possible values is included [below](#service-type).
 coverage.deductibles.service_types | A list of service types that apply to this deductible information. A full list of possible values is included [below](#service-type).
 coverage.other_payers | A list of other payers that provide coverage for the member. This list of payers is primarily used to communicate information related to the coordination of benefits.
 coverage.other_payers.coordination_of_benefits | The role of this payer in the coordination of benefits. Possible values include: primary_payer, secondary_payer, tertiary_payer
@@ -1051,13 +1194,15 @@ coverage.other_payers.subscriber.id | The id for the subscriber in this payer's 
 coverage.other_payers.subscriber.first_name | The subscriber's first name.
 coverage.other_payers.subscriber.middle_name | The subscriber's middle name.
 coverage.other_payers.subscriber.last_name | The subscriber's last name.
+coverage.other_payers.service_type_codes | A list of service type codes (matching the service types) that apply to this payer information. A full list of possible values is included [below](#service-type).
 coverage.other_payers.service_types | A list of service types that apply to this payer information. A full list of possible values is included [below](#service-type).
 coverage.out_of_pocket | List of out of pocket (stop loss) information for the member.
 coverage.out_of_pocket.benefit_amount | Monetary amount for this out of pocket item. For calendar year out of pocket information, this will be the out of pocket amount for the calendar year for the associated coverage level and in/out of plan network indicator. (e.g. $12600.00 for in network, family coverage)
 coverage.out_of_pocket.coverage_level | The coverage level that applies to this out of pocket information. When a family (or more than one person) is covered, you'll see out of pocket information for the family as well as the individual that was referenced in the eligibility request.
 coverage.out_of_pocket.in_plan_network | Indicates whether or not the out of pocket information applies to in or out of network providers. If the out of pocket information is not dependent upon network status, not_applicable may be returned to indicate the value is the same for in and out of network providers.
 coverage.out_of_pocket.time_period | The period of time for which this out of pocket item applies. Possible values include: calendar_year and remaining. remaining indicates the amount that remains in the calendar year for the member to reach their out of pocket amount. calendar_year indicates that the amount represents the total out of pocket amount for the current year. When no time period applies to deductible information, time_period will not be included for that out of pocket item in the response.
-coverage.out_of_pocket.service_types | A list of service types that apply to this out of pocket information. A full list of possible values is included [below](#service-type).
+coverage.out_of_pocket.service_type_codes | A list of service types that apply to this out of pocket information. A full list of possible values is included [below](#service-type).
+coverage.out_of_pocket.service_types | A list of service type codes (matching the service types) that apply to this payer information. A full list of possible values is included [below](#service-type).
 coverage.eligibility_begin_date | The date eligibility started for the member's plan.
 coverage.group_description | Group description for the member specified in the eligibility request.
 coverage.group_number | Group number for the member specified in the eligibility request.
@@ -1295,6 +1440,18 @@ urgent_care |	UC
 used_medical_equipment |	11
 vision_optometry |	AL
 well_baby_care |	68
+
+
+<a name="authz-req"></a>
+Full list of possible authorization_required values returned (or not) in an eligibility response:
+
+value        | Meaning 
+------------ | --------------- 
+yes          | indicates that an authorization or certification is required per plan provisions
+no           | indicates that an authorization or certification is not required per plan provisions
+unknown      | indicates that it is unknown whether the plan provisions require an authorization or certification
+
+**NOTE:** authorization_required is situational, so it could also be empty
 
 
 <a name="reject-reason"></a>
