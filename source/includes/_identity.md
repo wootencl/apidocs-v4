@@ -191,16 +191,16 @@ Each identifier, or identifiers list entry, represents an external system utiliz
 
 The location and provider_uuid values correspond to provider resources accessed through the /providers endpoint. system_uuid values correspond to registered systems under the /schedule/schedulers endpoint.
 
-| Endpoint           | HTTP Method | Description                                                    |
-|--------------------|-------------|----------------------------------------------------------------|
-| /identity/{uuid}   | GET         | Returns a single identity resource                             |
-| /identity?{params} | GET         | Returns one or more identity resources meeting search criteria |
+| Endpoint           | HTTP Method | Description                                                                        |
+|--------------------|-------------|------------------------------------------------------------------------------------|
+| /identity/{uuid}   | GET         | Returns a list containing a single identity resource                               |
+| /identity?{params} | GET         | Returns a list containing one or more identity resources meeting search criteria   |
 
 Supported query parameters include:
 
--	address.city
--	address.state
--	address.zipcode
+-	city
+-	state
+-	zipcode
 -	birth_date
 -	email
 -	first_name
