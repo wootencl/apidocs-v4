@@ -161,15 +161,15 @@ The /identity/ endpoint accepts the following parameters:
 
 | Field                 | Type     | Description                                                                                                        |
 |-----------------------|----------|--------------------------------------------------------------------------------------------------------------------|
-| address.address_lines | {list}   | Address lines                                                                                                      |
-| address.city          | {string} | Address city                                                                                                       |
-| address.state         | {string} | Two character state abbreviation                                                                                   |
-| address.zipcode       | {string} | Address zipcode. Supports standard 5 digit code or "zip+4" with a "-". Ex:29407-3458                               |
+| address.address_lines | {array}  | Address lines                                                                                                      |
+| address.city          | {string} | Name of city in which to search for identity records (e.g. "San Mateo" or "Charleston")                            |
+| address.state         | {string} | Name of U.S. state in which to search for identity records (e.g. "CA" or "SC")                                     |
+| address.zipcode       | {string} | Geographic center point in which to search for identity records.                                                   |
 | birth_date            | {string} | Birth date in ISO-8601 format. Ex: 1990-01-01                                                                      |
 | email                 | {string} | Valid email address including "@" separator and appropriate domain prefix                                          |
 | first_name            | {string} | First name                                                                                                         |
 | gender                | {string} | Valid values include: male, female, or unknown                                                                     |
-| identifiers           | {list}   | List of external identifiers. Each identifier entry is qualified using a system_uuid, provider_uuid, and location. |
+| identifiers           | {array}  | List of external identifiers. Each identifier entry is qualified using a system_uuid, provider_uuid, and location. |
 | last_name             | {string} | Last name                                                                                                          |
 | member_id             | {string} | The primary insurance membership id associated with the identity resource                                          |
 | middle_name           | {string} | Middle name                                                                                                        |
@@ -182,25 +182,25 @@ The /identity/ endpoint accepts the following parameters:
 
 Each identifier, or identifiers list entry, represents an external system utilized by a provider at a specific location. Fields within an identifier entry include:
 
-| Field         | Type           | Description                                    |
-|---------------|----------------|------------------------------------------------|
-| location      | {geo-location} | The location of the installed system *optional |
-| provider_uuid | {uuid}         | The unique identifier for the provider         |
-| system_uuid   | {uuid}         | The unique identifier for the system           |
-| value         | {string}       | The identifier value                           |
+| Field         | Type           | Description                                        |
+|---------------|----------------|------------------------------------------------    |
+| location      | {array}        | Optional: GeoJSON array of \[longitude, latitude\] |
+| provider_uuid | {uuid}         | The unique identifier for the provider             |
+| system_uuid   | {uuid}         | The unique identifier for the system               |
+| value         | {string}       | The identifier value                               |
 
 The location and provider_uuid values correspond to provider resources accessed through the /providers endpoint. system_uuid values correspond to registered systems under the /schedule/schedulers endpoint.
 
-| Endpoint           | HTTP Method | Description                                                    |
-|--------------------|-------------|----------------------------------------------------------------|
-| /identity/{uuid}   | GET         | Returns a single identity resource                             |
-| /identity?{params} | GET         | Returns one or more identity resources meeting search criteria |
+| Endpoint           | HTTP Method | Description                                                                        |
+|--------------------|-------------|------------------------------------------------------------------------------------|
+| /identity/{uuid}   | GET         | Returns a list containing a single identity resource                               |
+| /identity?{params} | GET         | Returns a list containing one or more identity resources meeting search criteria   |
 
 Supported query parameters include:
 
--	address.city
--	address.state
--	address.zipcode
+-	city
+-	state
+-	zipcode
 -	birth_date
 -	email
 -	first_name
