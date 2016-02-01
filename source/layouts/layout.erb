@@ -41,16 +41,17 @@ under the License.
     <% end %>
 
     <script>
-      (function() {
-      var _fbq = window._fbq || (window._fbq = []);
-      if (!_fbq.loaded)
-      { var fbds = document.createElement('script'); fbds.async = true; fbds.src = '//connect.facebook.net/en_US/fbds.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fbds, s); _fbq.loaded = true; }
-      _fbq.push(['addPixelId', '1410094735951733']);
-      })();
-      window._fbq = window._fbq || [];
-      window._fbq.push(['track', 'PixelInitialized', {}]);
-    </script>
-    <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=1410094735951733&ev=PixelInitialized" /></noscript>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1410094735951733');
+    fbq('track', "PageView");</script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1410094735951733&ev=PageView&noscript=1"
+    /></noscript>
   </head>
 
   <body class="<%= page_classes %>">
@@ -129,15 +130,20 @@ under the License.
     </script>
 
     <script type="text/javascript">
-        (function (d, s, i, r) {
-            if (d.getElementById(i)) {
-                return;
-            }
-            var n = d.createElement(s), e = d.getElementsByTagName(s)[0];
-            n.id = i;
-            n.src = '//js.hs-analytics.net/analytics/' + (Math.ceil(new Date() / r) * r) + '/457675.js';
-            e.parentNode.insertBefore(n, e);
-        })(document, "script", "hs-analytics", 300000);
+        /* <![CDATA[ */
+        var google_conversion_id = 977558247;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
     </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt=""
+          src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/977558247/?value=0&guid=ON&script=0"/>
+        </div>
+    </noscript>
+
   </body>
 </html>
