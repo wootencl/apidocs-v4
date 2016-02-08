@@ -10,6 +10,11 @@ Response
 
 [
       {
+        "description": "The PokitDok scheduling system",
+        "scheduler_uuid": "967d207f-b024-41cc-8cac-89575a1f6fef",
+        "name": "PokitDok"
+      },
+      {
         "description": "Greenway EHR and PM",
         "scheduler_uuid": "d8f38f08-8530-11e4-9a71-0800272e8da1",
         "name": "Greenway"
@@ -21,22 +26,30 @@ Response
       }
 ]
 ```
+```python
+pd.schedulers()
+```
+
 
 > Example scheduling request to fetch a specific scheduler
 
 ```shell
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/schedule/schedulers/d8f38f08-8530-11e4-9a71-0800272e8da1"
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/schedule/schedulers/967d207f-b024-41cc-8cac-89575a1f6fef"
 
 Response
 
 [
       {
-        "description": "Greenway EHR and PM",
-        "scheduler_uuid": "d8f4fc58-8530-11e4-9a71-0800272e8da1",
-        "name": "Greenway"
+        "description": "The PokitDok scheduling system",
+        "scheduler_uuid": "967d207f-b024-41cc-8cac-89575a1f6fef",
+        "name": "PokitDok"
       }
 ]
 ```
+```python
+pd.schedulers(scheduler_uuid='967d207f-b024-41cc-8cac-89575a1f6fef')
+```
+
 
 > Example scheduling request to fetch all appointment types
 
@@ -63,6 +76,10 @@ Response
       }
 ]
 ```
+```python
+pd.appointment_types()
+```
+
 
 > Example scheduling request to fetch a specific appointment type
 
@@ -81,6 +98,10 @@ Response
     }
 ]
 ```
+```python
+pd.appointment_types(appointment_type_uuid='ef987693-0a19-447f-814d-f8f3abbf4860')
+```
+
 
 > Example scheduling request which registers an existing patient with a provider's scheduling system
 
@@ -103,6 +124,14 @@ Response
     "member_id": "PD20150001"
 }
 ```
+```python
+pd.post('/schedule/patient/', data={
+    "pd_patient_uuid": "2773f6ff-00cb-460f-823f-5ff2208511e7",
+    "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
+    "location": [32.788110, -79.932364]
+})
+```
+
 
 > Example scheduling request to create an open slot
 
@@ -126,12 +155,26 @@ Response Body
     "booked": false
 }
 ```
+```python
+pd.schedule_slots({
+    "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
+    "location": [32.788110, -79.932364],
+    "appointment_type": "AT1",
+    "start_date": "2014-12-16T15:09:34.197709",
+    "end_date": "2014-12-16T16:09:34.197717"
+})
+```
+
 
 > Example scheduling request to delete an open slot
 
 ```shell
 curl -s -XDELETE -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/schedule/slots/ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2"
 ```
+```python
+pd.delete('/schedule/slots/ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2')
+```
+
 
 > Example scheduling request used to query for open slots and booked appointments
 
@@ -161,6 +204,11 @@ Response
     }
 ]
 ```
+```python
+pd.appointments(appointment_type='SS1', start_date='2015-01-14T08:00:00', end_date='2015-01-16T17:00:00', patient_uuid='8ae236ff-9ccc-44b0-8717-42653cd719d0')
+
+```
+
 
 > Example scheduling request to query for a specific open slot or booked appointment
 
@@ -190,6 +238,10 @@ Response
     }
 ]
 ```
+```python
+pd.appointments(appointment_uuid='ef987691-0a19-447f-814d-f8f3abbf4859')
+```
+
 
 > Example scheduling request to book an appointment
 
@@ -227,6 +279,21 @@ Response
     "end_date": "2014-12-16T16:12:09.176215"
 }
 ```
+```python
+pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
+    "patient": {
+        "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
+        "email": "john@hondoe.com",
+        "phone": "800-555-1212",
+        "birth_date": "1970-01-01",
+        "first_name": "John",
+        "last_name": "Doe",
+        "member_id": "M000001"
+    },
+    "description": "Welcome to M0d3rN Healthcare"
+})
+```
+
 
 > Example scheduling request to update an appointment description
 
@@ -245,12 +312,20 @@ Response
     "end_date": "2014-12-16T16:17:00.948117"
 }
 ```
+```python
+pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {"description": "Welcome to M0d3rN Healthcare"})
+```
+
 
 > Example scheduling request to cancel an appointment
 
 ```shell
 curl -i -XDELETE -H "Authorization: Bearer $ACCESS_TOKEN"  "https://platform.pokitdok.com/api/v4/schedule/appointments/ef987691-0a19-447f-814d-f8f3abbf4859"
 ```
+```python
+pd.cancel_appointment('ef987691-0a19-447f-814d-f8f3abbf4859')
+```
+
 
 *Available modes of operation: real-time*
 
