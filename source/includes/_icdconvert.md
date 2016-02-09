@@ -9,39 +9,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```python
 pd.icd_convert('250.12')
 ```
-                    
-*Available modes of operation: real-time*
-
-The ICD Convert endpoint allows a client application to request ICD-9 to ICD-10 mapping information for the
-specified ICD-9 code.
-
-
-Endpoint | HTTP Method | Description
--------- | ----------- | -----------
-/icd/convert | GET | retrieve ICD-9 to ICD-10 mapping information
-
-
-The /icd/convert endpoint accepts the following parameters:
-
-Parameter | Description
---------- | -----------
-code | ICD-9 code
-
-
-The /icd/convert response contains the following parameters:
-
-Parameter | Description
---------- | -----------
-diagnosis_mappings | a list of diagnosis mapping information that may be used to convert ICD-9 to ICD-10
-diagnosis_mappings.destination_scenarios | a list of ICD-10 mapping scenarios that apply for the matched ICD-9 code
-diagnosis_mappings.source_code.description | a string representing a description of the source ICD-9 code
-diagnosis_mappings.source_code.system | a string representing the code system (icd9)
-diagnosis_mappings.source_code.value | a string containing the ICD-9 code value
-
 
 > Example ICD convert response
 
-```shell
+```
 {
     "approximate": true,
     "combination": false,
@@ -77,3 +48,31 @@ diagnosis_mappings.source_code.value | a string containing the ICD-9 code value
     }
 }
 ```
+
+*Available modes of operation: real-time*
+
+The ICD Convert endpoint allows a client application to request ICD-9 to ICD-10 mapping information for the
+specified ICD-9 code.
+
+
+| Endpoint     | HTTP Method | Description                                  |
+|:-------------|:------------|:---------------------------------------------|
+| /icd/convert | GET         | retrieve ICD-9 to ICD-10 mapping information |
+
+
+The /icd/convert endpoint accepts the following parameters:
+
+| Parameter | Description |
+|:----------|:------------|
+| code      | ICD-9 code  |
+
+
+The /icd/convert response contains the following parameters:
+
+| Parameter                                  | Description                                                                         |
+|:-------------------------------------------|:------------------------------------------------------------------------------------|
+| diagnosis_mappings                         | a list of diagnosis mapping information that may be used to convert ICD-9 to ICD-10 |
+| diagnosis_mappings.destination_scenarios   | a list of ICD-10 mapping scenarios that apply for the matched ICD-9 code            |
+| diagnosis_mappings.source_code.description | a string representing a description of the source ICD-9 code                        |
+| diagnosis_mappings.source_code.system      | a string representing the code system (icd9)                                        |
+| diagnosis_mappings.source_code.value       | a string containing the ICD-9 code value                                            |
