@@ -1,8 +1,11 @@
 ## Payers
-> curl example fetching payer information
+> Example fetching payer all information:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/payers/
+```
+```python
+pd.payers()
 ```
 *Available modes of operation: real-time*
 
@@ -12,16 +15,16 @@ The Payers endpoint will be deprecated in v5. Use <a href="#trading-partners">Tr
 
 The Payers endpoint provides access to PokitDok's collection of payer information.
 
-Endpoint | HTTP Method | Description
--------- | ----------- | -----------
-/payers/ | GET | Get a list of payers
+| Endpoint | HTTP Method | Description          |
+|:---------|:------------|:---------------------|
+| /payers/ | GET         | Get a list of payers |
 
 The /payers/ response contains the following fields
 
-Field | Type | Description
------ | ---- | -----------
-payer_key | {string} | A short name or code representing this payer
-payer_name | {string} | Full name for the payer
-production_status | {boolean} | Specifies if the Platform supports data transmissions with the payer.
-supported_transactions | {array} | A list of X12 Transaction set codes, 270, 276, etc, the payer supports.
-trading_partner_id | {string} | An id to be used in requests/EDI files to identify this payer
+| Field                  | Type      | Description                                                             |
+|:-----------------------|:----------|:------------------------------------------------------------------------|
+| payer_key              | {string}  | A short name or code representing this payer                            |
+| payer_name             | {string}  | Full name for the payer                                                 |
+| production_status      | {boolean} | Specifies if the Platform supports data transmissions with the payer.   |
+| supported_transactions | {array}   | A list of X12 Transaction set codes, 270, 276, etc, the payer supports. |
+| trading_partner_id     | {string}  | An id to be used in requests/EDI files to identify this payer           |

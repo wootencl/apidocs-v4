@@ -1,43 +1,46 @@
 ## Enrollment Snapshot
-> Example submitting an enrollment snapshot for the MOCKPAYER trading partner
+> Example submitting an enrollment snapshot for the MOCKPAYER trading partner.
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -XPOST -F file=@current_membership_enrollment.834 -F trading_partner_id=MOCKPAYER  https://platform.pokitdok.com/api/v4/enrollment/snapshot
 ```
+
 ```python
 pd.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834')
 ```
 
-> example fetching a list of enrollment snapshots owned by the current application
+> Example fetching a list of enrollment snapshots owned by the current application.
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/enrollment/snapshot
 ```
+
 ```python
 #retrieve an index of enrollment snapshots
 pd.enrollment_snapshots()
 ```
 
-> example fetching information for a specific enrollment snapshot owned by the current application
+> Example fetching information for a specific enrollment snapshot owned by the current application.
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/enrollment/snapshot/5317f51527a27620f2ec7533
 ```
+
 ```python
 #get information for a specific enrollment snapshot
 pd.enrollment_snapshots(snapshot_id='5317f51527a27620f2ec7533')
 ```
 
-> example fetching enrollment data associated with a specific enrollment snapshot owned by the current application
+> Example fetching enrollment data associated with a specific enrollment snapshot owned by the current application.
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/enrollment/snapshot/5317f51527a27620f2ec7533/data
 ```
+
 ```python
 #get information for a specific enrollment snapshot
 pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
 ```
-
 
 *Available modes of operation: batch/async only*
 
@@ -59,17 +62,16 @@ and terminations. Applications may also find the enrollment snapshot index and d
 point-in-time reporting for groups using their system.
 
 
-Endpoint | HTTP Method | Description
--------- | ----------- | -----------
-/enrollment/snapshot | POST | Submit a X12 834 file as the current snapshot of a group's benefits enrollment data
-/enrollment/snapshot | GET  | List enrollment snapshots owned by the current application
-/enrollment/snapshot/{id} | GET  | Get information about a specific enrollment snapshot owned by the current application
-/enrollment/snapshot/{id}/data | GET  | List enrollment data associated with a specific enrollment snapshot owned by the current application
+| Endpoint                       | HTTP Method | Description                                                                                          |
+|:-------------------------------|:------------|:-----------------------------------------------------------------------------------------------------|
+| /enrollment/snapshot           | POST        | Submit a X12 834 file as the current snapshot of a group's benefits enrollment data                  |
+| /enrollment/snapshot           | GET         | List enrollment snapshots owned by the current application                                           |
+| /enrollment/snapshot/{id}      | GET         | Get information about a specific enrollment snapshot owned by the current application                |
+| /enrollment/snapshot/{id}/data | GET         | List enrollment data associated with a specific enrollment snapshot owned by the current application |
 
 The enrollment snapshot endpoint requires these parameters when creating a new enrollment snapshot:
 
-| Parameters                                 | Description                                                               |
-|:-------------------------------------------|:--------------------------------------------------------------------------|
-| file                                       |  X12 834 file containing the full benefits enrollment for a group         |
-| trading_partner_id                         |  the id of the trading partner to be associated with this enrollment data |
-
+| Parameters         | Description                                                              |
+|:-------------------|:-------------------------------------------------------------------------|
+| file               | X12 834 file containing the full benefits enrollment for a group         |
+| trading_partner_id | the id of the trading partner to be associated with this enrollment data |
