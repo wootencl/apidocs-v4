@@ -196,7 +196,7 @@ The location and provider_uuid values correspond to provider resources accessed 
 | /identity/{uuid}   | GET         | Returns a single identity resource                             |
 | /identity?{params} | GET         | Returns one or more identity resources meeting search criteria |
 
-Supported query parameters include:
+Supported /identity?{params} include:
 
 -	address.city
 -	address.state
@@ -210,7 +210,11 @@ Supported query parameters include:
 -	middle_name
 -	prefix
 -	secondary_phone
--	uuid
+
+External id search is executed using the "id" parameter:
+/identity?id={identifier value}
+
+The id parameter, if present, overrides other search parameters.
 
 | Endpoint         | HTTP Method | Description                                                         |
 |------------------|-------------|---------------------------------------------------------------------|
