@@ -1,5 +1,5 @@
 ## Authorizations
->Here's an example authorization request for an abdominal ultrasound. In this example, the patient is also the subscriber on the insurance policy.
+>Here's an example authorization request for an abdominal ultrasound. In this example, the patient is also the subscriber on the insurance policy:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
@@ -44,8 +44,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     },
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/authorizations/
-
 ```
+
 ```python
 pd.authorizations({
     "event": {
@@ -89,6 +89,56 @@ pd.authorizations({
     },
     "trading_partner_id": "MOCKPAYER"
 })
+```
+> Example authorizations response when the trading partner has authorized the request:
+
+```
+{
+    "event": {
+        "category": "health_services_review",
+        "certification_type": "initial",
+        "delivery": {
+            "quantity": 1,
+            "quantity_qualifier": "visits"
+        },
+        "diagnoses": [
+            {
+                "code": "789.00",
+                "date": "2014-10-01"
+            }
+        ],
+        "place_of_service": "office",
+        "provider": {
+            "organization_name": "KELLY ULTRASOUND CENTER, LLC",
+            "npi": "1760779011",
+            "phone": "8642341234"
+        },
+        "review": {
+            "certification_action": "certified_in_total",
+            "certification_number": "AUTH0002"
+        },
+        "services": [
+            {
+                "cpt_code": "76700",
+                "measurement": "unit",
+                "quantity": 1
+            }
+        ],
+        "type": "diagnostic_medical"
+    },
+    "patient": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "npi": "1467560003",
+        "last_name": "AYA-AY"
+    },
+    "trading_partner_id": "MOCKPAYER"
+}
 ```
 
 *Available modes of operation: batch/async or real-time*
@@ -144,56 +194,6 @@ The /authorizations/ endpoint accepts the following parameters:
 | subscriber.id                     | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.                                                                                                |
 | subscriber.last_name              | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.                                                                           |
 | trading_partner_id                | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.                                                                              |
-> Example authorizations response when the trading partner has authorized the request:
-
-```shell
-{
-    "event": {
-        "category": "health_services_review",
-        "certification_type": "initial",
-        "delivery": {
-            "quantity": 1,
-            "quantity_qualifier": "visits"
-        },
-        "diagnoses": [
-            {
-                "code": "789.00",
-                "date": "2014-10-01"
-            }
-        ],
-        "place_of_service": "office",
-        "provider": {
-            "organization_name": "KELLY ULTRASOUND CENTER, LLC",
-            "npi": "1760779011",
-            "phone": "8642341234"
-        },
-        "review": {
-            "certification_action": "certified_in_total",
-            "certification_number": "AUTH0002"
-        },
-        "services": [
-            {
-                "cpt_code": "76700",
-                "measurement": "unit",
-                "quantity": 1
-            }
-        ],
-        "type": "diagnostic_medical"
-    },
-    "patient": {
-        "birth_date": "1970-01-01",
-        "first_name": "JANE",
-        "last_name": "DOE",
-        "id": "1234567890"
-    },
-    "provider": {
-        "first_name": "JEROME",
-        "npi": "1467560003",
-        "last_name": "AYA-AY"
-    },
-    "trading_partner_id": "MOCKPAYER"
-}
-```
 
 If the authorization request is sent using a real-time interface, an authorization response will be returned.
 
@@ -202,8 +202,8 @@ The /authorizations/ response contains the following fields:
 | Parameter                         | Description                                                                                                                                                                                        |
 |:----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | event                             | The patient event that is being submitted for approval.                                                                                                                                            |
-| event.category                    | The category of the event being submitted for review. A full list of possible values can be found [below](#category).                                                                                                                                             |
-| event.certification_type          | The type of certification being requested.  A full list of possible values can be found [below](#certification_type).                                                                                                                                                         |
+| event.category                    | The category of the event being submitted for review. A full list of possible values can be found [below](#category).                                                                              |
+| event.certification_type          | The type of certification being requested.  A full list of possible values can be found [below](#certification_type).                                                                              |
 | event.delivery                    | Specifies the delivery pattern of the health care services.                                                                                                                                        |
 | event.delivery.quantity           | The quantity of services being requested.                                                                                                                                                          |
 | event.delivery.quantity_qualifier | The qualifier used to indicate the quantity type. (e.g. visits, month, hours, units, days)                                                                                                         |
@@ -286,18 +286,17 @@ Full list of possible values that can be returned in the event.review.decision_r
 <a name="certification_type"></a>
 Full list of possible values that can be returned in the event.certification_type parameter on the authorization response:
 
-| certification_type |                    |
-|:----------------------------|:-------------------|
-| appeal_immediate                   | initial           |
-| appeal_standard          | reconsideration |
-| cancel           | renewal      |
-| extension               | revised             |
+| certification_type |                 |
+|:-------------------|:----------------|
+| appeal_immediate   | initial         |
+| appeal_standard    | reconsideration |
+| cancel             | renewal         |
+| extension          | revised         |
 
 <a name="category"></a>
 Full list of possible values that can be returned in the event.category parameter on the authorization response:
 
-| category |                    |
-|:----------------------------|:-------------------|
-| admission_review                   | individual           |
-| health_services_review          | specialty_care_review |
-
+| category               |                       |
+|:-----------------------|:----------------------|
+| admission_review       | individual            |
+| health_services_review | specialty_care_review |

@@ -1,5 +1,5 @@
 ## Claims Status
-> Example claim status request when the patient is also the subscriber on the insurance policy
+> Example claim status request when the patient is also the subscriber on the insurance policy:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
@@ -18,6 +18,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/claims/status
 ```
+
 ```python
 pd.claims_status({
     "patient": {
@@ -36,7 +37,7 @@ pd.claims_status({
 })
 ```
 
-> Example claim status request when the patient is not the subscriber on the insurance policy
+> Example claim status request when the patient is not the subscriber on the insurance policy:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
@@ -85,7 +86,7 @@ pd.claims_status({
 })
 ```
 
-> Example claim status request when the claim service period covers several days
+> Example claim status request when the claim service period covers several days:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
@@ -105,6 +106,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/claims/status
 ```
+
 ```python
 pd.claims_status({
     "patient": {
@@ -124,7 +126,7 @@ pd.claims_status({
 })
 ```
 
-> Example claim status request using a claim tracking id to refine the search
+> Example claim status request using a claim tracking id to refine the search:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
@@ -144,6 +146,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/claims/status
 ```
+
 ```python
 pd.claims_status({
     "patient": {
@@ -162,52 +165,11 @@ pd.claims_status({
     "trading_partner_id": "MOCKPAYER"
 })
 ```
-*Available modes of operation: real-time*
-
-The Claims Status Endpoint allows an application to request information about
-previously submitted claims. You can send a request to a payer to determine
-where the claim is in their adjudication system and the status of the claim.
-
-The PokitDok Claims Status Endpoint can be used to query the status of multiple
-claims. To learn how to form such a request and understand how the
-[Claims](#claims) and [Claims Status](#claims_status) Endpoints work together,
-see [claims API workflow](https://platform.pokitdok.com/claim-processing).
-
-Please note that on average it takes 5-7 days for a claim to enter a payer’s
-adjudication system, thus it recommended to wait at least a week after
-submitting a claim to check its status.  
-
-
-| Endpoint       | HTTP Method | Description                                                     |
-|:---------------|:------------|:----------------------------------------------------------------|
-| /claims/status | POST        | Submit a claim status request to the specified trading partner. |
-
-
-The /claims/status endpoint accepts the following parameters:
-
-| Parameter                  | Description                                                                                                                          |
-|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
-| patient.birth_date         | The patient’s birth date as specified on their policy.                                                                               |
-| patient.id                 | The patient’s member identifier.                                                                                                     |
-| patient.first_name         | The patient’s first name as specified on their policy.                                                                               |
-| patient.last_name          | The patient’s last name as specified on their policy.                                                                                |
-| provider.first_name        | The provider’s first name when the provider is an individual.                                                                        |
-| provider.last_name         | The provider’s last name when the provider is an individual.                                                                         |
-| provider.npi               | The NPI for the provider.                                                                                                            |
-| provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name. |
-| service_date               | The date services were performed or started for the claim service period.                                                            |
-| service_end_date           | Optional: The date services ended for the claim service period.                                                                      |
-| subscriber.birth_date      | Optional: The subscriber’s birth date as specified on their policy. Specify when the patient is not the subscriber.                  |
-| subscriber.first_name      | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber.                  |
-| subscriber.id              | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.                                        |
-| subscriber.last_name       | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.                   |
-| tracking_id                | Optional: The payer's claim tracking id. Specify a tracking id to refine the search criteria for a specific claim.                   |
-| trading_partner_id         | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.                      |
 
 > Example claims status response when the trading partner is unable to locate
 any matching claims:
 
-```shell
+```
 {
     "patient": {
         "claims": [
@@ -265,46 +227,46 @@ any matching claims:
     "trading_partner_id": "MOCKPAYER"
 }
 ```
-> Example claims status response when there is an error in the formatting of the providers NPI or name and they are unable to find a match:
+> Example claims status response when there is an error in the formatting of the provider's NPI or
+name, and they are unable to find a match:
 
-```shell
+```
 {  
-      "client_id":"fFFgqPeK5GETjZkC3JPB",
-      "payer":{  
-         "name":"MOCKPAYER",
-         "id":"MOCKPAYER"
-      },
-      "providers":[  
-         {  
+    "client_id":"fFFgqPeK5GETjZkC3JPB",
+    "payer":{  
+        "name":"MOCKPAYER",
+        "id":"MOCKPAYER"
+    },
+    "providers":[  
+        {  
             "trace_number":"0",
             "first_name":"Jerome",
             "last_name":"Aya-Ay",
             "npi":"123456789",
             "statuses":[  
-               {  
-                  "status_code":"Entity's National Provider Identifier (NPI).",
-                  "status_category":"Data Search Unsuccessful - The payer is unable to return status on the requested claim(s) based on the submitted search criteria.",
-                  "status_effective_date":"2015-09-01",
-                  "status_category_code":"D0"
-               }
+                {  
+                    "status_code":"Entity's National Provider Identifier (NPI).",
+                    "status_category":"Data Search Unsuccessful - The payer is unable to return status on the requested claim(s) based on the submitted search criteria.",
+                    "status_effective_date":"2015-09-01",
+                    "status_category_code":"D0"
+                }
             ]
-         }
-      ],
-      "correlation_id":"37045a41-634a-4439-a555-d8d6cbb445ce",
-      "trading_partner_id":"MOCKPAYER",
-      "submitter":{  
-         "first_name":"Jerome",
-         "last_name":"Aye-Ay",
-         "id":"MOCKPAYER"
-      }
-   }
+        }
+    ],
+    "correlation_id":"37045a41-634a-4439-a555-d8d6cbb445ce",
+    "trading_partner_id":"MOCKPAYER",
+    "submitter":{  
+        "first_name":"Jerome",
+        "last_name":"Aye-Ay",
+        "id":"MOCKPAYER"
+    }
 }
 ```
 
 > Example claims status response when adjudication is finalized and the claim
 has been paid:
 
-```shell
+```
 {
     "patient": {
         "claims": [
@@ -473,7 +435,7 @@ has been paid:
 
 > Example claims status response when adjudication is finalized and the claim has been denied:
 
-```shell
+```
 {
     "patient": {
         "claims": [
@@ -689,7 +651,7 @@ has been paid:
 > Example claims status response when adjudication is finalized, the claim has
 been denied (not paid) and the charges are applied to the deductible:
 
-```shell
+```
 {
     "patient": {
         "claims": [
@@ -794,6 +756,49 @@ been denied (not paid) and the charges are applied to the deductible:
     "trading_partner_id": "MOCKPAYER"
 }
 ```
+
+*Available modes of operation: real-time*
+
+The Claims Status Endpoint allows an application to request information about
+previously submitted claims. You can send a request to a payer to determine
+where the claim is in their adjudication system and the status of the claim.
+
+The PokitDok Claims Status Endpoint can be used to query the status of multiple
+claims. To learn how to form such a request and understand how the
+[Claims](#claims) and [Claims Status](#claims_status) Endpoints work together,
+see [claims API workflow](https://platform.pokitdok.com/claim-processing).
+
+Please note that on average it takes 5-7 days for a claim to enter a payer’s
+adjudication system, thus it recommended to wait at least a week after
+submitting a claim to check its status.  
+
+
+| Endpoint       | HTTP Method | Description                                                     |
+|:---------------|:------------|:----------------------------------------------------------------|
+| /claims/status | POST        | Submit a claim status request to the specified trading partner. |
+
+
+The /claims/status endpoint accepts the following parameters:
+
+| Parameter                  | Description                                                                                                                          |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
+| patient.birth_date         | The patient’s birth date as specified on their policy.                                                                               |
+| patient.id                 | The patient’s member identifier.                                                                                                     |
+| patient.first_name         | The patient’s first name as specified on their policy.                                                                               |
+| patient.last_name          | The patient’s last name as specified on their policy.                                                                                |
+| provider.first_name        | The provider’s first name when the provider is an individual.                                                                        |
+| provider.last_name         | The provider’s last name when the provider is an individual.                                                                         |
+| provider.npi               | The NPI for the provider.                                                                                                            |
+| provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name. |
+| service_date               | The date services were performed or started for the claim service period.                                                            |
+| service_end_date           | Optional: The date services ended for the claim service period.                                                                      |
+| subscriber.birth_date      | Optional: The subscriber’s birth date as specified on their policy. Specify when the patient is not the subscriber.                  |
+| subscriber.first_name      | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber.                  |
+| subscriber.id              | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.                                        |
+| subscriber.last_name       | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.                   |
+| tracking_id                | Optional: The payer's claim tracking id. Specify a tracking id to refine the search criteria for a specific claim.                   |
+| trading_partner_id         | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.                      |
+
 
 The /claim/status response contains the following parameters:
 

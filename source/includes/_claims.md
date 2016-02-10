@@ -49,6 +49,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     }
 }` https://platform.pokitdok.com/api/v4/claims/
 ```
+
 ```python
 pd.claims({
     "transaction_code": "chargeable",
@@ -596,6 +597,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     }
 }' https://platform.pokitdok.com/api/v4/claims/
 ```
+
 ```python
 pd.claims({
     "callback_url": "https://yourapp.com/claims/status",
@@ -818,9 +820,10 @@ pd.claims({
 })
 ```
 
-> Claims request registering a callback_url and requesting a mock claim payment callback.  Your application will receive
-two callbacks.  The first will contain a claims acknowledgement result.  The second will contain a mock claim payment where
-85% of the charged amount is paid, 5% is adjusted due to contractual obligations and 10% is left to be paid by the patient.
+> Claims request registering a callback_url and requesting a mock claim payment callback.
+Your application will receive two callbacks.  The first will contain a claims acknowledgement result.
+The second will contain a mock claim payment where 85% of the charged amount is paid, 5% is adjusted
+due to contractual obligations and 10% is left to be paid by the patient.
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
@@ -970,7 +973,63 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
               "first_name": "JANE",
               "last_name": "DOE",
               "taxonomy_code": "207N00000X"
-         
+
+ },
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
+
+```python
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "rendering_provider": {
+              "npi": "2228880001",
+              "first_name": "JANE",
+              "last_name": "DOE",
+              "taxonomy_code": "207N00000X"
+
  },
         "service_lines": [
             {
@@ -1044,20 +1103,20 @@ The /claims/ endpoint accepts the following parameters:
 | claim.statement_date                          | The (start) date of this statement.                                                                                                                                                                                                                                                   |                                                    |
 | claim.statement_end_date                      | The end date of this statement.                                                                                                                                                                                                                                                       |                                                    |
 | claim.value_information                       | (_Institutional claim specific_) The value code that applies to this claim. A full list of possible values can be found [below](#valuecode).                                                                                                                                          |                                                    |
-| claim.attending_provider                      | (_Institutional claim specific_) A dictionary of information for the attending provider on this claim.                                                                                                                                                                                                                 |                                                    |
-| claim.attending_provider.first_name           | (_Institutional claim specific_) The first name of the attending provider.                                                                                                                                                                                                                                             |                                                    |
-| claim.attending_provider.last_name            | (_Institutional claim specific_) The last name of the attending provider.                                                                                                                                                                                                                                              |                                                    |
-| claim.attending_provider.npi                  | (_Institutional claim specific_) The National Provider Identifier for the attending provider.                                                                                                                                                                                                                          |                                                    |
-| claim.attending_provider.taxonomy_code        | (_Institutional claim specific_) The taxonomy code for the attending provider.                                                                                                                                                                                                                                         |                                                    |
+| claim.attending_provider                      | (_Institutional claim specific_) A dictionary of information for the attending provider on this claim.                                                                                                                                                                                |                                                    |
+| claim.attending_provider.first_name           | (_Institutional claim specific_) The first name of the attending provider.                                                                                                                                                                                                            |                                                    |
+| claim.attending_provider.last_name            | (_Institutional claim specific_) The last name of the attending provider.                                                                                                                                                                                                             |                                                    |
+| claim.attending_provider.npi                  | (_Institutional claim specific_) The National Provider Identifier for the attending provider.                                                                                                                                                                                         |                                                    |
+| claim.attending_provider.taxonomy_code        | (_Institutional claim specific_) The taxonomy code for the attending provider.                                                                                                                                                                                                        |                                                    |
 | claim.occurrence_information                  | (_Institutional claim specific_) A dictionary of information related to the occurrence/frequency of the claim.                                                                                                                                                                        |                                                    |
 | claim.occurrence_information.occurrence_type  | (_Institutional claim specific_) The type of claim-related occurrence for specifc dates. A full list of possible values can be found [below](#occtype). UB-04 field: *31. Occurrence Code*                                                                                            |                                                    |
-| claim.occurrence_information.occurrence_dates | (_Institutional claim specific_) The specific dates for the claim-related occurrence type. UB-04 field: *31. Occurrence Date*                                             
-                                                                                                      |                                                    |
-| claim.rendering_provider                 | A dictionary of information for the rendering provider on this claim.                                                                                                                                                                                                                 |                                                    |
+| claim.occurrence_information.occurrence_dates | (_Institutional claim specific_) The specific dates for the claim-related occurrence type. UB-04 field: *31. Occurrence Date*                                                                                                                                                         |                                                    |
+|                                               |                                                                                                                                                                                                                                                                                       |                                                    |
+| claim.rendering_provider                      | A dictionary of information for the rendering provider on this claim.                                                                                                                                                                                                                 |                                                    |
 | claim.rendering_provider.first_name           | The first name of the rendering provider.                                                                                                                                                                                                                                             |                                                    |
 | claim.rendering_provider.last_name            | The last name of the rendering provider.                                                                                                                                                                                                                                              |                                                    |
 | claim.rendering_provider.npi                  | The National Provider Identifier for the rendering provider.                                                                                                                                                                                                                          |                                                    |
-| claim.rendering_provider.taxonomy_code        | The taxonomy code for the rendering provider.                                                                                                                        |                                                    |                                           
+| claim.rendering_provider.taxonomy_code        | The taxonomy code for the rendering provider.                                                                                                                                                                                                                                         |                                                    |
 | claim.service_lines                           | List of services that were performed as part of this claim.                                                                                                                                                                                                                           |                                                    |
 | claim.service_lines.charge_amount             | The amount charged for this specific service. (e.g. 100.00)                                                                                                                                                                                                                           | 24f: Charges                                       |
 | claim.service_lines.diagnosis_codes           | A list of diagnosis codes related to this service. (e.g. 487.1)                                                                                                                                                                                                                       | 21: Diagnosis or nature of illness or injury       |
@@ -1093,7 +1152,7 @@ The /claims/ endpoint accepts the following parameters:
 | subscriber.claim_filing_code                  | Indicates the type of payment for the claim. It is an optional field and when left blank or not passed in the request, defaults to "mutually_defined". A full list of possible values is included [below](#filing).                                                                   |                                                    |
 | subscriber.first_name                         | Required: The subscriber’s first name as specified on their policy.                                                                                                                                                                                                                   | 4: Insured's name                                  |
 | subscriber.gender                             | The subscriber’s gender as specified on their policy.                                                                                                                                                                                                                                 | 11a: Insured's sex                                 |
-| subscriber.group_number                        | Optional: The subscriber’s group or policy number as specified on their policy.                                                                                                                                                                                                       | 11:      Employer's policy number or group number       |
+| subscriber.group_number                       | Optional: The subscriber’s group or policy number as specified on their policy.                                                                                                                                                                                                       | 11:      Employer's policy number or group number  |
 | subscriber.group_name                         | Optional: The subscriber’s group name as specified on their policy.                                                                                                                                                                                                                   | 11b: Employer's name or school name                |
 | subscriber.member_id                          | Required: The subscriber’s member identifier.                                                                                                                                                                                                                                         | 1a: Insured's ID number                            |
 | subscriber.last_name                          | Required: The subscriber’s last name as specified on their policy.                                                                                                                                                                                                                    | 4: Insured's name                                  |

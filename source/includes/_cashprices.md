@@ -1,9 +1,10 @@
 ## Cash Prices
-> example fetching cash price information
+> Example fetching cash price information:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/prices/cash?cpt_code=87799&zip_code=32218
 ```
+
 ```python
 pd.cash_prices(zip_code='32218', cpt_code='87799')
 ```
