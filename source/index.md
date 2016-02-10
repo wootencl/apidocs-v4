@@ -22,12 +22,12 @@ includes:
   - activities
   - authorizations
   - enrollment
-  - enrollmentsnapshot
   - cashprices
   - claims
   - claimsconvert
   - claimstatus
   - eligibility
+  - enrollmentsnapshot
   - files
   - icdconvert
   - identity

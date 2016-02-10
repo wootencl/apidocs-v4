@@ -101,6 +101,7 @@ workflow](https://platform.pokitdok.com/benefit-enrollment).
     "trading_partner_id": "MOCKPAYER",
 }
 ```
+
 ```python
 pd.enrollment({
     "action": "Change",
@@ -234,6 +235,7 @@ pd.enrollment({
     "trading_partner_id": "MOCKPAYER",
 }
 ```
+
 ```python
 pd.enrollment({
     "action": "Change",
@@ -322,6 +324,7 @@ pd.enrollment({
     "trading_partner_id": "MOCKPAYER",
 }
 ```
+
 ```python
 pd.enrollment({
     "action": "Change",
