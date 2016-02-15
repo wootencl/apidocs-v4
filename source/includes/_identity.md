@@ -196,18 +196,20 @@ The location and provider_uuid values correspond to provider resources accessed 
 | /identity/{uuid}   | GET         | Returns a single identity resource                             |
 | /identity?{params} | GET         | Returns one or more identity resources meeting search criteria |
 
-Supported /identity?{params} include:
+Supported query string parameters to the /identity endpoint are listed below. Parameters highlighted in *bold* support
+fuzzy search.
 
--	address.city
+-	*address.city*
 -	address.state
 -	address.zipcode
 -	birth_date
 -	email
--	first_name
+-	*first_name*
 -	gender
--	last_name
+-	*last_name*
 -	member_id
--	middle_name
+-	*middle_name*
+-   phone
 -	prefix
 -	secondary_phone
 
