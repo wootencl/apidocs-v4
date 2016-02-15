@@ -207,9 +207,9 @@ All other parameters employ an exact matching strategy.
 - birth_date
 - email
 - member_id
-- *address.city*
-- address.state
-- address.zipcode
+- *city*
+- state
+- zipcode
 - phone
 - secondary_phone
 
