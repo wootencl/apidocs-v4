@@ -154,13 +154,13 @@ PokitDok's Identity Management (IdM) API queries an EMPI (Enterprise Master Pati
 Available Identity endpoints:
 
 | Endpoint   | HTTP Method | Description                                                            |
-|------------|-------------|------------------------------------------------------------------------|
+|:-----------|:------------|:-----------------------------------------------------------------------|
 | /identity/ | POST        | Creates an identity resource. Returns the created resource with a uuid |
 
 The /identity/ endpoint accepts the following parameters:
 
 | Field                 | Type     | Description                                                                                                        |
-|-----------------------|----------|--------------------------------------------------------------------------------------------------------------------|
+|:----------------------|:---------|:-------------------------------------------------------------------------------------------------------------------|
 | address.address_lines | {array}  | Address lines                                                                                                      |
 | address.city          | {string} | Name of city in which to search for identity records (e.g. "San Mateo" or "Charleston")                            |
 | address.state         | {string} | Name of U.S. state in which to search for identity records (e.g. "CA" or "SC")                                     |
@@ -182,36 +182,42 @@ The /identity/ endpoint accepts the following parameters:
 
 Each identifier, or identifiers list entry, represents an external system utilized by a provider at a specific location. Fields within an identifier entry include:
 
-| Field         | Type           | Description                                        |
-|---------------|----------------|------------------------------------------------    |
-| location      | {array}        | Optional: GeoJSON array of \[longitude, latitude\] |
-| provider_uuid | {uuid}         | The unique identifier for the provider             |
-| system_uuid   | {uuid}         | The unique identifier for the system               |
-| value         | {string}       | The identifier value                               |
+| Field         | Type     | Description                                        |
+|:--------------|:---------|:---------------------------------------------------|
+| location      | {array}  | Optional: GeoJSON array of \[longitude, latitude\] |
+| provider_uuid | {uuid}   | The unique identifier for the provider             |
+| system_uuid   | {uuid}   | The unique identifier for the system               |
+| value         | {string} | The identifier value                               |
 
 The location and provider_uuid values correspond to provider resources accessed through the /providers endpoint. system_uuid values correspond to registered systems under the /schedule/schedulers endpoint.
 
-| Endpoint           | HTTP Method | Description                                                                        |
-|--------------------|-------------|------------------------------------------------------------------------------------|
-| /identity/{uuid}   | GET         | Returns a list containing a single identity resource                               |
-| /identity?{params} | GET         | Returns a list containing one or more identity resources meeting search criteria   |
+| Endpoint           | HTTP Method | Description                                                                      |
+|:-------------------|:------------|:---------------------------------------------------------------------------------|
+| /identity/{uuid}   | GET         | Returns a list containing a single identity resource                             |
+| /identity?{params} | GET         | Returns a list containing one or more identity resources meeting search criteria |
 
-Supported query parameters include:
+Supported query string parameters to the /identity endpoint are listed below. Parameters highlighted in ​*bold*​ utilize
+a fuzzy matching strategy which finds comparable (or similar) records within a maximum edit distance of two characters.
+All other parameters employ an exact matching strategy.
 
--	city
--	state
--	zipcode
--	birth_date
--	email
--	first_name
--	gender
--	last_name
--	member_id
--	middle_name
--	prefix
--	secondary_phone
--	uuid
+- *first_name*
+- *middle_name*
+- *last_name*
+- gender
+- birth_date
+- email
+- member_id
+- *address.city*
+- address.state
+- address.zipcode
+- phone
+- secondary_phone
+
+External id search is executed using the "id" parameter:
+/identity?id={identifier value}
+
+The id parameter, if present, overrides other search parameters.
 
 | Endpoint         | HTTP Method | Description                                                         |
-|------------------|-------------|---------------------------------------------------------------------|
+|:-----------------|:------------|:--------------------------------------------------------------------|
 | /identity/{uuid} | PUT         | Updates an existing identity resource. Returns the updated resource |
