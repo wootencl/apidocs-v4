@@ -196,9 +196,9 @@ The location and provider_uuid values correspond to provider resources accessed 
 | /identity/{uuid}   | GET         | Returns a single identity resource                             |
 | /identity?{params} | GET         | Returns one or more identity resources meeting search criteria |
 
-Supported query string parameters to the /identity endpoint are listed below. Parameters highlighted in *bold* utilize
-a fuzzy matching strategy which match records within a maximum edit distance of two. All other parameters employ an
-exact match strategy.
+Supported query string parameters to the /identity endpoint are listed below. Parameters highlighted in ​*bold*​ utilize
+a fuzzy matching strategy which finds comparable (or similar) records within a maximum edit distance of two characters.
+All other parameters employ an exact matching strategy.
 
 -	*address.city*
 -	address.state
