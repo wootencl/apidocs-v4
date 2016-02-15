@@ -54,6 +54,23 @@ pd.eligibility({
 		});
 ```
 
+```ruby
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
 > Example eligibility request when operating on behalf of a member and a specific provider is not yet known:
 
 ```shell
@@ -69,6 +86,18 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```ruby
 pd.eligibility({
     "member": {
         "birth_date": "1970-01-01",
@@ -119,6 +148,24 @@ pd.eligibility({
 })
 ```
 
+```ruby
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "cpt_code": "81291",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
 > Example eligibility request using custom application data for easy handling of asynchronous responses:
 
 ```shell
@@ -145,6 +192,28 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 
 ```python
 pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER",
+    "application_data": {
+        "patient_id": "ABC1234XYZ",
+        "location_id": 123,
+        "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
+    }
+})
+```
+
+```python
+pd.ruby({
     "member": {
         "birth_date": "1970-01-01",
         "first_name": "Jane",

@@ -56,6 +56,24 @@ client.claimsStatus(
 			});
 ```
 
+```ruby
+pd.claims_status({
+    "patient": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003"
+    },
+    "service_date": "2014-01-01",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
 > Example claim status request when the patient is not the subscriber on the insurance policy:
 
 ```shell
@@ -81,7 +99,57 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/claims/status
 ```
+
 ```python
+pd.claims_status({
+    "patient": {
+        "birth_date": "2000-01-01",
+        "first_name": "JOHN",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003"
+    },
+    "service_date": "2014-01-01",
+    "subscriber": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```csharp
+client.claimsStatus(new Dictionary<string, object> {
+    {"patient", new Dictionary<string, string> {
+        {"birth_date", "2000-01-01"},
+        {"first_name", "JOHN"},
+        {"last_name", "DOE"},
+        {"id", "1234567890"}
+    }},
+    {"provider", new Dictionary<string, string> {
+        {"first_name", "Jerome"},
+        {"last_name", "Aya-Ay"},
+        {"npi", "1467560003"}
+    }},
+    {"service_date", "2014-01-01"},
+    {"subscriber", new Dictionary<string, string> {
+        {"birth_date", "1970-01-01"},
+        {"first_name", "JANE"},
+        {"last_name", "DOE"},
+        {"id", "1234567890"}
+    }},
+    {"trading_partner_id", "MOCKPAYER"}
+});
+```
+
+
+```ruby
 pd.claims_status({
     "patient": {
         "birth_date": "2000-01-01",
@@ -145,6 +213,44 @@ pd.claims_status({
 })
 ```
 
+```csharp
+client.claimsStatus(new Dictionary<string, object> {
+    {"patient", new Dictionary<string, string> {
+        {"birth_date", "1970-01-01"},
+        {"first_name", "JANE"},
+        {"last_name", "DOE"},
+        {"id", "1234567890"}
+    }},
+        {"provider", new Dictionary<string, string> {
+        {"first_name", "Jerome"},
+        {"last_name", "Aya-Ay"},
+        {"npi", "1467560003"}
+    }},
+    {"service_date", "2014-01-01"},
+    {"service_end_date", "2014-01-04"},
+    {"trading_partner_id", "MOCKPAYER"}
+});
+```
+
+```ruby
+pd.claims_status({
+    "patient": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003"
+    },
+    "service_date": "2014-01-01",
+    "service_end_date": "2014-01-04",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
 > Example claim status request using a claim tracking id to refine the search:
 
 ```shell
@@ -167,6 +273,44 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
+pd.claims_status({
+    "patient": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003"
+    },
+    "service_date": "2014-01-01",
+    "tracking_id": "ABC12345",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```csharp
+client.claimsStatus(new Dictionary<string, object> {
+    {"patient", new Dictionary<string, string> {
+        {"birth_date", "1970-01-01"},
+        {"first_name", "JANE"},
+        {"last_name", "DOE"},
+        {"id", "1234567890"}
+    }},
+    {"provider", new Dictionary<string, string> {
+        {"first_name", "Jerome"},
+        {"last_name", "Aya-Ay"},
+        {"npi", "1467560003"}
+    }},
+    {"service_date", "2014-01-01"},
+    {"tracking_id", "ABC12345"},
+    {"trading_partner_id", "MOCKPAYER"}
+});
+```
+
+```ruby
 pd.claims_status({
     "patient": {
         "birth_date": "1970-01-01",

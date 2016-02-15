@@ -1,12 +1,18 @@
 ## Payers
-> Example fetching payer all information:
+> Example fetching the list of all payers supported by the platform:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/payers/
 ```
+
 ```python
 pd.payers()
 ```
+
+```ruby
+pd.payers
+```
+
 *Available modes of operation: real-time*
 
 <aside class="warning">

@@ -15,6 +15,10 @@ pd.schedulers()
 client.schedulers();
 ```
 
+```ruby
+pd.schedulers
+```
+
 > Response:
 
 ```
@@ -51,6 +55,9 @@ pd.schedulers(scheduler_uuid='967d207f-b024-41cc-8cac-89575a1f6fef')
 client.schedulers("967d207f-b024-41cc-8cac-89575a1f6fef");
 ```
 
+```ruby
+pd.schedulers({scheduler_uuid: '967d207f-b024-41cc-8cac-89575a1f6fef'})
+```
 
 > Response:
 
@@ -76,6 +83,10 @@ pd.appointment_types()
 
 ```csharp
 client.appointmentTypes();
+```
+
+```ruby
+pd.appointment_types
 ```
 
 > Response:
@@ -111,6 +122,10 @@ pd.appointment_types(appointment_type_uuid='ef987693-0a19-447f-814d-f8f3abbf4860
 
 ```csharp
 client.appointmentTypes("a3a45130-4adb-4d2c-9411-85a9d9ac4aa2");
+```
+
+```ruby
+pd.appointment_types({appointment_type_uuid: 'ef987693-0a19-447f-814d-f8f3abbf4860'})
 ```
 
 > Response:
@@ -153,8 +168,6 @@ pd.post('/schedule/patient/', data={
                 {"end_date", "2015-01-16T17:00:00"},
                 {"patient_uuid", "8ae236ff-9ccc-44b0-8717-42653cd719d0"}
             });
-```
-
 ```
 
 > Response:
@@ -208,6 +221,16 @@ pd.schedule_slots({
             });
 ```
 
+```ruby
+pd.schedule_slots({
+    "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
+    "location": [32.788110, -79.932364],
+    "appointment_type": "AT1",
+    "start_date": "2014-12-16T15:09:34.197709",
+    "end_date": "2014-12-16T16:09:34.197717"
+})
+```
+
 > Response:
 
 ```
@@ -252,6 +275,12 @@ client.appointments(
                 {"patient_uuid", "8ae236ff-9ccc-44b0-8717-42653cd719d0"}
             });
 ```
+
+```ruby
+pd.appointments({appointment_type: 'SS1', start_date: '2015-01-14T08:00:00',
+    end_date: '2015-01-16T17:00:00', patient_uuid: '8ae236ff-9ccc-44b0-8717-42653cd719d0'})
+```
+
 > Response:
 
 ```
@@ -289,6 +318,10 @@ pd.appointments(appointment_uuid='ef987691-0a19-447f-814d-f8f3abbf4859')
 
 ```csharp
 client.appointments("bf8440b1-fd20-4994-bb28-e3981833e796");
+```
+
+```ruby
+pd.appointments({appointment_uuid: 'ef987691-0a19-447f-814d-f8f3abbf4859'})
 ```
 
 > Response:
@@ -347,6 +380,21 @@ pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
 })
 ```
 
+```ruby
+pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
+    "patient": {
+        "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
+        "email": "john@hondoe.com",
+        "phone": "800-555-1212",
+        "birth_date": "1970-01-01",
+        "first_name": "John",
+        "last_name": "Doe",
+        "member_id": "M000001"
+    },
+    "description": "Welcome to M0d3rN Healthcare"
+})
+```
+
 > Response:
 
 ```
@@ -378,6 +426,10 @@ curl -s -XPUT -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: applica
 
 ```python
 pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {"description": "Welcome to M0d3rN Healthcare"})
+```
+
+```ruby
+pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', { "description": "Welcome to M0d3rN Healthcare" })
 ```
 
 > Response:
@@ -418,6 +470,9 @@ client.cancelAppointment("ef987691-0a19-447f-814d-f8f3abbf4859");
             });
 ```
 
+```ruby
+pd.cancel_appointment('ef987691-0a19-447f-814d-f8f3abbf4859')
+```
 
 *Available modes of operation: real-time*
 

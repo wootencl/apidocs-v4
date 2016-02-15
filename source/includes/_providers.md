@@ -13,6 +13,10 @@ pd.providers(npi='1467560003')
 client.providers("1467560003");
 ```
 
+```ruby
+pd.providers({npi: '1467560003'})
+```
+
 > Example searching providers by zipcode and specialty:
 
 ```shell
@@ -32,6 +36,9 @@ pd.providers(zipcode='29307', specialty='rheumatology', radius='20mi')
 		});
 ```
 
+```ruby
+pd.providers({zipcode: '29307', specialty: 'rheumatology', radius: '20mi'})
+```
 
 *Available modes of operation: real-time only*
 

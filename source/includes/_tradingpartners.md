@@ -13,7 +13,9 @@ pd.trading_partners()
 client.tradingPartners();
 ```
 
-
+```ruby
+pd.trading_partners
+```
 
 > Example fetching information for a specific trading partner
 
@@ -27,6 +29,9 @@ pd.trading_partners('aetna')
 
 ```csharp
 client.tradingPartners("MOCKPAYER");
+
+```ruby
+pd.trading_partners('aetna')
 ```
 
 *Available modes of operation: real-time*

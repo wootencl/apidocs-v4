@@ -13,6 +13,9 @@ pd.plans()
 client.plans();
 ```
 
+```ruby
+pd.plans
+```
 
 > example fetching information for plans in Texas:
 
@@ -30,6 +33,9 @@ client.plans(
 				{ "state", "TX" }
 			}
 		);
+
+```ruby
+pd.plans({state: 'TX'})
 ```
 
 > example fetching information for PPO plans in South Carolina:
@@ -50,6 +56,11 @@ client.plans(
 			}
 		);
 ```
+
+```ruby
+pd.plans({state: 'SC', plan_type: 'PPO'})
+```
+
 *Available modes of operation: real-time*
 
 The Plans endpoint provides access to information about insurance plans.
