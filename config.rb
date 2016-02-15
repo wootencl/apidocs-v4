@@ -31,3 +31,12 @@ configure :build do
   # activate :asset_hash
   # activate :gzip
 end
+
+activate :s3_sync do |s3_sync|
+  s3_sync.delete                     = false
+  s3_sync.after_build                = false
+  s3_sync.prefer_gzip                = false
+  s3_sync.acl                        = 'public-read'
+  s3_sync.index_document             = 'index.html'
+  s3_sync.error_document             = '404.html'
+end
