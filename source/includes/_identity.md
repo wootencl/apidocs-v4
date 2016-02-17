@@ -156,6 +156,9 @@ Available Identity endpoints:
 | Endpoint   | HTTP Method | Description                                                            |
 |:-----------|:------------|:-----------------------------------------------------------------------|
 | /identity/ | POST        | Creates an identity resource. Returns the created resource with a uuid |
+| /identity/{uuid} | GET | Pulls information for an identity resource with a given uuid |
+| /identity/{uuid} | PUT | Updates an identity with the given uuid | 
+
 
 The /identity/ endpoint accepts the following parameters:
 
