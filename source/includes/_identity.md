@@ -207,6 +207,7 @@ All other parameters employ an exact matching strategy.
 - birth_date
 - email
 - member_id
+- *address*
 - *city*
 - state
 - zipcode
