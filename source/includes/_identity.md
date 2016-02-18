@@ -147,16 +147,37 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 pd.identity(first_name='Oscar', last_name='Whitmire', gender='male')
 ```
 
+> Query for identity record history
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/identity/881bc095-2068-43cb-9783-cce630364122/history"
+```
+
+```python
+pd.identity_history("881bc095-2068-43cb-9783-cce630364122")
+```
+
+> Query for a historical identity record
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/identity/881bc095-2068-43cb-9783-cce630364122/history/0"
+```
+
+```python
+pd.identity_history("881bc095-2068-43cb-9783-cce630364122", 0)
+```
+
 **Available modes of operation: real-time**
 
 PokitDok's Identity Management (IdM) API queries an EMPI (Enterprise Master Patient Index) and/or MPI (Master Patient Index), both typically components of an EMR or EHR system, to find a patient identifier and details in the target EMR/EHR system. This helps providers identify the patient through past visits or other records within other EMR/EHR systems.
 
 Available Identity endpoints:
 
+##### Identity
 | Endpoint   | HTTP Method | Description                                                            |
 |:-----------|:------------|:-----------------------------------------------------------------------|
 | /identity/ | POST        | Creates an identity resource. Returns the created resource with a uuid |
-| /identity/{uuid} | GET | Pulls information for an identity resource with a given uuid |
+| /identity/{uuid} | GET | Returns an identity resource with a given uuid |
 | /identity/{uuid} | PUT | Updates an identity with the given uuid | 
 
 
@@ -194,11 +215,6 @@ Each identifier, or identifiers list entry, represents an external system utiliz
 
 The location and provider_uuid values correspond to provider resources accessed through the /providers endpoint. system_uuid values correspond to registered systems under the /schedule/schedulers endpoint.
 
-| Endpoint           | HTTP Method | Description                                                                      |
-|:-------------------|:------------|:---------------------------------------------------------------------------------|
-| /identity/{uuid}   | GET         | Returns a list containing a single identity resource                             |
-| /identity?{params} | GET         | Returns a list containing one or more identity resources meeting search criteria |
-
 Supported query string parameters to the /identity endpoint are listed below. Parameters highlighted in ​*bold*​ utilize
 a fuzzy matching strategy which finds comparable (or similar) records within a maximum edit distance of two characters.
 All other parameters employ an exact matching strategy.
@@ -222,6 +238,8 @@ External id search is executed using the "id" parameter:
 
 The id parameter, if present, overrides other search parameters.
 
-| Endpoint         | HTTP Method | Description                                                         |
-|:-----------------|:------------|:--------------------------------------------------------------------|
-| /identity/{uuid} | PUT         | Updates an existing identity resource. Returns the updated resource |
+##### Identity History
+| Endpoint   | HTTP Method | Description                                                            |
+|:-----------|:------------|:-----------------------------------------------------------------------|
+| /identity/{uuid}/history | GET | Returns an identity record's change history including the version date and version id|
+| /identity/{uuid}/history/{version id} | GET | Returns a historical identity record | 
