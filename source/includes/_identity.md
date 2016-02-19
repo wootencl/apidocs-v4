@@ -241,5 +241,5 @@ The id parameter, if present, overrides other search parameters.
 ##### Identity History
 | Endpoint   | HTTP Method | Description                                                            |
 |:-----------|:------------|:-----------------------------------------------------------------------|
-| /identity/{uuid}/history | GET | Returns an identity record's change history including the version date and version id|
+| /identity/{uuid}/history | GET | Returns an identity record's change history including the insert date and historical version id|
 | /identity/{uuid}/history/{version id} | GET | Returns a historical identity record | 
