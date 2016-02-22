@@ -35,7 +35,7 @@ pd.eligibility({
 })
 ```
 
-```
+```csharp
  client.eligibility (
 			new Dictionary<string, object> {
 			 	{"member", new Dictionary<string, object> {
