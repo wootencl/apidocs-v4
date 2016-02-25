@@ -167,15 +167,17 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 pd.identity_history("881bc095-2068-43cb-9783-cce630364122", 0)
 ```
 
-**Available modes of operation: real-time; long-running operations (Identity Match) are performed asynchronously.**
+**Available modes of operation: real-time.**
+**Identity Match jobs are performed asynchronously.**
 
 PokitDok's Identity Management (IdM) API queries an EMPI (Enterprise Master Patient Index) and/or MPI (Master Patient Index), both typically components of an EMR or EHR system, to find a patient identifier and details in the target EMR/EHR system. This helps providers identify the patient through past visits or other records within other EMR/EHR systems.
 
 Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
 
-Available Identity endpoints:
+There are three available Identity endpoints: Identity, Identity History and Identity Match.
 
 ##### Identity
+
 | Endpoint   | HTTP Method | Description                                                            |
 |:-----------|:------------|:-----------------------------------------------------------------------|
 | /identity/ | POST        | Creates an identity resource. Returns the created resource with a uuid |
