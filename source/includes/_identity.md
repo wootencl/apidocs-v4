@@ -170,11 +170,11 @@ pd.identity_history("881bc095-2068-43cb-9783-cce630364122", 0)
 **Available modes of operation: real-time.**
 **Identity Match jobs are performed asynchronously.**
 
-PokitDok's Identity Management (IdM) API queries an EMPI (Enterprise Master Patient Index) and/or MPI (Master Patient Index), both typically components of an EMR or EHR system, to find a patient identifier and details in the target EMR/EHR system. This helps providers identify the patient through past visits or other records within other EMR/EHR systems.
+PokitDok's Identity Management (IdM) API queries an EMPI (Enterprise Master Patient Index) and/or MPI (Master Patient Index), both typically components of an EMR or EHR system, to find a patient identifier and details in the target EMR/EHR system. This helps providers identify the patient through past visits or other records within other EMR/EHR systems. 
+
+Within the Identity Management product, there are three availalbe interfaces: Identity, Identity History and Identity Match. The Identity API provides the foundational POST/PUT/GET capability for respectivley inserting, updating and retrieving identities in the system. The Identity system updates and returns a single best record while simultaneously tracking the historical updates made to the entity. The Identity History API provides access to the historical versions of an identity. Lastly, the Identity Match API supports historical data loads for configurable duplicate entity detection.
 
 Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
-
-There are three available Identity endpoints: Identity, Identity History and Identity Match.
 
 ##### Identity
 
@@ -255,7 +255,7 @@ Learn more about our (Identity Management workflows.)[https://platform.pokitdok.
 
 ##### Identity Match
 
-The Identity Match API supports historical data loads for configurable duplicate entity detection. This endpoint operates asynchronously, only.  There are three components of the API which can be adjusted to find the best set of matches across your historical data: the match algorithm, the search fields and the match weight. The different match algorithms can be set for exact or approximate string matching. The use of different source and search fields allows for the detection of transposition within an entity's values. Lastly, setting different match weights allows you to control the importance of any individual field level match.
+The Identity Match API supports historical data loads for configurable duplicate entity detection. This endpoint operates asynchronously.  There are three components of the API which can be adjusted to find the best set of matches across your historical data: the match algorithm, the search fields and the match weight. The different match algorithms can be set for exact or approximate string matching. The use of different source and search fields allows for the detection of transposition within an entity's values. Lastly, setting different match weights allows you to control the importance of any individual field level match.
 
 Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
 
