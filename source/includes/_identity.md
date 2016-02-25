@@ -171,7 +171,7 @@ pd.identity_history("881bc095-2068-43cb-9783-cce630364122", 0)
 
 PokitDok's Identity Management (IdM) API queries an EMPI (Enterprise Master Patient Index) and/or MPI (Master Patient Index), both typically components of an EMR or EHR system, to find a patient identifier and details in the target EMR/EHR system. This helps providers identify the patient through past visits or other records within other EMR/EHR systems.
 
-Learn more about our (Identity Management workflows.)[https://platform.pokitdok.com/workflows#anchor-idm]
+Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
 
 Available Identity endpoints:
 
@@ -255,7 +255,7 @@ Learn more about our (Identity Management workflows.)[https://platform.pokitdok.
 
 The Identity Match API supports historical data loads for configurable duplicate entity detection. This endpoint operates asynchronously, only.  There are three components of the API which can be adjusted to find the best set of matches across your historical data: the match algorithm, the search fields and the match weight. The different match algorithms can be set for exact or approximate string matching. The use of different source and search fields allows for the detection of transposition within an entity's values. Lastly, setting different match weights allows you to control the importance of any individual field level match.
 
-Learn more about our (Identity Management workflows.)[https://platform.pokitdok.com/workflows#anchor-idm]
+Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
 
 | Endpoint   | HTTP Method | Description                                                            |
 |:-----------|:------------|:-----------------------------------------------------------------------|
