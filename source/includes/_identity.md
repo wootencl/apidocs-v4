@@ -255,7 +255,7 @@ Learn more about our (Identity Management workflows.)[https://platform.pokitdok.
 
 ##### Identity Match
 
-The Identity Match API supports historical data loads for configurable duplicate entity detection. This endpoint operates asynchronously.  There are three components of the API which can be adjusted to find the best set of matches across your historical data: the match algorithm, the search fields and the match weight. The different match algorithms can be set for exact or approximate string matching. The use of different source and search fields allows for the detection of transposition within an entity's values. Lastly, setting different match weights allows you to control the importance of any individual field level match.
+The Identity Match API supports supports the execution of a tune-able and configurable match job which detects duplicates across a historical data load. This endpoint operates asynchronously. There are three components of the API which can be adjusted to find the best set of matches across your historical data: the match algorithm, the search fields and the match weight. The different match algorithms can be set for exact or approximate string matching. The use of different source and search fields allows for the detection of transposition within an entity's values. Lastly, setting different match weights allows you to control the importance of any individual field level match.
 
 Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
 
