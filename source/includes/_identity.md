@@ -64,6 +64,10 @@ pd.create_identity({
 })
 ```
 
+```csharp
+client.createIdentity(ExampleRequests.CreateIdentityRequest);
+```
+
 > Example updating an identity resource
 
 ```shell
@@ -137,6 +141,11 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 pd.identity("881bc095-2068-43cb-9783-cce630364122")
 ```
 
+```csharp
+client.identity("4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae");
+```
+
+
 > Query for one or more identity resources using parameters
 
 ```shell
@@ -147,16 +156,41 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 pd.identity(first_name='Oscar', last_name='Whitmire', gender='male')
 ```
 
-**Available modes of operation: real-time**
+> Query for identity record history
 
-PokitDok's Identity Management (IdM) API queries an EMPI (Enterprise Master Patient Index) and/or MPI (Master Patient Index), both typically components of an EMR or EHR system, to find a patient identifier and details in the target EMR/EHR system. This helps providers identify the patient through past visits or other records within other EMR/EHR systems.
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/identity/881bc095-2068-43cb-9783-cce630364122/history"
+```
 
-Available Identity endpoints:
+```python
+pd.identity_history("881bc095-2068-43cb-9783-cce630364122")
+```
+
+> Query for a historical identity record
+
+```shell
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/identity/881bc095-2068-43cb-9783-cce630364122/history/0"
+```
+
+```python
+pd.identity_history("881bc095-2068-43cb-9783-cce630364122", 0)
+```
+
+**Available modes of operation: real-time.**
+**Identity Match jobs are performed asynchronously.**
+
+PokitDok's Identity Management (IdM) API queries an EMPI (Enterprise Master Patient Index) and/or MPI (Master Patient Index), both typically components of an EMR or EHR system, to find a patient identifier and details in the target EMR/EHR system. This helps providers identify the patient through past visits or other records within other EMR/EHR systems. 
+
+Within the Identity Management product, there are three availalbe interfaces: Identity, Identity History and Identity Match. The Identity API provides the foundational POST/PUT/GET capability for respectively inserting, updating and retrieving identities in the system. The Identity system updates and returns a single best record while simultaneously tracking the historical updates made to the entity. The Identity History API provides access to the historical versions of an identity. Lastly, the Identity Match API supports the execution of a tune-able and configurable match job which detects duplicates across a historical data load.
+
+Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
+
+##### Identity
 
 | Endpoint   | HTTP Method | Description                                                            |
 |:-----------|:------------|:-----------------------------------------------------------------------|
 | /identity/ | POST        | Creates an identity resource. Returns the created resource with a uuid |
-| /identity/{uuid} | GET | Pulls information for an identity resource with a given uuid |
+| /identity/{uuid} | GET | Returns an identity's single best record with a given uuid |
 | /identity/{uuid} | PUT | Updates an identity with the given uuid | 
 
 
@@ -194,11 +228,6 @@ Each identifier, or identifiers list entry, represents an external system utiliz
 
 The location and provider_uuid values correspond to provider resources accessed through the /providers endpoint. system_uuid values correspond to registered systems under the /schedule/schedulers endpoint.
 
-| Endpoint           | HTTP Method | Description                                                                      |
-|:-------------------|:------------|:---------------------------------------------------------------------------------|
-| /identity/{uuid}   | GET         | Returns a list containing a single identity resource                             |
-| /identity?{params} | GET         | Returns a list containing one or more identity resources meeting search criteria |
-
 Supported query string parameters to the /identity endpoint are listed below. Parameters highlighted in ​*bold*​ utilize
 a fuzzy matching strategy which finds comparable (or similar) records within a maximum edit distance of two characters.
 All other parameters employ an exact matching strategy.
@@ -210,6 +239,7 @@ All other parameters employ an exact matching strategy.
 - birth_date
 - email
 - member_id
+- *address*
 - *city*
 - state
 - zipcode
@@ -221,6 +251,23 @@ External id search is executed using the "id" parameter:
 
 The id parameter, if present, overrides other search parameters.
 
-| Endpoint         | HTTP Method | Description                                                         |
-|:-----------------|:------------|:--------------------------------------------------------------------|
-| /identity/{uuid} | PUT         | Updates an existing identity resource. Returns the updated resource |
+##### Identity History
+
+We store a historical chain of the updates to a given consumer while also maintaining a single best record for the duration of the data record. The Identity History endpoint gives you access to historical snapshots of the identity. 
+
+Learn more about our (Identity Management workflows.)[https://platform.pokitdok.com/workflows#anchor-idm]
+
+| Endpoint   | HTTP Method | Description                                                            |
+|:-----------|:------------|:-----------------------------------------------------------------------|
+| /identity/{uuid}/history | GET | Returns an identity record's change history including the insert date and historical version id|
+| /identity/{uuid}/history/{version id} | GET | Returns a historical identity record | 
+
+##### Identity Match
+
+The Identity Match API supports supports the execution of a tune-able and configurable match job which detects duplicates across a historical data load. This endpoint operates asynchronously. There are three components of the API which can be adjusted to find the best set of matches across your historical data: the match algorithm, the search fields and the match weight. The different match algorithms can be set for exact or approximate string matching. The use of different source and search fields allows for the detection of transposition within an entity's values. Lastly, setting different match weights allows you to control the importance of any individual field level match.
+
+Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
+
+| Endpoint   | HTTP Method | Description                                                            |
+|:-----------|:------------|:-----------------------------------------------------------------------|
+| /identity/match | POST | Creates an identity duplication job. Returns the activity uuid. |
