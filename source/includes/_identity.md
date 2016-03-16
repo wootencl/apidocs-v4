@@ -166,6 +166,10 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 pd.identity_history("881bc095-2068-43cb-9783-cce630364122")
 ```
 
+```csharp
+client.identityHistory("881bc095-2068-43cb-9783-cce630364122");
+```
+
 > Query for a historical identity record
 
 ```shell
