@@ -1,5 +1,62 @@
 ## Pharmacy Plan
 
+> Example request to determine pharmacy plan information:
+
+```python
+pd.pharmacy_plan({
+	"trading_partner_id" : "medicare_national"
+        	"plan_number" : "S5820003"
+})
+```
+
+> Example pharmacy plan response for a member with Medicare Part D:
+
+```json
+{
+  "plan_name" : "Aetna Medicare Rx Saver",
+  "trading_partner_id" : "medicare_national",
+  "premium" : {
+    "amount" : "24.00",
+    "currency" : "USD"
+  },
+  "deductible" : {
+    "amount" : "360.00",
+    "currency" : "USD"
+  },
+  "initial_coverage_limit" : {
+    "amount" : "3310.00",
+    "currency" : "USD"
+  },
+  "retail_30_day_tier_1_copay" : {
+    "amount" : "1.00",
+    "currency" : "USD"
+  },
+  "retail_30_day_tier_2_copay" : {
+    "amount" : "2.00",
+    "currency" : "USD"
+  },
+  "retail_30_day_tier_3_copay" : {
+    "amount" : "35.00",
+    "currency" : "USD"
+  },
+  "retail_30_day_tier_4_coins" : "0.4",
+  "retail_30_day_tier_5_coins" : "0.25",
+  "mail_90_day_tier_1_copay" : {
+    "amount" : "18.00",
+    "currency" : "USD"
+  },
+  "mail_90_day_tier_2_copay" : {
+    "amount" : "21.00",
+    "currency" : "USD"
+  },
+  "mail_90_day_tier_3_copay" : {
+    "amount" : "105.00",
+    "currency" : "USD"
+  },
+  "mail_90_day_tier_4_coins" : "0.4"
+}
+```
+
 The Pharmacy Plans Endpoint returns a member’s pharmacy plan information such
 as plan name, premium, deductible, initial coverage limit and copays for each tier
 (initial coverage phase). Only Medicare Part C and D plans are currently available.
@@ -22,15 +79,6 @@ The /pharmacy/plan/ endpoint accepts the following parameters:
 |:-------------------|:---------|:-------------------------------------------------------------------------------------------|
 | trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the Trading Partners endpoint. |
 | plan_number        | {string} | Member’s plan identification number. Note: If unknown can use X12 270/271 eligibility      |
-
-Example request to determine pharmacy plan information:
-
-```python
-pd.pharmacy_plan({
-	“trading_partner_id” : “medicare_national”
-        	“plan_number” : “S5820003”
-})
-```
 
 The Pharmacy Plan Endpoint allows you to dive into the member’s drug benefit and discover
 details about the plan.
@@ -86,51 +134,3 @@ The /pharmacy/plan response contains the following parameters:
 | mail_90_day_tier_3_coins   | {string} | Coinsurance (%) for a tier 3 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase) |
 | mail_90_day_tier_4_coins   | {string} | Coinsurance (%) for a tier 4 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase) |
 | mail_90_day_tier_5_coins   | {string} | Coinsurance (%) for a tier 5 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase) |
-
-Example pharmacy plan response for a member with Medicare Part D:
-
-```json
-{
-  “plan_name” : “Aetna Medicare Rx Saver“,
-  “trading_partner_id” : “medicare_national”,
-  “premium” : {
-    “amount” : “24.00”,
-    “currency” : “USD”
-  },
-  “deductible” : {
-    “amount” : “360.00”,
-    “currency” : “USD”
-  },
-  “initial_coverage_limit” : {
-    “amount” : “3310.00”,
-    “currency” : “USD”
-  },
-  “retail_30_day_tier_1_copay” : {
-    “amount” : “1.00”,
-    “currency” : “USD”
-  },
-  “retail_30_day_tier_2_copay” : {
-    “amount” : “2.00”,
-    “currency” : “USD”
-  },
-  “retail_30_day_tier_3_copay” : {
-    “amount” : “35.00”,
-    “currency” : “USD”
-  },
-  “retail_30_day_tier_4_coins” : "0.4",
-  “retail_30_day_tier_5_coins” : "0.25"
-  “mail_90_day_tier_1_copay” : {
-    “amount” : “18.00”,
-    “currency” : “USD”
-  },
-  “mail_90_day_tier_2_copay” : {
-    “amount” : “21.00”,
-    “currency” : “USD”
-  },
-  “mail_90_day_tier_3_copay” : {
-    “amount” : “105.00”,
-    “currency” : “USD”
-  },
-  “mail_90_day_tier_4_coins” : "0.4"
-}
-```
