@@ -43,7 +43,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -92,7 +93,8 @@ pd.claims({
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -138,7 +140,8 @@ client.claims (
 									{"charge_amount", 60.0},
 									{"unit_count", 1.0},
 									{"diagnosis_codes", new string[] { "487.1" }},
-									{"service_date", "2014-06-01"}
+									{"service_date", "2014-06-01"},
+									{"service_end_date": "2014-07-01"}
 					}}}}}
 			});
 ```
@@ -201,7 +204,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -264,7 +268,8 @@ pd.claims({
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -321,7 +326,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -375,7 +381,8 @@ pd.claims({
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -429,7 +436,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "701.9"
                 ],
-                "service_date": "2014-11-24"
+                "service_date": "2014-11-24",
+                "service_end_date": "2014-12-24"
             }
         ]
     }
@@ -480,7 +488,8 @@ pd.claims({
                 "diagnosis_codes": [
                     "701.9"
                 ],
-                "service_date": "2014-11-24"
+                "service_date": "2014-11-24",
+                "service_end_date": "2014-12-24"
             }
         ]
     }
@@ -534,7 +543,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -584,7 +594,8 @@ pd.claims({
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -636,7 +647,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -686,7 +698,8 @@ pd.claims({
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -751,6 +764,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "procedure_code": "Q5002",
         "revenue_code": "0651",
         "service_date": "2015-03-01",
+        "service_end_date": "2015-04-01",
         "unit_count": "31",
         "unit_type": "days",
         "provider_control_number": "6750000"
@@ -836,6 +850,7 @@ pd.claims({
         "procedure_code": "Q5002",
         "revenue_code": "0651",
         "service_date": "2015-03-01",
+        "service_end_date": "2015-04-01",
         "unit_count": "31",
         "unit_type": "days",
         "provider_control_number": "6750000"
@@ -916,7 +931,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -969,7 +985,8 @@ pd.claims({
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -1028,7 +1045,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -1084,7 +1102,8 @@ pd.claims({
                 "diagnosis_codes": [
                     "487.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
             }
         ]
     }
@@ -1169,7 +1188,8 @@ The /claims/ endpoint accepts the following parameters:
 | claim.service_lines.procedure_modifier_codes  | Optional: List of modifier codes for the specified procedure. (e.g. ["GT"])                                                                                                                                                                                                           | 24d: Procedures, Services, or Supplies             |
 | claim.service_lines.provider_control_number   | The provider's control number.                                                                                                                                                                                                                                                        |                                                    |
 | claim.service_lines.revenue_code              | (_Institutional claim specific_) The revenue code related to this service. UB-04 field: *42. Revenue Code*                                                                                                                                                                            |                                                    |
-| claim.service_lines.service_date              | The date the service was performed.                                                                                                                                                                                                                                                   | 24a: Date(s) of service (from, to)                 |
+| claim.service_lines.service_date              | The date the service was performed.                                                                                                                                                                                                                                                   | 24a: Date(s) of service (from)                     |
+| claim.service_lines.service_end_date          | The end date for the service. Use this to utilize a date range for the service date. Leave blank for single date of service.                                                                                                                                                          | 24a: Date(s) of service (to)                       |
 | claim.service_lines.unit_count                | Number of units of this service. (e.g. 1.0)                                                                                                                                                                                                                                           | 24g: Days or Units                                 |
 | claim.service_lines.unit_type                 | The type of unit being described for this particular service's unit count. Possible values include: units, days                                                                                                                                                                       |                                                    |
 | claim.total_charge_amount                     | The total amount charged/billed for the claim. (e.g. 100.00)                                                                                                                                                                                                                          | 28: Total Charge                                   |
