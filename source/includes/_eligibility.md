@@ -33,7 +33,42 @@ pd.eligibility({
     "trading_partner_id": "MOCKPAYER"
 })
 ```
-                    
+> Example eligibility request to determine general health benefit coverage when a member has a specific group number value assigned
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000",
+        "group_number": "123456"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+```python
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000",
+        "group_number": "123456"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```                    
 > Example eligibility request when operating on behalf of a member and a specific provider is not yet known
 
 ```shell
@@ -58,7 +93,42 @@ pd.eligibility({
     "trading_partner_id": "MOCKPAYER"
 })
 ```
-                    
+> Some trading partners support eligibility requests using specific service type codes. Here's an example using a service type code to request eligibility information
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "service_types": "telemedicine",
+    "trading_partner_id": "MOCKPAYER"
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+```python
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "service_types": "telemedicine",
+    "trading_partner_id": "MOCKPAYER"
+})
+```                    
 > Some trading partners support eligibility requests using a CPT code. Here's an example using a CPT code to request eligibility information
 
 ```shell
@@ -95,7 +165,7 @@ pd.eligibility({
     "trading_partner_id": "MOCKPAYER"
 })
 ```
-                    
+
 > Example eligibility request using custom application data for easy handling of asynchronous responses
 
 ```shell
@@ -140,13 +210,13 @@ pd.eligibility({
     }
 })
 ```
-                    
+
 *Available modes of operation: batch/async or real-time*
 
-The Eligibility Endpoint makes it easy to verify a member's insurance information in real-time. You can check 
+The Eligibility Endpoint makes it easy to verify a member's insurance information in real-time. You can check
 co-insurance, copay, deductible and out of pocket amounts for a member along with other benefit information.
 
-Use the [Trading Partners](#trading-partners) Endpoint to determine available trading_partner_id values for use with the 
+Use the [Trading Partners](#trading-partners) Endpoint to determine available trading_partner_id values for use with the
 Eligibility API.
 
 Endpoint | HTTP Method | Description
@@ -154,12 +224,12 @@ Endpoint | HTTP Method | Description
 /eligibility/ | POST | Determine eligibility via an X12 270 Request For Eligibility
 
 
-All eligibility requests must include a valid Provider NPI. Some trading partners require that the submitting provider’s 
-NPI be registered or be a participating provider with that health plan to successfully check eligibility. 
-When a request is made without a provider name and NPI, the PokitDok NPI and organization name will default in. It is 
+All eligibility requests must include a valid Provider NPI. Some trading partners require that the submitting provider’s
+NPI be registered or be a participating provider with that health plan to successfully check eligibility.
+When a request is made without a provider name and NPI, the PokitDok NPI and organization name will default in. It is
 important to note that the PokitDok NPI may not be accepted by all trading partners.
 
-The PokitDok Eligibility Endpoint allows you to request eligibility for specific service types. The service_type parameter 
+The PokitDok Eligibility Endpoint allows you to request eligibility for specific service types. The service_type parameter
 allows you to specify which particular service(s) you want to check eligibility for. If no service type is specified, the
 request will be made for general health benefits (health_benefit_plan_coverage). Please note that some trading partners may
 not support specific service type inquiries. A full listing of possible service_types values is included [below](#service-type).
@@ -174,6 +244,7 @@ member.birth_date | The named insured’s birth date as specified on their polic
 member.first_name | The named insured’s first name as specified on their policy.
 member.id | The named insured’s member identifier. May be omitted if member.birth_date is provided.
 member.last_name | The named insured’s last name as specified on their policy.
+member.group_number | The named insured's group number as specified on their policy.
 provider.first_name | The provider’s first name when the provider is an individual.
 provider.last_name | The provider’s last name when the provider is an individual.
 provider.npi | The NPI for the provider.
@@ -181,20 +252,19 @@ provider.organization_name | The provider’s name when the provider is an organ
 service_types | The service type(s) the eligibility request is being made against. A full listing of possible service_types values is included [below](#service-type).
 trading_partner_id | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.
 
-                    
-Eligibility and benefit responses vary depending on the trading partner and the plan a member is enrolled in. Some plans 
-may not provide deductible/out-of-pocket, copayment/coinsurance or other specific plan information. PokitDok will provide 
+
+Eligibility and benefit responses vary depending on the trading partner and the plan a member is enrolled in. Some plans
+may not provide deductible/out-of-pocket, copayment/coinsurance or other specific plan information. PokitDok will provide
 all the information provided by the trading partner in the eligibility response.
 
 The /eligibility/ response contains the following parameters:
 > Example eligibility response when the trading partner is unable to respond at this time
 
 ```shell
-{
-    "coverage": {
-        "service_date": "2014-06-26"
-    },
-    "follow_up_action": "resubmit_original",
+{   "coverage": {
+        "active": false
+        },
+    "follow_up_action": "resubmission_allowed",
     "provider": {
         "first_name": "JEROME",
         "last_name": "AYA-AY",
@@ -204,14 +274,15 @@ The /eligibility/ response contains the following parameters:
     "subscriber": {
         "birth_date": "1970-01-01",
         "first_name": "Jane",
+        "gender": "unknown",
         "id": "W000000000",
         "last_name": "Doe"
     },
     "trading_partner_id": "MOCKPAYER",
-    "valid_request": false
+    "valid_request": true
 }
 ```
-                    
+
 > Example eligibility response when the trading partner is unable to find the member specified in the eligibility request
 
 ```shell
@@ -236,7 +307,7 @@ The /eligibility/ response contains the following parameters:
     "valid_request": false
 }
 ```
-                    
+
 > Example eligibility response when the trading partner is able to find a member based on the eligibility request but the specified birth date does not match their records
 
 ```shell
@@ -261,7 +332,7 @@ The /eligibility/ response contains the following parameters:
     "valid_request": false
 }
 ```
-                    
+
 > Example eligibility response when the trading partner cannot process eligibility requests using CPT code
 
 ```shell
@@ -286,7 +357,7 @@ The /eligibility/ response contains the following parameters:
     "valid_request": false
 }
 ```
-                    
+
 > Sample eligibility response for a successfully executed eligibility request
 
 ```shell
@@ -660,7 +731,7 @@ valid_request | A boolean value used to indicate that a trading partner consider
 Full list of possible service_type values with the associated code (from X12 specification) that may be used in the eligiblity request or returned in an eligibility response:
 
 service_type | Code (X12 Spec)
------------- | --------------- 
+------------ | ---------------
 abortion |	84
 acupuncture |	64
 adjunctive_dental_services |	28
