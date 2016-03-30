@@ -1091,6 +1091,58 @@ pd.claims({
 })
 ```
 
+> Sample Claims request for sending service date range, using service date and service end date:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
+            }
+        ]
+    }
+}` https://platform.pokitdok.com/api/v4/claims/
+```
+
 *Available modes of operation: batch/async*
 
 Following the standard X12 837 format, the Claims endpoint allows
@@ -1169,7 +1221,8 @@ The /claims/ endpoint accepts the following parameters:
 | claim.service_lines.procedure_modifier_codes  | Optional: List of modifier codes for the specified procedure. (e.g. ["GT"])                                                                                                                                                                                                           | 24d: Procedures, Services, or Supplies             |
 | claim.service_lines.provider_control_number   | The provider's control number.                                                                                                                                                                                                                                                        |                                                    |
 | claim.service_lines.revenue_code              | (_Institutional claim specific_) The revenue code related to this service. UB-04 field: *42. Revenue Code*                                                                                                                                                                            |                                                    |
-| claim.service_lines.service_date              | The date the service was performed.                                                                                                                                                                                                                                                   | 24a: Date(s) of service (from, to)                 |
+| claim.service_lines.service_date              | The date the service was performed.                                                                                                                                                                                                                                                   | 24a: Date(s) of service (from)                     |
+| claim.service_lines.service_end_date          | Optional: The end date for the service. Use this to utilize a date range for the service date.                                                                                                                                                         | 24a: Date(s) of service (to)                       |
 | claim.service_lines.unit_count                | Number of units of this service. (e.g. 1.0)                                                                                                                                                                                                                                           | 24g: Days or Units                                 |
 | claim.service_lines.unit_type                 | The type of unit being described for this particular service's unit count. Possible values include: units, days                                                                                                                                                                       |                                                    |
 | claim.total_charge_amount                     | The total amount charged/billed for the claim. (e.g. 100.00)                                                                                                                                                                                                                          | 28: Total Charge                                   |
