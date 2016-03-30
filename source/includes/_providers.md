@@ -52,6 +52,7 @@ The /providers/ endpoint accepts the following search parameters:
 
 | Field             | Type     | Description                                                                                                                                         |
 |:------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| address_lines     | {string} | Any or all of number, street name, apartment, suite number                                                                                       |
 | city              | {string} | Name of city in which to search for providers (e.g. "San Mateo" or "Charleston")                                                                    |
 | first_name        | {string} | The provider's first name                                                                                                                           |
 | last_name         | {string} | The provider's last name                                                                                                                            |
