@@ -59,4 +59,91 @@ The /pharmacy/network response contains the following parameters:
 | pharmacy.locations.phone         | {string} | Optional: Phone number                 |
 | pharmacy.locations.state         | {string} | State                                  |
 | pharmacy.locations.zipcode       | {string} | Zip code                               |  
-| pharmacy.type                    | {string} | Mail or retail pharmacy                |
+| pharmacy.mail                    | {boolean}| Is location a mail order pharmacy?     |
+| pharmacy.retail                  | {boolean}| Is location a mail order pharmacy?     |
+
+Sample response for /pharmacy/network/{npi} endpoint : 
+
+{
+    "found": true, 
+    "pharmacy": {
+        "in_network": false, 
+        "locations": [
+            {
+                "address_lines": [
+                    "PO Box 9830"
+                ], 
+                "city": "Salt Lake City", 
+                "country": "US", 
+                "geo_location": [
+                    -111.744257, 
+                    40.707005
+                ], 
+                "phone": "8286692941", 
+                "state": "UT", 
+                "zipcode": "84109"
+            }, 
+            {
+                "address_lines": [
+                    "429 E Main St"
+                ], 
+                "city": "Liberty", 
+                "country": "US", 
+                "geo_location": [
+                    -82.69042, 
+                    34.78837
+                ], 
+                "phone": "8648439326", 
+                "state": "SC", 
+                "zipcode": "29657"
+            }
+        ], 
+        "mail": false, 
+        "pharmacy_name": "INGLES MARKETS INC", 
+        "retail": true
+    }
+}
+
+Sample response for /pharmacy/network endpoint : 
+
+{
+    "found": true, 
+    "in_network_pharmacies": [
+        {
+            "in_network": true, 
+            "locations": [
+                {
+                    "address_lines": [
+                        "PO Box 9830"
+                    ], 
+                    "city": "Salt Lake City", 
+                    "country": "US", 
+                    "geo_location": [
+                        -111.744257, 
+                        40.707005
+                    ], 
+                    "phone": "8286692941", 
+                    "state": "UT", 
+                    "zipcode": "84109"
+                }, 
+                {
+                    "address_lines": [
+                        "429 E Main St"
+                    ], 
+                    "city": "Liberty", 
+                    "country": "US", 
+                    "geo_location": [
+                        -82.69042, 
+                        34.78837
+                    ], 
+                    "phone": "8648439326", 
+                    "state": "SC", 
+                    "zipcode": "29657"
+                }
+            ], 
+            "mail": false, 
+            "pharmacy_name": "INGLES MARKETS INC", 
+            "retail": true
+        }
+    ]
+}
