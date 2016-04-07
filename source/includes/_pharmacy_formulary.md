@@ -113,105 +113,120 @@ Sample Pharmacy Formulary API response when searching for a medication using the
 drug name (SIMVASTATIN 10 MG TABLET) :  
 
 ```json
-{ “results” : [
-  {	
-	  “label_name” : “SIMVASTATIN 10 MG TABLET”,
-    “is_covered” : true,
-		“tier” : 1,
-		“tier_name” : “preferred generic” 
-		“prior_auth” : false,
-		“step_therapy” false,
-		“quantity_limit” : false
-  }
-  ]
+“data” : {
+"drugs": {
+[
+{	
+“label_name” : “SIMVASTATIN 10 MG TABLET”,
+“is_covered” : true,
+“tier” : 1,
+“tier_name” : “preferred generic”, 
+“prior_auth” : false,
+“step_therapy” false,
+“quantity_limit” : false
+}
+]
+},
+"is_covered": true
 }
 ```
 Sample pharmacy plan API response when searching for a drug name without strength (SIMVASTATIN) : 
 
 ```json
-{ “results” : [
-	{
-		“label_name” : “SIMVASTATIN 5 MG TABLET”,
-    “is_covered” : true,
-		“tier” : 1,
-		“tier_name” : “preferred generic” 
-		“prior_auth” : false,
-		“step_therapy” false,
-		“quantity_limit” : false
+“data” : {
+"drugs": {
+[
+{	
+“label_name” : “SIMVASTATIN 5 MG TABLET”,
+“is_covered” : true,
+“tier” : 1,
+“tier_name” : “preferred generic”, 
+“prior_auth” : false,
+“step_therapy” false,
+“quantity_limit” : false
 }
 {	
-		“label_name” : “SIMVASTATIN 10 MG TABLET”,
-    “is_covered” : true,
-		“tier” : 1,
-		“tier_name” : “preferred generic” 
-		“prior_auth” : false,
-		“step_therapy” false,
-		“quantity_limit” : false
+“label_name” : “SIMVASTATIN 10 MG TABLET”,
+“is_covered” : true,
+“tier” : 1,
+“tier_name” : “preferred generic”, 
+“prior_auth” : false,
+“step_therapy” false,
+“quantity_limit” : false
 }
 {	
-		“label_name” : “SIMVASTATIN 20 MG TABLET”
-    “is_covered” : true,
-		“tier” : 1,
-		“tier_name” : “preferred generic” 
-		“prior_auth” : false,
-		“step_therapy” false,
-		“quantity_limit” : false
+“label_name” : “SIMVASTATIN 20 MG TABLET”,
+“is_covered” : true,
+“tier” : 1,
+“tier_name” : “preferred generic”, 
+“prior_auth” : false,
+“step_therapy” false,
+“quantity_limit” : false
 }
 {	
-		“label_name” : “SIMVASTATIN 40 MG TABLET”,
-    “is_covered” : true,
-		“tier” : 1,
-		“tier_name” : “preferred generic” 
-		“prior_auth” : false,
-		“step_therapy” false,
-		“quantity_limit” : false
+“label_name” : “SIMVASTATIN 40 MG TABLET”,
+“is_covered” : true,
+“tier” : 1,
+“tier_name” : “preferred generic”, 
+“prior_auth” : false,
+“step_therapy” false,
+“quantity_limit” : false
 }
 {	
-		“label_name” : “SIMVASTATIN 80 MG TABLET”,
-    “is_covered” : true,
-		“tier” : 1,
-		“tier_name” : “preferred generic” 
-		“prior_auth” : false,
-		“step_therapy” false,
-		“quantity_limit” : false
-  }
+“label_name” : “SIMVASTATIN 80 MG TABLET”,
+“is_covered” : true,
+“tier” : 1,
+“tier_name” : “preferred generic”, 
+“prior_auth” : false,
+“step_therapy” false,
+“quantity_limit” : false
+}
 ]
-}
+},
+"is_covered": true
 }
 ```
 Sample pharmacy plan API response when searching by NDC (59310-0579-22) :
 
 ```json
-{ “results” : [
-	{
- 		“label_name” : “SIMVASTATIN 10 MG TABLET”,
-    “is_covered” : true,
-		“tier” : 1,
-		“tier_name” : “preferred generic” 
-		“prior_auth” : false,
-		“step_therapy” false,
-		“quantity_limit” : false
-  } 
+“data” : {
+"drugs": {
+[
+{	
+“label_name” : “SIMVASTATIN 10 MG TABLET”,
+“is_covered” : true,
+“tier” : 1,
+“tier_name” : “preferred generic”, 
+“prior_auth” : false,
+“step_therapy” false,
+“quantity_limit” : false
+}
 ]
+},
+"is_covered": true
 }
 ```
 
 Sample Pharmacy Formulary API response when searching for a medication using the complete drug 
-name (ALENDRONATE SODIUM 35 MG TABLET) and drug has a quantity limit :  
+name (LYRICA 225 MG CAPSULE) and drug has a quantity limit :  
 
 ```json
-{ “results” : [
-  {	
-		“label_name” : “ALENDRONATE SODIUM 35 MG TABLET”,
-    “is_covered” : true,
-		“tier” : 1,
-		“tier_name” : “preferred generic” 
-		“prior_auth” : false,
-		“step_therapy” false,
-		“quantity_limit” : true
-		“quantity_limit_amount” : 4
-		“quantity_limit_days” : 28
-  }
+“data” : {
+"drugs": {
+[
+{	
+“label_name” : “LYRICA 225 MG CAPSULE”,
+“is_covered” : true,
+“tier” : 4,
+“tier_name” : “non-preferred brand” 
+“prior_auth” : false,
+“step_therapy” false,
+“quantity_limit” : true
+“quantity_limit_amount” : “60.00”
+“quantity_limit_days” : 30
+}
 ]
+},
+"is_covered": true
 }
 ```
