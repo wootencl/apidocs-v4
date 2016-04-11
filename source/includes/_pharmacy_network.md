@@ -5,7 +5,7 @@ identifies them as retail or mail order pharmacies.
 
 | Endpoint               | HTTP Method | Description                                                              |
 |:-----------------------|:------------|:-------------------------------------------------------------------------|
-| /pharmacy/network/     | GET         | Get a list of pharmacies meeting certain search criteria                 |
+| /pharmacy/network      | GET         | Get a list of pharmacies meeting certain search criteria                 |
 | /pharmacy/network/{id} | GET         | Retrieve the data for a specified pharmacy; the ID is the provider’s NPI |
 
 To use the In-Network Pharmacy Endpoint with a medicare member, use the Eligibility Endpoint
@@ -26,7 +26,8 @@ The /pharmacy/network endpoint accepts the following parameters:
 | zipcode | {string} | Zip code for location      |
 | radius        | {string} | Radius of area (miles)                                                                                                                    |
 | pharmacy_name        | {string} | Name of pharmacy                                                                                                                   |
-| state | {string} | Name of U.S. state in which to search for providers (e.g. “CA” or “SC”)                                                                           |
+| city  | {string} | Name of U.S. city in which to search for pharmacies |
+| state | {string} | Name of U.S. state in which to search for pharmacies (e.g. “CA” or “SC”)                                                                           |
 | sort | {string} | Accepted values include ‘distance’ (default) or 'rank’. 'distance’ sort requires city & state or zipcode parameters otherwise sort will be 'rank’. |
 
 Example fetching pharmacy information by NPI:
@@ -104,7 +105,7 @@ Sample response for /pharmacy/network/{npi} endpoint :
     }
 }
 
-Sample response for /pharmacy/network endpoint : 
+Sample response for /pharmacy/network endpoint when using zip and radius as parameters: 
 
 {
     "found": true, 
