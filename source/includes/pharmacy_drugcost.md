@@ -6,7 +6,7 @@ and insurance payment.
 
 | Endpoint    | HTTP Method | Description                                   |
 |:------------|:------------|:----------------------------------------------|
-| /pharmacy/drugcost/       | POST         | Determine drug cost for member |
+| /pharmacy/drugcost        | GET          | Determine drug cost for member |
 
 To use the Pharmacy Drug Cost Endpoint with a medicare member, use the Eligibility Endpoint
 to submit an eligibility request for a member using medicare_national trading partner id.
@@ -45,7 +45,7 @@ full $10, or the actual drug price of $4.
 
 If the drug is not covered, only estimated total cost data will be returned for drug. 
  
-The /pharmacy/drugcost/ endpoint accepts the following parameters:
+The /pharmacy/drugcost endpoint accepts the following parameters:
 
 | Field              | Type     | Description                                                                                       |
 |:-------------------|:---------|:--------------------------------------------------------------------------------------------------|
@@ -57,286 +57,299 @@ The /pharmacy/drugcost/ endpoint accepts the following parameters:
 Example request to determine drug coverage using full drug name (name + strength + form):
 
 ```python
-pd.drug_cost({
-  “trading_partner_id” : “medicare_national”
-  “plan_number” : “S5820003”
-  “drug” : “simvastatin 10mg tablet”
-})
+pd.drug_cost(trading_partner_id: “medicare_national”, plan_number: “S5820003”, drug: “simvastatin 10mg tablet”)
 ```
 
 Example request to determine drug coverage using drug name and strength:
 
 ```python
-pd.drug_cost({
-  “trading_partner_id” : “medicare_national”
-  “plan_number” : “S5820003”
-  “drug” : “simvastatin 10mg”
-})
+pd.drug_cost(trading_partner_id: “medicare_national”, plan_number: “S5820003”, drug: “simvastatin 10mg”)
 ```
 Example request to determine drug coverage using drug name without strength or form:
 
 ```python
-pd.drug_cost({
-  “trading_partner_id” : “medicare_national”
-  “plan_number” : “S5820003”
-  “drug” : “simvastatin”
-})
+pd.drug_cost(trading_partner_id: “medicare_national”, plan_number: “S5820003”, drug: “simvastatin”)
 ```
 
 Example request to determine drug coverage using NDC:
 
 ```python
-pd.drug_cost({
-  “trading_partner_id” : “medicare_national”
-  “plan_number” : “S5820003”
-  “ndc” : “59310-0574-12”
-})
+pd.drug_cost(trading_partner_id: “medicare_national”, plan_number: “S5820003”, ndc: “59310-0574-12”)
 ```
 
-The /pharmacy/drugcost/ response contains the following parameters:
+The /pharmacy/drugcost response contains the following parameters:
 
 | Field                    | Type     | Description                                                                                                                             |
 |:-------------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
 | label_name               | {string} | The full drug name (name + strength + form)                                                                                             |
 | is_covered               | {string} | Is this medication covered on the insurance formulary                                                                                   |
-| oop_30_day_retail        | {string} | Out of pocket cost for 30 day supply of drug at a in-network retail pharmacy                                                            |
-| oop_90_day_mail          | {string} | Out of pocket cost for 90 day supply of drug at a in-network mail order pharmacy                                                        |
-| total_cost_30_day_retail | {string} | Total cost of drug for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)          |
-| total_cost_90_day_mail   | {string} | Total cost of drug for 90 day supply of drug at a in-network mail order pharmacy (average insurance negotiated rate with pharmacy)      |
-| ins_pay_30_day_retail    | {string} | Amount insurance covers for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)     |
-| ins_pay_90_day_mail      | {string} | Amount insurance covers for 90 day supply of drug at a in-network mail order pharmacy (average insurance negotiated rate with pharmacy) |
+| retail.oop_30_day        | {string} | Out of pocket cost for 30 day supply of drug at a in-network retail pharmacy                                                            |
+| retail.total_cost_30_day | {string} | Total cost of drug for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)          |
+| retail.ins_pay_30_day    | {string} | Amount insurance covers for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)     |
+| mail.oop_90_day          | {string} | Out of pocket cost for 90 day supply of drug at a in-network mail order pharmacy                                                        |
+
+| mail.total_cost_90_day   | {string} | Total cost of drug for 90 day supply of drug at a in-network mail order pharmacy (average insurance negotiated rate with pharmacy)      |
+
+| mail.ins_pay_90_day      | {string} | Amount insurance covers for 90 day supply of drug at a in-network mail order pharmacy (average insurance negotiated rate with pharmacy) |
 
 Sample Pharmacy Formulary API response when searching for a medication using the 
 complete drug name (SIMVASTATIN 10 MG TABLET) :  
 
 ```json
-{ “results” : [
- {       	
-  “label_name” : “SIMVASTATIN 10 MG TABLET”,
-  “is_covered” : true,
-  “oop_30_day_retail” : {
-    “amount” : “1.00”,
-    “currency” : “USD”
-  },
-  “oop_90_day_mail” : {
-  “amount” : “3.00”,
-  “currency” : “USD”
-  },
-  “total_cost_30_day_retail” : {
-    “amount” : “4.01”,
-    “currency” : “USD”
-  },
-  “total_cost_90_day_mail” {
-    “amount” : “10.08”,
-    “currency” : “USD”
-  },
-  “ins_pay_30_day_retail” : {
-    “amount” : “3.01”,
-    “currency” : “USD”
-  },
+“data” : {
+"drugs": {
+[
+{	
+“drug” : “SIMVASTATIN 10 MG TABLET”,
+“retail”: {
+	“oop_30_day” : {
+“amount” : “1.00”,
+“currency” : “USD”
+        	},
+	“total_cost_30_dayl” : {
+“amount” : “3.41”,
+“currency” : “USD”
+        	},
+	“ins_pay_30_day” : {
+“amount” : “2.41”,
+“currency” : “USD”
+        	}
+},
+“mail”: {
+          	“oop_90_day” : {
+“amount” : “3.00”,
+“currency” : “USD”
+        	},
+           “total_cost_90_day_mail” {
+“amount” : “8.27”,
+“currency” : “USD”
+        	},
 	“ins_pay_90_day_mail” : {
-    “amount” : “7.08”,
-    “currency” : “USD”
-  }
+“amount” : “5.27”,
+“currency” : “USD”
+        	}
 }
 ]
+},
+"is_covered": true
 }
 ```
 
 Sample pharmacy plan API response when searching for a drug name without strength (SIMVASTATIN) :
 
 ```json
-{ “results” : [
-  {
-    “label_name” : “SIMVASTATIN 5 MG TABLET”,
-    “is_covered” : true,
-    “oop_30_day_retail” : {
-      “amount” : “1.00”,
-      “currency” : “USD”
-    },
-    “oop_90_day_mail” : {
-      “amount” : “3.00”,
-      “currency” : “USD”
-  	},
-    “total_cost_30_day_retail” : {
-      “amount” : “4.01”,
-      “currency” : “USD”
-    },
-    “total_cost_90_day_mail” {
-      “amount” : “10.08”,
-      “currency” : “USD”
-    },
-    “ins_pay_30_day_retail” : {
-      “amount” : “3.01”,
-      “currency” : “USD”
-    },
-		“ins_pay_90_day_mail” : {
-      “amount” : “7.08”,
-      “currency” : “USD”
-    }
-  }
-  {
-    “label_name” : “SIMVASTATIN 10 MG TABLET”,
-    “is_covered” : true,
-    “oop_30_day_retail” : {
-      “amount” : “1.00”,
-      “currency” : “USD”
-    },
-    “oop_90_day_mail” : {
-      “amount” : “3.00”,
-      “currency” : “USD”
-    },
-  	“total_cost_30_day_retail” : {
-      “amount” : “4.01”,
-      “currency” : “USD”
-    },
-  	“total_cost_90_day_mail” {
-      “amount” : “10.08”,
-      “currency” : “USD”
-    },
-  	“ins_pay_30_day_retail” : {
-      “amount” : “3.01”,
-      “currency” : “USD”
-  	},
-		“ins_pay_90_day_mail” : {
-      “amount” : “7.08”,
-      “currency” : “USD”
-  	}
-  }
-  {
-    “label_name” : “SIMVASTATIN 20 MG TABLET”,
-    “is_covered” : true,
-  	“oop_30_day_retail” : {
-      “amount” : “1.00”,
-      “currency” : “USD”
-  	},
-    “oop_90_day_mail” : {
-      “amount” : “3.00”,
-      “currency” : “USD”
-		},
-  	“total_cost_30_day_retail” : {
-      “amount” : “4.01”,
-      “currency” : “USD”
-  	},
-  	“total_cost_90_day_mail” {
-      “amount” : “10.08”,
-      “currency” : “USD”
-  	},
-    “ins_pay_30_day_retail” : {
-      “amount” : “3.01”,
-      “currency” : “USD”
-  	},
-		“ins_pay_90_day_mail” : {
-      “amount” : “7.08”,
-      “currency” : “USD”
-  	}
-  }
-  {
-    “label_name” : “SIMVASTATIN 40 MG TABLET”,
-    “is_covered” : true,
-  	“oop_30_day_retail” : {
-      “amount” : “1.00”,
-      “currency” : “USD”
-    },
-    “oop_90_day_mail” : {
-      “amount” : “3.00”,
-      “currency” : “USD”
-  	},
-   	“total_cost_30_day_retail” : {
-      “amount” : “4.01”,
-      “currency” : “USD”
-  	},
-    “total_cost_90_day_mail” {
-      “amount” : “10.08”,
-      “currency” : “USD”
-    },
-  	“ins_pay_30_day_retail” : {
-      “amount” : “3.01”,
-      “currency” : “USD”
-		},
-		“ins_pay_90_day_mail” : {
-      “amount” : “7.08”,
-      “currency” : “USD”
-  	},
-  }
-  {
-    “label_name” : “SIMVASTATIN 10 MG TABLET”,
-    “is_covered” : true,
-    “oop_30_day_retail” : {
-      “amount” : “18.00”,
-      “currency” : “USD”
-  	},
-  	“oop_90_day_mail” : {
-      “amount” : “18.00”,
-      “currency” : “USD”
-  	},
-  	“total_cost_30_day_retail” : {
-      “amount” : “18.00”,
-      “currency” : “USD”
-  	},
-    “total_cost_90_day_mail” {
-      “amount” : “18.00”,
-      “currency” : “USD”
-  	},
-  	“ins_pay_30_day_retail” : {
-      “amount” : “18.00”,
-      “currency” : “USD”
-  	},
-		“ins_pay_90_day_mail” : {
-      “amount” : “18.00”,
-      “currency” : “USD”
-  	}
-  }]
+“data” : {
+"drugs": {
+[
+{	
+“drug” : “SIMVASTATIN 5 MG TABLET”,
+“retail”: {
+	“oop_30_day” : {
+“amount” : “1.00”,
+“currency” : “USD”
+        	},
+	“total_cost_30_day” : {
+“amount” : “3.32”,
+“currency” : “USD”
+        	},
+	“ins_pay_30_day” : {
+“amount” : “2.32”,
+“currency” : “USD”
+        	}
+},
+“mail”: {
+          	“oop_90_day” : {
+“amount” : “3.00”,
+“currency” : “USD”
+        	},
+           “total_cost_90_day_mail” {
+“amount” : “7.98”,
+“currency” : “USD”
+        	},
+	“ins_pay_90_day_mail” : {
+“amount” : “4.98”,
+“currency” : “USD”
+        	}
 }
+{	
+“drug” : “SIMVASTATIN 10 MG TABLET”,
+“retail”: {
+	“oop_30_day” : {
+“amount” : “1.00”,
+“currency” : “USD”
+        	},
+	“total_cost_30_dayl” : {
+“amount” : “3.41”,
+“currency” : “USD”
+        	},
+	“ins_pay_30_day” : {
+“amount” : “2.41”,
+“currency” : “USD”
+        	}
+},
+“mail”: {
+          	“oop_90_day” : {
+“amount” : “3.00”,
+“currency” : “USD”
+        	},
+           “total_cost_90_day_mail” {
+“amount” : “8.27”,
+“currency” : “USD”
+        	},
+	“ins_pay_90_day_mail” : {
+“amount” : “5.27”,
+“currency” : “USD”
+        	}
+}
+{	
+“drug” : “SIMVASTATIN 20 MG TABLET”,
+“retail”: {
+	“oop_30_day” : {
+“amount” : “1.00”,
+“currency” : “USD”
+        	},
+	“total_cost_30_dayl” : {
+“amount” : “3.37”,
+“currency” : “USD”
+        	},
+	“ins_pay_30_day” : {
+“amount” : “2.37”,
+“currency” : “USD”
+        	}
+},
+“mail”: {
+          	“oop_90_day” : {
+“amount” : “3.00”,
+“currency” : “USD”
+        	},
+           “total_cost_90_day_mail” {
+“amount” : “8.14”,
+“currency” : “USD”
+        	},
+	“ins_pay_90_day_mail” : {
+“amount” : “5.14”,
+“currency” : “USD”
+        	}
+}
+{	
+“drug” : “SIMVASTATIN 40 MG TABLET”,
+“retail”: {
+	“oop_30_day” : {
+“amount” : “1.00”,
+“currency” : “USD”
+        	},
+	“total_cost_30_dayl” : {
+“amount” : “3.22”,
+“currency” : “USD”
+        	},
+	“ins_pay_30_day” : {
+“amount” : “7.69”,
+“currency” : “USD”
+        	}
+},
+“mail”: {
+          	“oop_90_day” : {
+“amount” : “3.00”,
+“currency” : “USD”
+        	},
+           “total_cost_90_day_mail” {
+“amount” : “7.69”,
+“currency” : “USD”
+        	},
+	“ins_pay_90_day_mail” : {
+“amount” : “4.69”,
+“currency” : “USD”
+        	}
+}
+{	
+“drug” : “SIMVASTATIN 80 MG TABLET”,
+“retail”: {
+	“oop_30_day” : {
+“amount” : “1.00”,
+“currency” : “USD”
+        	},
+	“total_cost_30_dayl” : {
+“amount” : “3.44”,
+“currency” : “USD”
+        	},
+	“ins_pay_30_day” : {
+“amount” : “2.44”,
+“currency” : “USD”
+        	}
+},
+“mail”: {
+          	“oop_90_day” : {
+“amount” : “3.00”,
+“currency” : “USD”
+        	},
+           “total_cost_90_day_mail” {
+“amount” : “8.37”,
+“currency” : “USD”
+        	},
+	“ins_pay_90_day_mail” : {
+“amount” : “5.37”,
+“currency” : “USD”
+        	}
+}
+]
+},
+"is_covered": true
 }
 ```
 Sample pharmacy plan API response when searching by NDC (59310-0579-22) :
 
 ```json
-{ “results” : [
-	{
-    “label_name” : “SIMVASTATIN 10 MG TABLET”,
-    “is_covered” : true,
-  	“oop_30_day_retail” : {
-      “amount” : “1.00”,
-      “currency” : “USD”
-		},
-    “oop_90_day_mail” : {
-      “amount” : “3.00”,
-      “currency” : “USD”
-  	},
-    “total_cost_30_day_retail” : {
-      “amount” : “4.01”,
-      “currency” : “USD”
-  	},
-    “total_cost_90_day_mail” {
-      “amount” : “10.08”,
-      “currency” : “USD”
-  	},
-  	“ins_pay_30_day_retail” : {
-      “amount” : “3.01”,
-      “currency” : “USD”
-  	},
-		“ins_pay_90_day_mail” : {
-      “amount” : “7.08”,
-      “currency” : “USD”
- 		}
-  }
-]}
+“data” : {
+"drugs": {
+[
+{	
+“drug” : “SIMVASTATIN 10 MG TABLET”,
+“retail”: {
+	“oop_30_day” : {
+“amount” : “1.00”,
+“currency” : “USD”
+        	},
+	“total_cost_30_dayl” : {
+“amount” : “3.41”,
+“currency” : “USD”
+        	},
+	“ins_pay_30_day” : {
+“amount” : “2.41”,
+“currency” : “USD”
+        	}
+},
+“mail”: {
+          	“oop_90_day” : {
+“amount” : “3.00”,
+“currency” : “USD”
+        	},
+           “total_cost_90_day_mail” {
+“amount” : “8.27”,
+“currency” : “USD”
+        	},
+	“ins_pay_90_day_mail” : {
+“amount” : “5.27”,
+“currency” : “USD”
+        	}
+}
+]
+},
+"is_covered": true
+}
 ```
 
 Sample Pharmacy Formulary API response when searching for a medication using the 
 complete drug name (TAMIFLU 75MG CAPSULE) and drug is not covered :  
 
 ```json
-{ “results” : [
-  {       	
-    “label_name” : “TAMIFLU 75MG CAPSULE”,
-    “is_covered” : false,
-  	“total_cost_30_day_retail” : {
-      “amount” : “142.43.”,
-      “currency” : “USD”
-  	}
-  }
-]}
+“data” : {
+"drugs": {
+[
+{	
+“drug” : “TAMIFLU 75MG CAPSULE”,
+}
+]
+},
+"is_covered": false
+}
 ```
