@@ -19,7 +19,7 @@ please [contact us](/contact) to get started integrating benefits enrollment
 and maintenance into your solution.
 
 Learn more about our [Benefits Enrollment API
-workflow](https://platform.pokitdok.com/benefit-enrollment).
+workflow](https://pokitdok.com/developers/api/#api-benefit-enrollment).
 
 > Example enrollment request to enroll a subscriber in benefits. (Health, Dental, Vision)
 
