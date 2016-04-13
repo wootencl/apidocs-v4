@@ -1159,7 +1159,7 @@ If a callback_url was registered on the claims request and claim payment informa
 the full claims request activity will be POSTed back to the callback_url a second time.  The claim payment information will be
 contained in the result section of the claims activity JSON.   The original claims acknowledgement will move to
 the result_history section of the claims activity.  For a complete reference to all possible values in a claim payment result,
-see our [claim payments reference](claim_payments.html)
+see our [claim payments reference](claim_payments.html).
 If you are interested in receiving 835 files, please <a href="http://pokitdok.com/contact?context=PokitDok">contact us</a>.
 
 The PokitDok Claims endpoint gives clients the ability to submit either professional (837P) or institutional (837I) claims, using the same claims endpoint. If a claims request includes an _Institutional claim specific (837I)_ parameter, then the Claims endpoint will validate the request as an institutional claim and submit it accordingly. If no _Institutional claim specific_ parameter is passed in the request, then the request will be validated and transmitted as a professional claim.
