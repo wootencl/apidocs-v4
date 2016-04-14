@@ -2009,6 +2009,58 @@ client.claims(
     });
 ```
 
+> Sample Claims request for sending service date range, using service date and service end date:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01",
+                "service_end_date": "2014-07-01"
+            }
+        ]
+    }
+}` https://platform.pokitdok.com/api/v4/claims/
+```
+
 *Available modes of operation: batch/async*
 
 Following the standard X12 837 format, the Claims endpoint allows
@@ -2025,7 +2077,7 @@ If a callback_url was registered on the claims request and claim payment informa
 the full claims request activity will be POSTed back to the callback_url a second time.  The claim payment information will be
 contained in the result section of the claims activity JSON.   The original claims acknowledgement will move to
 the result_history section of the claims activity.  For a complete reference to all possible values in a claim payment result,
-see our [claim payments reference](claim_payments.html)
+see our [claim payments reference](claim_payments.html).
 If you are interested in receiving 835 files, please <a href="http://pokitdok.com/contact?context=PokitDok">contact us</a>.
 
 The PokitDok Claims endpoint gives clients the ability to submit either professional (837P) or institutional (837I) claims, using the same claims endpoint. If a claims request includes an _Institutional claim specific (837I)_ parameter, then the Claims endpoint will validate the request as an institutional claim and submit it accordingly. If no _Institutional claim specific_ parameter is passed in the request, then the request will be validated and transmitted as a professional claim.
@@ -2087,7 +2139,8 @@ The /claims/ endpoint accepts the following parameters:
 | claim.service_lines.procedure_modifier_codes  | Optional: List of modifier codes for the specified procedure. (e.g. ["GT"])                                                                                                                                                                                                           | 24d: Procedures, Services, or Supplies             |
 | claim.service_lines.provider_control_number   | The provider's control number.                                                                                                                                                                                                                                                        |                                                    |
 | claim.service_lines.revenue_code              | (_Institutional claim specific_) The revenue code related to this service. UB-04 field: *42. Revenue Code*                                                                                                                                                                            |                                                    |
-| claim.service_lines.service_date              | The date the service was performed.                                                                                                                                                                                                                                                   | 24a: Date(s) of service (from, to)                 |
+| claim.service_lines.service_date              | The date the service was performed.                                                                                                                                                                                                                                                   | 24a: Date(s) of service (from)                     |
+| claim.service_lines.service_end_date          | Optional: The end date for the service. Use this to utilize a date range for the service date.                                                                                                                                                                                        | 24a: Date(s) of service (to)                       |
 | claim.service_lines.unit_count                | Number of units of this service. (e.g. 1.0)                                                                                                                                                                                                                                           | 24g: Days or Units                                 |
 | claim.service_lines.unit_type                 | The type of unit being described for this particular service's unit count. Possible values include: units, days                                                                                                                                                                       |                                                    |
 | claim.total_charge_amount                     | The total amount charged/billed for the claim. (e.g. 100.00)                                                                                                                                                                                                                          | 28: Total Charge                                   |
@@ -2124,7 +2177,7 @@ The /claims/ endpoint accepts the following parameters:
 
 A claim goes through an entire lifecycle after its transmission to a payer.
 For details on this process, and how the [Claims Status](#claims-status)
-Endpoint ties in, see our [claims API workflow](https://platform.pokitdok.com/claim-processing).
+Endpoint ties in, see our [claims API workflow](https://pokitdok.com/developers/api/#api-claim-submission).
 
 <a name="place-of-service"></a>
 Full list of possible values that can be used in the claim.place_of_service parameter on the claim:

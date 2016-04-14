@@ -925,11 +925,11 @@ been denied (not paid) and the charges are applied to the deductible:
 The Claims Status Endpoint allows an application to request information about
 previously submitted claims. You can send a request to a payer to determine
 where the claim is in their adjudication system and the status of the claim.
-
 The PokitDok Claims Status Endpoint can be used to query the status of multiple
-claims. To learn how to form such a request and understand how the
-[Claims](#claims) and [Claims Status](#claims_status) Endpoints work together,
-see [claims API workflow](https://platform.pokitdok.com/claim-processing).
+claims.
+
+To understand how the [Claims](#claims) and [Claims Status](#claims_status) Endpoints work together,
+see the [claims API workflow](https://pokitdok.com/developers/api/#api-claims-status).
 
 Please note that on average it takes 5-7 days for a claim to enter a payer’s
 adjudication system, thus it recommended to wait at least a week after
