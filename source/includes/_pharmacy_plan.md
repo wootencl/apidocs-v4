@@ -4,8 +4,8 @@
 
 ```python
 pd.pharmacy_plan({
-	"trading_partner_id" : "medicare_national"
-        	"plan_number" : "S5820003"
+	"trading_partner_id" : "medicare_national",
+    "plan_number" : "S5820003"
 })
 ```
 
@@ -56,6 +56,58 @@ pd.pharmacy_plan({
   "mail_90_day_tier_4_coins" : "0.4"
 }
 ```
+Example pharmacy plan response for a member with Medicare Part D:
+
+```json
+{
+  "plan_name" : "Aetna Medicare Rx Saver",
+  "trading_partner_id" : "medicare_national",
+  "premium" : {
+    "amount" : "24.00",
+    "currency" : "USD"
+  },
+  "deductible" : {
+    "amount" : "360.00",
+    "currency" : "USD"
+  },
+  "initial_coverage_limit" : {
+    "amount" : "3310.00",
+    "currency" : "USD"
+  },
+  "retail": {
+	"tier_one_30_day_copay": {
+		"amount": "1.00",
+		"currency": "USD"
+	},
+	"tier_two_30_day_copay": {
+		"amount": "2.00",
+		"currency": "USD"
+	},
+	"tier_three_30_day_copay": {
+		"amount": "35.00",
+		"currency": "USD"
+	},
+	"tier_four_30_day_coins" : "0.4",
+        "tier_five_30_day_coins" : "0.25"
+	},
+"mail": {
+	"tier_one_90_day_copay": {
+		"amount": "18.00",
+		"currency": "USD"
+	},
+	"tier_two_90_day_copay": {
+		"amount": "21.00",
+		"currency": "USD"
+	},
+	"tier_three_90_day_copay": {
+		"amount": "105.00",
+		"currency": "USD"
+	},
+	"tier_four_90_day_coins" : "0.4",
+	}
+
+}
+```
 
 The Pharmacy Plans Endpoint returns a member’s pharmacy plan information such
 as plan name, premium, deductible, initial coverage limit and copays for each tier
@@ -63,9 +115,9 @@ as plan name, premium, deductible, initial coverage limit and copays for each ti
 
 Available Pharmacy Plan Endpoints:
 
-| Endpoint        | HTTP Method | Description                             |
-|:----------------|:------------|:----------------------------------------|
-| /pharmacy/plan/ | POST        | Determine pharmacy plan info for member |
+| Endpoint       | HTTP Method | Description                             |
+|:---------------|:------------|:----------------------------------------|
+| /pharmacy/plan | GET         | Determine pharmacy plan info for member |
 
 To use the Pharmacy Plans Endpoint with a medicare member, use the Eligibility Endpoint
 to submit an eligibility request for a member using medicare_national trading partner id.
@@ -73,12 +125,18 @@ Medicare members with Part D coverage will have pharmacy.is_eligible set to true
 pharmacy.plan_number will contain their Medicare Part D plan_number. You will use this
 number to access the member’s benefits.
 
-The /pharmacy/plan/ endpoint accepts the following parameters:
+The /pharmacy/plan endpoint accepts the following parameters:
 
 | Field              | Type     | Description                                                                                |
 |:-------------------|:---------|:-------------------------------------------------------------------------------------------|
 | trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the Trading Partners endpoint. |
 | plan_number        | {string} | Member’s plan identification number. Note: If unknown can use X12 270/271 eligibility      |
+
+Example request to determine pharmacy plan information:
+
+```python
+pd.pharmacy_plan(trading_partner_id="medicare_national", plan_number="S5820003")
+```
 
 The Pharmacy Plan Endpoint allows you to dive into the member’s drug benefit and discover
 details about the plan.
@@ -107,30 +165,30 @@ use Eligibility Endpoint to get initial member benefit information including bas
 
 The /pharmacy/plan response contains the following parameters:
 
-| Field                      | Type     | Description                                                                                                             |
-|:---------------------------|:---------|:------------------------------------------------------------------------------------------------------------------------|
-| plan_name                  | {string} | Name of prescription drug plan                                                                                          |
-| trading_partner_id         | {string} | Unique id for the intended trading partner, as specified by the Trading Partners Endpoint                               |
-| premium                    | {string} | Monthly premium - amount member pays per month for coverage                                                             |
-| deductible                 | {string} | The amount the member must pay out of pocket before initial coverage begins                                             |
-| initial_coverage_limit     | {string} | The total drug cost before the member reaches the donut hole (coverage gap)                                             |
-| retail_30_day_tier_1_copay | {string} | Copay ($) for a tier 1 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)           |
-| retail_30_day_tier_2_copay | {string} | Copay ($) for a tier 2 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)           |
-| retail_30_day_tier_3_copay | {string} | Copay ($) for a tier 3 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)           |
-| retail_30_day_tier_4_copay | {string} | Copay ($) for a tier 4 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)           |
-| retail_30_day_tier_5_copay | {string} | Copay ($) for a tier 5 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)           |
-| retail_30_day_tier_1_coins | {string} | Coinsurance (%) for a tier 1 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)     |
-| retail_30_day_tier_2_coins | {string} | Coinsurance (%) for a tier 2 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)     |
-| retail_30_day_tier_3_coins | {string} | Coinsurance (%) for a tier 3 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)     |
-| retail_30_day_tier_4_coins | {string} | Coinsurance (%) for a tier 4 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)     |
-| retail_30_day_tier_5_coins | {string} | Coinsurance (%) for a tier 5 medication for 30-day supply at an in-network retail pharmacy (initial coverage phase)     |
-| mail_90_day_tier_1_copay   | {string} | Copay ($) for a tier 1 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase)       |
-| mail_90_day_tier_2_copay   | {string} | Copay ($) for a tier 2 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase)       |
-| mail_90_day_tier_3_copay   | {string} | Copay ($) for a tier 3 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase)       |
-| mail_90_day_tier_4_copay   | {string} | Copay ($) for a tier 4 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase)       |
-| mail_90_day_tier_5_copay   | {string} | Copay ($) for a tier 5 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase)       |
-| mail_90_day_tier_1_coins   | {string} | Coinsurance (%) for a tier 1 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase) |
-| mail_90_day_tier_2_coins   | {string} | Coinsurance (%) for a tier 2 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase) |
-| mail_90_day_tier_3_coins   | {string} | Coinsurance (%) for a tier 3 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase) |
-| mail_90_day_tier_4_coins   | {string} | Coinsurance (%) for a tier 4 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase) |
-| mail_90_day_tier_5_coins   | {string} | Coinsurance (%) for a tier 5 medication for 90-day supply at an in-network mail-order pharmacy (initial coverage phase) |
+| Field                          | Type     | Description                                                                                    |
+|:-------------------------------|:---------|:-----------------------------------------------------------------------------------------------|
+| plan_name                      | {string} | Name of prescription drug plan                                                                 |
+| trading_partner_id             | {string} | Unique id for the intended trading partner, as specified by the Trading Partners Endpoint      |
+| premium                        | {string} | Monthly premium - amount member pays per month for coverage                                    |
+| deductible                     | {string} | The amount the member must pay out of pocket before initial coverage begins                    |
+| initial_coverage_limit         | {string} | The total drug cost before the member reaches the donut hole (coverage gap)                    |
+| retail.tier_one_30_day_copay   | {string} | Copay ($) for a tier 1 medication for 30-day supply at an in-network retail pharmacy           |
+| retail.tier_two_30_day_copay   | {string} | Copay ($) for a tier 2 medication for 30-day supply at an in-network retail pharmacy           |
+| retail.tier_three_30_day_copay | {string} | Copay ($) for a tier 3 medication for 30-day supply at an in-network retail pharmacy           |
+| retail.tier_four_30_day_copayy | {string} | Copay ($) for a tier 4 medication for 30-day supply at an in-network retail pharmacy           |
+| retail.tier_five_30_day_copay  | {string} | Copay ($) for a tier 5 medication for 30-day supply at an in-network retail pharmacy           |
+| retail.tier_one_30_day_coins   | {string} | Coinsurance (%) for a tier 1 medication for 30-day supply at an in-network retail pharmacy     |
+| retail.tier_two_30_day_coins   | {string} | Coinsurance (%) for a tier 2 medication for 30-day supply at an in-network retail pharmacy     |
+| retail.tier_three_30_day_coins | {string} | Coinsurance (%) for a tier 3 medication for 30-day supply at an in-network retail pharmacy     |
+| retail.tier_four_30_day_coins  | {string} | Coinsurance (%) for a tier 4 medication for 30-day supply at an in-network retail pharmacy     |
+| retail.tier_five_30_day_coins  | {string} | Coinsurance (%) for a tier 5 medication for 30-day supply at an in-network retail pharmacy     |
+| mail.tier_one_90_day_copay     | {string} | Copay ($) for a tier 1 medication for 90-day supply at an in-network mail-order pharmacy       |
+| mail.tier_two_90_day_copay     | {string} | Copay ($) for a tier 2 medication for 90-day supply at an in-network mail-order pharmacy       |
+| mail.tier_three_90_day_copay   | {string} | Copay ($) for a tier 3 medication for 90-day supply at an in-network mail-order pharmacy       |
+| mail.tier_four_90_day_copay    | {string} | Copay ($) for a tier 4 medication for 90-day supply at an in-network mail-order pharmacy       |
+| mail.tier_five_90_day_copay    | {string} | Copay ($) for a tier 5 medication for 90-day supply at an in-network mail-order pharmacy       |
+| mail.tier_one_90_day_coins     | {string} | Coinsurance (%) for a tier 1 medication for 90-day supply at an in-network mail-order pharmacy |
+| mail.tier_two_90_day_coins     | {string} | Coinsurance (%) for a tier 2 medication for 90-day supply at an in-network mail-order pharmacy |
+| mail.tier_three_90_day_coins   | {string} | Coinsurance (%) for a tier 3 medication for 90-day supply at an in-network mail-order pharmacy |
+| mail.tier_four_90_day_coins    | {string} | Coinsurance (%) for a tier 4 medication for 90-day supply at an in-network mail-order pharmacy |
+| mail.tier_five_90_day_coins    | {string} | Coinsurance (%) for a tier 5 medication for 90-day supply at an in-network mail-order pharmacy |
