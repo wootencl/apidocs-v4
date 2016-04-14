@@ -3,148 +3,146 @@
 > Example request to determine drug coverage using full drug name (name + strength + form):
 
 ```python
-pd.formulary({
-  "trading_partner_id" : "medicare_national"
-  "plan_number" : "S5820003"
-  "drug" : "simvastatin 10mg tablet"
-})
+pd.pharmacy_formulary(trading_partner_id: "medicare_national", plan_number : "S5820003", drug: "simvastatin 10mg tablet")
 ```
 
 > Example request to determine drug coverage using drug name and strength:
 
 ```python
-pd.formulary({
-	"trading_partner_id" : "medicare_national"
-  "plan_number" : "S5820003"
-  "drug" : "simvastatin 10mg"
-})
+pd.pharmacy_formulary(trading_partner_id: "medicare_national", plan_number: "S5820003", drug: "simvastatin 10mg")
 ```
 
 > Example request to determine drug coverage using drug name without strength or form:
 
 ```python
-pd.formulary({
-  "trading_partner_id" : "medicare_national"
-  "plan_number" : "S5820003"
-  "drug" : "simvastatin"
-})
+pd.pharmacy_formulary(trading_partner_id: "medicare_national", plan_number: "S5820003", drug: "simvastatin")
 ```
 
 > Example request to determine drug coverage using NDC:
 
 ```python
-pd.formulary({
-  "trading_partner_id" : "medicare_national"
-  "plan_number" : "S5820003"
-  "ndc" : "59310-0574-12"
-})
+pd.pharmacy_formulary(trading_partner_id: "medicare_national", plan_number: "S5820003", ndc: "59310-0574-12")
 ```
 
-> Sample Pharmacy Formulary API response when searching for a medication using the complete
-drug name (SIMVASTATIN 10 MG TABLET) :  
+> Sample Pharmacy Formulary API response when searching for a medication using the complete drug name (SIMVASTATIN 10 MG TABLET) :  
 
 ```json
-{ "results" : [
-  {
-    "label_name" : "SIMVASTATIN 10 MG TABLET",
-    "is_covered" : true,
-    "tier" : 1,
-    "tier_name" : "preferred generic",
-    "prior_auth" : false,
-    "step_therapy": false,
-    "quantity_limit" : false
-  }
-  ]
+{
+    "data" : {
+        "drugs": {
+            [
+                {
+                    "drug" : "SIMVASTATIN 10 MG TABLET",
+                    "tier" : 1,
+                    "tier_name" : "preferred generic",
+                    "prior_auth" : false,
+                    "step_therapy": false,
+                    "quantity_limit" : false
+                }
+            ]
+        },
+        "is_covered": true
+    }
 }
 ```
 
 > Sample Pharmacy Formulary API response when searching for a drug name without strength (SIMVASTATIN) :
 
 ```json
-{ "results" : [
-	{
-		"label_name" : "SIMVASTATIN 5 MG TABLET",
-        "is_covered" : true,
-		"tier" : 1,
-		"tier_name" : "preferred generic",
-		"prior_auth" : false,
-		"step_therapy": false,
-		"quantity_limit" : false
-    },
-    {
-		"label_name" : "SIMVASTATIN 10 MG TABLET",
-        "is_covered" : true,
-		"tier" : 1,
-		"tier_name" : "preferred generic",
-		"prior_auth" : false,
-		"step_therapy": false,
-		"quantity_limit" : false
+{
+    "data": {
+        "drugs": {
+            [
+                {
+                    "drug" : "SIMVASTATIN 5 MG TABLET",
+                    "tier" : 1,
+                    "tier_name" : "preferred generic",
+                    "prior_auth" : false,
+                    "step_therapy": false,
+                    "quantity_limit" : false
+                },
+                {
+                    "drug" : "SIMVASTATIN 10 MG TABLET",
+                    "tier" : 1,
+                    "tier_name" : "preferred generic",
+                    "prior_auth" : false,
+                    "step_therapy": false,
+                    "quantity_limit" : false
+                },
+                {
+                    "drug" : "SIMVASTATIN 20 MG TABLET",
+                    "tier" : 1,
+                    "tier_name" : "preferred generic",
+                    "prior_auth" : false,
+                    "step_therapy": false,
+                    "quantity_limit" : false
+                },
+                {
+                    "drug" : "SIMVASTATIN 40 MG TABLET",
+                    "tier" : 1,
+                    "tier_name" : "preferred generic",
+                    "prior_auth" : false,
+                    "step_therapy": false,
+                    "quantity_limit" : false
+                },
+                {
+                    "drug" : "SIMVASTATIN 80 MG TABLET",
+                    "tier" : 1,
+                    "tier_name" : "preferred generic",
+                    "prior_auth" : false,
+                    "step_therapy" false,
+                    "quantity_limit" : false
+                }
+            ]
+        }
+        "is_covered": true
     }
-    {
-		"label_name" : "SIMVASTATIN 20 MG TABLET",
-        "is_covered" : true,
-		"tier" : 1,
-		"tier_name" : "preferred generic",
-		"prior_auth" : false,
-		"step_therapy": false,
-		"quantity_limit" : false
-    }
-    {
-		"label_name" : "SIMVASTATIN 40 MG TABLET",
-        "is_covered" : true,
-		"tier" : 1,
-		"tier_name" : "preferred generic",
-		"prior_auth" : false,
-		"step_therapy": false,
-		"quantity_limit" : false
-    }
-    {
-		"label_name" : "SIMVASTATIN 80 MG TABLET",
-        "is_covered" : true,
-		"tier" : 1,
-		"tier_name" : "preferred generic",
-		"prior_auth" : false,
-		"step_therapy": false,
-		"quantity_limit" : false
-      }
-]
 }
 ```
 
 > Sample Pharmacy Formulary API response when searching by NDC (59310-0579-22) :
 
 ```json
-{ "results" : [
-	{
- 		"label_name" : "SIMVASTATIN 10 MG TABLET",
-    "is_covered" : true,
-		"tier" : 1,
-		"tier_name" : "preferred generic",
-		"prior_auth" : false,
-		"step_therapy": false,
-		"quantity_limit" : false
-  }
-]
+{
+    "data" : {
+        "drugs": {
+            [
+                {
+                    "drug" : "SIMVASTATIN 10 MG TABLET",
+                    "tier" : 1,
+                    "tier_name" : "preferred generic",
+                    "prior_auth" : false,
+                    "step_therapy" : false,
+                    "quantity_limit" : false
+                }
+            ]
+        },
+        "is_covered": true
+    }
 }
 ```
 
-> Sample Pharmacy Formulary API response when searching for a medication using the complete drug
-name (ALENDRONATE SODIUM 35 MG TABLET) and drug has a quantity limit :  
+> Sample Pharmacy Formulary API response when searching for a medication using the complete drug name (LYRICA 225 MG CAPSULE) and drug has a quantity limit :  
 
 ```json
-{ "results" : [
-  {
-		"label_name" : "ALENDRONATE SODIUM 35 MG TABLET",
-    "is_covered" : true,
-		"tier" : 1,
-		"tier_name" : "preferred generic",
-		"prior_auth" : false,
-		"step_therapy": false,
-		"quantity_limit" : true,
-		"quantity_limit_amount" : 4,
-		"quantity_limit_days" : 28
-  }
-]
+{
+    "data" : {
+        "drugs": {
+            [
+                {
+                "drug" : "LYRICA 225 MG CAPSULE",
+                "tier" : 4,
+                "tier_name" : "non-preferred brand",
+                "prior_auth" : false,
+                "step_therapy" : false,
+                "quantity_limit" : true,
+                "quantity_limit_amount" : "60.00",
+                "quantity_limit_days" : 30
+                }
+            ]
+        },
+        "is_covered": true
+    }
 }
 ```
 
@@ -163,9 +161,9 @@ quantity limit. Only Medicare Part C and D plans are currently available.
 Medications can also have restrictions on their coverage such as prior authorization,
 step therapy, and quantity limit.
 
-| Endpoint             | HTTP Method | Description                        |
-|:---------------------|:------------|:-----------------------------------|
-| /pharmacy/formulary/ | POST        | Determine drug coverage for member |
+| Endpoint            | HTTP Method | Description                        |
+|:--------------------|:------------|:-----------------------------------|
+| /pharmacy/formulary | GET         | Determine drug coverage for member |
 
 To use the Pharmacy Formulary Endpoint with a medicare member, use the Eligibility
 Endpoint to submit an eligibility request for a member using medicare_national trading
@@ -206,14 +204,14 @@ The /pharmacy/formulary endpoint accepts the following parameters:
 
 The /pharmacy/formulary response contains the following parameters:
 
-| Field                 | Type      | Description                                      |
-|:----------------------|:----------|:-------------------------------------------------|
-| label_name            | {string}  | The full drug name (name + strength + form)      |
-| is_covered            | {string}  | Is this medication on the insurance formulary    |
-| tier                  | {short}   | The level the drug fall under on the formulary   |
-| tier_name             | {string}  | The name associated with the tier level          |
-| prior_auth            | {boolean} | Does the drug require a prior authorization?     |
-| step_therapy          | {boolean} | Does the drug require step therapy?              |
-| quantity_limit        | {boolean} | Does this drug have a quantity limit?            |
-| quantity_limit_amount | {string}  | Quantity limit amount associated with this drug. |
-| quantity_limit_days   | {integer} | Quantity limit days associated with this drug.   |
+| Field                 | Type      | Description                                                                                        |
+|:----------------------|:----------|:---------------------------------------------------------------------------------------------------|
+| drug                  | {string}  | The full drug name (name + strength + form)                                                        |
+| is_covered            | {string}  | Is this medication on the insurance formulary                                                      |
+| tier                  | {short}   | The level the drug fall under on the formulary                                                     |
+| tier_name             | {string}  | The name associated with the tier level                                                            |
+| prior_auth            | {boolean} | Does the drug require a prior authorization?                                                       |
+| step_therapy          | {boolean} | Does the drug require step therapy?                                                                |
+| quantity_limit        | {boolean} | Does this drug have a quantity limit?                                                              |
+| quantity_limit_amount | {string}  | Quantity limit amount associated with this drug. The unit of measure is specific to the drug type. |
+| quantity_limit_days   | {integer} | Quantity limit days associated with this drug. E.g. 30                                             |
