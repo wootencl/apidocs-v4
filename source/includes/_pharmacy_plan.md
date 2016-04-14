@@ -3,57 +3,55 @@
 > Example request to determine pharmacy plan information:
 
 ```python
-pd.pharmacy_plan({
-	"trading_partner_id" : "medicare_national"
-        	"plan_number" : "S5820003"
-})
+pd.pharmacy_plans(trading_partner_id='medicare_national', plan_number='S5884114')
 ```
 
 > Example pharmacy plan response for a member with Medicare Part D:
 
 ```json
 {
-  "plan_name" : "Aetna Medicare Rx Saver",
-  "trading_partner_id" : "medicare_national",
-  "premium" : {
-    "amount" : "24.00",
-    "currency" : "USD"
-  },
-  "deductible" : {
-    "amount" : "360.00",
-    "currency" : "USD"
-  },
-  "initial_coverage_limit" : {
-    "amount" : "3310.00",
-    "currency" : "USD"
-  },
-  "retail_30_day_tier_1_copay" : {
-    "amount" : "1.00",
-    "currency" : "USD"
-  },
-  "retail_30_day_tier_2_copay" : {
-    "amount" : "2.00",
-    "currency" : "USD"
-  },
-  "retail_30_day_tier_3_copay" : {
-    "amount" : "35.00",
-    "currency" : "USD"
-  },
-  "retail_30_day_tier_4_coins" : "0.4",
-  "retail_30_day_tier_5_coins" : "0.25",
-  "mail_90_day_tier_1_copay" : {
-    "amount" : "18.00",
-    "currency" : "USD"
-  },
-  "mail_90_day_tier_2_copay" : {
-    "amount" : "21.00",
-    "currency" : "USD"
-  },
-  "mail_90_day_tier_3_copay" : {
-    "amount" : "105.00",
-    "currency" : "USD"
-  },
-  "mail_90_day_tier_4_coins" : "0.4"
+    "data": {
+        "deductible": {
+            "amount": "360.00", 
+            "currency": "USD"
+        }, 
+        "initial_coverage_limit": {
+            "amount": "3310.00", 
+            "currency": "USD"
+        }, 
+        "mail": {
+            "tier_four_90_day_coins": "0.3", 
+            "tier_one_90_day_copay": {
+                "amount": "0.00", 
+                "currency": "USD"
+            }, 
+            "tier_three_90_day_coins": "0.15", 
+            "tier_two_90_day_copay": {
+                "amount": "0.00", 
+                "currency": "USD"
+            }
+        }, 
+        "plan_name": "Humana Preferred Rx Plan (PDP)", 
+        "plan_number": "S5884114", 
+        "premium": {
+            "amount": "27.30", 
+            "currency": "USD"
+        }, 
+        "retail": {
+            "tier_five_30_day_coins": "0.25", 
+            "tier_four_30_day_coins": "0.35", 
+            "tier_one_30_day_copay": {
+                "amount": "1.00", 
+                "currency": "USD"
+            }, 
+            "tier_three_30_day_coins": "0.2", 
+            "tier_two_30_day_copay": {
+                "amount": "2.00", 
+                "currency": "USD"
+            }
+        }, 
+        "trading_partner_id": "medicare_national"
+    }
 }
 ```
 
@@ -65,7 +63,7 @@ Available Pharmacy Plan Endpoints:
 
 | Endpoint        | HTTP Method | Description                             |
 |:----------------|:------------|:----------------------------------------|
-| /pharmacy/plan/ | POST        | Determine pharmacy plan info for member |
+| /pharmacy/plan  | GET        | Determine pharmacy plan info for member |
 
 To use the Pharmacy Plans Endpoint with a medicare member, use the Eligibility Endpoint
 to submit an eligibility request for a member using medicare_national trading partner id.
