@@ -1,146 +1,89 @@
 ## Pharmacy Formulary
 
-> Example request to determine drug coverage using full drug name (name + strength + form):
+> Example request to determine drug coverage using drug name:
 
 ```python
-pd.pharmacy_formulary(trading_partner_id: "medicare_national", plan_number : "S5820003", drug: "simvastatin 10mg tablet")
-```
-
-> Example request to determine drug coverage using drug name and strength:
-
-```python
-pd.pharmacy_formulary(trading_partner_id: "medicare_national", plan_number: "S5820003", drug: "simvastatin 10mg")
-```
-
-> Example request to determine drug coverage using drug name without strength or form:
-
-```python
-pd.pharmacy_formulary(trading_partner_id: "medicare_national", plan_number: "S5820003", drug: "simvastatin")
+pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522034', drug='simvastatin')
 ```
 
 > Example request to determine drug coverage using NDC:
 
 ```python
-pd.pharmacy_formulary(trading_partner_id: "medicare_national", plan_number: "S5820003", ndc: "59310-0574-12")
+pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522034', ndc='00071101968')
 ```
 
-> Sample Pharmacy Formulary API response when searching for a medication using the complete drug name (SIMVASTATIN 10 MG TABLET) :  
-
-```json
-{
-    "data" : {
-        "drugs": {
-            [
-                {
-                    "drug" : "SIMVASTATIN 10 MG TABLET",
-                    "tier" : 1,
-                    "tier_name" : "preferred generic",
-                    "prior_auth" : false,
-                    "step_therapy": false,
-                    "quantity_limit" : false
-                }
-            ]
-        },
-        "is_covered": true
-    }
-}
-```
-
-> Sample Pharmacy Formulary API response when searching for a drug name without strength (SIMVASTATIN) :
+> Sample pharmacy plan API response when searching for a drug name (SIMVASTATIN) : 
 
 ```json
 {
     "data": {
-        "drugs": {
-            [
-                {
-                    "drug" : "SIMVASTATIN 5 MG TABLET",
-                    "tier" : 1,
-                    "tier_name" : "preferred generic",
-                    "prior_auth" : false,
-                    "step_therapy": false,
-                    "quantity_limit" : false
-                },
-                {
-                    "drug" : "SIMVASTATIN 10 MG TABLET",
-                    "tier" : 1,
-                    "tier_name" : "preferred generic",
-                    "prior_auth" : false,
-                    "step_therapy": false,
-                    "quantity_limit" : false
-                },
-                {
-                    "drug" : "SIMVASTATIN 20 MG TABLET",
-                    "tier" : 1,
-                    "tier_name" : "preferred generic",
-                    "prior_auth" : false,
-                    "step_therapy": false,
-                    "quantity_limit" : false
-                },
-                {
-                    "drug" : "SIMVASTATIN 40 MG TABLET",
-                    "tier" : 1,
-                    "tier_name" : "preferred generic",
-                    "prior_auth" : false,
-                    "step_therapy": false,
-                    "quantity_limit" : false
-                },
-                {
-                    "drug" : "SIMVASTATIN 80 MG TABLET",
-                    "tier" : 1,
-                    "tier_name" : "preferred generic",
-                    "prior_auth" : false,
-                    "step_therapy" false,
-                    "quantity_limit" : false
-                }
-            ]
-        }
+        "drugs": [
+            {
+                "drug": "SIMVASTATIN 10 MG TABLET", 
+                "prior_auth": false, 
+                "quantity_limit": false, 
+                "step_therapy": false, 
+                "tier": 1, 
+                "tier_name": "preferred generic"
+            }, 
+            {
+                "drug": "SIMVASTATIN 20 MG TABLET", 
+                "prior_auth": false, 
+                "quantity_limit": false, 
+                "step_therapy": false, 
+                "tier": 1, 
+                "tier_name": "preferred generic"
+            }, 
+            {
+                "drug": "SIMVASTATIN 80 MG TABLET", 
+                "limit_amount": "30", 
+                "limit_days": 30, 
+                "prior_auth": false, 
+                "quantity_limit": true, 
+                "step_therapy": false, 
+                "tier": 1, 
+                "tier_name": "preferred generic"
+            }, 
+            {
+                "drug": "SIMVASTATIN 40 MG TABLET", 
+                "prior_auth": false, 
+                "quantity_limit": false, 
+                "step_therapy": false, 
+                "tier": 1, 
+                "tier_name": "preferred generic"
+            }, 
+            {
+                "drug": "SIMVASTATIN 5 MG TABLET", 
+                "prior_auth": false, 
+                "quantity_limit": false, 
+                "step_therapy": false, 
+                "tier": 1, 
+                "tier_name": "preferred generic"
+            }
+        ], 
         "is_covered": true
     }
 }
+
 ```
 
-> Sample Pharmacy Formulary API response when searching by NDC (59310-0579-22) :
+> Sample Pharmacy Formulary API response when searching by NDC (00071101968) :
 
 ```json
 {
-    "data" : {
-        "drugs": {
-            [
-                {
-                    "drug" : "SIMVASTATIN 10 MG TABLET",
-                    "tier" : 1,
-                    "tier_name" : "preferred generic",
-                    "prior_auth" : false,
-                    "step_therapy" : false,
-                    "quantity_limit" : false
-                }
-            ]
-        },
-        "is_covered": true
-    }
-}
-```
-
-> Sample Pharmacy Formulary API response when searching for a medication using the complete drug name (LYRICA 225 MG CAPSULE) and drug has a quantity limit :  
-
-```json
-{
-    "data" : {
-        "drugs": {
-            [
-                {
-                "drug" : "LYRICA 225 MG CAPSULE",
-                "tier" : 4,
-                "tier_name" : "non-preferred brand",
-                "prior_auth" : false,
-                "step_therapy" : false,
-                "quantity_limit" : true,
-                "quantity_limit_amount" : "60.00",
-                "quantity_limit_days" : 30
-                }
-            ]
-        },
+    "data": {
+        "drugs": [
+            {
+                "drug": "LYRICA 225 MG CAPSULE", 
+                "limit_amount": "60", 
+                "limit_days": 30, 
+                "prior_auth": false, 
+                "quantity_limit": true, 
+                "step_therapy": false, 
+                "tier": 3, 
+                "tier_name": "preferred brand"
+            }
+        ], 
         "is_covered": true
     }
 }
