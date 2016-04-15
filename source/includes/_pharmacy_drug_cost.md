@@ -288,7 +288,7 @@ The /pharmacy/drug/cost endpoint accepts the following parameters:
 | drug               | {string} | Name of medication, strength, and form. Note: Strength and form are optional                      |
 | ndc                | {string} | National drug code: a unique 11-digit, 3-segment number used to identify medication               |
 
-The /pharmacy/drugcost response contains the following parameters:
+The /pharmacy/drug/cost response contains the following parameters:
 
 | Field                    | Type     | Description                                                                                                                             |
 |:-------------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
