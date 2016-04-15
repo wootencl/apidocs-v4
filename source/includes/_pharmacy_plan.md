@@ -131,12 +131,6 @@ The /pharmacy/plan endpoint accepts the following parameters:
 | trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the Trading Partners endpoint. |
 | plan_number        | {string} | Member’s plan identification number. Note: If unknown can use X12 270/271 eligibility      |
 
-Example request to determine pharmacy plan information:
-
-```python
-pd.pharmacy_plan(trading_partner_id="medicare_national", plan_number="S5820003")
-```
-
 The Pharmacy Plan Endpoint allows you to dive into the member’s drug benefit and discover
 details about the plan.
 
