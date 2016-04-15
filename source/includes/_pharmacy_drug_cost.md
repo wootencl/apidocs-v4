@@ -223,18 +223,13 @@ pd.pharmacy_drug_cost(trading_partner_id= 'medicare_national', plan_number='H102
 ```
 
 > Sample Pharmacy Formulary API response when searching for a medication using the 
-complete drug name (TAMIFLU 75MG CAPSULE) and drug is not covered :  
+complete drug name (VENTOLIN) and drug is not covered :  
 
 ```json
-“data” : {
-"drugs": {
-[
-{	
-“drug” : “TAMIFLU 75MG CAPSULE”,
-}
-]
-},
-"is_covered": false
+{
+    "data": {
+        "is_covered": false
+    }
 }
 ```
 
