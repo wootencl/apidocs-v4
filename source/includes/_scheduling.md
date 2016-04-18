@@ -172,9 +172,8 @@ pd.post('/schedule/patient/', data={
 
 > Response:
 
-```
-{
-    "uuid": "2773f6ff-00cb-460f-823f-5ff2208511e7",
+```json
+{   "uuid": "2773f6ff-00cb-460f-823f-5ff2208511e7",
     "email": "peg@emailprovider.com",
     "phone": "5553331122",
     "birth_date": "1990-01-13",
@@ -204,6 +203,17 @@ pd.schedule_slots({
     "start_date": "2014-12-16T15:09:34.197709",
     "end_date": "2014-12-16T16:09:34.197717"
 })
+```
+
+```csharp
+client.createSlot(
+new Dictionary<string, object> {
+    {"pd_provider_uuid", "b691b7f9-bfa8-486d-a689-214ae47ea6f8"},
+    {"location", new Object[] {32.78811, -79.932364}},
+    {"appointment_type", "AT1"},
+    {"start_date", "2014-12-16T15:09:34.197709"},
+    {"end_date", "2014-12-16T16:09:34.197717"}
+});
 ```
 
 ```ruby
