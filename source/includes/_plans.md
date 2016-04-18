@@ -33,6 +33,7 @@ client.plans(
 				{ "state", "TX" }
 			}
 		);
+```
 
 ```ruby
 pd.plans({state: 'TX'})

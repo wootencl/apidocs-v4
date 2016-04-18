@@ -29,6 +29,7 @@ pd.trading_partners('aetna')
 
 ```csharp
 client.tradingPartners("MOCKPAYER");
+```
 
 ```ruby
 pd.trading_partners('aetna')

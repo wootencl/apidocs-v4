@@ -109,6 +109,26 @@ pd.eligibility({
 })
 ```
 
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"},
+                {"group_number", "123456"}
+            }},
+        {"provider", new Dictionary<string, string> {
+                {"first_name", "JEROME"},
+                {"last_name", "AYA-AY"},
+                {"npi", "1467560003"}
+            }},
+        {"trading_partner_id", "MOCKPAYER"}
+    }
+);
+```
+
 > Example eligibility request when operating on behalf of a member and a specific provider is not yet known:
 
 ```shell
@@ -133,6 +153,20 @@ pd.eligibility({
     },
     "trading_partner_id": "MOCKPAYER"
 })
+```
+
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"}
+            }},
+        {"trading_partner_id", "MOCKPAYER"}
+    }
+);
 ```
 
 > Some trading partners support eligibility requests using specific service type codes. Here's an example using a service type code to request eligibility information:
@@ -171,6 +205,27 @@ pd.eligibility({
     "service_types": "telemedicine",
     "trading_partner_id": "MOCKPAYER"
 })
+```
+
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"}
+            }},
+        {"provider", new Dictionary<string, string> {
+                {"first_name", "JEROME"},
+                {"last_name", "AYA-AY"},
+                {"npi", "1467560003"}
+            }},
+        {"service_types", "telemedicine"},
+        {"trading_partner_id", "MOCKPAYER"}
+    }
+);
+```
 
 ```ruby
 pd.eligibility({
@@ -226,6 +281,26 @@ pd.eligibility({
     "cpt_code": "81291",
     "trading_partner_id": "MOCKPAYER"
 })
+```
+
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"}
+            }},
+        {"provider", new Dictionary<string, string> {
+                {"first_name", "JEROME"},
+                {"last_name", "AYA-AY"},
+                {"npi", "1467560003"}
+            }},
+        {"cpt_code", "81291"},
+        {"trading_partner_id", "MOCKPAYER"}
+    }
+);
 ```
 
 ```ruby
@@ -290,6 +365,29 @@ pd.eligibility({
         "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
     }
 })
+```
+
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"}
+            }},
+        {"provider", new Dictionary<string, string> {
+                {"first_name", "JEROME"},
+                {"last_name", "AYA-AY"},
+                {"npi", "1467560003"}
+            }},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"application_data", new Dictionary<string, object> {
+                {"patient_id", "ABC1234XYZ"},
+                {"location_id", 123},
+                {"transaction_uuid", "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"}
+            }}
+);
 ```
 
 ```ruby

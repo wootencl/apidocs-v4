@@ -206,21 +206,6 @@ pd.schedule_slots({
 })
 ```
 
-```csharp
- client.bookAppointment(
-            "ef987691-0a19-447f-814d-f8f3abbf4859",
-            new Dictionary<string, object> {
-                {"patient", new Dictionary<string, object> {
-                    {"uuid", "500ef469-2767-4901-b705-425e9b6f7f83"},
-                    {"email", "john@johndoe.com"},
-                    {"phone", "800-555-1212"},
-                    {"birth_date", "1970-01-01"},
-                    {"first_name", "John"},
-                    {"last_name", "Doe"},
-                    {"member_id", "M000001"}}}
-            });
-```
-
 ```ruby
 pd.schedule_slots({
     "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
@@ -378,6 +363,21 @@ pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
     },
     "description": "Welcome to M0d3rN Healthcare"
 })
+```
+
+```csharp
+ client.bookAppointment(
+    "ef987691-0a19-447f-814d-f8f3abbf4859",
+    new Dictionary<string, object> {
+        {"patient", new Dictionary<string, object> {
+            {"uuid", "500ef469-2767-4901-b705-425e9b6f7f83"},
+            {"email", "john@johndoe.com"},
+            {"phone", "800-555-1212"},
+            {"birth_date", "1970-01-01"},
+            {"first_name", "John"},
+            {"last_name", "Doe"},
+            {"member_id", "M000001"}}}
+    });
 ```
 
 ```ruby

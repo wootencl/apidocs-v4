@@ -65,7 +65,32 @@ pd.create_identity({
 ```
 
 ```csharp
-client.createIdentity(ExampleRequests.CreateIdentityRequest);
+client.createIdentity(
+    new Dictionary<string, object> {
+        {"prefix", "Mr."},
+        {"first_name", "Oscar"},
+        {"middle_name", "Harold"},
+        {"last_name", "Whitmire"},
+        {"suffix", "IV"},
+        {"birth_date", "2000-05-01"},
+        {"gender", "male"},
+        {"email", "oscar@pokitdok.com"},
+        {"phone", "555-555-5555"},
+        {"secondary_phone", "333-333-4444"},
+        {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"1400 Anyhoo Avenue"}},
+                {"city", "Springfield"},
+                {"state", "IL"},
+                {"zipcode", "90210"}
+            }},
+        {"identifiers", new Object[] {new Dictionary<string, object> {
+                    {"location", new Object[] {-121.93831, 37.53901}},
+                    {"provider_uuid", "1917f12b-fb6a-4016-93bc-adeb83204c83"},
+                    {"system_uuid", "967d207f-b024-41cc-8cac-89575a1f6fef"},
+                    {"value", "W90100-IG-88"}
+                }}}
+    }
+);
 ```
 
 ```ruby
@@ -161,6 +186,35 @@ pd.update_identity("881bc095-2068-43cb-9783-cce630364122", {
 })
 ```
 
+```csharp
+client.updateIdentity("881bc095-2068-43cb-9783-cce630364122",
+    new Dictionary<string, object> {
+		{"prefix", "Mr."},
+		{"first_name", "Oscar"},
+		{"middle_name", "Harold"},
+		{"last_name", "Whitmire"},
+		{"suffix", "IV"},
+		{"birth_date", "2000-05-01"},
+		{"gender", "male"},
+		{"email", "oscar.whitmire@pokitdok.com"},
+		{"phone", "555-555-5555"},
+		{"secondary_phone", "333-333-4444"},
+		{"address", new Dictionary<string, object> {
+				{"address_lines", new string[] {"1400 Anyhoo Avenue"}},
+				{"city", "Springfield"},
+				{"state", "IL"},
+				{"zipcode", "90210"}
+			}},
+		{"identifiers", new Object[] {new Dictionary<string, object> {
+					{"location", new Object[] {-121.93831, 37.53901}},
+					{"provider_uuid", "1917f12b-fb6a-4016-93bc-adeb83204c83"},
+					{"system_uuid", "967d207f-b024-41cc-8cac-89575a1f6fef"},
+					{"value", "W90100-IG-88"}
+				}}}
+	}
+);
+```
+
 ```ruby
 pd.update_identity("881bc095-2068-43cb-9783-cce630364122", {
     "prefix": "Mr.",
@@ -219,6 +273,9 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 pd.identity(first_name='Oscar', last_name='Whitmire', gender='male')
 ```
 
+```csharp
+```
+
 > Query for identity record history
 
 ```ruby
@@ -247,6 +304,10 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 
 ```python
 pd.identity_history("881bc095-2068-43cb-9783-cce630364122", 0)
+```
+
+```csharp
+client.identityHistory("881bc095-2068-43cb-9783-cce630364122");
 ```
 
 **Available modes of operation: real-time.**

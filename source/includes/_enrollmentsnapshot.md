@@ -1,4 +1,5 @@
 ## Enrollment Snapshot
+
 > Example submitting an enrollment snapshot for the MOCKPAYER trading partner:
 
 ```shell
@@ -7,6 +8,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -XPOST -F file=@current_members
 
 ```python
 pd.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834')
+```
+
+```csharp
+client.enrollmentSnapshot("MOCKPAYER", "/path/to/current_membership_enrollment.834");
 ```
 
 ```ruby
@@ -22,6 +27,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```python
 # retrieve an index of enrollment snapshots
 pd.enrollment_snapshots()
+```
+
+```csharp
+client.enrollmentSnapshot();
 ```
 
 ```ruby
@@ -40,6 +49,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 pd.enrollment_snapshots(snapshot_id='5317f51527a27620f2ec7533')
 ```
 
+```csharp
+client.enrollmentSnapshot("5317f51527a27620f2ec7533");
+```
+
 ```ruby
 # get information for a specific enrollment snapshot
 pd.enrollment_snapshots({snapshot_id='5317f51527a27620f2ec7533'})
@@ -54,6 +67,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```python
 # get information for a specific enrollment snapshot
 pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
+```
+
+```csharp
+client.enrollmentSnapshotData("5317f51527a27620f2ec7533");
 ```
 
 ```ruby

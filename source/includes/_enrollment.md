@@ -375,7 +375,7 @@ pd.enrollment({
         "substance_abuse": false,
         "tobacco_use": false
     },
-    "trading_partner_id": "MOCKPAYER",
+    "trading_partner_id": "MOCKPAYER"
 }
 ```
 
@@ -433,6 +433,57 @@ pd.enrollment({
 })
 ```
 
+```csharp
+client.enrollment(
+    new Dictionary<string, object> {
+        {"action", "Change"},
+        {"dependents", new Object[] {new Dictionary<string, object> {
+                    {"benefit_status", "Active"},
+                    {"benefits", new Object[] {new Dictionary<string, object> {
+                                {"begin_date", "2014-01-01"},
+                                {"benefit_type", "Health"},
+                                {"late_enrollment", false},
+                                {"maintenance_type", "Addition"}
+                            }}},
+                    {"birth_date", "1999-01-01"},
+                    {"education_end_date", "2016-01-01"},
+                    {"first_name", "JAMES"},
+                    {"gender", "Male"},
+                    {"group_or_policy_number", "123456001"},
+                    {"handicapped", false},
+                    {"last_name", "DOE"},
+                    {"maintenance_reason", "Initial Enrollment"},
+                    {"maintenance_type", "Addition"},
+                    {"middle_name", "E"},
+                    {"relationship", "Child"},
+                    {"school", new Dictionary<string, string> {
+                            {"name", "PENN STATE UNIVERSITY"}
+                        }},
+                    {"ssn", "987654321"},
+                    {"student_status", "Full-time"},
+                    {"subscriber_number", "123456789"},
+                    {"substance_abuse", false},
+                    {"tobacco_use", false}
+                }}},
+        {"master_policy_number", "ABCD012354"},
+        {"payer", new Dictionary<string, string> {
+                {"tax_id", "654456654"}
+            }},
+        {"purpose", "Original"},
+        {"sponsor", new Dictionary<string, string> {
+                {"tax_id", "999888777"}
+            }},
+        {"subscriber", new Dictionary<string, object> {
+                {"contacts", new string[] {}},
+                {"handicapped", false},
+                {"member_id", "987654321"},
+                {"substance_abuse", false},
+                {"tobacco_use", false}
+            }},
+        {"trading_partner_id", "MOCKPAYER"}
+    });
+```
+
 ```ruby
 pd.enrollment({
     "action": "Change",
@@ -487,7 +538,7 @@ pd.enrollment({
 })
 ```
 
-> Example request to terminate a subscribers benefits.
+> Example request to terminate a subscriber's benefits.
 
 ```shell
 {
@@ -519,7 +570,7 @@ pd.enrollment({
         "substance_abuse": false,
         "tobacco_use": false
     },
-    "trading_partner_id": "MOCKPAYER",
+    "trading_partner_id": "MOCKPAYER"
 }
 ```
 
@@ -555,6 +606,42 @@ pd.enrollment({
     },
     "trading_partner_id": "MOCKPAYER",
 })
+```
+
+```csharp
+client.enrollment(
+    new Dictionary<string, object> {
+        {"action", "Change"},
+        {"dependents", new string[] {}},
+        {"payer", new Dictionary<string, string> {
+                {"tax_id", "654456654"}
+            }},
+        {"purpose", "Original"},
+        {"sponsor", new Dictionary<string, string> {
+                {"tax_id", "999888777"}
+            }},
+        {"subscriber", new Dictionary<string, object> {
+                {"benefit_status", "Active"},
+                {"contacts", new string[] {}},
+                {"eligibility_end_date", "2015-01-01"},
+                {"employment_status", "Terminated"},
+                {"first_name", "JOHN"},
+                {"group_or_policy_number", "123456001"},
+                {"handicapped", false},
+                {"last_name", "DOE"},
+                {"maintenance_reason", "Termination of Employment"},
+                {"maintenance_type", "Cancellation or Termination"},
+                {"member_id", "123456789"},
+                {"middle_name", "E"},
+                {"relationship", "Self"},
+                {"ssn", "123456788"},
+                {"subscriber_number", "123456789"},
+                {"substance_abuse", false},
+                {"tobacco_use", false}
+            }},
+        {"trading_partner_id", "MOCKPAYER"}
+    }
+);
 ```
 
 ```ruby

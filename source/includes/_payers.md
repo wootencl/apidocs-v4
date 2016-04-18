@@ -9,6 +9,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 pd.payers()
 ```
 
+```csharp
+client.payers();
+```
+
 ```ruby
 pd.payers
 ```
