@@ -1,5 +1,5 @@
 ## Trading Partners
-> Example fetching trading partner information
+> Example fetching trading partner information:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/tradingpartners/
@@ -17,7 +17,11 @@ client.tradingPartners();
 pd.trading_partners
 ```
 
-> Example fetching information for a specific trading partner
+``java
+pd.tradingPartners();
+```
+
+> Example fetching information for a specific trading partner:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/tradingpartners/aetna
@@ -33,6 +37,10 @@ client.tradingPartners("MOCKPAYER");
 
 ```ruby
 pd.trading_partners('aetna')
+```
+
+```java
+pd.tradingPartners('aetna');
 ```
 
 *Available modes of operation: real-time*

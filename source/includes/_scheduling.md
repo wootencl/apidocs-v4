@@ -19,6 +19,10 @@ client.schedulers();
 pd.schedulers
 ```
 
+```java
+pd.schedulers();
+```
+
 > Response:
 
 ```json
@@ -59,6 +63,10 @@ client.schedulers("967d207f-b024-41cc-8cac-89575a1f6fef");
 pd.schedulers({scheduler_uuid: '967d207f-b024-41cc-8cac-89575a1f6fef'})
 ```
 
+```java
+pd.schedulers("967d207f-b024-41cc-8cac-89575a1f6fef");
+```
+
 > Response:
 
 ```json
@@ -87,6 +95,10 @@ client.appointmentTypes();
 
 ```ruby
 pd.appointment_types
+```
+
+```java
+pd.appointmentTypes();
 ```
 
 > Response:
@@ -128,6 +140,10 @@ client.appointmentTypes("a3a45130-4adb-4d2c-9411-85a9d9ac4aa2");
 pd.appointment_types({appointment_type_uuid: 'ef987693-0a19-447f-814d-f8f3abbf4860'})
 ```
 
+```java
+pd.appointmentTypes('ef987693-0a19-447f-814d-f8f3abbf4860');
+```
+
 > Response:
 
 ```json
@@ -163,11 +179,23 @@ pd.post('/schedule/patient/', data={
 ```csharp
  client.appointments(
             new Dictionary<string, string> {
-                {"appointment_type", "SS1"},
-                {"start_date", "2015-01-14T08:00:00"},
-                {"end_date", "2015-01-16T17:00:00"},
-                {"patient_uuid", "8ae236ff-9ccc-44b0-8717-42653cd719d0"}
+                {"pd_patient_uuid", "2773f6ff-00cb-460f-823f-5ff2208511e7"},
+                {"pd_provider_uuid", "b691b7f9-bfa8-486d-a689-214ae47ea6f8"},
+                {"location", new string[] { "32.788110", ""-79.932364"}}
             });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"pd_patient_uuid\": \"2773f6ff-00cb-460f-823f-5ff2208511e7\",");
+buf.append("    \"pd_provider_uuid\": \"b691b7f9-bfa8-486d-a689-214ae47ea6f8\",");
+buf.append("    \"location\": [32.788110, -79.932364]");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.appointments(query);
 ```
 
 > Response:
@@ -207,13 +235,13 @@ pd.schedule_slots({
 
 ```csharp
 client.createSlot(
-new Dictionary<string, object> {
-    {"pd_provider_uuid", "b691b7f9-bfa8-486d-a689-214ae47ea6f8"},
-    {"location", new Object[] {32.78811, -79.932364}},
-    {"appointment_type", "AT1"},
-    {"start_date", "2014-12-16T15:09:34.197709"},
-    {"end_date", "2014-12-16T16:09:34.197717"}
-});
+    new Dictionary<string, object> {
+        {"pd_provider_uuid", "b691b7f9-bfa8-486d-a689-214ae47ea6f8"},
+        {"location", new Object[] {32.78811, -79.932364}},
+        {"appointment_type", "AT1"},
+        {"start_date", "2014-12-16T15:09:34.197709"},
+        {"end_date", "2014-12-16T16:09:34.197717"}
+    });
 ```
 
 ```ruby
@@ -224,6 +252,21 @@ pd.schedule_slots({
     "start_date": "2014-12-16T15:09:34.197709",
     "end_date": "2014-12-16T16:09:34.197717"
 })
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"pd_provider_uuid\": \"b691b7f9-bfa8-486d-a689-214ae47ea6f8\",");
+buf.append("    \"location\": [32.788110, -79.932364],");
+buf.append("    \"appointment_type\": \"AT1\",");
+buf.append("    \"start_date\": \"2014-12-16T15:09:34.197709\",");
+buf.append("    \"end_date\": \"2014-12-16T16:09:34.197717\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.scheduleSlots(query);
 ```
 
 > Response:
@@ -263,17 +306,27 @@ pd.appointments(appointment_type='SS1', start_date='2015-01-14T08:00:00',
 
 ```csharp
 client.appointments(
-            new Dictionary<string, string> {
-                {"appointment_type", "SS1"},
-                {"start_date", "2015-01-14T08:00:00"},
-                {"end_date", "2015-01-16T17:00:00"},
-                {"patient_uuid", "8ae236ff-9ccc-44b0-8717-42653cd719d0"}
-            });
+    new Dictionary<string, string> {
+        {"appointment_type", "SS1"},
+        {"start_date", "2015-01-14T08:00:00"},
+        {"end_date", "2015-01-16T17:00:00"},
+        {"patient_uuid", "8ae236ff-9ccc-44b0-8717-42653cd719d0"}
+    });
 ```
 
 ```ruby
 pd.appointments({appointment_type: 'SS1', start_date: '2015-01-14T08:00:00',
     end_date: '2015-01-16T17:00:00', patient_uuid: '8ae236ff-9ccc-44b0-8717-42653cd719d0'})
+```
+
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("appointment_type", "SS1");
+query.put("start_date", "2015-01-14T08:00:00");
+query.put("end_date", "2015-01-16T17:00:00");
+query.put("patient_uuid", "8ae236ff-9ccc-44b0-8717-42653cd719d0");
+
+client.appointments(query);
 ```
 
 > Response:
@@ -317,6 +370,10 @@ client.appointments("bf8440b1-fd20-4994-bb28-e3981833e796");
 
 ```ruby
 pd.appointments({appointment_uuid: 'ef987691-0a19-447f-814d-f8f3abbf4859'})
+```
+
+```java
+client.appointments("bf8440b1-fd20-4994-bb28-e3981833e796");
 ```
 
 > Response:
@@ -405,6 +462,25 @@ pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
 })
 ```
 
+```java
+StringBuffer buf = new StringBuffer();
+buf.append("{");
+buf.append("\"patient\": {");
+buf.append("    \"_uuid\": \"500ef469-2767-4901-b705-425e9b6f7f83\",");
+buf.append("    \"email\": \"john@hondoe.com\",");
+buf.append("    \"phone\": \"800-555-1212\",");
+buf.append("    \"birth_date\": \"1970-01-01\",");
+buf.append("    \"first_name\": \"John\",");
+buf.append("    \"last_name\": \"Doe\",");
+buf.append("    \"member_id\": \"M000001\"");
+buf.append("},");
+buf.append("\"description\": \"Welcome to M0d3rN Healthcare\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.bookAppointment("ef987691-0a19-447f-814d-f8f3abbf4859", query);
+```
+
 > Response:
 
 ```json
@@ -442,6 +518,21 @@ pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {"description": "Wel
 pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', { "description": "Welcome to M0d3rN Healthcare" })
 ```
 
+```csharp
+ client.updateAppointment(
+            "ef987691-0a19-447f-814d-f8f3abbf4859",
+            new Dictionary<string, object> {
+                {"description", "Welcome to M0d3rN Healthcare"}
+            });
+```
+
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("description", "Welcome to M0d3rN Healthcare");
+
+pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', query);
+```
+
 > Response:
 
 ```json
@@ -470,18 +561,8 @@ pd.cancel_appointment('ef987691-0a19-447f-814d-f8f3abbf4859')
 client.cancelAppointment("ef987691-0a19-447f-814d-f8f3abbf4859");
 ```
 
-> Example updating an appointment with a given uuid
-
-```csharp
- client.updateAppointment(
-            "ef987691-0a19-447f-814d-f8f3abbf4859",
-            new Dictionary<string, object> {
-                {"description", "Welcome to M0d3rN Healthcare"}
-            });
-```
-
-```ruby
-pd.cancel_appointment('ef987691-0a19-447f-814d-f8f3abbf4859')
+```java
+client.cancelAppointment("ef987691-0a19-447f-814d-f8f3abbf4859");
 ```
 
 *Available modes of operation: real-time*
