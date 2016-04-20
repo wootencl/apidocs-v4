@@ -22,6 +22,14 @@ client.pricesInsurance(
 pd.insurance_prices({zip_code: '32218', cpt_code: '87799'})
 ```
 
+```java
+HashMap<String, String>() query = new HashMap<String, String>();
+query.put("zip_code", "32218");
+query.put("cpt_code", "87799");
+
+pd.insurancePrices(query);
+```
+
 *Available modes of operation: real-time*
 
 The Insurance Prices endpoint allows access to our collection of insurance
