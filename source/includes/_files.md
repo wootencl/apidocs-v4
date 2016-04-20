@@ -20,6 +20,10 @@ client.files(
 pd.files('MOCKPAYER', 'eligibility_requests.270')
 ```
 
+```java
+pd.files("MOCKPAYER", "eligibility_requests.270");
+```
+
 *Available modes of operation: batch/async*
 
 All endpoints that result in the transmission of X12 transaction sets to our trading partners accept parameters via a JSON representation. This keeps applications developers from having to interact directly with raw X12 files.  The Files endpoint, however, accepts raw ASC X12 EDI files for transmission to our trading partners.

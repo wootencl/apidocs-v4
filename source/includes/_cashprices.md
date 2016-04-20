@@ -21,6 +21,15 @@ client.pricesCash(
 });
 ```
 
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("zip_code", "32218");
+query.put("cpt_code", "87799");
+
+Map<String, Object> results = pd.cashPrices(query);
+```
+
+
 *Available modes of operation: real-time*
 
 The Cash Prices endpoint allow access to our internal collection of pricing

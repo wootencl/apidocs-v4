@@ -18,6 +18,10 @@ client.enrollmentSnapshot("MOCKPAYER", "/path/to/current_membership_enrollment.8
 pd.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834')
 ```
 
+```java
+client.enrollmentSnapshot("MOCKPAYER", "/path/to/current_membership_enrollment.834");
+```
+
 > Example fetching a list of enrollment snapshots owned by the current application:
 
 ```shell
@@ -36,6 +40,10 @@ client.enrollmentSnapshot();
 ```ruby
 # retrieve an index of enrollment snapshots
 pd.enrollment_snapshots
+```
+
+```java
+pd.enrollmentSnapshots();
 ```
 
 > Example fetching information for a specific enrollment snapshot owned by the current application:
@@ -58,6 +66,10 @@ client.enrollmentSnapshot("5317f51527a27620f2ec7533");
 pd.enrollment_snapshots({snapshot_id='5317f51527a27620f2ec7533'})
 ```
 
+```java
+pd.enrollmentSnapshot("5317f51527a27620f2ec7533");
+```
+
 > Example fetching enrollment data associated with a specific enrollment snapshot owned by the current application:
 
 ```shell
@@ -76,6 +88,10 @@ client.enrollmentSnapshotData("5317f51527a27620f2ec7533");
 ```ruby
 # get information for a specific enrollment snapshot
 pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
+```
+
+```java
+pd.enrollmentSnapshotData("5317f51527a27620f2ec7533");
 ```
 
 *Available modes of operation: batch/async only*

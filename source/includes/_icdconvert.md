@@ -18,9 +18,13 @@ client.icdConvert("250.12");
 pd.icd_convert('250.12')
 ```
 
+```java
+pd.icdConvert("250.12");
+```
+
 > Example ICD convert response
 
-```
+```json
 {
     "approximate": true,
     "combination": false,

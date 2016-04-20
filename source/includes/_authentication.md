@@ -34,9 +34,8 @@ https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
 
 All calls to the PokitDok API are encrypted over HTTPS. Access to the API is
 controlled via OAuth2 (for more information, reference "OAuth 2.0 Authorization
-Framework" [here](http://tools.ietf.org/html/rfc6749). Here's a quick example
-authenticating at the command line using cURL to authenticate and make a call
-to the Activities API.
+Framework" [here](http://tools.ietf.org/html/rfc6749).) The cURL tab contains a quick example
+authenticating at the command line using cURL and making a call to the Activities API.
 
 ```python
 # not using the PokitDok Python client library

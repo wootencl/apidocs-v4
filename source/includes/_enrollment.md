@@ -323,6 +323,90 @@ pd.enrollment({
 })
 ```
 
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"action\": \"Change\",");
+buf.append("    \"dependents\": [],");
+buf.append("    \"master_policy_number\": \"ABCD012354\",");
+buf.append("    \"payer\": {");
+buf.append("        \"tax_id\": \"654456654\"");
+buf.append("    },");
+buf.append("    \"purpose\": \"Original\",");
+buf.append("    \"sponsor\": {");
+buf.append("        \"tax_id\": \"999888777\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"address\": {");
+buf.append("            \"city\": \"CAMP HILL\",");
+buf.append("            \"county\": \"CUMBERLAND\",");
+buf.append("            \"line\": \"100 MARKET ST\",");
+buf.append("            \"line2\": \"APT 3G\",");
+buf.append("            \"postal_code\": \"17011\",");
+buf.append("            \"state\": \"PA\"");
+buf.append("        },");
+buf.append("        \"benefit_status\": \"Active\",");
+buf.append("        \"benefits\": [");
+buf.append("            {");
+buf.append("                \"begin_date\": \" 2015-01-01\",");
+buf.append("                \"benefit_type\": \"Health\",");
+buf.append("                \"coordination_of_benefits\": [");
+buf.append("                    {");
+buf.append("                        \"group_or_policy_number\": \"890111\",");
+buf.append("                        \"payer_responsibility\": \"Primary\",");
+buf.append("                        \"status\": \"Unknown\"");
+buf.append("                    }");
+buf.append("                ],");
+buf.append("                \"late_enrollment\": false,");
+buf.append("                \"maintenance_type\": \"Addition\"");
+buf.append("            },");
+buf.append("            {");
+buf.append("                \"begin_date\": \"2015-01-01\",");
+buf.append("                \"benefit_type\": \"Dental\",");
+buf.append("                \"late_enrollment\": false,");
+buf.append("                \"maintenance_type\": \"Addition\"");
+buf.append("            },");
+buf.append("            {");
+buf.append("                \"begin_date\": \"2015-01-01\",");
+buf.append("                \"benefit_type\": \"Vision\",");
+buf.append("                \"late_enrollment\": false,");
+buf.append("                \"maintenance_type\": \"Addition\"");
+buf.append("            }");
+buf.append("        ],");
+buf.append("        \"birth_date\": \"1940-01-01\",");
+buf.append("        \"contacts\": [");
+buf.append("            {");
+buf.append("                \"communication_number2\": \"7172341240\",");
+buf.append("                \"communication_type2\": \"Work Phone Number\",");
+buf.append("                \"primary_communication_number\": \"7172343334\",");
+buf.append("                \"primary_communication_type\": \"Home Phone Number\"");
+buf.append("            }");
+buf.append("        ],");
+buf.append("        \"eligibility_begin_date\": \"2014-01-01\",");
+buf.append("        \"employment_status\": \"Full-time\",");
+buf.append("        \"first_name\": \"JOHN\",");
+buf.append("        \"gender\": \"Male\",");
+buf.append("        \"group_or_policy_number\": \"123456001\",");
+buf.append("        \"handicapped\": false,");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"maintenance_reason\": \"Active\",");
+buf.append("        \"maintenance_type\": \"Addition\",");
+buf.append("        \"member_id\": \"123456789\",");
+buf.append("        \"middle_name\": \"P\",");
+buf.append("        \"relationship\": \"Self\",");
+buf.append("        \"ssn\": \"123456789\",");
+buf.append("        \"subscriber_number\": \"123456789\",");
+buf.append("        \"substance_abuse\": false,");
+buf.append("        \"tobacco_use\": false");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.enrollment(query);
+```
+
 >Example change request to add a dependent due to a qualifying life event. (Health)
 
 ```shell
@@ -538,6 +622,65 @@ pd.enrollment({
 })
 ```
 
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"action\": \"Change\",");
+buf.append("    \"dependents\": [");
+buf.append("        {");
+buf.append("            \"benefit_status\": \"Active\",");
+buf.append("            \"benefits\": [");
+buf.append("                {");
+buf.append("                    \"begin_date\": \"2014-01-01\",");
+buf.append("                    \"benefit_type\": \"Health\",");
+buf.append("                    \"late_enrollment\": false,");
+buf.append("                    \"maintenance_type\": \"Addition\"");
+buf.append("                }");
+buf.append("            ],");
+buf.append("            \"birth_date\": \"1999-01-01\",");
+buf.append("            \"education_end_date\": \"2016-01-01\",");
+buf.append("            \"first_name\": \"JAMES\",");
+buf.append("            \"gender\": \"Male\",");
+buf.append("            \"group_or_policy_number\": \"123456001\",");
+buf.append("            \"handicapped\": false,");
+buf.append("            \"last_name\": \"DOE\",");
+buf.append("            \"maintenance_reason\": \"Initial Enrollment\",");
+buf.append("            \"maintenance_type\": \"Addition\",");
+buf.append("            \"middle_name\": \"E\",");
+buf.append("            \"relationship\": \"Child\",");
+buf.append("            \"school\": {");
+buf.append("                \"name\": \"PENN STATE UNIVERSITY\"");
+buf.append("            },");
+buf.append("            \"ssn\": \"987654321\",");
+buf.append("            \"student_status\": \"Full-time\",");
+buf.append("            \"subscriber_number\": \"123456789\",");
+buf.append("            \"substance_abuse\": false,");
+buf.append("            \"tobacco_use\": false");
+buf.append("        }");
+buf.append("    ],");
+buf.append("    \"master_policy_number\": \"ABCD012354\",");
+buf.append("    \"payer\": {");
+buf.append("        \"tax_id\": \"654456654\"");
+buf.append("    },");
+buf.append("    \"purpose\": \"Original\",");
+buf.append("    \"sponsor\": {");
+buf.append("        \"tax_id\": \"999888777\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"contacts\": [],");
+buf.append("        \"handicapped\": false,");
+buf.append("        \"member_id\": \"987654321\",");
+buf.append("        \"substance_abuse\": false,");
+buf.append("        \"tobacco_use\": false");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.enrollment(query);
+```
+
 > Example request to terminate a subscriber's benefits.
 
 ```shell
@@ -676,6 +819,45 @@ pd.enrollment({
     },
     "trading_partner_id": "MOCKPAYER",
 })
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"action\": \"Change\",");
+buf.append("    \"dependents\": [],");
+buf.append("    \"payer\": {");
+buf.append("        \"tax_id\": \"654456654\"");
+buf.append("    },");
+buf.append("    \"purpose\": \"Original\",");
+buf.append("    \"sponsor\": {");
+buf.append("        \"tax_id\": \"999888777\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"benefit_status\": \"Active\",");
+buf.append("        \"contacts\": [],");
+buf.append("        \"eligibility_end_date\": \"2015-01-01\",");
+buf.append("        \"employment_status\": \"Terminated\",");
+buf.append("        \"first_name\": \"JOHN\",");
+buf.append("        \"group_or_policy_number\": \"123456001\",");
+buf.append("        \"handicapped\": false,");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"maintenance_reason\": \"Termination of Employment\",");
+buf.append("        \"maintenance_type\": \"Cancellation or Termination\",");
+buf.append("        \"member_id\": \"123456789\",");
+buf.append("        \"middle_name\": \"E\",");
+buf.append("        \"relationship\": \"Self\",");
+buf.append("        \"ssn\": \"123456788\",");
+buf.append("        \"subscriber_number\": \"123456789\",");
+buf.append("        \"substance_abuse\": false,");
+buf.append("        \"tobacco_use\": false");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.enrollment(query);
 ```
 
 Following the X12 834 format, the Benefits Enrollment API eases the creation and transmission process

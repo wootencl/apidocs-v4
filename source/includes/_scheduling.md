@@ -21,7 +21,7 @@ pd.schedulers
 
 > Response:
 
-```
+```json
 [
       {
         "description": "The PokitDok scheduling system",
@@ -61,7 +61,7 @@ pd.schedulers({scheduler_uuid: '967d207f-b024-41cc-8cac-89575a1f6fef'})
 
 > Response:
 
-```
+```json
 [
       {
         "description": "The PokitDok scheduling system",
@@ -91,7 +91,7 @@ pd.appointment_types
 
 > Response:
 
-```
+```json
 [
       {
         "type": "OV1",
@@ -130,7 +130,7 @@ pd.appointment_types({appointment_type_uuid: 'ef987693-0a19-447f-814d-f8f3abbf48
 
 > Response:
 
-```
+```json
 [
     {
       "type": "OV1",
@@ -228,7 +228,7 @@ pd.schedule_slots({
 
 > Response:
 
-```
+```json
 {
     "pd_appointment_uuid": "ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2",
     "provider_scheduler_uuid": "8b21efa4-8535-11e4-a6cb-0800272e8da1",
@@ -278,7 +278,7 @@ pd.appointments({appointment_type: 'SS1', start_date: '2015-01-14T08:00:00',
 
 > Response:
 
-```
+```json
 [
     {
       "pd_appointment_uuid": "ef987691-0a19-447f-814d-f8f3abbf4859",
@@ -321,7 +321,7 @@ pd.appointments({appointment_uuid: 'ef987691-0a19-447f-814d-f8f3abbf4859'})
 
 > Response:
 
-```
+```json
 [
     {
       "pd_appointment_uuid": "ef987691-0a19-447f-814d-f8f3abbf4859",
@@ -407,7 +407,7 @@ pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
 
 > Response:
 
-```
+```json
 {
     "appointment_id": "IIJBNRGBKMGC",
     "appointment_type": "OV1",
@@ -444,7 +444,7 @@ pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', { "description": "We
 
 > Response:
 
-```
+```json
 {
     "appointment_id": "AAMWKTXGVGWB",
     "appointment_type": "OV1",

@@ -123,6 +123,41 @@ pd.create_identity({
 })
 ```
 
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"prefix\": \"Mr.\",");
+buf.append("       \"first_name\": \"Oscar\",");
+buf.append("       \"middle_name\": \"Harold\",");
+buf.append("       \"last_name\": \"Whitmire\",");
+buf.append("       \"suffix\": \"IV\",");
+buf.append("       \"birth_date\": \"2000-05-01\",");
+buf.append("       \"gender\": \"male\",");
+buf.append("       \"email\": \"oscar@pokitdok.com\",");
+buf.append("       \"phone\": \"555-555-5555\",");
+buf.append("       \"secondary_phone\": \"333-333-4444\",");
+buf.append("       \"address\": {");
+buf.append("           \"address_lines\": [\"1400 Anyhoo Avenue\"],");
+buf.append("           \"city\": \"Springfield\",");
+buf.append("           \"state\": \"IL\",");
+buf.append("           \"zipcode\": \"90210\"");
+buf.append("       },");
+buf.append("       \"identifiers\": [");
+buf.append("           {");
+buf.append("               \"location\": [-121.93831, 37.53901],");
+buf.append("               \"provider_uuid\": \"1917f12b-fb6a-4016-93bc-adeb83204c83\",");
+buf.append("               \"system_uuid\": \"967d207f-b024-41cc-8cac-89575a1f6fef\",");
+buf.append("               \"value\": \"W90100-IG-88\"");
+buf.append("");
+buf.append("           }");
+buf.append("       ]    ");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.createIdentity(query);
+```
+
 > Example updating an identity resource
 
 ```shell
@@ -245,6 +280,40 @@ pd.update_identity("881bc095-2068-43cb-9783-cce630364122", {
 })
 ```
 
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"prefix\": \"Mr.\",");
+buf.append("       \"first_name\": \"Oscar\",");
+buf.append("       \"middle_name\": \"Harold\",");
+buf.append("       \"last_name\": \"Whitmire\",");
+buf.append("       \"suffix\": \"IV\",");
+buf.append("       \"birth_date\": \"2000-05-01\",");
+buf.append("       \"gender\": \"male\",");
+buf.append("       \"email\": \"oscar.whitmire@pokitdok.com\",");
+buf.append("       \"phone\": \"555-555-5555\",");
+buf.append("       \"secondary_phone\": \"333-333-4444\",");
+buf.append("       \"address\": {");
+buf.append("           \"address_lines\": [\"1400 Anyhoo Avenue\"],");
+buf.append("           \"city\": \"Springfield\",");
+buf.append("           \"state\": \"IL\",");
+buf.append("           \"zipcode\": \"90210\"");
+buf.append("       },");
+buf.append("       \"identifiers\": [");
+buf.append("           {");
+buf.append("               \"location\": [-121.93831, 37.53901],");
+buf.append("               \"provider_uuid\": \"1917f12b-fb6a-4016-93bc-adeb83204c83\",");
+buf.append("               \"system_uuid\": \"967d207f-b024-41cc-8cac-89575a1f6fef\",");
+buf.append("               \"value\": \"W90100-IG-88\"");
+buf.append("           }");
+buf.append("       ]    ");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.updateIdentity(query);
+```
+
 > Query for a single identity resource
 
 ```shell
@@ -263,7 +332,11 @@ client.identity("4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae");
 pd.identity("881bc095-2068-43cb-9783-cce630364122")
 ```
 
-> Query for one or more identity resources using parameters
+```java
+pd.identity("881bc095-2068-43cb-9783-cce630364122");
+```
+
+> Query for one or more identity resources using parameters:
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/identity?first_name=Oscar&last_name=Whitmire&gender=male"
@@ -273,16 +346,20 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 pd.identity(first_name='Oscar', last_name='Whitmire', gender='male')
 ```
 
-```csharp
-```
-
-> Query for identity record history
-
 ```ruby
 pd.identity({first_name: 'Oscar', last_name: 'Whitmire', gender: 'male'})
 ```
 
-**Available modes of operation: real-time**
+```csharp
+client.identity(
+    new Dictionary<string, string> {
+        { "first_name", "Oscar" },
+        { "last_name", "Whitmire" },
+        { "gender", "male" },
+});
+```
+
+> Query for identity record history:
 
 ```shell
 curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/identity/881bc095-2068-43cb-9783-cce630364122/history"
@@ -292,22 +369,16 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 pd.identity_history("881bc095-2068-43cb-9783-cce630364122")
 ```
 
-```csharp
-client.identityHistory("881bc095-2068-43cb-9783-cce630364122");
-```
-
-> Query for a historical identity record
-
-```shell
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/identity/881bc095-2068-43cb-9783-cce630364122/history/0"
-```
-
-```python
-pd.identity_history("881bc095-2068-43cb-9783-cce630364122", 0)
+```ruby
+pd.identity_history("881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```csharp
 client.identityHistory("881bc095-2068-43cb-9783-cce630364122");
+```
+
+```java
+pd.identityHistory("881bc095-2068-43cb-9783-cce630364122");
 ```
 
 **Available modes of operation: real-time.**

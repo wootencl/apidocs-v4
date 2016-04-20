@@ -182,6 +182,55 @@ client.authorizations(
     });
 ```
 
+```java
+StringBuffer buf = new StringBuffer();
+buf.append("{");
+buf.append("    \"event\": {");
+buf.append("        \"category\": \"health_services_review\",");
+buf.append("        \"certification_type\": \"initial\",");
+buf.append("        \"delivery\": {");
+buf.append("            \"quantity\": 1,");
+buf.append("            \"quantity_qualifier\": \"visits\"");
+buf.append("        },");
+buf.append("        \"diagnoses\": [");
+buf.append("            {");
+buf.append("                \"code\": \"789.00\",");
+buf.append("                \"date\": \"2014-10-01\"");
+buf.append("            }");
+buf.append("        ],");
+buf.append("        \"place_of_service\": \"office\",");
+buf.append("        \"provider\": {");
+buf.append("            \"organization_name\": \"KELLY ULTRASOUND CENTER, LLC\",");
+buf.append("            \"npi\": \"1760779011\",");
+buf.append("            \"phone\": \"8642341234\"");
+buf.append("        },");
+buf.append("        \"services\": [");
+buf.append("            {");
+buf.append("                \"cpt_code\": \"76700\",");
+buf.append("                \"measurement\": \"unit\",");
+buf.append("                \"quantity\": 1");
+buf.append("            }");
+buf.append("        ],");
+buf.append("        \"type\": \"diagnostic_medical\"");
+buf.append("    },");
+buf.append("    \"patient\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"JANE\",");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"id\": \"1234567890\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"last_name\": \"AYA-AY\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+pd.authorizations(query);
+```
+
 > Example authorizations response when the trading partner has authorized the request:
 
 ```json

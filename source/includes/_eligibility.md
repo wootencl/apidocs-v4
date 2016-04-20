@@ -71,6 +71,28 @@ pd.eligibility({
 })
 ```
 
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
+```
+
 > Example eligibility request to determine general health benefit coverage when a member has a specific group number value assigned:
 
 ```shell
@@ -129,6 +151,29 @@ client.eligibility(
 );
 ```
 
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\",");
+buf.append("        \"group_number\": \"123456\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
+```
+
 > Example eligibility request when operating on behalf of a member and a specific provider is not yet known:
 
 ```shell
@@ -167,6 +212,23 @@ client.eligibility(
         {"trading_partner_id", "MOCKPAYER"}
     }
 );
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
 ```
 
 > Some trading partners support eligibility requests using specific service type codes. Here's an example using a service type code to request eligibility information:
@@ -245,6 +307,29 @@ pd.eligibility({
 })
 ```
 
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"service_types\": \"telemedicine\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
+```
+
 > Some trading partners support eligibility requests using a CPT code. Here's an example using a CPT code to request eligibility information:
 
 ```shell
@@ -319,6 +404,29 @@ pd.eligibility({
     "cpt_code": "81291",
     "trading_partner_id": "MOCKPAYER"
 })
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"cpt_code\": \"81291\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
 ```
 
 > Example eligibility request using custom application data for easy handling of asynchronous responses:
@@ -410,6 +518,33 @@ pd.eligiblity({
         "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
     }
 })
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"application_data\": {");
+buf.append("        \"patient_id\": \"ABC1234XYZ\",");
+buf.append("        \"location_id\": 123,");
+buf.append("        \"transaction_uuid\": \"93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf\"");
+buf.append("    }");
+buf.append("");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
 ```
 
 > Example eligibility response when the trading partner is unable to respond at this time:
