@@ -17,7 +17,7 @@ client.tradingPartners();
 pd.trading_partners
 ```
 
-``java
+```java
 pd.tradingPartners();
 ```
 
@@ -40,7 +40,7 @@ pd.trading_partners('aetna')
 ```
 
 ```java
-pd.tradingPartners('aetna');
+pd.tradingPartners("aetna");
 ```
 
 *Available modes of operation: real-time*
