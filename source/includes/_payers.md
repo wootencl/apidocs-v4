@@ -17,6 +17,10 @@ client.payers();
 pd.payers
 ```
 
+```java
+pd.payers();
+```
+
 *Available modes of operation: real-time*
 
 <aside class="warning">
