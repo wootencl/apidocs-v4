@@ -17,6 +17,13 @@ client.providers("1467560003");
 pd.providers({npi: '1467560003'})
 ```
 
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("npi", "1467560003");
+
+pd.providers(query)
+```
+
 > Example searching providers by zipcode and specialty:
 
 ```shell
@@ -40,6 +47,16 @@ pd.providers(zipcode='29307', specialty='rheumatology', radius='20mi')
 pd.providers({zipcode: '29307', specialty: 'rheumatology', radius: '20mi'})
 ```
 
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("zipcode", "29307");
+query.put("specialty", "rheumatology");
+query.put("radius", "20mi");
+
+pd.providers(query)
+```
+
+
 *Available modes of operation: real-time only*
 
 The Providers endpoints provide access to PokitDok's provider directory.
@@ -59,7 +76,7 @@ The /providers/ endpoint accepts the following search parameters:
 
 | Field             | Type     | Description                                                                                                                                         |
 |:------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
-| address_lines     | {string} | Any or all of number, street name, apartment, suite number                                                                                       |
+| address_lines     | {string} | Any or all of number, street name, apartment, suite number                                                                                          |
 | city              | {string} | Name of city in which to search for providers (e.g. "San Mateo" or "Charleston")                                                                    |
 | first_name        | {string} | The provider's first name                                                                                                                           |
 | last_name         | {string} | The provider's last name                                                                                                                            |
