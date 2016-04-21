@@ -51,13 +51,13 @@ The /providers/ endpoint accepts the following search parameters:
 
 | Field             | Type     | Description                                                                                                                                         |
 |:------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
-| address_lines     | {string} | Any or all of number, street name, apartment, suite number                                                                                       |
+| address_lines     | {string} | Any or all of number, street name, apartment, suite number                                                                                          |
 | city              | {string} | Name of city in which to search for providers (e.g. "San Mateo" or "Charleston")                                                                    |
 | first_name        | {string} | The provider's first name                                                                                                                           |
 | last_name         | {string} | The provider's last name                                                                                                                            |
 | organization_name | {string} | The business practice name                                                                                                                          |
 | radius            | {string} | Search distance from geographic centerpoint, with unit (e.g. "1mi")                                                                                 |
-| specialty         | {string} | The provider's specialty name (e.g. "RHEUMATOLOGY")                                                                                                 |
+| specialty         | {string} | The provider's specialty name (e.g. "rheumatology").  Partial name-prefixes may be specified (e.g. "rheum")                                         |
 | state             | {string} | Name of U.S. state in which to search for providers (e.g. "CA" or "SC")                                                                             |
 | zipcode           | {string} | Geographic center point in which to search for providers (e.g. "94401")                                                                             |
 | sort              | {string} | Accepted values include 'distance' (default) or 'rank'.  'distance' sort requires city & state or zipcode parameters otherwise sort will be 'rank'. |
