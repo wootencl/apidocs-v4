@@ -9,13 +9,26 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 pd.cash_prices(zip_code='32218', cpt_code='87799')
 ```
 
+```ruby
+pd.cash_prices({ zip_code: '32218', cpt_code: '87799'})
+```
+
 ```csharp
 client.pricesCash(
-			new Dictionary<string, string> {
-				{ "zip_code", "30012" },
-				{ "cpt_code", "88142" }
-			});
+    new Dictionary<string, string> {
+        { "zip_code", "32218" },
+        { "cpt_code", "87799" }
+});
 ```
+
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("zip_code", "32218");
+query.put("cpt_code", "87799");
+
+Map<String, Object> results = pd.cashPrices(query);
+```
+
 
 *Available modes of operation: real-time*
 

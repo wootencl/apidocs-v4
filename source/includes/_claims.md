@@ -99,48 +99,150 @@ pd.claims({
 })
 ```
 
+```ruby
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+});
+```
+
 ```csharp
-client.claims (
-			new Dictionary<string, object> {
-				{"transaction_code", "chargeable"},
-				{"trading_partner_id", "MOCKPAYER"},
-				{"billing_provider", new Dictionary<string, object> {
-						{"taxonomy_code", "207Q00000X"},
-						{"first_name", "Jerome"},
-						{"last_name", "Aya-Ay"},
-						{"npi", "1467560003"},
-						{"address", new Dictionary<string, object> {
-								{"address_lines", new string[] { "8311 WARREN H ABERNATHY HWY" }},
-								{"city", "SPARTANBURG"},
-								{"state", "SC"},
-								{"zipcode", "29301"}
-							}},
-						{"tax_id", "123456789"}
-					}},
-				{"subscriber", new Dictionary<string, object> {
-						{"first_name", "Jane"},
-						{"last_name", "Doe"},
-						{"member_id", "W000000000"},
-						{"address", new Dictionary<string, object> {
-								{"address_lines", new string[] { "123 N MAIN ST" }},
-								{"city", "SPARTANBURG"},
-								{"state", "SC"},
-								{"zipcode", "29301"}
-							}},
-						{"birth_date", "1970-01-01"},
-						{"gender", "female"}
-					}},
-				{"claim", new Dictionary<string, object> {
-						{"total_charge_amount", 60.0},
-						{"service_lines", new object[] {
-								new Dictionary<string, object> {
-									{"procedure_code", "99213"},
-									{"charge_amount", 60.0},
-									{"unit_count", 1.0},
-									{"diagnosis_codes", new string[] { "487.1" }},
-									{"service_date", "2014-06-01"}
-					}}}}}
-			});
+client.claims(
+    new Dictionary<string, object> {
+        {"transaction_code", "chargeable"},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"billing_provider", new Dictionary<string, object> {
+            {"taxonomy_code", "207Q00000X"},
+            {"first_name", "Jerome"},
+            {"last_name", "Aya-Ay"},
+            {"npi", "1467560003"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"8311 WARREN H ABERNATHY HWY"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"tax_id", "123456789"}
+        }},
+        {"subscriber", new Dictionary<string, object> {
+            {"first_name", "Jane"},
+            {"last_name", "Doe"},
+            {"member_id", "W000000000"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"123 N MAIN ST"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"birth_date", "1970-01-01"},
+            {"gender", "female"}
+        }},
+        {"claim", new Dictionary<string, object> {
+            {"total_charge_amount", 60.0},
+            {"service_lines", new Object[] {
+                new Dictionary<string, object> {
+                    {"procedure_code", "99213"},
+                    {"charge_amount", 60.0},
+                    {"unit_count", 1.0},
+                    {"diagnosis_codes", new string[] {"487.1"}},
+                    {"service_date", "2014-06-01"}
+        }}}}}
+    });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+buf.append("{");
+buf.append("    \"transaction_code\": \"chargeable\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"billing_provider\": {");
+buf.append("        \"taxonomy_code\": \"207Q00000X\",");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [");
+buf.append("                \"8311 WARREN H ABERNATHY HWY\"");
+buf.append("            ],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"tax_id\": \"123456789\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"member_id\": \"W000000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 N MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"gender\": \"female\"");
+buf.append("    },");
+buf.append("    \"claim\": {");
+buf.append("        \"total_charge_amount\": 60.0,");
+buf.append("        \"service_lines\": [");
+buf.append("            {");
+buf.append("                \"procedure_code\": \"99213\",");
+buf.append("                \"charge_amount\": 60.0,");
+buf.append("                \"unit_count\": 1.0,");
+buf.append("                \"diagnosis_codes\": [");
+buf.append("                    \"487.1\"");
+buf.append("                ],");
+buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("            }");
+buf.append("        ]");
+buf.append("    }");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
 ```
 
 > Sample Claims request where the patient is not the subscriber:
@@ -271,6 +373,193 @@ pd.claims({
 })
 ```
 
+```ruby
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "patient": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1971-01-01",
+        "gender": "male"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 100.0,
+        "service_lines": [
+            {
+                "procedure_code": "99201",
+                "procedure_modifier_codes": ["GT"],
+                "charge_amount": 100.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
+
+```csharp
+client.claims(
+    new Dictionary<string, object> {
+        {"transaction_code", "chargeable"},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"billing_provider", new Dictionary<string, object> {
+            {"taxonomy_code", "207Q00000X"},
+            {"first_name", "Jerome"},
+            {"last_name", "Aya-Ay"},
+            {"npi", "1467560003"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"8311 WARREN H ABERNATHY HWY"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"tax_id", "123456789"}
+        }},
+        {"patient", new Dictionary<string, object> {
+            {"first_name", "John"},
+            {"last_name", "Doe"},
+            {"member_id", "W000000000"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"123 N MAIN ST"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"birth_date", "1971-01-01"},
+            {"gender", "male"}
+        }},
+        {"subscriber", new Dictionary<string, object> {
+            {"first_name", "Jane"},
+            {"last_name", "Doe"},
+            {"member_id", "W000000000"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"123 N MAIN ST"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"birth_date", "1970-01-01"},
+            {"gender", "female"}
+        }},
+        {"claim", new Dictionary<string, object> {
+            {"total_charge_amount", 100.0},
+            {"service_lines", new Object[] {new Dictionary<string, object> {
+                {"procedure_code", "99201"},
+                {"procedure_modifier_codes", new string[] {"GT"}},
+                {"charge_amount", 100.0},
+                {"unit_count", 1.0},
+                {"diagnosis_codes", new string[] {"487.1"}},
+                {"service_date", "2014-06-01"}
+        }}}}}
+    });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+buf.append("{");
+buf.append("\"transaction_code\": \"chargeable\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"billing_provider\": {");
+buf.append("        \"taxonomy_code\": \"207Q00000X\",");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [");
+buf.append("                \"8311 WARREN H ABERNATHY HWY\"");
+buf.append("            ],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"tax_id\": \"123456789\"");
+buf.append("    },");
+buf.append("    \"patient\": {");
+buf.append("        \"first_name\": \"John\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"member_id\": \"W000000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 N MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1971-01-01\",");
+buf.append("        \"gender\": \"male\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"member_id\": \"W000000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 N MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"gender\": \"female\"");
+buf.append("    },");
+buf.append("    \"claim\": {");
+buf.append("        \"total_charge_amount\": 100.0,");
+buf.append("        \"service_lines\": [");
+buf.append("            {");
+buf.append("                \"procedure_code\": \"99201\",");
+buf.append("                \"procedure_modifier_codes\": [\"GT\"],");
+buf.append("                \"charge_amount\": 100.0,");
+buf.append("                \"unit_count\": 1.0,");
+buf.append("                \"diagnosis_codes\": [");
+buf.append("                    \"487.1\"");
+buf.append("                ],");
+buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("            }");
+buf.append("        ]");
+buf.append("    }");
+buf.append("");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
+```
+
 > Sample Claims request that includes custom application data for easy handling
 of asynchronous responses:
 
@@ -382,6 +671,166 @@ pd.claims({
 })
 ```
 
+```ruby
+pd.claims({
+    "application_data": {
+        "patient_id": "ABC1234XYZ",
+        "location_id": 123,
+        "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
+    },
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
+
+```csharp
+client.claims(
+    new Dictionary<string, object> {
+        {"application_data", new Dictionary<string, object> {
+            {"patient_id", "ABC1234XYZ"},
+            {"location_id", 123},
+            {"transaction_uuid", "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"}
+        }},
+        {"transaction_code", "chargeable"},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"billing_provider", new Dictionary<string, object> {
+            {"taxonomy_code", "207Q00000X"},
+            {"first_name", "Jerome"},
+            {"last_name", "Aya-Ay"},
+            {"npi", "1467560003"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"8311 WARREN H ABERNATHY HWY"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"tax_id", "123456789"}
+        }},
+        {"subscriber", new Dictionary<string, object> {
+            {"first_name", "Jane"},
+            {"last_name", "Doe"},
+            {"member_id", "W000000000"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"123 N MAIN ST"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"birth_date", "1970-01-01"},
+            {"gender", "female"}
+        }},
+        {"claim", new Dictionary<string, object> {
+            {"total_charge_amount", 60.0},
+            {"service_lines", new Object[] {new Dictionary<string, object> {
+                {"procedure_code", "99213"},
+                {"charge_amount", 60.0},
+                {"unit_count", 1.0},
+                {"diagnosis_codes", new string[] {"487.1"}},
+                {"service_date", "2014-06-01"}
+        }}}}}
+    });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"application_data\": {");
+buf.append("        \"patient_id\": \"ABC1234XYZ\",");
+buf.append("        \"location_id\": 123,");
+buf.append("        \"transaction_uuid\": \"93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf\"");
+buf.append("    },");
+buf.append("    \"transaction_code\": \"chargeable\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"billing_provider\": {");
+buf.append("        \"taxonomy_code\": \"207Q00000X\",");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [");
+buf.append("                \"8311 WARREN H ABERNATHY HWY\"");
+buf.append("            ],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"tax_id\": \"123456789\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"member_id\": \"W000000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 N MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"gender\": \"female\"");
+buf.append("    },");
+buf.append("    \"claim\": {");
+buf.append("        \"total_charge_amount\": 60.0,");
+buf.append("        \"service_lines\": [");
+buf.append("            {");
+buf.append("                \"procedure_code\": \"99213\",");
+buf.append("                \"charge_amount\": 60.0,");
+buf.append("                \"unit_count\": 1.0,");
+buf.append("                \"diagnosis_codes\": [");
+buf.append("                    \"487.1\"");
+buf.append("                ],");
+buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("            }");
+buf.append("        ]");
+buf.append("    }");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
+```
+
 > Sample Claims Request using the patient paid amount to report a cash payment
 encounter for contributing toward a member's deductible:
 
@@ -485,6 +934,158 @@ pd.claims({
         ]
     }
 })
+```
+
+```ruby
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "1703 John B White Blvd, Unit A"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "JOHN",
+        "last_name": "DOE",
+        "member_id": "W199000000",
+        "address": {
+            "address_lines": ["123 MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "male"
+    },
+    "claim": {
+        "place_of_service": "office",
+        "total_charge_amount": 150.0,
+        "patient_paid_amount": 150.0,
+        "service_lines": [
+            {
+                "procedure_code": "11100",
+                "charge_amount": 150.00,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "701.9"
+                ],
+                "service_date": "2014-11-24"
+            }
+        ]
+    }
+})
+```
+
+```csharp
+client.claims(
+    new Dictionary<string, object> {
+        {"transaction_code", "chargeable"},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"billing_provider", new Dictionary<string, object> {
+            {"taxonomy_code", "207Q00000X"},
+            {"first_name", "JEROME"},
+            {"last_name", "AYA-AY"},
+            {"npi", "1467560003"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"1703 John B White Blvd, Unit A"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+        }},
+        {"tax_id", "123456789"}
+    }},
+    {"subscriber", new Dictionary<string, object> {
+        {"first_name", "JOHN"},
+        {"last_name", "DOE"},
+        {"member_id", "W199000000"},
+        {"address", new Dictionary<string, object> {
+            {"address_lines", new string[] {"123 MAIN ST"}},
+            {"city", "SPARTANBURG"},
+            {"state", "SC"},
+            {"zipcode", "29301"}
+        }},
+        {"birth_date", "1970-01-01"},
+        {"gender", "male"}
+    }},
+    {"claim", new Dictionary<string, object> {
+        {"place_of_service", "office"},
+        {"total_charge_amount", 150.0},
+        {"patient_paid_amount", 150.0},
+        {"service_lines", new Object[] {new Dictionary<string, object> {
+            {"procedure_code", "11100"},
+            {"charge_amount", 150.0},
+            {"unit_count", 1.0},
+            {"diagnosis_codes", new string[] {"701.9"}},
+            {"service_date", "2014-11-24"}
+        }}}}}
+    });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"transaction_code\": \"chargeable\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"billing_provider\": {");
+buf.append("        \"taxonomy_code\": \"207Q00000X\",");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [");
+buf.append("                \"1703 John B White Blvd, Unit A\"");
+buf.append("            ],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"tax_id\": \"123456789\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"first_name\": \"JOHN\",");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"member_id\": \"W199000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"gender\": \"male\"");
+buf.append("    },");
+buf.append("    \"claim\": {");
+buf.append("        \"place_of_service\": \"office\",");
+buf.append("        \"total_charge_amount\": 150.0,");
+buf.append("        \"patient_paid_amount\": 150.0,");
+buf.append("        \"service_lines\": [");
+buf.append("            {");
+buf.append("                \"procedure_code\": \"11100\",");
+buf.append("                \"charge_amount\": 150.00,");
+buf.append("                \"unit_count\": 1.0,");
+buf.append("                \"diagnosis_codes\": [");
+buf.append("                    \"701.9\"");
+buf.append("                ],");
+buf.append("                \"service_date\": \"2014-11-24\"");
+buf.append("            }");
+buf.append("        ]");
+buf.append("    }");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
 ```
 
 > Sample Claims request when using procedure modifier codes. This example uses
@@ -591,6 +1192,154 @@ pd.claims({
 })
 ```
 
+```ruby
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 100.0,
+        "service_lines": [
+            {
+                "procedure_code": "99201",
+                "procedure_modifier_codes": ["GT"],
+                "charge_amount": 100.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
+
+```csharp
+pd.claims(
+    new Dictionary<string, object> {
+        {"transaction_code", "chargeable"},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"billing_provider", new Dictionary<string, object> {
+            {"taxonomy_code", "207Q00000X"},
+            {"first_name", "Jerome"},
+            {"last_name", "Aya-Ay"},
+            {"npi", "1467560003"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"8311 WARREN H ABERNATHY HWY"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"tax_id", "123456789"}
+        }},
+        {"subscriber", new Dictionary<string, object> {
+            {"first_name", "Jane"},
+            {"last_name", "Doe"},
+            {"member_id", "W000000000"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"123 N MAIN ST"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"birth_date", "1970-01-01"},
+            {"gender", "female"}
+        }},
+        {"claim", new Dictionary<string, object> {
+            {"total_charge_amount", 100.0},
+            {"service_lines", new Object[] {new Dictionary<string, object> {
+                {"procedure_code", "99201"},
+                {"procedure_modifier_codes", new string[] {"GT"}},
+                {"charge_amount", 100.0},
+                {"unit_count", 1.0},
+                {"diagnosis_codes", new string[] {"487.1"}},
+                {"service_date", "2014-06-01"}
+        }}}}}
+    });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"transaction_code\": \"chargeable\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"billing_provider\": {");
+buf.append("        \"taxonomy_code\": \"207Q00000X\",");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [");
+buf.append("                \"8311 WARREN H ABERNATHY HWY\"");
+buf.append("            ],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"tax_id\": \"123456789\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"member_id\": \"W000000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 N MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"gender\": \"female\"");
+buf.append("    },");
+buf.append("    \"claim\": {");
+buf.append("        \"total_charge_amount\": 100.0,");
+buf.append("        \"service_lines\": [");
+buf.append("            {");
+buf.append("                \"procedure_code\": \"99201\",");
+buf.append("                \"procedure_modifier_codes\": [\"GT\"],");
+buf.append("                \"charge_amount\": 100.0,");
+buf.append("                \"unit_count\": 1.0,");
+buf.append("                \"diagnosis_codes\": [");
+buf.append("                    \"487.1\"");
+buf.append("                ],");
+buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("            }");
+buf.append("        ]");
+buf.append("    }");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
+```
+
 > Sample Claims request submitting a claim with an application's callback_url specified:
 
 ```shell
@@ -691,6 +1440,155 @@ pd.claims({
         ]
     }
 })
+```
+
+```ruby
+pd.claims({
+    "callback_url": "https://yourapp.com/claims/status",
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
+
+```csharp
+client.claims(
+    new Dictionary<string, object> {
+        {"callback_url", "https://yourapp.com/claims/status"},
+        {"transaction_code", "chargeable"},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"billing_provider", new Dictionary<string, object> {
+            {"taxonomy_code", "207Q00000X"},
+            {"first_name", "Jerome"},
+            {"last_name", "Aya-Ay"},
+            {"npi", "1467560003"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"8311 WARREN H ABERNATHY HWY"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"tax_id", "123456789"}
+        }},
+        {"subscriber", new Dictionary<string, object> {
+            {"first_name", "Jane"},
+            {"last_name", "Doe"},
+            {"member_id", "W000000000"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"123 N MAIN ST"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"birth_date", "1970-01-01"},
+            {"gender", "female"}
+        }},
+        {"claim", new Dictionary<string, object> {
+            {"total_charge_amount", 60.0},
+            {"service_lines", new Object[] {new Dictionary<string, object> {
+                {"procedure_code", "99213"},
+                {"charge_amount", 60.0},
+                {"unit_count", 1.0},
+                {"diagnosis_codes", new string[] {"487.1"}},
+                {"service_date", "2014-06-01"}
+        }}}}}
+    });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"callback_url\": \"https://yourapp.com/claims/status\",");
+buf.append("    \"transaction_code\": \"chargeable\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"billing_provider\": {");
+buf.append("        \"taxonomy_code\": \"207Q00000X\",");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [");
+buf.append("                \"8311 WARREN H ABERNATHY HWY\"");
+buf.append("            ],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"tax_id\": \"123456789\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"member_id\": \"W000000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 N MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"gender\": \"female\"");
+buf.append("    },");
+buf.append("    \"claim\": {");
+buf.append("        \"total_charge_amount\": 60.0,");
+buf.append("        \"service_lines\": [");
+buf.append("            {");
+buf.append("                \"procedure_code\": \"99213\",");
+buf.append("                \"charge_amount\": 60.0,");
+buf.append("                \"unit_count\": 1.0,");
+buf.append("                \"diagnosis_codes\": [");
+buf.append("                    \"487.1\"");
+buf.append("                ],");
+buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("            }");
+buf.append("        ]");
+buf.append("    }");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
 ```
 
 > Sample Institutional claim for continuing/hospice care:
@@ -865,6 +1763,255 @@ pd.claims({
 })
 ```
 
+```ruby
+pd.claims({
+  "billing_provider": {
+    "address": {
+      "address_lines": [
+        "100 New Street"
+      ],
+      "city": "New Town",
+      "state": "CA",
+      "zipcode": "941001001"
+    },
+    "npi": "1912301953",
+    "organization_name": "TEST FACILITY,LLC",
+    "taxonomy_code": "251G00000X",
+    "tax_id": "123456789"
+  },
+  "claim": {
+    "admission_date": "2011-08-05",
+    "statement_date": "2015-03-01",
+    "statement_end_date": "2015-03-31",
+    "admission_type": "elective",
+    "admission_source": "not_available",
+    "patient_status": "still_patient",
+    "attending_provider": {
+      "npi": "1467560003",
+      "first_name": "JEAN",
+      "last_name": "SMITH",
+      "taxonomy_code": "251G00000X"
+    },
+    "claim_frequency": "interim_continuing_claims",
+    "direct_payment": "y",
+    "information_release": "informed_consent",
+    "medical_record_number": "661",
+    "facility_type": "nonhospital_based_hospice",
+    "plan_participation": "assigned",
+    "occurrence_information": [
+      {
+        "occurrence_type": "hospice_certification",
+        "occurrence_date": "2013-03-27"
+      }
+    ],
+    "value_information": [
+      {
+        "value_type": "service_furnished_location_number",
+        "value": "36420"
+      }
+    ],
+    "service_lines": [
+      {
+        "charge_amount": "4000",
+        "diagnosis_codes": [
+          "29411"
+        ],
+        "procedure_code": "Q5002",
+        "revenue_code": "0651",
+        "service_date": "2015-03-01",
+        "unit_count": "31",
+        "unit_type": "days",
+        "provider_control_number": "6750000"
+      }
+    ],
+    "total_charge_amount": "4000"
+  },
+  "subscriber": {
+    "address": {
+      "address_lines": [
+        "1234 MAIN AVE"
+      ],
+      "city": "NEW TOWN",
+      "state": "CA",
+      "zipcode": "941001001"
+    },
+    "birth_date": "1920-07-25",
+    "claim_filing_code": "medicare_part_a",
+    "first_name": "JOHN",
+    "gender": "male",
+    "last_name": "SMITH",
+    "member_id": "R12345678",
+    "payer_responsibility": "primary"
+  },
+  "trading_partner_id": "MOCKPAYER",
+  "transaction_code": "chargeable"
+})
+```
+
+```csharp
+client.claims(
+    new Dictionary<string, object> {
+        {"billing_provider", new Dictionary<string, object> {
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"100 New Street"}},
+                {"city", "New Town"},
+                {"state", "CA"},
+                {"zipcode", "941001001"}
+            }},
+            {"npi", "1912301953"},
+            {"organization_name", "TEST FACILITY,LLC"},
+            {"taxonomy_code", "251G00000X"},
+            {"tax_id", "123456789"}
+        }},
+        {"claim", new Dictionary<string, object> {
+            {"admission_date", "2011-08-05"},
+            {"statement_date", "2015-03-01"},
+            {"statement_end_date", "2015-03-31"},
+            {"admission_type", "elective"},
+            {"admission_source", "not_available"},
+            {"patient_status", "still_patient"},
+            {"attending_provider", new Dictionary<string, string> {
+                {"npi", "1467560003"},
+                {"first_name", "JEAN"},
+                {"last_name", "SMITH"},
+                {"taxonomy_code", "251G00000X"}
+            }},
+            {"claim_frequency", "interim_continuing_claims"},
+            {"direct_payment", "y"},
+            {"information_release", "informed_consent"},
+            {"medical_record_number", "661"},
+            {"facility_type", "nonhospital_based_hospice"},
+            {"plan_participation", "assigned"},
+            {"occurrence_information", new Object[] {new Dictionary<string, string> {
+                {"occurrence_type", "hospice_certification"},
+                {"occurrence_date", "2013-03-27"}
+            }}},
+            {"value_information", new Object[] {new Dictionary<string, string> {
+                {"value_type", "service_furnished_location_number"},
+                {"value", "36420"}
+            }}},
+            {"service_lines", new Object[] {new Dictionary<string, object> {
+                {"charge_amount", "4000"},
+                {"diagnosis_codes", new string[] {"29411"}},
+                {"procedure_code", "Q5002"},
+                {"revenue_code", "0651"},
+                {"service_date", "2015-03-01"},
+                {"unit_count", "31"},
+                {"unit_type", "days"},
+                {"provider_control_number", "6750000"}
+            }}},
+            {"total_charge_amount", "4000"}
+        }},
+        {"subscriber", new Dictionary<string, object> {
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"1234 MAIN AVE"}},
+                {"city", "NEW TOWN"},
+                {"state", "CA"},
+                {"zipcode", "941001001"}
+            }},
+            {"birth_date", "1920-07-25"},
+            {"claim_filing_code", "medicare_part_a"},
+            {"first_name", "JOHN"},
+            {"gender", "male"},
+            {"last_name", "SMITH"},
+            {"member_id", "R12345678"},
+            {"payer_responsibility", "primary"}
+        }},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"transaction_code", "chargeable"}
+    });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("  \"billing_provider\": {");
+buf.append("    \"address\": {");
+buf.append("      \"address_lines\": [");
+buf.append("        \"100 New Street\"");
+buf.append("      ],");
+buf.append("      \"city\": \"New Town\",");
+buf.append("      \"state\": \"CA\",");
+buf.append("      \"zipcode\": \"941001001\"");
+buf.append("    },");
+buf.append("    \"npi\": \"1912301953\",");
+buf.append("    \"organization_name\": \"TEST FACILITY,LLC\",");
+buf.append("    \"taxonomy_code\": \"251G00000X\",");
+buf.append("    \"tax_id\": \"123456789\"");
+buf.append("  },");
+buf.append("  \"claim\": {");
+buf.append("    \"admission_date\": \"2011-08-05\",");
+buf.append("    \"statement_date\": \"2015-03-01\",");
+buf.append("    \"statement_end_date\": \"2015-03-31\",");
+buf.append("    \"admission_type\": \"elective\",");
+buf.append("    \"admission_source\": \"not_available\",");
+buf.append("    \"patient_status\": \"still_patient\",");
+buf.append("    \"attending_provider\": {");
+buf.append("      \"npi\": \"1467560003\",");
+buf.append("      \"first_name\": \"JEAN\",");
+buf.append("      \"last_name\": \"SMITH\",");
+buf.append("      \"taxonomy_code\": \"251G00000X\"");
+buf.append("    },");
+buf.append("    \"claim_frequency\": \"interim_continuing_claims\",");
+buf.append("    \"direct_payment\": \"y\",");
+buf.append("    \"information_release\": \"informed_consent\",");
+buf.append("    \"medical_record_number\": \"661\",");
+buf.append("    \"facility_type\": \"nonhospital_based_hospice\",");
+buf.append("    \"plan_participation\": \"assigned\",");
+buf.append("    \"occurrence_information\": [");
+buf.append("      {");
+buf.append("        \"occurrence_type\": \"hospice_certification\",");
+buf.append("        \"occurrence_date\": \"2013-03-27\"");
+buf.append("      }");
+buf.append("    ],");
+buf.append("    \"value_information\": [");
+buf.append("      {");
+buf.append("        \"value_type\": \"service_furnished_location_number\",");
+buf.append("        \"value\": \"36420\"");
+buf.append("      }");
+buf.append("    ],");
+buf.append("    \"service_lines\": [");
+buf.append("      {");
+buf.append("        \"charge_amount\": \"4000\",");
+buf.append("        \"diagnosis_codes\": [");
+buf.append("          \"29411\"");
+buf.append("        ],");
+buf.append("        \"procedure_code\": \"Q5002\",");
+buf.append("        \"revenue_code\": \"0651\",");
+buf.append("        \"service_date\": \"2015-03-01\",");
+buf.append("        \"unit_count\": \"31\",");
+buf.append("        \"unit_type\": \"days\",");
+buf.append("        \"provider_control_number\": \"6750000\"");
+buf.append("      }");
+buf.append("    ],");
+buf.append("    \"total_charge_amount\": \"4000\"");
+buf.append("  },");
+buf.append("  \"subscriber\": {");
+buf.append("    \"address\": {");
+buf.append("      \"address_lines\": [");
+buf.append("        \"1234 MAIN AVE\"");
+buf.append("      ],");
+buf.append("      \"city\": \"NEW TOWN\",");
+buf.append("      \"state\": \"CA\",");
+buf.append("      \"zipcode\": \"941001001\"");
+buf.append("    },");
+buf.append("    \"birth_date\": \"1920-07-25\",");
+buf.append("    \"claim_filing_code\": \"medicare_part_a\",");
+buf.append("    \"first_name\": \"JOHN\",");
+buf.append("    \"gender\": \"male\",");
+buf.append("    \"last_name\": \"SMITH\",");
+buf.append("    \"member_id\": \"R12345678\",");
+buf.append("    \"payer_responsibility\": \"primary\"");
+buf.append("  },");
+buf.append("  \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("  \"transaction_code\": \"chargeable\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
+```
+
 > Claims request registering a callback_url and requesting a mock claim payment callback.
 Your application will receive two callbacks.  The first will contain a claims acknowledgement result.
 The second will contain a mock claim payment where 85% of the charged amount is paid, 5% is adjusted
@@ -976,11 +2123,168 @@ pd.claims({
 })
 ```
 
+```ruby
+pd.claims({
+    "callback_url": "https://your-application.com/callback/1234",
+    "application_data": {
+        "mock_claim_payment": true
+    },
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
+
+```csharp
+client.claims(
+    new Dictionary<string, object> {
+        {"callback_url", "https://your-application.com/callback/1234"},
+        {"application_data", new Dictionary<string, object> {
+            {"mock_claim_payment", True}
+        }},
+        {"transaction_code", "chargeable"},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"billing_provider", new Dictionary<string, object> {
+            {"taxonomy_code", "207Q00000X"},
+            {"first_name", "Jerome"},
+            {"last_name", "Aya-Ay"},
+            {"npi", "1467560003"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"8311 WARREN H ABERNATHY HWY"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"tax_id", "123456789"}
+        }},
+        {"subscriber", new Dictionary<string, object> {
+            {"first_name", "Jane"},
+            {"last_name", "Doe"},
+            {"member_id", "W000000000"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"123 N MAIN ST"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"birth_date", "1970-01-01"},
+            {"gender", "female"}
+        }},
+        {"claim", new Dictionary<string, object> {
+            {"total_charge_amount", 60.0},
+            {"service_lines", new Object[] {new Dictionary<string, object> {
+                {"procedure_code", "99213"},
+                {"charge_amount", 60.0},
+                {"unit_count", 1.0},
+                {"diagnosis_codes", new string[] {"487.1"}},
+                {"service_date", "2014-06-01"}
+        }}}}}
+    });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"callback_url\": \"https://your-application.com/callback/1234\",");
+buf.append("    \"application_data\": {");
+buf.append("        \"mock_claim_payment\": true");
+buf.append("    },");
+buf.append("    \"transaction_code\": \"chargeable\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"billing_provider\": {");
+buf.append("        \"taxonomy_code\": \"207Q00000X\",");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [");
+buf.append("                \"8311 WARREN H ABERNATHY HWY\"");
+buf.append("            ],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"tax_id\": \"123456789\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"member_id\": \"W000000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 N MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"gender\": \"female\"");
+buf.append("    },");
+buf.append("    \"claim\": {");
+buf.append("        \"total_charge_amount\": 60.0,");
+buf.append("        \"service_lines\": [");
+buf.append("            {");
+buf.append("                \"procedure_code\": \"99213\",");
+buf.append("                \"charge_amount\": 60.0,");
+buf.append("                \"unit_count\": 1.0,");
+buf.append("                \"diagnosis_codes\": [");
+buf.append("                    \"487.1\"");
+buf.append("                ],");
+buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("            }");
+buf.append("        ]");
+buf.append("    }");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
+```
+
 > Claims request containing information for rendering provider.
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
-{
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -1032,7 +2336,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             }
         ]
     }
-})
+}` https://platform.pokitdok.com/api/v4/claims/
 ```
 
 ```python
@@ -1091,6 +2395,172 @@ pd.claims({
 })
 ```
 
+```ruby
+pd.claims({
+    "transaction_code": "chargeable",
+    "trading_partner_id": "MOCKPAYER",
+    "billing_provider": {
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
+    },
+    "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+    },
+    "claim": {
+        "total_charge_amount": 60.0,
+        "rendering_provider": {
+              "npi": "2228880001",
+              "first_name": "JANE",
+              "last_name": "DOE",
+              "taxonomy_code": "207N00000X"
+
+ },
+        "service_lines": [
+            {
+                "procedure_code": "99213",
+                "charge_amount": 60.0,
+                "unit_count": 1.0,
+                "diagnosis_codes": [
+                    "487.1"
+                ],
+                "service_date": "2014-06-01"
+            }
+        ]
+    }
+})
+```
+
+```csharp
+client.claims(
+    new Dictionary<string, object> {
+        {"transaction_code", "chargeable"},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"billing_provider", new Dictionary<string, object> {
+            {"taxonomy_code", "207Q00000X"},
+            {"first_name", "Jerome"},
+            {"last_name", "Aya-Ay"},
+            {"npi", "1467560003"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"8311 WARREN H ABERNATHY HWY"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"tax_id", "123456789"}
+        }},
+        {"subscriber", new Dictionary<string, object> {
+            {"first_name", "Jane"},
+            {"last_name", "Doe"},
+            {"member_id", "W000000000"},
+            {"address", new Dictionary<string, object> {
+                {"address_lines", new string[] {"123 N MAIN ST"}},
+                {"city", "SPARTANBURG"},
+                {"state", "SC"},
+                {"zipcode", "29301"}
+            }},
+            {"birth_date", "1970-01-01"},
+            {"gender", "female"}
+        }},
+        {"claim", new Dictionary<string, object> {
+            {"total_charge_amount", 60.0},
+            {"rendering_provider", new Dictionary<string, string> {
+                {"npi", "2228880001"},
+                {"first_name", "JANE"},
+                {"last_name", "DOE"},
+                {"taxonomy_code", "207N00000X"}
+            }},
+            {"service_lines", new Object[] {new Dictionary<string, object> {
+                {"procedure_code", "99213"},
+                {"charge_amount", 60.0},
+                {"unit_count", 1.0},
+                {"diagnosis_codes", new string[] {"487.1"}},
+                {"service_date", "2014-06-01"}
+        }}}}}
+    });
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"transaction_code\": \"chargeable\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"billing_provider\": {");
+buf.append("        \"taxonomy_code\": \"207Q00000X\",");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [");
+buf.append("                \"8311 WARREN H ABERNATHY HWY\"");
+buf.append("            ],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"tax_id\": \"123456789\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"member_id\": \"W000000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 N MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"gender\": \"female\"");
+buf.append("    },");
+buf.append("    \"claim\": {");
+buf.append("        \"total_charge_amount\": 60.0,");
+buf.append("        \"rendering_provider\": {");
+buf.append("              \"npi\": \"2228880001\",");
+buf.append("              \"first_name\": \"JANE\",");
+buf.append("              \"last_name\": \"DOE\",");
+buf.append("              \"taxonomy_code\": \"207N00000X\"");
+buf.append("");
+buf.append(" },");
+buf.append("        \"service_lines\": [");
+buf.append("            {");
+buf.append("                \"procedure_code\": \"99213\",");
+buf.append("                \"charge_amount\": 60.0,");
+buf.append("                \"unit_count\": 1.0,");
+buf.append("                \"diagnosis_codes\": [");
+buf.append("                    \"487.1\"");
+buf.append("                ],");
+buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("            }");
+buf.append("        ]");
+buf.append("    }");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
+```
+
 > Sample Claims request for sending service date range, using service date and service end date:
 
 ```shell
@@ -1141,6 +2611,107 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         ]
     }
 }` https://platform.pokitdok.com/api/v4/claims/
+```
+
+```csharp
+client.claims(
+    new Dictionary<string, object> {
+        {"transaction_code", "chargeable"},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"billing_provider", new Dictionary<string, object> {
+                {"taxonomy_code", "207Q00000X"},
+                {"first_name", "Jerome"},
+                {"last_name", "Aya-Ay"},
+                {"npi", "1467560003"},
+                {"address", new Dictionary<string, object> {
+                        {"address_lines", new string[] {"8311 WARREN H ABERNATHY HWY"}},
+                        {"city", "SPARTANBURG"},
+                        {"state", "SC"},
+                        {"zipcode", "29301"}
+                    }},
+                {"tax_id", "123456789"}
+            }},
+        {"subscriber", new Dictionary<string, object> {
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"member_id", "W000000000"},
+                {"address", new Dictionary<string, object> {
+                        {"address_lines", new string[] {"123 N MAIN ST"}},
+                        {"city", "SPARTANBURG"},
+                        {"state", "SC"},
+                        {"zipcode", "29301"}
+                    }},
+                {"birth_date", "1970-01-01"},
+                {"gender", "female"}
+            }},
+        {"claim", new Dictionary<string, object> {
+                {"total_charge_amount", 60.0},
+                {"service_lines", new Object[] {new Dictionary<string, object> {
+                            {"procedure_code", "99213"},
+                            {"charge_amount", 60.0},
+                            {"unit_count", 1.0},
+                            {"diagnosis_codes", new string[] {"487.1"}},
+                            {"service_date", "2014-06-01"},
+                            {"service_end_date", "2014-07-01"}
+                        }}}
+            }}
+    }
+);
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"transaction_code\": \"chargeable\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"billing_provider\": {");
+buf.append("        \"taxonomy_code\": \"207Q00000X\",");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [");
+buf.append("                \"8311 WARREN H ABERNATHY HWY\"");
+buf.append("            ],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"tax_id\": \"123456789\"");
+buf.append("    },");
+buf.append("    \"subscriber\": {");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"member_id\": \"W000000000\",");
+buf.append("        \"address\": {");
+buf.append("            \"address_lines\": [\"123 N MAIN ST\"],");
+buf.append("            \"city\": \"SPARTANBURG\",");
+buf.append("            \"state\": \"SC\",");
+buf.append("            \"zipcode\": \"29301\"");
+buf.append("        },");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"gender\": \"female\"");
+buf.append("    },");
+buf.append("    \"claim\": {");
+buf.append("        \"total_charge_amount\": 60.0,");
+buf.append("        \"service_lines\": [");
+buf.append("            {");
+buf.append("                \"procedure_code\": \"99213\",");
+buf.append("                \"charge_amount\": 60.0,");
+buf.append("                \"unit_count\": 1.0,");
+buf.append("                \"diagnosis_codes\": [");
+buf.append("                    \"487.1\"");
+buf.append("                ],");
+buf.append("                \"service_date\": \"2014-06-01\",");
+buf.append("                \"service_end_date\": \"2014-07-01\"");
+buf.append("            }");
+buf.append("        ]");
+buf.append("    }");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claims(query);
 ```
 
 *Available modes of operation: batch/async*

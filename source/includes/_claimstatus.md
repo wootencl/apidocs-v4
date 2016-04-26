@@ -56,6 +56,47 @@ client.claimsStatus(
 			});
 ```
 
+```ruby
+pd.claims_status({
+    "patient": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003"
+    },
+    "service_date": "2014-01-01",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"patient\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"JANE\",");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"id\": \"1234567890\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"service_date\": \"2014-01-01\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claimsStatus(query);
+```
+
 > Example claim status request when the patient is not the subscriber on the insurance policy:
 
 ```shell
@@ -81,6 +122,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/claims/status
 ```
+
 ```python
 pd.claims_status({
     "patient": {
@@ -103,6 +145,84 @@ pd.claims_status({
     },
     "trading_partner_id": "MOCKPAYER"
 })
+```
+
+```csharp
+client.claimsStatus(new Dictionary<string, object> {
+    {"patient", new Dictionary<string, string> {
+        {"birth_date", "2000-01-01"},
+        {"first_name", "JOHN"},
+        {"last_name", "DOE"},
+        {"id", "1234567890"}
+    }},
+    {"provider", new Dictionary<string, string> {
+        {"first_name", "Jerome"},
+        {"last_name", "Aya-Ay"},
+        {"npi", "1467560003"}
+    }},
+    {"service_date", "2014-01-01"},
+    {"subscriber", new Dictionary<string, string> {
+        {"birth_date", "1970-01-01"},
+        {"first_name", "JANE"},
+        {"last_name", "DOE"},
+        {"id", "1234567890"}
+    }},
+    {"trading_partner_id", "MOCKPAYER"}
+});
+```
+
+
+```ruby
+pd.claims_status({
+    "patient": {
+        "birth_date": "2000-01-01",
+        "first_name": "JOHN",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003"
+    },
+    "service_date": "2014-01-01",
+    "subscriber": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"patient\": {");
+buf.append("        \"birth_date\": \"2000-01-01\",");
+buf.append("        \"first_name\": \"JOHN\",");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"id\": \"1234567890\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"service_date\": \"2014-01-01\",");
+buf.append("    \"subscriber\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"JANE\",");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"id\": \"1234567890\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claimsStatus(query);
 ```
 
 > Example claim status request when the claim service period covers several days:
@@ -145,6 +265,68 @@ pd.claims_status({
 })
 ```
 
+```csharp
+client.claimsStatus(new Dictionary<string, object> {
+    {"patient", new Dictionary<string, string> {
+        {"birth_date", "1970-01-01"},
+        {"first_name", "JANE"},
+        {"last_name", "DOE"},
+        {"id", "1234567890"}
+    }},
+        {"provider", new Dictionary<string, string> {
+        {"first_name", "Jerome"},
+        {"last_name", "Aya-Ay"},
+        {"npi", "1467560003"}
+    }},
+    {"service_date", "2014-01-01"},
+    {"service_end_date", "2014-01-04"},
+    {"trading_partner_id", "MOCKPAYER"}
+});
+```
+
+```ruby
+pd.claims_status({
+    "patient": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003"
+    },
+    "service_date": "2014-01-01",
+    "service_end_date": "2014-01-04",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"patient\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"JANE\",");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"id\": \"1234567890\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"service_date\": \"2014-01-01\",");
+buf.append("    \"service_end_date\": \"2014-01-04\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claimsStatus(query);
+```
+
 > Example claim status request using a claim tracking id to refine the search:
 
 ```shell
@@ -185,10 +367,72 @@ pd.claims_status({
 })
 ```
 
+```csharp
+client.claimsStatus(new Dictionary<string, object> {
+    {"patient", new Dictionary<string, string> {
+        {"birth_date", "1970-01-01"},
+        {"first_name", "JANE"},
+        {"last_name", "DOE"},
+        {"id", "1234567890"}
+    }},
+    {"provider", new Dictionary<string, string> {
+        {"first_name", "Jerome"},
+        {"last_name", "Aya-Ay"},
+        {"npi", "1467560003"}
+    }},
+    {"service_date", "2014-01-01"},
+    {"tracking_id", "ABC12345"},
+    {"trading_partner_id", "MOCKPAYER"}
+});
+```
+
+```ruby
+pd.claims_status({
+    "patient": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003"
+    },
+    "service_date": "2014-01-01",
+    "tracking_id": "ABC12345",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"patient\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"JANE\",");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"id\": \"1234567890\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"Jerome\",");
+buf.append("        \"last_name\": \"Aya-Ay\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"service_date\": \"2014-01-01\",");
+buf.append("    \"tracking_id\": \"ABC12345\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.claimsStatus(query);
+```
+
 > Example claims status response when the trading partner is unable to locate
 any matching claims:
 
-```
+```json
 {
     "patient": {
         "claims": [
@@ -249,7 +493,7 @@ any matching claims:
 > Example claims status response when there is an error in the formatting of the provider's NPI or
 name, and they are unable to find a match:
 
-```
+```json
 {  
     "client_id":"fFFgqPeK5GETjZkC3JPB",
     "payer":{  
@@ -285,7 +529,7 @@ name, and they are unable to find a match:
 > Example claims status response when adjudication is finalized and the claim
 has been paid:
 
-```
+```json
 {
     "patient": {
         "claims": [
@@ -454,7 +698,7 @@ has been paid:
 
 > Example claims status response when adjudication is finalized and the claim has been denied:
 
-```
+```json
 {
     "patient": {
         "claims": [
@@ -670,7 +914,7 @@ has been paid:
 > Example claims status response when adjudication is finalized, the claim has
 been denied (not paid) and the charges are applied to the deductible:
 
-```
+```json
 {
     "patient": {
         "claims": [

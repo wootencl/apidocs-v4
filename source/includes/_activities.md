@@ -10,8 +10,18 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 pd.activities()
 ```
 
+```ruby
+#retrieve an index of activities
+pd.activities
+```
+
 ```csharp
+// retrieve an index of activities
 client.activities();
+```
+
+```java
+pd.activities();
 ```
 
 > Example fetching information for a specific activity:
@@ -25,8 +35,21 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 pd.activities(activity_id='5362b5a064da150ef6f2526c')
 ```
 
+```ruby
+#check on a specific activity
+pd.activities({activity_id: '5362b5a064da150ef6f2526c'})
+```
+
 ```csharp
+// check on a specific activity
 client.activities("5362b5a064da150ef6f2526c");
+```
+
+```java
+HashMap<String, String> params = new HashMap<String, String>();
+params.add("activity_id", "5362b5a064da150ef6f2526c");
+client.activities(params);
+
 ```
 
 > Example to cancel an existing activity:

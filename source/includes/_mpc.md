@@ -13,6 +13,16 @@ pd.mpc(code='99213')
 client.medicalProcedureCode("99211");
 ```
 
+```ruby
+pd.mpc({code: '99213'})
+```
+
+```java
+HashMap<String, String>() query = new HashMap<String, String>();
+query.put("code", "office");
+
+pd.mpc(query);
+```
 
 > curl example searching medical procedure information by consumer friendly name
 
@@ -26,9 +36,20 @@ pd.mpc(name='office')
 
 ```csharp
 client.medicalProcedureCode(
-            new Dictionary<string, string> {
-                {"name", "Established patient office or other outpatient visit, typically 15 minutes"}
-            });
+    new Dictionary<string, string> {
+        {"name", "Established patient office or other outpatient visit, typically 15 minutes"}
+    });
+```
+
+```ruby
+pd.mpc({name: 'office'})
+```
+
+```java
+HashMap<String, String>() query = new HashMap<String, String>();
+query.put("name", "office");
+
+pd.mpc(query);
 ```
 
 *Available modes of operation: real-time only*

@@ -5,16 +5,16 @@ access to the PokitDok API with a minimum of code, usually just a few lines.
 These libraries are hosted on
 [PokitDok's Github repo](https://github.com/pokitdok).
 
-Available languages  | &nbsp;
----------|----------------------------------------------------------------
-Python   | [pokitdok-python](https://github.com/pokitdok/pokitdok-python)
-NodeJS   | [pokitdok-nodejs](https://github.com/pokitdok/pokitdok-nodejs)
-Ruby     | [pokitdok-ruby](https://github.com/pokitdok/pokitdok-ruby)
-PHP      | [pokitdok-php](https://github.com/pokitdok/pokitdok-php)
-Java     | [pokitdok-java](https://github.com/pokitdok/pokitdok-java)
-C#       | [pokitdok-csharp](https://github.com/pokitdok/pokitdok-csharp)
-Lua      | [pokitdok-lua](https://github.com/pokitdok/pokitdok-lua)
-Haskell  | [pokitdok-haskell](https://github.com/pokitdok/pokitdok-haskell)
+| Available languages | &nbsp;                                                           |
+|:--------------------|:-----------------------------------------------------------------|
+| Python              | [pokitdok-python](https://github.com/pokitdok/pokitdok-python)   |
+| Ruby                | [pokitdok-ruby](https://github.com/pokitdok/pokitdok-ruby)       |
+| PHP                 | [pokitdok-php](https://github.com/pokitdok/pokitdok-php)         |
+| Java                | [pokitdok-java](https://github.com/pokitdok/pokitdok-java)       |
+| C#                  | [pokitdok-csharp](https://github.com/pokitdok/pokitdok-csharp)   |
+| NodeJS              | [pokitdok-nodejs](https://github.com/pokitdok/pokitdok-nodejs)   |
+| Lua                 | [pokitdok-lua](https://github.com/pokitdok/pokitdok-lua)         |
+| Haskell             | [pokitdok-haskell](https://github.com/pokitdok/pokitdok-haskell) |
 
 The following sections go into further detail on the underlying details of
 connecting directly to the PokitDok API. This is of use if you're implementing

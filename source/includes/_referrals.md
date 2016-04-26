@@ -41,6 +41,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/referrals/
 ```
+
 ```python
 pd.referrals({
     "event": {
@@ -119,9 +120,92 @@ pd.referrals({
 			});
 ```
 
+```ruby
+pd.referrals({
+    "event": {
+        "category": "specialty_care_review",
+        "certification_type": "initial",
+        "delivery": {
+            "quantity": 1,
+            "quantity_qualifier": "visits"
+        },
+        "diagnoses": [
+            {
+                "code": "384.20",
+                "date": "2014-09-30"
+            }
+        ],
+        "place_of_service": "office",
+        "provider": {
+            "first_name": "JOHN",
+            "npi": "1154387751",
+            "last_name": "FOSTER",
+            "phone": "8645822900"
+        },
+        "type": "consultation"
+    },
+    "patient": {
+        "birth_date": "1970-01-01",
+        "first_name": "JANE",
+        "last_name": "DOE",
+        "id": "1234567890"
+    },
+    "provider": {
+        "first_name": "CHRISTINA",
+        "last_name": "BERTOLAMI",
+        "npi": "1619131232"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"event\": {");
+buf.append("        \"category\": \"specialty_care_review\",");
+buf.append("        \"certification_type\": \"initial\",");
+buf.append("        \"delivery\": {");
+buf.append("            \"quantity\": 1,");
+buf.append("            \"quantity_qualifier\": \"visits\"");
+buf.append("        },");
+buf.append("        \"diagnoses\": [");
+buf.append("            {");
+buf.append("                \"code\": \"384.20\",");
+buf.append("                \"date\": \"2014-09-30\"");
+buf.append("            }");
+buf.append("        ],");
+buf.append("        \"place_of_service\": \"office\",");
+buf.append("        \"provider\": {");
+buf.append("            \"first_name\": \"JOHN\",");
+buf.append("            \"npi\": \"1154387751\",");
+buf.append("            \"last_name\": \"FOSTER\",");
+buf.append("            \"phone\": \"8645822900\"");
+buf.append("        },");
+buf.append("        \"type\": \"consultation\"");
+buf.append("    },");
+buf.append("    \"patient\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"JANE\",");
+buf.append("        \"last_name\": \"DOE\",");
+buf.append("        \"id\": \"1234567890\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"CHRISTINA\",");
+buf.append("        \"last_name\": \"BERTOLAMI\",");
+buf.append("        \"npi\": \"1619131232\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.referrals(query);
+```
+
 > Example referrals response when the trading partner has authorized the request:
 
-```
+```json
 {
     "event": {
         "category": "specialty_care_review",
