@@ -5,8 +5,17 @@
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/prices/insurance?cpt_code=87799&zip_code=32218
 ```
+
 ```python
 pd.insurance_prices(zip_code='32218', cpt_code='87799')
+```
+
+```csharp
+client.pricesInsurance(
+			new Dictionary<string, string> {
+				{ "zip_code", "32218" },
+				{ "cpt_code", "87799" }
+			});
 ```
 
 *Available modes of operation: real-time*
