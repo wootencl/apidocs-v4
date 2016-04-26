@@ -83,7 +83,7 @@ canceled          | The activity was canceled by the client application.
 failed            | The activity was unable to process successfully.
 rejected          | The activity has been rejected by the trading partner for reasons outlined in the response.
 rejected_reviewed | The activity has been rejected by the trading partner and reviewed for errors by the PokitDok team.
-=======
+
 
 Information concerning the activity’s progression through the system is available via the API Dashboard, as well as the endpoints listed below.
 
@@ -95,7 +95,7 @@ Endpoint | HTTP Method | Description
 /activities/ | GET | List current activities. A query string parameter ‘parent_id’ may also be used with this API to get information about sub-activities that were initiated from a batch file upload.
 /activities/{id} | GET | Return detailed information about the specified activity. API applications will receive an activity ID in the API response for all operations that are asynchronous.
 /activities/{id} | PUT | Updates an existing activity. Useful for canceling pending activities that a client application no longer wishes to execute.
-=======
+
 
 The /activities/ response includes the following fields:
 
@@ -112,4 +112,4 @@ result_history | {array} | A list of result values that have been received from 
 state | {dict} | Current state of this Activity.
 transition_path | {array} | The list of state transitions that will be used for this Activity.
 units_of_work | {int} | The number of 'units of work' that the activity is operating on. This will typically be 1 for real-time requests like /eligibility/. When uploading batch X12 files via the /files/ endpoint, this will be the number of ‘transactions’ within that file. For example, if a client application POSTs a file of 20 eligibility requests to the /files/ API, the units_of_work value for that activity will be 20 after the X12 file has been analyzed. If an activity does show a value greater than 1 for units_of_work, the client application can fetch detailed information about each one of the activities processing those units of work by using the /activities/?parent_id=<activity_id> API.
-=======
+
