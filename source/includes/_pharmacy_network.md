@@ -3,19 +3,13 @@
 > Example fetching pharmacy information by NPI:
 
 ```python
-pd.pharmacy_network(npi=`1467560003`)
+pd.pharmacy_network(npi='1427382266', trading_partner_id= 'medicare_national', plan_number='S5820003')
 ```
 
 > Example searching for in-network pharmacies by plan and zip code:
 
 ```python
-pd.pharmacy_network(trading_partner_id=`medicare_national`, plan_number=`S5820003`, zipcode=`29307`, radius=`15mi`)
-```
-
-> Example request for in-network pharmacies by plan, zipcode, and pharmacy name:
-
-```python
-pd.pharmacy_network(trading_partner_id=`medicare_national`, plan_number=`S5820003`, zipcode=`29307`, radius=`15mi`, pharmacy_name=`walgreens`)
+pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S5820003' , zipcode='07097', radius='1mi')
 ```
 
 The In-Network Pharmacy Endpoint returns in-network pharmacies for a plan and
@@ -65,84 +59,281 @@ The /pharmacy/network response contains the following parameters:
 Sample response for /pharmacy/network/{npi} endpoint :
 
 {
-    "found": true,
-    "pharmacy": {
-        "in_network": false,
-        "locations": [
-            {
+    "data": [
+        {
+            "in_network": true, 
+            "location": {
                 "address_lines": [
-                    "PO Box 9830"
-                ],
-                "city": "Salt Lake City",
-                "country": "US",
+                    "307 1st St"
+                ], 
+                "city": "Hoboken", 
+                "country": "US", 
+                "fax": "2014203333", 
                 "geo_location": [
-                    -111.744257,
-                    40.707005
-                ],
-                "phone": "8286692941",
-                "state": "UT",
-                "zipcode": "84109"
-            },
-            {
-                "address_lines": [
-                    "429 E Main St"
-                ],
-                "city": "Liberty",
-                "country": "US",
-                "geo_location": [
-                    -82.69042,
-                    34.78837
-                ],
-                "phone": "8648439326",
-                "state": "SC",
-                "zipcode": "29657"
-            }
-        ],
-        "mail": false,
-        "pharmacy_name": "INGLES MARKETS INC",
-        "retail": true
-    }
+                    -74.03467, 
+                    40.738
+                ], 
+                "phone": "2014207777", 
+                "state": "NJ", 
+                "zipcode": "07030"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "HOBOKEN DRUGS", 
+            "retail": true
+        }
+    ]
 }
 
 Sample response for /pharmacy/network endpoint when using zip and radius as parameters:
 
 {
-    "found": true,
-    "in_network_pharmacies": [
+    "data": [
         {
-            "in_network": true,
-            "locations": [
-                {
-                    "address_lines": [
-                        "PO Box 9830"
-                    ],
-                    "city": "Salt Lake City",
-                    "country": "US",
-                    "geo_location": [
-                        -111.744257,
-                        40.707005
-                    ],
-                    "phone": "8286692941",
-                    "state": "UT",
-                    "zipcode": "84109"
-                },
-                {
-                    "address_lines": [
-                        "429 E Main St"
-                    ],
-                    "city": "Liberty",
-                    "country": "US",
-                    "geo_location": [
-                        -82.69042,
-                        34.78837
-                    ],
-                    "phone": "8648439326",
-                    "state": "SC",
-                    "zipcode": "29657"
-                }
-            ],
-            "mail": false,
-            "pharmacy_name": "INGLES MARKETS INC",
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "165 Erie St"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2012226534", 
+                "geo_location": [
+                    -74.04339, 
+                    40.72829
+                ], 
+                "phone": "2019631903", 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "NEWPORT PHARMACEUTICAL SERVICES INC", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "204 Washington St Apt 1B"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2013335178", 
+                "geo_location": [
+                    -74.03771, 
+                    40.71469
+                ], 
+                "phone": "2013335189", 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "HOOK PHARMACY", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "325 7th St"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2016539909", 
+                "geo_location": [
+                    -74.04907, 
+                    40.72638
+                ], 
+                "phone": "2016538378", 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "SLM PHARMACY INC", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "110 Newark Ave"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2019460155", 
+                "geo_location": [
+                    -74.04271, 
+                    40.71997
+                ], 
+                "phone": "2014330108", 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "DUANE READE", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "400 Marin Blvd"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "geo_location": [
+                    -74.03995, 
+                    40.72313
+                ], 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "INSERRA SUPERMARKETS INC", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "355 Grand St"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2019152362", 
+                "geo_location": [
+                    -74.05094, 
+                    40.71591
+                ], 
+                "phone": "2019152166", 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "LSC PHARMACY SERVICES, INC", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "501 Jersey Ave"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2014358113", 
+                "geo_location": [
+                    -74.04745, 
+                    40.71944
+                ], 
+                "phone": "2014358112", 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "NORMANS PHARMACY INC", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "52 River Dr S"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2012125794", 
+                "geo_location": [
+                    -74.032139, 
+                    40.727533
+                ], 
+                "phone": "2012161166", 
+                "state": "NJ", 
+                "zipcode": "07310"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "DUANE READE", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "52 Essex St"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "geo_location": [
+                    -74.03595, 
+                    40.71295
+                ], 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "DOWNTOWN CHEMISTS CORP", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "129 Newark Ave"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2013332224", 
+                "geo_location": [
+                    -74.04401, 
+                    40.72019
+                ], 
+                "phone": "2013332223", 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "FENNY PHARMACY LLC", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "172 Newark Ave"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2014321317", 
+                "geo_location": [
+                    -74.0453, 
+                    40.72129
+                ], 
+                "phone": "2014323300", 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "TRANQUIL PHARM INC", 
+            "retail": true
+        }, 
+        {
+            "in_network": true, 
+            "location": {
+                "address_lines": [
+                    "75 Bright St"
+                ], 
+                "city": "Jersey City", 
+                "country": "US", 
+                "fax": "2013321088", 
+                "geo_location": [
+                    -74.04841, 
+                    40.71719
+                ], 
+                "phone": "2013324488", 
+                "state": "NJ", 
+                "zipcode": "07302"
+            }, 
+            "mail": false, 
+            "pharmacy_name": "CARRY PHARMACY INC", 
             "retail": true
         }
     ]
