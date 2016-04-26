@@ -56,8 +56,9 @@ The /pharmacy/network response contains the following parameters:
 | pharmacy.mail                    | {boolean} | Is location a mail order pharmacy?     |
 | pharmacy.retail                  | {boolean} | Is location a mail order pharmacy?     |
 
-Sample response for /pharmacy/network/{npi} endpoint :
+> Sample response for /pharmacy/network/{npi} endpoint :
 
+```
 {
     "data": [
         {
@@ -83,9 +84,11 @@ Sample response for /pharmacy/network/{npi} endpoint :
         }
     ]
 }
+```
 
-Sample response for /pharmacy/network endpoint when using zip and radius as parameters:
+> Sample response for /pharmacy/network endpoint when using zip and radius as parameters:
 
+```
 {
     "data": [
         {
@@ -338,6 +341,7 @@ Sample response for /pharmacy/network endpoint when using zip and radius as para
         }
     ]
 }
+```
 
 The In-Network Pharmacy Endpoint returns in-network pharmacies for a plan and
 identifies them as retail or mail order pharmacies.
