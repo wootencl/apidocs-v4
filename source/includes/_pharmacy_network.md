@@ -25,7 +25,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Hoboken", 
                 "country": "US", 
-                "fax": "2014203333", 
                 "geo_location": [
                     -74.03467, 
                     40.738
@@ -40,6 +39,7 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
         }
     ]
 }
+
 ```
 
 > Sample response for /pharmacy/network endpoint when using zip and radius as parameters:
@@ -55,7 +55,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2012226534", 
                 "geo_location": [
                     -74.04339, 
                     40.72829
@@ -76,7 +75,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2013335178", 
                 "geo_location": [
                     -74.03771, 
                     40.71469
@@ -97,7 +95,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2016539909", 
                 "geo_location": [
                     -74.04907, 
                     40.72638
@@ -118,7 +115,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2019460155", 
                 "geo_location": [
                     -74.04271, 
                     40.71997
@@ -158,7 +154,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2019152362", 
                 "geo_location": [
                     -74.05094, 
                     40.71591
@@ -179,7 +174,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2014358113", 
                 "geo_location": [
                     -74.04745, 
                     40.71944
@@ -200,7 +194,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2012125794", 
                 "geo_location": [
                     -74.032139, 
                     40.727533
@@ -240,7 +233,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2013332224", 
                 "geo_location": [
                     -74.04401, 
                     40.72019
@@ -261,7 +253,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2014321317", 
                 "geo_location": [
                     -74.0453, 
                     40.72129
@@ -282,7 +273,6 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
                 ], 
                 "city": "Jersey City", 
                 "country": "US", 
-                "fax": "2013321088", 
                 "geo_location": [
                     -74.04841, 
                     40.71719
