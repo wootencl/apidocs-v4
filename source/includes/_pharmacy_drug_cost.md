@@ -3,179 +3,176 @@
 > Example request to determine drug coverage using drug name:
 
 ```python
-pd.pharmacy_drug_cost(trading_partner_id= 'medicare_national', plan_number='H1026001', drug= 'simvastatin')
+pd.pharmacy_drug_cost(trading_partner_id= 'medicare_national', plan_number='S0522034', drug= 'simvastatin')
 ```
 
 > Example request to determine drug coverage using NDC:
 
 ```python
-pd.pharmacy_drug_cost(trading_partner_id= 'medicare_national', plan_number='H1026001', ndc= '00071101968')
+pd.pharmacy_drug_cost(trading_partner_id= 'medicare_national', plan_number='S0522034', ndc= '00071101968')
 ```
 
 > Sample Pharmacy Formulary API response when searching for a medication using drug name (SIMVASTATIN):  
 
 ```json
 {
-    "data": {
-        "drugs": [
-            {
-                "drug": "SIMVASTATIN 5 MG TABLET", 
-                "mail": {
-                    "ins_pay_90_day": {
-                        "amount": "6.34", 
-                        "currency": "USD"
-                    }, 
-                    "oop_90_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_90_day": {
-                        "amount": "6.34", 
-                        "currency": "USD"
-                    }
+    "data": [
+        {
+            "drug": "SIMVASTATIN 40 MG TABLET", 
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "3.89", 
+                    "currency": "USD"
                 }, 
-                "retail": {
-                    "ins_pay_30_day": {
-                        "amount": "2.98", 
-                        "currency": "USD"
-                    }, 
-                    "oop_30_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_30_day": {
-                        "amount": "2.98", 
-                        "currency": "USD"
-                    }
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "6.89", 
+                    "currency": "USD"
                 }
             }, 
-            {
-                "drug": "SIMVASTATIN 40 MG TABLET", 
-                "mail": {
-                    "ins_pay_90_day": {
-                        "amount": "5.46", 
-                        "currency": "USD"
-                    }, 
-                    "oop_90_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_90_day": {
-                        "amount": "5.46", 
-                        "currency": "USD"
-                    }
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "1.60", 
+                    "currency": "USD"
                 }, 
-                "retail": {
-                    "ins_pay_30_day": {
-                        "amount": "2.69", 
-                        "currency": "USD"
-                    }, 
-                    "oop_30_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_30_day": {
-                        "amount": "2.69", 
-                        "currency": "USD"
-                    }
-                }
-            }, 
-            {
-                "drug": "SIMVASTATIN 20 MG TABLET", 
-                "mail": {
-                    "ins_pay_90_day": {
-                        "amount": "4.45", 
-                        "currency": "USD"
-                    }, 
-                    "oop_90_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_90_day": {
-                        "amount": "4.45", 
-                        "currency": "USD"
-                    }
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
                 }, 
-                "retail": {
-                    "ins_pay_30_day": {
-                        "amount": "2.35", 
-                        "currency": "USD"
-                    }, 
-                    "oop_30_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_30_day": {
-                        "amount": "2.35", 
-                        "currency": "USD"
-                    }
-                }
-            }, 
-            {
-                "drug": "SIMVASTATIN 80 MG TABLET", 
-                "mail": {
-                    "ins_pay_90_day": {
-                        "amount": "9.56", 
-                        "currency": "USD"
-                    }, 
-                    "oop_90_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_90_day": {
-                        "amount": "9.56", 
-                        "currency": "USD"
-                    }
-                }, 
-                "retail": {
-                    "ins_pay_30_day": {
-                        "amount": "4.06", 
-                        "currency": "USD"
-                    }, 
-                    "oop_30_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_30_day": {
-                        "amount": "4.06", 
-                        "currency": "USD"
-                    }
-                }
-            }, 
-            {
-                "drug": "SIMVASTATIN 10 MG TABLET", 
-                "mail": {
-                    "ins_pay_90_day": {
-                        "amount": "4.07", 
-                        "currency": "USD"
-                    }, 
-                    "oop_90_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_90_day": {
-                        "amount": "4.07", 
-                        "currency": "USD"
-                    }
-                }, 
-                "retail": {
-                    "ins_pay_30_day": {
-                        "amount": "2.23", 
-                        "currency": "USD"
-                    }, 
-                    "oop_30_day": {
-                        "amount": "0.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_30_day": {
-                        "amount": "2.23", 
-                        "currency": "USD"
-                    }
+                "total_cost_30_day": {
+                    "amount": "2.60", 
+                    "currency": "USD"
                 }
             }
-        ], 
-        "is_covered": true
-    }
+        }, 
+        {
+            "drug": "SIMVASTATIN 20 MG TABLET", 
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "2.33", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "5.33", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "1.07", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "2.07", 
+                    "currency": "USD"
+                }
+            }
+        }, 
+        {
+            "drug": "SIMVASTATIN 5 MG TABLET", 
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "2.38", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "5.38", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "1.07", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "2.07", 
+                    "currency": "USD"
+                }
+            }
+        }, 
+        {
+            "drug": "SIMVASTATIN 80 MG TABLET", 
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "7.41", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "10.41", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "2.80", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "3.80", 
+                    "currency": "USD"
+                }
+            }
+        }, 
+        {
+            "drug": "SIMVASTATIN 10 MG TABLET", 
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "2.14", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "5.14", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "2.00", 
+                    "currency": "USD"
+                }
+            }
+        }
+    ]
 }
 ```
 
@@ -183,56 +180,41 @@ pd.pharmacy_drug_cost(trading_partner_id= 'medicare_national', plan_number='H102
 
 ```json
 {
-    "data": {
-        "drugs": [
-            {
-                "drug": "LYRICA 225 MG CAPSULE", 
-                "mail": {
-                    "ins_pay_90_day": {
-                        "amount": "837.76", 
-                        "currency": "USD"
-                    }, 
-                    "oop_90_day": {
-                        "amount": "126.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_90_day": {
-                        "amount": "963.76", 
-                        "currency": "USD"
-                    }
+    "data": [
+        {
+            "drug": "LYRICA 225 MG CAPSULE", 
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "793.09", 
+                    "currency": "USD"
                 }, 
-                "retail": {
-                    "ins_pay_30_day": {
-                        "amount": "280.03", 
-                        "currency": "USD"
-                    }, 
-                    "oop_30_day": {
-                        "amount": "42.00", 
-                        "currency": "USD"
-                    }, 
-                    "total_cost_30_day": {
-                        "amount": "322.03", 
-                        "currency": "USD"
-                    }
+                "oop_90_day": {
+                    "amount": "198.27", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "991.36", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "274.34", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "68.58", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "342.92", 
+                    "currency": "USD"
                 }
             }
-        ], 
-        "is_covered": true
-    }
+        }
+    ]
 }
 ```
-
-> Sample Pharmacy Formulary API response when searching for a medication using the 
-complete drug name (VENTOLIN) and drug is not covered :  
-
-```json
-{
-    "data": {
-        "is_covered": false
-    }
-}
-```
-
 
 The Pharmacy Drug Cost Endpoint allows a deep dive into the cost for a member’s 
 medication. It returns details about a medication’s out of pocket cost, total cost, 
@@ -293,7 +275,6 @@ The /pharmacy/drug/cost response contains the following parameters:
 | Field                    | Type     | Description                                                                                                                             |
 |:-------------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
 | label_name               | {string} | The full drug name (name + strength + form)                                                                                             |
-| is_covered               | {string} | Is this medication covered on the insurance formulary                                                                                   |
 | retail.oop_30_day        | {string} | Out of pocket cost for 30 day supply of drug at a in-network retail pharmacy                                                            |
 | retail.total_cost_30_day | {string} | Total cost of drug for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)          |
 | retail.ins_pay_30_day    | {string} | Amount insurance covers for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)     |
