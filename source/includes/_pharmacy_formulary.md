@@ -16,53 +16,50 @@ pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522
 
 ```json
 {
-    "data": {
-        "drugs": [
-            {
-                "drug": "SIMVASTATIN 10 MG TABLET", 
-                "prior_auth": false, 
-                "quantity_limit": false, 
-                "step_therapy": false, 
-                "tier": 1, 
-                "tier_name": "preferred generic"
-            }, 
-            {
-                "drug": "SIMVASTATIN 20 MG TABLET", 
-                "prior_auth": false, 
-                "quantity_limit": false, 
-                "step_therapy": false, 
-                "tier": 1, 
-                "tier_name": "preferred generic"
-            }, 
-            {
-                "drug": "SIMVASTATIN 80 MG TABLET", 
-                "limit_amount": "30", 
-                "limit_days": 30, 
-                "prior_auth": false, 
-                "quantity_limit": true, 
-                "step_therapy": false, 
-                "tier": 1, 
-                "tier_name": "preferred generic"
-            }, 
-            {
-                "drug": "SIMVASTATIN 40 MG TABLET", 
-                "prior_auth": false, 
-                "quantity_limit": false, 
-                "step_therapy": false, 
-                "tier": 1, 
-                "tier_name": "preferred generic"
-            }, 
-            {
-                "drug": "SIMVASTATIN 5 MG TABLET", 
-                "prior_auth": false, 
-                "quantity_limit": false, 
-                "step_therapy": false, 
-                "tier": 1, 
-                "tier_name": "preferred generic"
-            }
-        ], 
-        "is_covered": true
-    }
+    "data": [
+        {
+            "drug": "SIMVASTATIN 40 MG TABLET", 
+            "prior_auth": false, 
+            "quantity_limit": false, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic"
+        }, 
+        {
+            "drug": "SIMVASTATIN 20 MG TABLET", 
+            "prior_auth": false, 
+            "quantity_limit": false, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic"
+        }, 
+        {
+            "drug": "SIMVASTATIN 5 MG TABLET", 
+            "prior_auth": false, 
+            "quantity_limit": false, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic"
+        }, 
+        {
+            "drug": "SIMVASTATIN 80 MG TABLET", 
+            "limit_amount": "30", 
+            "limit_days": 30, 
+            "prior_auth": false, 
+            "quantity_limit": true, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic"
+        }, 
+        {
+            "drug": "SIMVASTATIN 10 MG TABLET", 
+            "prior_auth": false, 
+            "quantity_limit": false, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic"
+        }
+    ]
 }
 
 ```
@@ -71,21 +68,18 @@ pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522
 
 ```json
 {
-    "data": {
-        "drugs": [
-            {
-                "drug": "LYRICA 225 MG CAPSULE", 
-                "limit_amount": "60", 
-                "limit_days": 30, 
-                "prior_auth": false, 
-                "quantity_limit": true, 
-                "step_therapy": false, 
-                "tier": 3, 
-                "tier_name": "preferred brand"
-            }
-        ], 
-        "is_covered": true
-    }
+    "data": [
+        {
+            "drug": "LYRICA 225 MG CAPSULE", 
+            "limit_amount": "60", 
+            "limit_days": 30, 
+            "prior_auth": false, 
+            "quantity_limit": true, 
+            "step_therapy": false, 
+            "tier": 3, 
+            "tier_name": "preferred brand"
+        }
+    ]
 }
 ```
 
@@ -150,11 +144,10 @@ The /pharmacy/formulary response contains the following parameters:
 | Field                 | Type      | Description                                                                                        |
 |:----------------------|:----------|:---------------------------------------------------------------------------------------------------|
 | drug                  | {string}  | The full drug name (name + strength + form)                                                        |
-| is_covered            | {string}  | Is this medication on the insurance formulary                                                      |
 | tier                  | {short}   | The level the drug fall under on the formulary                                                     |
 | tier_name             | {string}  | The name associated with the tier level                                                            |
 | prior_auth            | {boolean} | Does the drug require a prior authorization?                                                       |
 | step_therapy          | {boolean} | Does the drug require step therapy?                                                                |
 | quantity_limit        | {boolean} | Does this drug have a quantity limit?                                                              |
-| quantity_limit_amount | {string}  | Quantity limit amount associated with this drug. The unit of measure is specific to the drug type. |
-| quantity_limit_days   | {integer} | Quantity limit days associated with this drug. E.g. 30                                             |
+| limit_amount | {string}  | Quantity limit amount associated with this drug. The unit of measure is specific to the drug type. |
+| limit_days   | {integer} | Quantity limit days associated with this drug. E.g. 30                                             |
