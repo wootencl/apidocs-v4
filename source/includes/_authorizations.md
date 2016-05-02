@@ -281,26 +281,71 @@ pd.authorizations(query);
     "trading_partner_id": "MOCKPAYER"
 }
 ```
+> Example authorizations response when the trading partner has received the request and it is pending:
+
+```
+{
+    "patient": {
+        "birth_date": "1970-02-02",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "trading_partner_id": "abc_healthcare",
+    "payer": {
+        "organization_name": "ABC HealthCare",
+        "id": ""
+    },
+    "originating_company_id": "1453504565",
+    "correlation_id": "",
+    "client_id": "",
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "Aye-ay",
+        "npi": "1760779011"
+    },
+    "async": false,
+    "event": {
+        "category": "health_services_review",
+        "place_of_service": "office",
+        "review": {
+            "decision_reason": "requires_medical_review",
+            "second_surgical_opinion_required": false,
+            "certification_action": "pended"
+        },
+        "delivery": {
+            "quantity_qualifier": "visits",
+            "quantity": 1
+        },
+        "certification_type": "initial",
+        "type": "diagnostic_lab"
+    },
+    "valid_request": true
+}
+```
 
 *Available modes of operation: batch/async or real-time*
 
-The Authorizations endpoint allows an application to submit a request for an authorization for a health care service.
-Providers can request permission (authorization) from the reviewing entity (e.g. Utilization Management Organization) to deliver health care services to a patient.
+The Authorizations endpoint allows an application to submit a request for an authorization for a health care service. Providers can request permission (authorization) from the reviewing entity (e.g. Utilization Management Organization) to deliver health care services to a patient.
 
-The authorization request can also be used  to request permission to admit a patient and/or gain authorization to deliver specific health care services to a patient that requires review.
+The Authorization request can also be used to request permission to admit a patient and/or gain authorization to deliver specific health care services to a patient that requires review.  Services requiring authorization are defined by the trading partner. Authorization request and responses may vary based on Trading Partner. 
 
-Available Authorizations Endpoints:
+Learn more about our Authorization API workflow.
+
+Interested in requesting approval for a referral to a specialist? See PokitDok’s [Referrals](#referrals) endpoint.
+
+Available Authorizations endpoints:
 
 | Endpoint         | HTTP Method | Description                                                                                             |
 |:-----------------|:------------|:--------------------------------------------------------------------------------------------------------|
-| /authorizations/ | POST        | Submit a request for the review of health care in order to obtain an authorization for that health care |
+| /authorizations/ | POST        | Submit a request for the review of healthcare services in order to obtain an authorization for that service. |
 
 The /authorizations/ endpoint accepts the following parameters:
 
 | Parameter                         | Description                                                                                                                                                                                  |
 |:----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| event                             | The patient event that is being submitted for review.                                                                                                                                        |
-| event.category                    | The category of the event being submitted for review.                                                                                                                                        |
+| event                             | The patient event, service or procedure that is being submitted for review.                                                                                                                                        |
+| event.category                    | The category of the event being submitted for review. A full list of possible values can be found [below](#category).                                                                                                                                        |
 | event.certification_type          | The type of certification being requested. For new authorization requests, a certification value of "initial" should be used.                                                                |
 | event.delivery                    | Specifies the delivery pattern of the health care services.                                                                                                                                  |
 | event.delivery.quantity           | The quantity of services being requested.                                                                                                                                                    |
@@ -321,8 +366,8 @@ The /authorizations/ endpoint accepts the following parameters:
 | patient.id                        | The patient’s member identifier.                                                                                                                                                             |
 | patient.first_name                | The patient’s first name as specified on their policy.                                                                                                                                       |
 | patient.last_name                 | The patient’s last name as specified on their policy.                                                                                                                                        |
-| patient.last_menstrual_date       | Optional: The last menstrual date of the patient                                                                                                                                             |
-| patient.ssn                       | Optional: The social security number of the patient                                                                                                                                          |
+| patient.last_menstrual_date       | Optional: The last menstrual date of the patient.                                                                                                                                         |
+| patient.ssn                       | Optional: The social security number of the patient.                                                                                                                                          |
 | patient.group_number              | Optional: The group number of the patient.                                                                                                                                                   |
 | patient.estimated_date_of_birth   | Optional: The estimated date of birth of the patient.                                                                                                                                        |
 | patient.illness_date              | Optional: The date the patient became ill.                                                                                                                                                   |
@@ -336,7 +381,7 @@ The /authorizations/ endpoint accepts the following parameters:
 | subscriber.last_name              | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.                                                                           |
 | trading_partner_id                | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.                                                                              |
 
-If the authorization request is sent using a real-time interface, an authorization response will be returned.
+If the authorization request is sent using a real-time interface, an authorization response may be returned depending on trading partner ability. Trading partner responses may vary or additional information may be requested via phone, email or fax. 
 
 The /authorizations/ response contains the following fields:
 
@@ -377,11 +422,8 @@ The /authorizations/ response contains the following fields:
 | trading_partner_id                | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.                                                                                    |
 
 
-Interested in requesting approval for a referral to a specialist? See PokitDok’s [Referrals](#referrals) endpoint.
-
-
 <a name="certaction"></a>
-Full list of possible values that can be returned in the event.review.certification_action parameter on the authorization response:
+Possible values that can be returned in the event.review.certification_action parameter on the authorization response:
 
 | certification_action Values |                    |
 |:----------------------------|:-------------------|
@@ -392,7 +434,7 @@ Full list of possible values that can be returned in the event.review.certificat
 
 
 <a name="decision"></a>
-Full list of possible values that can be returned in the event.review.decision_reason parameter on the authorization response:
+List of possible values that can be returned in the event.review.decision_reason parameter on the authorization response:
 
 | decision_reason Values                                    |                                                      |
 |:----------------------------------------------------------|:-----------------------------------------------------|
@@ -425,7 +467,7 @@ Full list of possible values that can be returned in the event.review.decision_r
 | patient_in_premium_payment_grace_period_first_month       |                                                      |
 
 <a name="certification_type"></a>
-Full list of possible values that can be returned in the event.certification_type parameter on the authorization response:
+Possible values that can be returned in the event.certification_type parameter on the authorization response:
 
 | certification_type |                 |
 |:-------------------|:----------------|
@@ -435,7 +477,7 @@ Full list of possible values that can be returned in the event.certification_typ
 | extension          | revised         |
 
 <a name="category"></a>
-Full list of possible values that can be returned in the event.category parameter on the authorization response:
+Possible values that can be returned in the event.category parameter on the authorization response:
 
 | category               |                       |
 |:-----------------------|:----------------------|
