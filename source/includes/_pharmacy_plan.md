@@ -118,11 +118,7 @@ Available Pharmacy Plan Endpoints:
 |:---------------|:------------|:----------------------------------------|
 | /pharmacy/plan | GET         | Determine pharmacy plan info for member |
 
-To use the Pharmacy Plans Endpoint with a medicare member, use the Eligibility Endpoint
-to submit an eligibility request for a member using medicare_national trading partner id.
-Medicare members with Part D coverage will have pharmacy.is_eligible set to true and the
-pharmacy.plan_number will contain their Medicare Part D plan_number. You will use this
-number to access the member’s benefits.
+To use the Pharmacy Plans Endpoint with a Medicare member, you will need the plan number. This is the contract ID (ex. S1234) + Plan's Plan Benefit Package (PBP) Number PBP number (ex. 001) concatenated together in that order. There are several ways to get this number. The plan number may be on the member’s insurance card. If not, you can use an NCPDP E1 eligibility check or PokitDok’s Eligibility Endpoint. With the Eligibility Endpoint, Medicare members with Part D coverage will have pharmacy.is_eligible set to true and the pharmacy.plan_number will contain their Medicare Part D plan_number. Note: Your NPI must be registered with Medicare to check eligibility. 
 
 The /pharmacy/plan endpoint accepts the following parameters:
 
@@ -131,30 +127,10 @@ The /pharmacy/plan endpoint accepts the following parameters:
 | trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the Trading Partners endpoint. |
 | plan_number        | {string} | Member’s plan identification number. Note: If unknown can use X12 270/271 eligibility      |
 
-The Pharmacy Plan Endpoint allows you to dive into the member’s drug benefit and discover
-details about the plan.
+The Pharmacy Plans Endpoint allows you to dive into the member’s drug benefit and discover details about the plan.
 
-Most prescription benefits are included in the medical plan, therefore will not have a separate
-premium or deductible. Medicare Part D plans are purchased separate from medical benefits,
-therefore will have their own premium and deductible. Premium and deductible will only be
-returned for Medicare Part D plans.
-
-Medicare drug plans have different phases of coverage, including deductible, initial coverage,
-gap coverage, and catastrophic coverage. Each phase has a different out of pocket cost for covered
-medications. The copays included in the Pharmacy Plan Endpoint are coverage during the Initial Coverage Phase.
-
-Medications are grouped into tiers or levels. Plans may have several tiers and the copay for a drug
-depends on which tier the drug is in. Usually the lower tiers contain less expensive medications and
-the higher tiers are reserved for more expensive medications.
-
-Each tier level will have either a copay or coinsurance associated with it. The copay will be a dollar
-amount that the member will be responsible for paying out of pocket. Ex. retail_30_day_tier_1_copay
-The co-insurance will be a percentage of the total cost of the drug that the member will pay out of pocket.
-Ex. retail_30_day_tier_4_coins
-
-To determine in-network pharmacies for the plan, you can use the In-Network Pharmacy Endpoint. To determine
-if a specific drug is located on a tier level, you can use our Pharmacy Formulary Endpoint. You can also
-use Eligibility Endpoint to get initial member benefit information including basic pharmacy benefit information.
+Medicare drug plans have different phases of coverage, including deductible, initial coverage, gap coverage, and catastrophic coverage. Each phase has a different out of pocket cost for covered medications. The copays included in the Pharmacy Plan Endpoint are for the member during the Initial Coverage Phase. 
+Medications are grouped into tiers or levels. Plans may have several tiers and the copay for a drug depends on which tier the drug is in. Usually the lower tiers contain less expensive medications and the higher tiers are reserved for more expensive medications. Each tier level will have either a copay or coinsurance associated with it. The copay will be a dollar amount that the member will be responsible for paying out of pocket. Ex. retail_30_day_tier_1_copay The co-insurance will be a percentage of the total cost of the drug that the member will pay out of pocket. Ex. retail_30_day_tier_4_coins
 
 The /pharmacy/plan response contains the following parameters:
 
