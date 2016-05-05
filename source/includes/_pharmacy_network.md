@@ -289,21 +289,18 @@ pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S58200
 }
 ```
 
-The In-Network Pharmacy Endpoint returns in-network pharmacies for a plan and
-identifies them as retail or mail order pharmacies.
+The In-Network Pharmacy Endpoint returns in-network pharmacies for a plan.
 
 | Endpoint               | HTTP Method | Description                                                              |
 |:-----------------------|:------------|:-------------------------------------------------------------------------|
 | /pharmacy/network/     | GET         | Get a list of pharmacies meeting certain search criteria                 |
 | /pharmacy/network/{id} | GET         | Retrieve the data for a specified pharmacy; the ID is the provider’s NPI |
 
-To use the In-Network Pharmacy Endpoint with a medicare member, use the Eligibility Endpoint
-to submit an eligibility request for a member using medicare_national trading partner id.
-Medicare members with Part D coverage will have pharmacy.is_eligible set to true and the
-pharmacy.plan_number will contain the member’s Medicare Part D plan_number. This number can be
-used to access the member’s benefits.
+To use the In-Network Pharmacy Endpoint with a Medicare member, you will need the plan number. This is the contract ID (ex. S1234) + Plan's Plan Benefit Package (PBP) Number PBP number (ex. 001) concatenated together in that order. There are several ways to get this number. The plan number may be on the member’s insurance card. If not, you can use an NCPDP E1 eligibility check or PokitDok’s Eligibility Endpoint. With the Eligibility Endpoint, Medicare members with Part D coverage will have pharmacy.is_eligible set to true and the pharmacy.plan_number will contain their Medicare Part D plan_number. Note: Your NPI must be registered with Medicare to check eligibility. 
+ 
+A list of pharmacies will be returned for a given location and radius. The in-network pharmacy endpoint defaults to retail pharmacies.
 
-A list of pharmacies will be returned for a given location and radius. The search can also be filtered with a pharmacy name. Ex. All in-network Walgreens for a given area.
+The response will include details about the pharmacy such as name, address, phone number, etc. 
 
 The /pharmacy/network endpoint accepts the following parameters:
 
