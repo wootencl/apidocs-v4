@@ -12,7 +12,7 @@ pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522
 pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522034', ndc='00071101968')
 ```
 
-> Sample pharmacy plan API response when searching for a drug name (SIMVASTATIN) : 
+> Sample Pharmacy Formulary API response when searching for a drug name (SIMVASTATIN) : 
 
 ```json
 {
@@ -83,52 +83,25 @@ pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522
 }
 ```
 
-The Pharmacy Formulary Endpoint allows a deep dive into the member’s drug benefit. It
-returns details about what medications are covered in the formulary.  
+The Pharmacy Formulary Endpoint allows a deep dive into the member’s drug benefit. It returns details about what medications are covered in the formulary.  
 
-A formulary is a list of medication that are approved for coverage by an insurance company.
-Drugs on a formulary are usually grouped into tier levels. The tier that the medication falls
-in determines the member’s copay. Most plans have between 3 to 5 tiers. The lower the tier,
-the less expensive the copay. Lower tiers are usually generic medication, middle tiers are
-brand medications and the highest tier is usually reserved for specialty medications.
+A formulary is a list of medication that are approved for coverage by an insurance company. Drugs on a formulary are usually grouped into tier levels. The tier that the medication falls in determines the member’s copay. Most plans have between 3 to 5 tiers. The lower the tier, the less expensive the copay. Lower tiers are usually generic medication, middle tiers are brand medications, and the highest tier is usually reserved for specialty medications. 
 
-This includes tier level and restrictions such as prior authorization, step therapy, and
-quantity limit. Only Medicare Part C and D plans are currently available.
+This endpoint returns tier level and restrictions such as prior authorization, step therapy, and quantity limit. Only Medicare Part C and D plans are currently available.
 
-Medications can also have restrictions on their coverage such as prior authorization,
-step therapy, and quantity limit.
+Medications can also have restrictions on their coverage such as prior authorization, step therapy, and quantity limit.
 
 | Endpoint            | HTTP Method | Description                        |
 |:--------------------|:------------|:-----------------------------------|
 | /pharmacy/formulary | GET         | Determine drug coverage for member |
 
-To use the Pharmacy Formulary Endpoint with a medicare member, use the Eligibility
-Endpoint to submit an eligibility request for a member using medicare_national trading
-partner id. Medicare members with Part D coverage will have pharmacy.is_eligible set to
-true and the pharmacy.plan_number will contain the member’s Medicare Part D plan_number.
-This number can be used to access the member’s benefits.
+To use the Pharmacy Formulary Endpoint with a Medicare member, you will need the plan number. This is the contract ID (ex. S1234) + Plan's Plan Benefit Package (PBP) Number PBP number (ex. 001) concatenated together in that order. There are several ways to get this number. The plan number may be on the member’s insurance card. If not, you can use an NCPDP E1 eligibility check or PokitDok’s Eligibility Endpoint. With the Eligibility Endpoint, Medicare members with Part D coverage will have pharmacy.is_eligible set to true and the pharmacy.plan_number will contain their Medicare Part D plan_number. Note: Your NPI must be registered with Medicare to check eligibility. 
+ 
+A medication for which coverage is being determined will need to be specified. This can be done using the drug name or NDC. A drug name can include the name of the medication, strength, and form. For example, SIMVASTATIN 10 MG TABLET. Simvastatin is the drug name. 10 MG is the strength. Simvastatin can come in other strengths (5mg, 10mg, 20mg, 40mg, and 80mg). The form of this medication is tablet. Some drugs will come in multiple forms. Other examples are capsule, solution, suspension, lotion, cream, etc. The brand name of simvastatin is Zocor. You can search for a drug with just the brand or generic name or any combination of drug +/- strength +/- form.
 
-A medication for which coverage is being determined will need to be specified. This can
-be done using the drug name or NDC. A drug name can include the name of the medication,
-strength, and form. For example, SIMVASTATIN 10 MG TABLET. Simvastatin is the drug name,
-the brand name of simvastatin is Zocor,10 MG is the strength. Medications can come in
-different strengths. Available strengths of simvastatin are 5mg, 10mg, 20mg, 40mg, and 80mg.
-The form of this medication is tablet. Some drugs will come in multiple forms. Other examples
-are capsule, solution, suspension, lotion, cream, etc.
+Access benefits for a specific medication by searching by complete name of the medication. For example, SIMVASTATIN 10 MG TABLET will return coverage information for just that medication. For general results, search “simvastatin” and all of the coverage information for all strengths and forms of the drug will be returned.
 
-Access benefits for a specific medication by searching by complete name of the medication.
-For example, SIMVASTATIN 10 MG TABLET will return coverage information for just that medication.
-For general results, search "simvastatin" and all of the coverage information for all strengths
-and forms of the drug will be returned.
-
-The Pharmacy Formulary Endpoint also accepts national drug code number (NDC). The NDC is a
-unique 11-digit, 3-segment number used to identify a specific drug product. The segments
-identify the manufacturer (first 5 numbers), product (middle 4 numbers), and package
-(last 2 numbers). An alternative way to lookup drug coverage is by using the NDC. One medication
-can have multiple NDC numbers. For example, simvastatin 10 mg tablets can be supplied to the
-pharmacy in a 100 count and 1000 count bottle. Both of these will have different NDC numbers
-even though the same drug is in each of the bottles. If simvastatin comes is bought from two
-different generic manufacturers, they will have different NDC numbers.
+The Pharmacy Formulary Endpoint also accepts national drug code number (NDC). The NDC is a unique 11-digit, 3-segment number used to identify a specific drug product. The segments identify the manufacturer (first 5 numbers), product (middle 4 numbers), and package (last 2 numbers). An alternative way to lookup drug coverage is by using the NDC. One medication can have multiple NDC numbers. For example, simvastatin 10 mg tablets can be supplied to the pharmacy in a 100 count and 1000 count bottle. Both of these will have different NDC numbers even though the same drug is in each of the bottles. Simvastatin from different generic manufacturers will have different NDC numbers. 
 
 The /pharmacy/formulary endpoint accepts the following parameters:
 
