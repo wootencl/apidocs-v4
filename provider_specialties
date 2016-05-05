@@ -1,0 +1,2080 @@
+<h1 id="provider-specialties">Provider Specialties</h1>
+
+<p>Provider specialties originate from the <a href="http://www.nucc.org">NUCC Taxonomy</a> (Code Sets-&gt;Provider Taxonomy-&gt;CSV) 
+and also <a href="https://pokitdok.com/marketplace">PokitDok Marketplace</a> specialties.  The complete list of specialties is below.</p>
+
+<p><a name="provider_specialties"></a></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Specialty</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">acupuncturist</td>
+</tr>
+<tr>
+<td style="text-align: left">acute care</td>
+</tr>
+<tr>
+<td style="text-align: left">addiction (substance use disorder)</td>
+</tr>
+<tr>
+<td style="text-align: left">addiction (substance use disorder) counselor</td>
+</tr>
+<tr>
+<td style="text-align: left">addiction medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">addiction psychiatry</td>
+</tr>
+<tr>
+<td style="text-align: left">administrator</td>
+</tr>
+<tr>
+<td style="text-align: left">adolescent and children mental health</td>
+</tr>
+<tr>
+<td style="text-align: left">adolescent medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">adult care home</td>
+</tr>
+<tr>
+<td style="text-align: left">adult companion</td>
+</tr>
+<tr>
+<td style="text-align: left">adult day care</td>
+</tr>
+<tr>
+<td style="text-align: left">adult development &amp; aging</td>
+</tr>
+<tr>
+<td style="text-align: left">adult health</td>
+</tr>
+<tr>
+<td style="text-align: left">adult medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">adult mental health</td>
+</tr>
+<tr>
+<td style="text-align: left">adult reconstructive orthopaedic surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">advanced practice dental therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">advanced practice midwife</td>
+</tr>
+<tr>
+<td style="text-align: left">aerospace medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">air carrier</td>
+</tr>
+<tr>
+<td style="text-align: left">air transport</td>
+</tr>
+<tr>
+<td style="text-align: left">allergy</td>
+</tr>
+<tr>
+<td style="text-align: left">allergy &amp; immunology</td>
+</tr>
+<tr>
+<td style="text-align: left">alzheimer center /dementia center/dementia special care unit</td>
+</tr>
+<tr>
+<td style="text-align: left">ambulance</td>
+</tr>
+<tr>
+<td style="text-align: left">ambulatory care</td>
+</tr>
+<tr>
+<td style="text-align: left">ambulatory family planning facility</td>
+</tr>
+<tr>
+<td style="text-align: left">ambulatory fertility facility</td>
+</tr>
+<tr>
+<td style="text-align: left">ambulatory surgical</td>
+</tr>
+<tr>
+<td style="text-align: left">amputee</td>
+</tr>
+<tr>
+<td style="text-align: left">anaplastologist</td>
+</tr>
+<tr>
+<td style="text-align: left">anatomic pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">anatomic pathology &amp; clinical pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">anesthesiologist assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">angiology (vascular medicine)</td>
+</tr>
+<tr>
+<td style="text-align: left">art therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">art, medical</td>
+</tr>
+<tr>
+<td style="text-align: left">assistant record technician</td>
+</tr>
+<tr>
+<td style="text-align: left">assistant, podiatric</td>
+</tr>
+<tr>
+<td style="text-align: left">assisted living facility</td>
+</tr>
+<tr>
+<td style="text-align: left">assisted living, behavioral disturbances</td>
+</tr>
+<tr>
+<td style="text-align: left">assisted living, mental illness</td>
+</tr>
+<tr>
+<td style="text-align: left">assistive technology practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">assistive technology supplier</td>
+</tr>
+<tr>
+<td style="text-align: left">athletic training</td>
+</tr>
+<tr>
+<td style="text-align: left">attendant care provider</td>
+</tr>
+<tr>
+<td style="text-align: left">audiologist</td>
+</tr>
+<tr>
+<td style="text-align: left">audiologist-hearing aid fitter</td>
+</tr>
+<tr>
+<td style="text-align: left">audiology</td>
+</tr>
+<tr>
+<td style="text-align: left">audiology assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">augmentative communication</td>
+</tr>
+<tr>
+<td style="text-align: left">bariatric medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">behavior analysis</td>
+</tr>
+<tr>
+<td style="text-align: left">behavior analyst</td>
+</tr>
+<tr>
+<td style="text-align: left">behavioral neurology &amp; neuropsychiatry</td>
+</tr>
+<tr>
+<td style="text-align: left">biochemist</td>
+</tr>
+<tr>
+<td style="text-align: left">biomedical engineering</td>
+</tr>
+<tr>
+<td style="text-align: left">biomedical photographer</td>
+</tr>
+<tr>
+<td style="text-align: left">biostatistician</td>
+</tr>
+<tr>
+<td style="text-align: left">birthing</td>
+</tr>
+<tr>
+<td style="text-align: left">blood bank</td>
+</tr>
+<tr>
+<td style="text-align: left">blood banking</td>
+</tr>
+<tr>
+<td style="text-align: left">blood banking/transfusion medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">body imaging</td>
+</tr>
+<tr>
+<td style="text-align: left">bone densitometry</td>
+</tr>
+<tr>
+<td style="text-align: left">bus</td>
+</tr>
+<tr>
+<td style="text-align: left">cardiac rehabilitation</td>
+</tr>
+<tr>
+<td style="text-align: left">cardiac-interventional technology</td>
+</tr>
+<tr>
+<td style="text-align: left">cardiology</td>
+</tr>
+<tr>
+<td style="text-align: left">cardiopulmonary</td>
+</tr>
+<tr>
+<td style="text-align: left">cardiothoracic surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">cardiovascular disease</td>
+</tr>
+<tr>
+<td style="text-align: left">cardiovascular invasive specialist</td>
+</tr>
+<tr>
+<td style="text-align: left">cardiovascular-interventional technology</td>
+</tr>
+<tr>
+<td style="text-align: left">case management</td>
+</tr>
+<tr>
+<td style="text-align: left">case manager/care coordinator</td>
+</tr>
+<tr>
+<td style="text-align: left">certified first assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">chemical pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">chemistry</td>
+</tr>
+<tr>
+<td style="text-align: left">child &amp; adolescent psychiatry</td>
+</tr>
+<tr>
+<td style="text-align: left">child abuse pediatrics</td>
+</tr>
+<tr>
+<td style="text-align: left">children</td>
+</tr>
+<tr>
+<td style="text-align: left">chiropractic</td>
+</tr>
+<tr>
+<td style="text-align: left">chiropractor</td>
+</tr>
+<tr>
+<td style="text-align: left">chore provider</td>
+</tr>
+<tr>
+<td style="text-align: left">chronic care</td>
+</tr>
+<tr>
+<td style="text-align: left">chronic disease hospital</td>
+</tr>
+<tr>
+<td style="text-align: left">clinic pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">clinic/center</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical &amp; laboratory dermatological immunology</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical &amp; laboratory immunology</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical biochemical genetics</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical cardiac electrophysiology</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical child &amp; adolescent</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical cytogenetics</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical ethicist</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical exercise physiologist</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical genetics (m.d.)</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical informatics</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical laboratory director, non-physician</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical medical laboratory</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical molecular genetics</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical neurophysiology</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical neuropsychologist</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical neuropsychology</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical nurse specialist</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical pathology/laboratory medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical pharmacology</td>
+</tr>
+<tr>
+<td style="text-align: left">clinical social worker</td>
+</tr>
+<tr>
+<td style="text-align: left">coding specialist, hospital based</td>
+</tr>
+<tr>
+<td style="text-align: left">coding specialist, physician office based</td>
+</tr>
+<tr>
+<td style="text-align: left">cognitive &amp; behavioral</td>
+</tr>
+<tr>
+<td style="text-align: left">college health</td>
+</tr>
+<tr>
+<td style="text-align: left">colon &amp; rectal surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">community based residential treatment facility, mental illness</td>
+</tr>
+<tr>
+<td style="text-align: left">community based residential treatment facility, mental retardation and/or developmental disabilities</td>
+</tr>
+<tr>
+<td style="text-align: left">community health</td>
+</tr>
+<tr>
+<td style="text-align: left">community health worker</td>
+</tr>
+<tr>
+<td style="text-align: left">community health/public health</td>
+</tr>
+<tr>
+<td style="text-align: left">community/behavioral health</td>
+</tr>
+<tr>
+<td style="text-align: left">community/retail pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">compounding pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">computed tomography</td>
+</tr>
+<tr>
+<td style="text-align: left">contact lens</td>
+</tr>
+<tr>
+<td style="text-align: left">contact lens fitter</td>
+</tr>
+<tr>
+<td style="text-align: left">continence care</td>
+</tr>
+<tr>
+<td style="text-align: left">continuing education/staff development</td>
+</tr>
+<tr>
+<td style="text-align: left">contractor</td>
+</tr>
+<tr>
+<td style="text-align: left">corneal and contact management</td>
+</tr>
+<tr>
+<td style="text-align: left">corporate health</td>
+</tr>
+<tr>
+<td style="text-align: left">counseling</td>
+</tr>
+<tr>
+<td style="text-align: left">counselor</td>
+</tr>
+<tr>
+<td style="text-align: left">critical access</td>
+</tr>
+<tr>
+<td style="text-align: left">critical access hospital</td>
+</tr>
+<tr>
+<td style="text-align: left">critical care</td>
+</tr>
+<tr>
+<td style="text-align: left">critical care medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">custodial care facility</td>
+</tr>
+<tr>
+<td style="text-align: left">customized equipment</td>
+</tr>
+<tr>
+<td style="text-align: left">cytopathology</td>
+</tr>
+<tr>
+<td style="text-align: left">cytotechnology</td>
+</tr>
+<tr>
+<td style="text-align: left">dance therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">darkroom</td>
+</tr>
+<tr>
+<td style="text-align: left">day training, developmentally disabled services</td>
+</tr>
+<tr>
+<td style="text-align: left">day traning/habilitation specialist</td>
+</tr>
+<tr>
+<td style="text-align: left">dental</td>
+</tr>
+<tr>
+<td style="text-align: left">dental assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">dental hygienist</td>
+</tr>
+<tr>
+<td style="text-align: left">dental laboratory</td>
+</tr>
+<tr>
+<td style="text-align: left">dental laboratory technician</td>
+</tr>
+<tr>
+<td style="text-align: left">dental public health</td>
+</tr>
+<tr>
+<td style="text-align: left">dental therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">dentist</td>
+</tr>
+<tr>
+<td style="text-align: left">dentist anesthesiologist</td>
+</tr>
+<tr>
+<td style="text-align: left">denturist</td>
+</tr>
+<tr>
+<td style="text-align: left">department of veterans affairs (va) pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">dermatopathology</td>
+</tr>
+<tr>
+<td style="text-align: left">developmental disabilities</td>
+</tr>
+<tr>
+<td style="text-align: left">developmental therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">developmental therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">developmental-behavioral pediatrics</td>
+</tr>
+<tr>
+<td style="text-align: left">diabetes educator</td>
+</tr>
+<tr>
+<td style="text-align: left">diagnostic neuroimaging</td>
+</tr>
+<tr>
+<td style="text-align: left">diagnostic radiology</td>
+</tr>
+<tr>
+<td style="text-align: left">diagnostic ultrasound</td>
+</tr>
+<tr>
+<td style="text-align: left">dialysis equipment &amp; supplies</td>
+</tr>
+<tr>
+<td style="text-align: left">dialysis, peritoneal</td>
+</tr>
+<tr>
+<td style="text-align: left">dietary manager</td>
+</tr>
+<tr>
+<td style="text-align: left">dietetic technician, registered</td>
+</tr>
+<tr>
+<td style="text-align: left">dietetics</td>
+</tr>
+<tr>
+<td style="text-align: left">dietitian</td>
+</tr>
+<tr>
+<td style="text-align: left">dietitian, registered</td>
+</tr>
+<tr>
+<td style="text-align: left">doula</td>
+</tr>
+<tr>
+<td style="text-align: left">driver</td>
+</tr>
+<tr>
+<td style="text-align: left">driving &amp; community mobility</td>
+</tr>
+<tr>
+<td style="text-align: left">driving and community mobility</td>
+</tr>
+<tr>
+<td style="text-align: left">durable medical equipment &amp; medical supplies</td>
+</tr>
+<tr>
+<td style="text-align: left">early intervention provider agency</td>
+</tr>
+<tr>
+<td style="text-align: left">eeg</td>
+</tr>
+<tr>
+<td style="text-align: left">electrodiagnostic medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">electroneurodiagnostic</td>
+</tr>
+<tr>
+<td style="text-align: left">electrophysiology, clinical</td>
+</tr>
+<tr>
+<td style="text-align: left">emergency</td>
+</tr>
+<tr>
+<td style="text-align: left">emergency care</td>
+</tr>
+<tr>
+<td style="text-align: left">emergency medical services</td>
+</tr>
+<tr>
+<td style="text-align: left">emergency medical technician, basic</td>
+</tr>
+<tr>
+<td style="text-align: left">emergency medical technician, intermediate</td>
+</tr>
+<tr>
+<td style="text-align: left">emergency medical technician, paramedic</td>
+</tr>
+<tr>
+<td style="text-align: left">emergency response system companies</td>
+</tr>
+<tr>
+<td style="text-align: left">end-stage renal disease (esrd) treatment</td>
+</tr>
+<tr>
+<td style="text-align: left">endocrinology</td>
+</tr>
+<tr>
+<td style="text-align: left">endocrinology, diabetes &amp; metabolism</td>
+</tr>
+<tr>
+<td style="text-align: left">endodontics</td>
+</tr>
+<tr>
+<td style="text-align: left">endoscopy</td>
+</tr>
+<tr>
+<td style="text-align: left">enterostomal therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">environmental modification</td>
+</tr>
+<tr>
+<td style="text-align: left">epilepsy unit</td>
+</tr>
+<tr>
+<td style="text-align: left">ergonomics</td>
+</tr>
+<tr>
+<td style="text-align: left">exclusive provider organization</td>
+</tr>
+<tr>
+<td style="text-align: left">exercise &amp; sports</td>
+</tr>
+<tr>
+<td style="text-align: left">eye bank</td>
+</tr>
+<tr>
+<td style="text-align: left">eyewear supplier</td>
+</tr>
+<tr>
+<td style="text-align: left">facial plastic surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">family</td>
+</tr>
+<tr>
+<td style="text-align: left">family health</td>
+</tr>
+<tr>
+<td style="text-align: left">family medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">family nurse practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">family planning, non-surgical</td>
+</tr>
+<tr>
+<td style="text-align: left">family practice</td>
+</tr>
+<tr>
+<td style="text-align: left">federally qualified health center (fqhc)</td>
+</tr>
+<tr>
+<td style="text-align: left">feeding, eating &amp; swallowing</td>
+</tr>
+<tr>
+<td style="text-align: left">female pelvic medicine and reconstructive surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">flight</td>
+</tr>
+<tr>
+<td style="text-align: left">foot and ankle surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">forensic</td>
+</tr>
+<tr>
+<td style="text-align: left">forensic pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">forensic psychiatry</td>
+</tr>
+<tr>
+<td style="text-align: left">foster care agency</td>
+</tr>
+<tr>
+<td style="text-align: left">funeral director</td>
+</tr>
+<tr>
+<td style="text-align: left">gastroenterology</td>
+</tr>
+<tr>
+<td style="text-align: left">general acute care hospital</td>
+</tr>
+<tr>
+<td style="text-align: left">general care</td>
+</tr>
+<tr>
+<td style="text-align: left">general practice</td>
+</tr>
+<tr>
+<td style="text-align: left">general practice dentistry</td>
+</tr>
+<tr>
+<td style="text-align: left">general practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">genetic counselor, ms</td>
+</tr>
+<tr>
+<td style="text-align: left">geneticist, medical (phd)</td>
+</tr>
+<tr>
+<td style="text-align: left">genetics</td>
+</tr>
+<tr>
+<td style="text-align: left">geriatric</td>
+</tr>
+<tr>
+<td style="text-align: left">geriatric care</td>
+</tr>
+<tr>
+<td style="text-align: left">geriatric medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">geriatric psychiatry</td>
+</tr>
+<tr>
+<td style="text-align: left">geriatrics</td>
+</tr>
+<tr>
+<td style="text-align: left">gerontology</td>
+</tr>
+<tr>
+<td style="text-align: left">graphics designer</td>
+</tr>
+<tr>
+<td style="text-align: left">graphics methods</td>
+</tr>
+<tr>
+<td style="text-align: left">group psychotherapy</td>
+</tr>
+<tr>
+<td style="text-align: left">gynecologic oncology</td>
+</tr>
+<tr>
+<td style="text-align: left">gynecology</td>
+</tr>
+<tr>
+<td style="text-align: left">hand</td>
+</tr>
+<tr>
+<td style="text-align: left">hand physical therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">hand surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">health educator</td>
+</tr>
+<tr>
+<td style="text-align: left">health maintenance organization</td>
+</tr>
+<tr>
+<td style="text-align: left">health psychologist</td>
+</tr>
+<tr>
+<td style="text-align: left">health service</td>
+</tr>
+<tr>
+<td style="text-align: left">hearing aid equipment</td>
+</tr>
+<tr>
+<td style="text-align: left">hearing and speech</td>
+</tr>
+<tr>
+<td style="text-align: left">hearing instrument specialist</td>
+</tr>
+<tr>
+<td style="text-align: left">hemapheresis practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">hematology</td>
+</tr>
+<tr>
+<td style="text-align: left">hematology &amp; oncology</td>
+</tr>
+<tr>
+<td style="text-align: left">hemodialysis</td>
+</tr>
+<tr>
+<td style="text-align: left">hepatology</td>
+</tr>
+<tr>
+<td style="text-align: left">histology</td>
+</tr>
+<tr>
+<td style="text-align: left">holistic</td>
+</tr>
+<tr>
+<td style="text-align: left">home care</td>
+</tr>
+<tr>
+<td style="text-align: left">home delivered meals</td>
+</tr>
+<tr>
+<td style="text-align: left">home health</td>
+</tr>
+<tr>
+<td style="text-align: left">home health aide</td>
+</tr>
+<tr>
+<td style="text-align: left">home infusion</td>
+</tr>
+<tr>
+<td style="text-align: left">home infusion therapy pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">home modifications</td>
+</tr>
+<tr>
+<td style="text-align: left">homemaker</td>
+</tr>
+<tr>
+<td style="text-align: left">homeopath</td>
+</tr>
+<tr>
+<td style="text-align: left">homeopathy</td>
+</tr>
+<tr>
+<td style="text-align: left">hospice</td>
+</tr>
+<tr>
+<td style="text-align: left">hospice and palliative medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">hospice care, community based</td>
+</tr>
+<tr>
+<td style="text-align: left">hospice, inpatient</td>
+</tr>
+<tr>
+<td style="text-align: left">hospital medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">hospitalist</td>
+</tr>
+<tr>
+<td style="text-align: left">human factors</td>
+</tr>
+<tr>
+<td style="text-align: left">hypertension specialist</td>
+</tr>
+<tr>
+<td style="text-align: left">illustration, medical</td>
+</tr>
+<tr>
+<td style="text-align: left">immunology</td>
+</tr>
+<tr>
+<td style="text-align: left">immunopathology</td>
+</tr>
+<tr>
+<td style="text-align: left">in home supportive care</td>
+</tr>
+<tr>
+<td style="text-align: left">in vivo &amp; in vitro nuclear medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">independent duty corpsman</td>
+</tr>
+<tr>
+<td style="text-align: left">independent duty medical technicians</td>
+</tr>
+<tr>
+<td style="text-align: left">independent medical examiner</td>
+</tr>
+<tr>
+<td style="text-align: left">indian health service/tribal/urban indian health (i/t/u) pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">infection control</td>
+</tr>
+<tr>
+<td style="text-align: left">infectious disease</td>
+</tr>
+<tr>
+<td style="text-align: left">informatics</td>
+</tr>
+<tr>
+<td style="text-align: left">infusion therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">institutional pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">intermediate care facility, mentally retarded</td>
+</tr>
+<tr>
+<td style="text-align: left">intermediate care, mental illness</td>
+</tr>
+<tr>
+<td style="text-align: left">internist</td>
+</tr>
+<tr>
+<td style="text-align: left">interpreter</td>
+</tr>
+<tr>
+<td style="text-align: left">interventional cardiology</td>
+</tr>
+<tr>
+<td style="text-align: left">interventional pain medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">kinesiotherapist</td>
+</tr>
+<tr>
+<td style="text-align: left">laboratory management</td>
+</tr>
+<tr>
+<td style="text-align: left">laboratory management, diplomate</td>
+</tr>
+<tr>
+<td style="text-align: left">lactation consultant</td>
+</tr>
+<tr>
+<td style="text-align: left">lactation consultant, non-rn</td>
+</tr>
+<tr>
+<td style="text-align: left">land transport</td>
+</tr>
+<tr>
+<td style="text-align: left">legal medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">licensed practical nurse</td>
+</tr>
+<tr>
+<td style="text-align: left">licensed psychiatric technician</td>
+</tr>
+<tr>
+<td style="text-align: left">licensed vocational nurse</td>
+</tr>
+<tr>
+<td style="text-align: left">lithotripsy</td>
+</tr>
+<tr>
+<td style="text-align: left">local education agency (lea)</td>
+</tr>
+<tr>
+<td style="text-align: left">lodging</td>
+</tr>
+<tr>
+<td style="text-align: left">long term care hospital</td>
+</tr>
+<tr>
+<td style="text-align: left">long term care pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">long-term care</td>
+</tr>
+<tr>
+<td style="text-align: left">low vision</td>
+</tr>
+<tr>
+<td style="text-align: left">low vision rehabilitation</td>
+</tr>
+<tr>
+<td style="text-align: left">magnetic resonance imaging</td>
+</tr>
+<tr>
+<td style="text-align: left">magnetic resonance imaging (mri)</td>
+</tr>
+<tr>
+<td style="text-align: left">mail order pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">mammography</td>
+</tr>
+<tr>
+<td style="text-align: left">managed care organization pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">marriage &amp; family therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">marriage &amp; family therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">massage therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">mastectomy fitter</td>
+</tr>
+<tr>
+<td style="text-align: left">maternal &amp; fetal medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">maternal newborn</td>
+</tr>
+<tr>
+<td style="text-align: left">meals</td>
+</tr>
+<tr>
+<td style="text-align: left">mechanotherapist</td>
+</tr>
+<tr>
+<td style="text-align: left">medical foods supplier</td>
+</tr>
+<tr>
+<td style="text-align: left">medical laboratory</td>
+</tr>
+<tr>
+<td style="text-align: left">medical microbiology</td>
+</tr>
+<tr>
+<td style="text-align: left">medical oncology</td>
+</tr>
+<tr>
+<td style="text-align: left">medical physician assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">medical research</td>
+</tr>
+<tr>
+<td style="text-align: left">medical specialty</td>
+</tr>
+<tr>
+<td style="text-align: left">medical technologist</td>
+</tr>
+<tr>
+<td style="text-align: left">medical toxicology</td>
+</tr>
+<tr>
+<td style="text-align: left">medical-surgical</td>
+</tr>
+<tr>
+<td style="text-align: left">medically fragile infants and children day care</td>
+</tr>
+<tr>
+<td style="text-align: left">medicare defined swing bed unit</td>
+</tr>
+<tr>
+<td style="text-align: left">mental health</td>
+</tr>
+<tr>
+<td style="text-align: left">mental health (including community mental health center)</td>
+</tr>
+<tr>
+<td style="text-align: left">mental health counselor</td>
+</tr>
+<tr>
+<td style="text-align: left">mental retardation &amp; developmental disabilities</td>
+</tr>
+<tr>
+<td style="text-align: left">methadone</td>
+</tr>
+<tr>
+<td style="text-align: left">microbiology</td>
+</tr>
+<tr>
+<td style="text-align: left">midwife</td>
+</tr>
+<tr>
+<td style="text-align: left">midwife, lay</td>
+</tr>
+<tr>
+<td style="text-align: left">migrant health</td>
+</tr>
+<tr>
+<td style="text-align: left">military ambulatory procedure visits operational (transportable)</td>
+</tr>
+<tr>
+<td style="text-align: left">military and u.s. coast guard ambulatory procedure</td>
+</tr>
+<tr>
+<td style="text-align: left">military clinical medical laboratory</td>
+</tr>
+<tr>
+<td style="text-align: left">military general acute care hospital</td>
+</tr>
+<tr>
+<td style="text-align: left">military general acute care hospital. operational (transportable)</td>
+</tr>
+<tr>
+<td style="text-align: left">military health care provider</td>
+</tr>
+<tr>
+<td style="text-align: left">military hospital</td>
+</tr>
+<tr>
+<td style="text-align: left">military or u.s. coast guard ambulance, air transport</td>
+</tr>
+<tr>
+<td style="text-align: left">military or u.s. coast guard ambulance, ground transport</td>
+</tr>
+<tr>
+<td style="text-align: left">military outpatient operational (transportable) component</td>
+</tr>
+<tr>
+<td style="text-align: left">military/u.s. coast guard outpatient</td>
+</tr>
+<tr>
+<td style="text-align: left">military/u.s. coast guard pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">military/u.s. coast guard transport</td>
+</tr>
+<tr>
+<td style="text-align: left">mohs-micrographic surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">molecular genetic pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">multi-specialty</td>
+</tr>
+<tr>
+<td style="text-align: left">music therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">naprapath</td>
+</tr>
+<tr>
+<td style="text-align: left">naturopath</td>
+</tr>
+<tr>
+<td style="text-align: left">neonatal</td>
+</tr>
+<tr>
+<td style="text-align: left">neonatal intensive care</td>
+</tr>
+<tr>
+<td style="text-align: left">neonatal nurse practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">neonatal, critical care</td>
+</tr>
+<tr>
+<td style="text-align: left">neonatal, low-risk</td>
+</tr>
+<tr>
+<td style="text-align: left">neonatal-perinatal medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">neonatal/pediatrics</td>
+</tr>
+<tr>
+<td style="text-align: left">nephrology</td>
+</tr>
+<tr>
+<td style="text-align: left">neurodevelopmental disabilities</td>
+</tr>
+<tr>
+<td style="text-align: left">neurological surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">neurology with special qualifications in child neurology</td>
+</tr>
+<tr>
+<td style="text-align: left">neuromuscular medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">neuromusculoskeletal medicine &amp; omm</td>
+</tr>
+<tr>
+<td style="text-align: left">neuromusculoskeletal medicine, sports medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">neuropathology</td>
+</tr>
+<tr>
+<td style="text-align: left">neuroradiology</td>
+</tr>
+<tr>
+<td style="text-align: left">neurorehabilitation</td>
+</tr>
+<tr>
+<td style="text-align: left">neuroscience</td>
+</tr>
+<tr>
+<td style="text-align: left">non-emergency medical transport (van)</td>
+</tr>
+<tr>
+<td style="text-align: left">non-pharmacy dispensing site</td>
+</tr>
+<tr>
+<td style="text-align: left">nuclear</td>
+</tr>
+<tr>
+<td style="text-align: left">nuclear cardiology</td>
+</tr>
+<tr>
+<td style="text-align: left">nuclear imaging &amp; therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">nuclear medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">nuclear medicine technology</td>
+</tr>
+<tr>
+<td style="text-align: left">nuclear pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">nuclear radiology</td>
+</tr>
+<tr>
+<td style="text-align: left">nurse anesthetist, certified registered</td>
+</tr>
+<tr>
+<td style="text-align: left">nurse massage therapist (nmt)</td>
+</tr>
+<tr>
+<td style="text-align: left">nurse practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">nurse&rsquo;s aide</td>
+</tr>
+<tr>
+<td style="text-align: left">nursing &amp; custodial care facility</td>
+</tr>
+<tr>
+<td style="text-align: left">nursing care</td>
+</tr>
+<tr>
+<td style="text-align: left">nursing care, pediatric</td>
+</tr>
+<tr>
+<td style="text-align: left">nursing facility supplies</td>
+</tr>
+<tr>
+<td style="text-align: left">nursing facility/intermediate care facility</td>
+</tr>
+<tr>
+<td style="text-align: left">nursing home administrator</td>
+</tr>
+<tr>
+<td style="text-align: left">nutrition</td>
+</tr>
+<tr>
+<td style="text-align: left">nutrition support</td>
+</tr>
+<tr>
+<td style="text-align: left">nutrition, education</td>
+</tr>
+<tr>
+<td style="text-align: left">nutrition, metabolic</td>
+</tr>
+<tr>
+<td style="text-align: left">nutrition, pediatric</td>
+</tr>
+<tr>
+<td style="text-align: left">nutrition, renal</td>
+</tr>
+<tr>
+<td style="text-align: left">nutritionist</td>
+</tr>
+<tr>
+<td style="text-align: left">obstetric, high-risk</td>
+</tr>
+<tr>
+<td style="text-align: left">obstetric, inpatient</td>
+</tr>
+<tr>
+<td style="text-align: left">obstetrics</td>
+</tr>
+<tr>
+<td style="text-align: left">obstetrics &amp; gynecology</td>
+</tr>
+<tr>
+<td style="text-align: left">occupational health</td>
+</tr>
+<tr>
+<td style="text-align: left">occupational medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">occupational therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">occupational therapy assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">occupational vision</td>
+</tr>
+<tr>
+<td style="text-align: left">ocularist</td>
+</tr>
+<tr>
+<td style="text-align: left">oncology</td>
+</tr>
+<tr>
+<td style="text-align: left">oncology, pediatrics</td>
+</tr>
+<tr>
+<td style="text-align: left">oncology, radiation</td>
+</tr>
+<tr>
+<td style="text-align: left">ophthalmic</td>
+</tr>
+<tr>
+<td style="text-align: left">ophthalmic assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">ophthalmologic surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">ophthalmology</td>
+</tr>
+<tr>
+<td style="text-align: left">optician</td>
+</tr>
+<tr>
+<td style="text-align: left">optometric assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">optometric technician</td>
+</tr>
+<tr>
+<td style="text-align: left">optometrist</td>
+</tr>
+<tr>
+<td style="text-align: left">optometry</td>
+</tr>
+<tr>
+<td style="text-align: left">oral &amp; maxillofacial surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">oral and maxillofacial pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">oral and maxillofacial radiology</td>
+</tr>
+<tr>
+<td style="text-align: left">organ procurement organization</td>
+</tr>
+<tr>
+<td style="text-align: left">orientation and mobility training provider</td>
+</tr>
+<tr>
+<td style="text-align: left">orthodontics and dentofacial orthopedics</td>
+</tr>
+<tr>
+<td style="text-align: left">orthopaedic surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">orthopaedic surgery of the spine</td>
+</tr>
+<tr>
+<td style="text-align: left">orthopaedic trauma</td>
+</tr>
+<tr>
+<td style="text-align: left">orthopedic</td>
+</tr>
+<tr>
+<td style="text-align: left">orthoptist</td>
+</tr>
+<tr>
+<td style="text-align: left">orthotic fitter</td>
+</tr>
+<tr>
+<td style="text-align: left">orthotics, prosthetics &amp; pedorthics</td>
+</tr>
+<tr>
+<td style="text-align: left">orthotist</td>
+</tr>
+<tr>
+<td style="text-align: left">ostomy care</td>
+</tr>
+<tr>
+<td style="text-align: left">otolaryngic allergy</td>
+</tr>
+<tr>
+<td style="text-align: left">otolaryngology (ent)</td>
+</tr>
+<tr>
+<td style="text-align: left">otolaryngology/facial plastic surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">otology &amp; neurotology</td>
+</tr>
+<tr>
+<td style="text-align: left">otorhinolaryngology &amp; head-neck</td>
+</tr>
+<tr>
+<td style="text-align: left">oxygen equipment &amp; supplies</td>
+</tr>
+<tr>
+<td style="text-align: left">pain</td>
+</tr>
+<tr>
+<td style="text-align: left">pain management</td>
+</tr>
+<tr>
+<td style="text-align: left">pain medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">palliative/hospice</td>
+</tr>
+<tr>
+<td style="text-align: left">parenteral &amp; enteral nutrition</td>
+</tr>
+<tr>
+<td style="text-align: left">pastoral counselor</td>
+</tr>
+<tr>
+<td style="text-align: left">pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">patient education</td>
+</tr>
+<tr>
+<td style="text-align: left">patient transport</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric allergy/immunology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric anesthesiology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric cardiology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric chiropractor</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric critical care medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric dentistry</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric dermatology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric emergency medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric endocrinology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric gastroenterology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric hematology-oncology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric infectious diseases</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric nephrology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric nurse practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric oncology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric orthopaedic surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric otolaryngology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric pulmonology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric radiology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric rehabilitation medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric rheumatology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric transplant hepatology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatric urology</td>
+</tr>
+<tr>
+<td style="text-align: left">pediatrics, critical care</td>
+</tr>
+<tr>
+<td style="text-align: left">pedorthist</td>
+</tr>
+<tr>
+<td style="text-align: left">perfusionist</td>
+</tr>
+<tr>
+<td style="text-align: left">perinatal</td>
+</tr>
+<tr>
+<td style="text-align: left">perinatal nurse practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">periodontics</td>
+</tr>
+<tr>
+<td style="text-align: left">perioperative</td>
+</tr>
+<tr>
+<td style="text-align: left">personal care attendant</td>
+</tr>
+<tr>
+<td style="text-align: left">personal emergency response attendant</td>
+</tr>
+<tr>
+<td style="text-align: left">ph.d. medical genetics</td>
+</tr>
+<tr>
+<td style="text-align: left">pharmacist</td>
+</tr>
+<tr>
+<td style="text-align: left">pharmacist clinician (phc)/ clinical pharmacy specialist</td>
+</tr>
+<tr>
+<td style="text-align: left">pharmacotherapy</td>
+</tr>
+<tr>
+<td style="text-align: left">pharmacy technician</td>
+</tr>
+<tr>
+<td style="text-align: left">phlebology</td>
+</tr>
+<tr>
+<td style="text-align: left">phlebotomy</td>
+</tr>
+<tr>
+<td style="text-align: left">physical rehabilitation</td>
+</tr>
+<tr>
+<td style="text-align: left">physical therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">physical therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">physical therapy assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">physician assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">physiological laboratory, (independent physiological lab)</td>
+</tr>
+<tr>
+<td style="text-align: left">plastic and reconstructive surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">plastic surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">plastic surgery within the head &amp; neck</td>
+</tr>
+<tr>
+<td style="text-align: left">plastic surgery within the head and neck</td>
+</tr>
+<tr>
+<td style="text-align: left">podiatric</td>
+</tr>
+<tr>
+<td style="text-align: left">podiatrist</td>
+</tr>
+<tr>
+<td style="text-align: left">poetry therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">point of service</td>
+</tr>
+<tr>
+<td style="text-align: left">portable xray supplier</td>
+</tr>
+<tr>
+<td style="text-align: left">preferred provider organization</td>
+</tr>
+<tr>
+<td style="text-align: left">prescribing (medical)</td>
+</tr>
+<tr>
+<td style="text-align: left">preventive medicine/occupational-environmental medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">primary care</td>
+</tr>
+<tr>
+<td style="text-align: left">primary care nurse practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">primary podiatric medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">prison health</td>
+</tr>
+<tr>
+<td style="text-align: left">private vehicle</td>
+</tr>
+<tr>
+<td style="text-align: left">procedural dermatology</td>
+</tr>
+<tr>
+<td style="text-align: left">professional counselor</td>
+</tr>
+<tr>
+<td style="text-align: left">program of all-inclusive care for the elderly (pace) provider organization</td>
+</tr>
+<tr>
+<td style="text-align: left">prosthetic/orthotic supplier</td>
+</tr>
+<tr>
+<td style="text-align: left">prosthetics case management</td>
+</tr>
+<tr>
+<td style="text-align: left">prosthetist</td>
+</tr>
+<tr>
+<td style="text-align: left">prosthodontics</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric hospital</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric residential treatment facility</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric unit</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric/mental health</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric/mental health, adult</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric/mental health, child &amp; adolescent</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric/mental health, child &amp; family</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric/mental health, chronically ill</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric/mental health, community</td>
+</tr>
+<tr>
+<td style="text-align: left">psychiatric/mental health, geropsychiatric</td>
+</tr>
+<tr>
+<td style="text-align: left">psychoanalysis</td>
+</tr>
+<tr>
+<td style="text-align: left">psychoanalyst</td>
+</tr>
+<tr>
+<td style="text-align: left">psychologist</td>
+</tr>
+<tr>
+<td style="text-align: left">psychology</td>
+</tr>
+<tr>
+<td style="text-align: left">psychosomatic medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">public health</td>
+</tr>
+<tr>
+<td style="text-align: left">public health &amp; general preventive medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">public health or welfare</td>
+</tr>
+<tr>
+<td style="text-align: left">public health, federal</td>
+</tr>
+<tr>
+<td style="text-align: left">public health, state or local</td>
+</tr>
+<tr>
+<td style="text-align: left">pulmonary diagnostics</td>
+</tr>
+<tr>
+<td style="text-align: left">pulmonary disease</td>
+</tr>
+<tr>
+<td style="text-align: left">pulmonary function technologist</td>
+</tr>
+<tr>
+<td style="text-align: left">pulmonary rehabilitation</td>
+</tr>
+<tr>
+<td style="text-align: left">pulmonology</td>
+</tr>
+<tr>
+<td style="text-align: left">quality management</td>
+</tr>
+<tr>
+<td style="text-align: left">radiation oncology</td>
+</tr>
+<tr>
+<td style="text-align: left">radiation therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">radiography</td>
+</tr>
+<tr>
+<td style="text-align: left">radiologic technologist</td>
+</tr>
+<tr>
+<td style="text-align: left">radiologic technologist, sonography</td>
+</tr>
+<tr>
+<td style="text-align: left">radiological physics</td>
+</tr>
+<tr>
+<td style="text-align: left">radiology</td>
+</tr>
+<tr>
+<td style="text-align: left">radiology practitioner assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">radiology, mammography</td>
+</tr>
+<tr>
+<td style="text-align: left">radiology, mobile</td>
+</tr>
+<tr>
+<td style="text-align: left">radiology, mobile mammography</td>
+</tr>
+<tr>
+<td style="text-align: left">recovery care</td>
+</tr>
+<tr>
+<td style="text-align: left">recreation therapist</td>
+</tr>
+<tr>
+<td style="text-align: left">reflexologist</td>
+</tr>
+<tr>
+<td style="text-align: left">registered  record administrator</td>
+</tr>
+<tr>
+<td style="text-align: left">registered nurse</td>
+</tr>
+<tr>
+<td style="text-align: left">registered nurse first assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation counselor</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation hospital</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation unit</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation, blind</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation, comprehensive outpatient rehabilitation facility (corf)</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation, substance use disorder</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation, substance use disorder unit</td>
+</tr>
+<tr>
+<td style="text-align: left">rehabilitation: cardiac facilities</td>
+</tr>
+<tr>
+<td style="text-align: left">religious nonmedical health care institution</td>
+</tr>
+<tr>
+<td style="text-align: left">religious nonmedical nursing personnel</td>
+</tr>
+<tr>
+<td style="text-align: left">religious nonmedical practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">renal dialysis</td>
+</tr>
+<tr>
+<td style="text-align: left">reproductive endocrinology</td>
+</tr>
+<tr>
+<td style="text-align: left">reproductive endocrinology/infertility</td>
+</tr>
+<tr>
+<td style="text-align: left">research</td>
+</tr>
+<tr>
+<td style="text-align: left">research data abstracter/coder</td>
+</tr>
+<tr>
+<td style="text-align: left">research study</td>
+</tr>
+<tr>
+<td style="text-align: left">residential treatment facility, emotionally disturbed children</td>
+</tr>
+<tr>
+<td style="text-align: left">residential treatment facility, mental retardation and/or developmental disabilities</td>
+</tr>
+<tr>
+<td style="text-align: left">residential treatment facility, physical disabilities</td>
+</tr>
+<tr>
+<td style="text-align: left">respiratory therapist, certified</td>
+</tr>
+<tr>
+<td style="text-align: left">respiratory therapist, registered</td>
+</tr>
+<tr>
+<td style="text-align: left">respiratory therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">respite care</td>
+</tr>
+<tr>
+<td style="text-align: left">respite care camp</td>
+</tr>
+<tr>
+<td style="text-align: left">respite care, mental illness, child</td>
+</tr>
+<tr>
+<td style="text-align: left">respite care, mental retardation and/or developmental disabilities, child</td>
+</tr>
+<tr>
+<td style="text-align: left">respite care, physical disabilities, child</td>
+</tr>
+<tr>
+<td style="text-align: left">rheumatology</td>
+</tr>
+<tr>
+<td style="text-align: left">rural</td>
+</tr>
+<tr>
+<td style="text-align: left">rural health</td>
+</tr>
+<tr>
+<td style="text-align: left">school</td>
+</tr>
+<tr>
+<td style="text-align: left">school counselor</td>
+</tr>
+<tr>
+<td style="text-align: left">school nurse practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">school social worker</td>
+</tr>
+<tr>
+<td style="text-align: left">secured medical transport (van)</td>
+</tr>
+<tr>
+<td style="text-align: left">single specialty</td>
+</tr>
+<tr>
+<td style="text-align: left">skilled nursing facility</td>
+</tr>
+<tr>
+<td style="text-align: left">sleep disorder diagnostic</td>
+</tr>
+<tr>
+<td style="text-align: left">sleep medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">sleep specialist, phd</td>
+</tr>
+<tr>
+<td style="text-align: left">snf/subacute care</td>
+</tr>
+<tr>
+<td style="text-align: left">social work</td>
+</tr>
+<tr>
+<td style="text-align: left">social worker</td>
+</tr>
+<tr>
+<td style="text-align: left">special hospital</td>
+</tr>
+<tr>
+<td style="text-align: left">specialist</td>
+</tr>
+<tr>
+<td style="text-align: left">specialist/technologist</td>
+</tr>
+<tr>
+<td style="text-align: left">specialist/technologist cardiovascular</td>
+</tr>
+<tr>
+<td style="text-align: left">specialist/technologist cardiovascular, sonography</td>
+</tr>
+<tr>
+<td style="text-align: left">specialist/technologist, health information</td>
+</tr>
+<tr>
+<td style="text-align: left">specialist/technologist, other</td>
+</tr>
+<tr>
+<td style="text-align: left">specialist/technologist, pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">specialty pharmacy</td>
+</tr>
+<tr>
+<td style="text-align: left">speech-language assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">speech-language pathologist</td>
+</tr>
+<tr>
+<td style="text-align: left">speech-language pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">spinal cord injury medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">sports</td>
+</tr>
+<tr>
+<td style="text-align: left">sports medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">sports physician</td>
+</tr>
+<tr>
+<td style="text-align: left">sports vision</td>
+</tr>
+<tr>
+<td style="text-align: left">student</td>
+</tr>
+<tr>
+<td style="text-align: left">student health</td>
+</tr>
+<tr>
+<td style="text-align: left">substance abuse disorder rehabilitation facility</td>
+</tr>
+<tr>
+<td style="text-align: left">substance abuse treatment, children</td>
+</tr>
+<tr>
+<td style="text-align: left">supports brokerage</td>
+</tr>
+<tr>
+<td style="text-align: left">surgery of the hand</td>
+</tr>
+<tr>
+<td style="text-align: left">surgery, foot</td>
+</tr>
+<tr>
+<td style="text-align: left">surgery, foot &amp; ankle</td>
+</tr>
+<tr>
+<td style="text-align: left">surgical</td>
+</tr>
+<tr>
+<td style="text-align: left">surgical critical care</td>
+</tr>
+<tr>
+<td style="text-align: left">surgical oncology</td>
+</tr>
+<tr>
+<td style="text-align: left">surgical physician assistant</td>
+</tr>
+<tr>
+<td style="text-align: left">taxi</td>
+</tr>
+<tr>
+<td style="text-align: left">technician</td>
+</tr>
+<tr>
+<td style="text-align: left">technician, cardiology</td>
+</tr>
+<tr>
+<td style="text-align: left">technician, health information</td>
+</tr>
+<tr>
+<td style="text-align: left">technician, other</td>
+</tr>
+<tr>
+<td style="text-align: left">technician, pathology</td>
+</tr>
+<tr>
+<td style="text-align: left">technician/technologist</td>
+</tr>
+<tr>
+<td style="text-align: left">therapeutic radiology</td>
+</tr>
+<tr>
+<td style="text-align: left">thermography</td>
+</tr>
+<tr>
+<td style="text-align: left">thoracic surgery (cardiothoracic vascular surgery)</td>
+</tr>
+<tr>
+<td style="text-align: left">train</td>
+</tr>
+<tr>
+<td style="text-align: left">transplant hepatology</td>
+</tr>
+<tr>
+<td style="text-align: left">transplant surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">transplantation</td>
+</tr>
+<tr>
+<td style="text-align: left">transportation broker</td>
+</tr>
+<tr>
+<td style="text-align: left">trauma surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">undersea and hyperbaric medicine</td>
+</tr>
+<tr>
+<td style="text-align: left">urgent care</td>
+</tr>
+<tr>
+<td style="text-align: left">urology</td>
+</tr>
+<tr>
+<td style="text-align: left">vascular &amp; interventional radiology</td>
+</tr>
+<tr>
+<td style="text-align: left">vascular interventional technology</td>
+</tr>
+<tr>
+<td style="text-align: left">vascular neurology</td>
+</tr>
+<tr>
+<td style="text-align: left">vascular sonography</td>
+</tr>
+<tr>
+<td style="text-align: left">vascular specialist</td>
+</tr>
+<tr>
+<td style="text-align: left">vascular surgery</td>
+</tr>
+<tr>
+<td style="text-align: left">vehicle modifications</td>
+</tr>
+<tr>
+<td style="text-align: left">veterinarian</td>
+</tr>
+<tr>
+<td style="text-align: left">veterinary</td>
+</tr>
+<tr>
+<td style="text-align: left">vision therapy</td>
+</tr>
+<tr>
+<td style="text-align: left">voluntary or charitable</td>
+</tr>
+<tr>
+<td style="text-align: left">water transport</td>
+</tr>
+<tr>
+<td style="text-align: left">women</td>
+</tr>
+<tr>
+<td style="text-align: left">women&rsquo;s health</td>
+</tr>
+<tr>
+<td style="text-align: left">women&rsquo;s health care, ambulatory</td>
+</tr>
+<tr>
+<td style="text-align: left">women&rsquo;s health nurse practitioner</td>
+</tr>
+<tr>
+<td style="text-align: left">wound care</td>
+</tr>
+</tbody></table>

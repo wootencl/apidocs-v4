@@ -1,0 +1,2250 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="/stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+      <script src="/javascripts/all_nosearch.js"></script>
+
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1410094735951733');
+    fbq('track', "PageView");</script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1410094735951733&ev=PageView&noscript=1"
+    /></noscript>
+
+  </head>
+
+  <body class="benefits_enrollment">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="/images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="/images/logo.png" />
+
+      <div id="toc">
+      </div>
+      <ul class="toc-footer">
+          <li><a href="/documentation/v4">PokitDok Platform Documentation</a></li>
+          <li><a href='https://platform.pokitdok.com/signup' target='_blank'>Sign Up for a Free API Key</a></li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="content-2column">
+        <h1 id="benefits-enrollment-reference">Benefits Enrollment Reference</h1>
+
+<p>Following the standard X12 834 format, the PokitDok Benefits Enrollment endpoint
+eases the creation and transmission process of benefit enrollment and
+maintenance files. Applications can use the Enrollment endpoint to submit new
+enrollments, enrollment changes due to life events and plan termination. The
+Enrollment endpoint can be utilized for all enrollment requirements including
+open enrollment and is able to support both full and change files.</p>
+
+<p>This document describes the PokitDok benefit enrollment (834) request format.
+It&rsquo;s meant to accompany the summary of benefits enrollment functionality in
+the <a href="/documentation/v4">PokitDok Platform API Documentation</a>.
+All possible sub-objects and acceptable field values are presented. Note that
+payers will differ in their requirements for an enrollment submission. For
+specifics about this, contact PokitDok Platform Support at
+<a href="mailto:platform@pokitdok.com">platform@pokitdok.com</a>.</p>
+
+<p>The benefits enrollment request consists of a top-level JSON object, described
+in the &ldquo;Enrollment Object&rdquo; section below. This object can contain a number
+of sub-objects as needed to describe the request, such as subscriber or
+dependent information. Each sub-object is described in its own table, which
+is linked from the &ldquo;Type&rdquo; parameter. Note that some sub-objects can themselves
+be comprised of other objects.</p>
+
+<p>PokitDok only transmits 834 files and responses to and from carriers. We do
+not perform scrubbing or editing of submissions, or provide front-end interfaces
+to manage benefits. File transmission is subject to carrier and group
+requirements. Since enrollment requirements vary greatly between carriers,
+please <a href="/contact">contact us</a> to get started integrating benefits enrollment
+and maintenance into your solution.</p>
+
+<h1 id="enrollment-object">Enrollment Object</h1>
+
+<p><a name="benefits_enrollment"></a></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">purpose</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The purpose of the transaction. <br/>Acceptable values: see <a href="#purpose_codes">purpose codes.</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">action</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The action of the transaction. <br/>Acceptable values: see <a href="#action_codes">action codes.</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">master_policy_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The master policy number for the sponsor.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">payer</td>
+<td style="text-align: left"><a href="#payer_object">Payer object</a></td>
+<td style="text-align: left">The payer segment for the transaction.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">sponsor</td>
+<td style="text-align: left"><a href="#sponsor_object">Sponsor object</a></td>
+<td style="text-align: left">The employer/sponsor segment for the transaction.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">broker</td>
+<td style="text-align: left"><a href="#broker_object">Broker object</a></td>
+<td style="text-align: left">The broker segment for the transaction.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">tpa</td>
+<td style="text-align: left"><a href="#broker_object">Broker object</a></td>
+<td style="text-align: left">The third party administrator segment for the transaction.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">subscriber</td>
+<td style="text-align: left"><a href="#member_object">Member object</a></td>
+<td style="text-align: left">The subscriber/employee segment for the transaction.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">dependents</td>
+<td style="text-align: left">List of <a href="#member_object">Member objects</a></td>
+<td style="text-align: left">A list of dependents covered under benefits by the subscriber. This should be based off of the same parameters as the member object.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">application_data</td>
+<td style="text-align: left">{dict}</td>
+<td style="text-align: left">See the <a href="#application_data_definition">application data definition.</a></td>
+<td style="text-align: left">No</td>
+</tr>
+</tbody></table>
+
+<p><a name="payer_object"></a></p>
+
+<h2 id="payer-object">Payer object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The name of the carrier/payer.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The tax ID of the carrier/payer.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="sponsor_object"></a></p>
+
+<h2 id="sponsor-object">Sponsor object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The employer/sponsor of the benefits.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The tax id of the sponsor.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="broker_object"></a></p>
+
+<h2 id="broker-object">Broker object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The name of the broker.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The tax ID of the broker.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">account_numbers</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The account numbers of the broker.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="member_object"></a></p>
+
+<h2 id="member-object">Member object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">last_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The first name for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">first_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The last name for the subscriber</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">middle_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The middle name for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">suffix</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The suffix for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">address</td>
+<td style="text-align: left"><a href="#address_object">Address object</a></td>
+<td style="text-align: left">The address segment for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">ssn</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The social security number for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">member_id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The member id for the subscriber if already enrolled in benefits.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">subscriber_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The subscriber number or SSN for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">gender</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The gender for the subscriber. <br/>Acceptable values: see <a href="#gender_codes">gender codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">group_or_policy_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The group or policy number for this list item.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">relationship</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The relationship of the subject of the transaction to the policyholder. <br/>Acceptable values: see <a href="#relationship_codes">relationship codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">maintenance_type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of benefit maintenance.  <br/>Acceptable values: see <a href="#maintenance_type_codes">maintenance type codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">maintenance_reason</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The reason for benefit maintenance. <br/>Acceptable values: see <a href="#maintenance_reason_codes">maintenance reason codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">benefit_status</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The benefit status for the subscriber. <br/>Acceptable values: see <a href="#benefit_status_codes">benefit status codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">employment_status</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The employment status for the subscriber.  <br/>Acceptable values: see <a href="#employment_status_codes">employment status codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">student_status</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The student status for the subscriber. <br/>Acceptable values: see <a href="#student_status">student status codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">marital_status</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The marital status for the subscriber.  <br/>Acceptable values: see <a href="#marital_status_codes">marital status codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">citizenship_status</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The citizenship status for the subscriber. <br/>Acceptable values: see <a href="#citizenship_status_codes">citizenship status codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">ethnicity</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The ethnicity of the subscriber.  <br/>Acceptable values: see <a href="#ethnicity_codes">ethnicity codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">handicapped</td>
+<td style="text-align: left">{bool} (Default: false)</td>
+<td style="text-align: left">True if the subscriber is handicapped.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cobra_qualifying_event</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The COBRA qualifying event for the subscriber. <br/>Acceptable values: see <a href="#cobra_qualifying_event_codes">cobra qualifying event codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">confidentiality</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The code indicating the address to insured information.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">medicare</td>
+<td style="text-align: left"><a href="#medicare_object">Medicare object</a></td>
+<td style="text-align: left">Subscriber Medicare information, if applicable.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">school</td>
+<td style="text-align: left"><a href="#school_object">School object</td>
+<td style="text-align: left">Subscriber school information, if applicable.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">eligibility_begin_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The date benefits become eligible for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">eligibility_end_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The date benefits become ineligible for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">education_end_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The education end date for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">birth_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The date of birth for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">hire_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The hire date of the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">birth_sequence</td>
+<td style="text-align: left">{int}</td>
+<td style="text-align: left">The birth sequence of the subscriber. This is only required when family members have the same birth date.</td>
+<td style="text-align: left">#Required when reporting family members with the same birth date</td>
+</tr>
+<tr>
+<td style="text-align: left">death_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The death date of the subscriber.</td>
+<td style="text-align: left">#Member Individual Death Date</td>
+</tr>
+<tr>
+<td style="text-align: left">contacts</td>
+<td style="text-align: left">List of <a href="#contact_object">Contact objects</a></td>
+<td style="text-align: left">A list of contact information for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">employment_classes</td>
+<td style="text-align: left">List of {string}</td>
+<td style="text-align: left">The employment class codes for the subscriber. <br/>Acceptable values: see <a href="#employment_class_codes">employment class codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">wages_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The wage paid to the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">wages_paid_frequency</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The frequency the subscriber is paid. Acceptable values: see wages paid frequency.<br/>Acceptable values: see <a href="#wages_paid_frequency_codes">wages paid frequency codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">spend_down_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The spend down amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">premium_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The premium amount for to the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">expected_expenditure_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The expected expenditure amount paid of the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">deductible_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The deductible amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">copayment_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The co-payment amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">coinsurance_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The co-insurance selection amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">substance_abuse</td>
+<td style="text-align: left">{bool} (Default: false)</td>
+<td style="text-align: left">True if the subscriber has a substance abuse issue.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">tobacco_use</td>
+<td style="text-align: left">{bool} (Default: false)</td>
+<td style="text-align: left">True if the subscriber uses tobacco.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">height</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The height of the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">weight</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The weight of the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">benefits</td>
+<td style="text-align: left">List of <a href="#coverage_object">Coverage objects</a></td>
+<td style="text-align: left">The list of benefit segments for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">maintenance_effective_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The maintenance effective date of the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">client_reporting_category</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The client reporting category.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">client_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The client number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">case_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The case number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">pin</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">Personal Identification Number (PIN)  Used to transmit a password associated with a member.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">cross_reference_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The cross reference number for the member.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">personal_id_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The personal ID number for the member.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">pharmacy_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The pharmacy number for the member.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">department_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The department number for the member.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">hic_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The health insurance claim number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">position_code</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The members position code. Represents the code used to represent the member&rsquo;s employment position</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">prior_identifier_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The members prior identification number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">unit_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The unit number. Used when members are set up as different units under the terms of the insurance policy.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">supplemental_identifier</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The &ldquo;Mutually Defined&rdquo; supplemental identifier.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">reporting_categories</td>
+<td style="text-align: left"><a href="#reporting_categories">Reporting Category object</a></td>
+<td style="text-align: left">The additional reporting categories that may be included for each member within an enrollment transaction</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="address_object"></a></p>
+
+<h2 id="address-object">Address object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">line</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The subscriber’s street address information. (e.g. [“123 N MAIN ST”])</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">line2</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The subscriber’s street address information. (e.g. [“123 N MAIN ST”])</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">city</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The subscriber’s city information. (e.g. “SAN MATEO”)</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">state</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The subscriber’s state information. (e.g. “CA”)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">postal_code</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The subscriber’s zip/postal code. (e.g. “94401”)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">country</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The subscriber&rsquo;s country information. (e.g. “USA”)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">county</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The subscriber&rsquo;s county information. (e.g. “SAN MATEO”)</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#member_object">Back to Member object</a>)</p>
+
+<p><a name="medicare_object"></a></p>
+
+<h2 id="medicare-object">Medicare object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">plan</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The medicare plan value for the subscriber. <br/>Acceptable values: see <a href="#medicare_plan_codes">medicare plan codes.</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">eligibility_reason</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The medicare eligibility reason codes for the subscriber. <br/>Acceptable values: see <a href="#medicare_eligibility_reason_codes">medicare eligibility reason codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#member_object">Back to Member object</a>)</p>
+
+<p><a name="school_object"></a></p>
+
+<h2 id="school-object">School object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The name of the dependents school.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#member_object">Back to Member object</a>)</p>
+
+<p><a name="contact_object"></a></p>
+
+<h2 id="contact-object">Contact object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">primary_communication_type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of primary communication. <br/>Acceptable values: see <a href="#communication_type_codes">communication type codes.</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">primary_communication_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The primary communication number for the subscriber.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">communication_type2</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of secondary communication. <a href="#communication_type_codes">communication type codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">communication_number2</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The secondary communication number for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">communication_type3</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of tertiary communication. <a href="#communication_type_codes">communication type codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">communication_number3</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The tertiary communication number for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#member_object">Back to Member object</a>)</p>
+
+<p><a name="monetary_object"></a></p>
+
+<h2 id="monetary-amount-object">Monetary Amount object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of currency. (e. g. USD)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The amount of currency.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#member_object">Back to Member object</a>)</p>
+
+<p><a name="reporting_categorie"></a></p>
+
+<h2 id="report-category-object">Report Category Object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The name of the report category.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">qualifier</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The qualifier for the report category. <br/>Acceptable values: see <a href="#report_category_qualifiers">report category qualifiers.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The value of the report category.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">effective_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The effective date of the report category.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">effective_end_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The effective end date of the category.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#member_object">Back to Member object</a>)</p>
+
+<p><a name="coverage_object"></a></p>
+
+<h2 id="coverage-object">Coverage object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">maintenance_type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of benefit maintenance. <br/>Acceptable values: see <a href="#maintenance_type_codes">maintenance type codes.</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">benefit_type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The benefit type. <br/>Acceptable values: see <a href="#insurance_line_codes">insurance line codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">coverage_level</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The coverage level of the subscriber. <br/>Acceptable values: see <a href="#coverage_level_codes">coverage level codes.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">contract_code</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The contract code for the benefit.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">late_enrollment</td>
+<td style="text-align: left">{bool} (Default : false)</td>
+<td style="text-align: left">True if the subscriber is a late enroller.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">begin_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The beginning date of coverage for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">end_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The end date of coverage for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">enrollment_signature_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The enrollment signature date for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">maintenance_effective_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The maintenance effective date for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">premium_paid_to_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The premium paid to date for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">last_premium_paid_date</td>
+<td style="text-align: left">{datetime}</td>
+<td style="text-align: left">The last premium paid date for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">spend_down_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The spend down amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">premium_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The premium amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">expected_expenditure_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The expected expenditure amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">deductible_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The deductible amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">copayment_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The copayment amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">coinsurance_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The coinsurance amount for the subscriber.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">coordination_of_benefits</td>
+<td style="text-align: left">List of <a href="#coordination_of_benefits_object">Coordination of Benefits objects</a></td>
+<td style="text-align: left">List of the coordination of benefits segment.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">providers</td>
+<td style="text-align: left">List of Provider object</td>
+<td style="text-align: left">List of the provider segment.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">client_reporting_category</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The client reporting category.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">group_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The group number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">payment_category</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The payment category.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">contract_code</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The contract code.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">service_contract_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The service contract number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">medical_assistance_category</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The medical assistance category.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">program_identification_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The program identification number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">rate_code_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The rate code number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">internal_control_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The internal control number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">issuer_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The issuer number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">special_program_code</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The special program code.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">service_area_code</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The service area code.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">county_code</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The country code.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">policy_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The policy number.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#member_object">Back to Member object</a>)</p>
+
+<p><a name="reporting_categories"></a></p>
+
+<h2 id="report-category-object">Report Category Object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The name of the report category.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">qualifier</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The qualifier for the report category. <br/>Acceptable values: see <a href="#report_category_qualifiers">report category qualifiers.</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The value of the report category.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">effective_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The effective date of the report category.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">effective_end_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The effective end date of the category.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#member_object">Back to Member object</a>)</p>
+
+<p><a name="coordination_of_benefits_object"></a></p>
+
+<h2 id="coordination-of-benefits-object">Coordination of Benefits object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">payer_responsibility</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The payer responsibility. <br/>Acceptable values: see <a href="#payer_responsibility_codes">payer responsibility codes.</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">group_or_policy_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The group or policy number for the subscribers additional plan.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The status of the coordination of benefits. <br/>Acceptable values: see <a href="#coordination_of_benefit_status_codes">coordnination of benefit status codes.</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#coverage_object">Back to Coverage object</a>)</p>
+
+<p><a name="provider_object"></a></p>
+
+<h2 id="provider-object">Provider object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of provider. <br/>Acceptable values: see <a href="#provider_type_codes">provider_type_codes.</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">entity_type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The entity type of the provider. <br/>Acceptable values: see <a href="#entity_type_codes">entity type codes.</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">patient_status</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The patient status for the provider. Acceptable values: see established patient codes.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">last_or_organization_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">Last name of the provider or the name of the organization.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">first_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The first name of the provider.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">middle_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The middle name of the provider.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">prefix</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The prefix of the provider.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">suffix</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The suffix of the provider.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">ssn</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The SSN of the provider.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">service_provider_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The provider service number.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">npi_id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The NPI id of the provider.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The tax id of the provider.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">address</td>
+<td style="text-align: left"><a href="#address_object">Address object</a></td>
+<td style="text-align: left">The address of the provider.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#coverage_object">Back to Coverage object</a>)</p>
+
+<h1 id="codes">Codes</h1>
+
+<p>Many of the parameters above only accept a limited range of valid
+inputs. These values are transformed into the appropriate EDI X12 code values
+for submission to the payer.</p>
+
+<p><a name="relationship_codes"></a></p>
+
+<h2 id="relationship-codes">Relationship Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">spouse</td>
+<td style="text-align: left">father</td>
+<td style="text-align: left">mother</td>
+<td style="text-align: left">grandfather</td>
+</tr>
+<tr>
+<td style="text-align: left">grandmother</td>
+<td style="text-align: left">grandson</td>
+<td style="text-align: left">granddaughter</td>
+<td style="text-align: left">aunt</td>
+</tr>
+<tr>
+<td style="text-align: left">uncle</td>
+<td style="text-align: left">nephew</td>
+<td style="text-align: left">niece</td>
+<td style="text-align: left">cousin</td>
+</tr>
+<tr>
+<td style="text-align: left">adopted_child</td>
+<td style="text-align: left">foster_child</td>
+<td style="text-align: left">son_in_law</td>
+<td style="text-align: left">daughter_in_law</td>
+</tr>
+<tr>
+<td style="text-align: left">brother_in_law</td>
+<td style="text-align: left">sister_in_law</td>
+<td style="text-align: left">mother_in_law</td>
+<td style="text-align: left">father_in_law</td>
+</tr>
+<tr>
+<td style="text-align: left">brother</td>
+<td style="text-align: left">sister</td>
+<td style="text-align: left">ward</td>
+<td style="text-align: left">step_parent</td>
+</tr>
+<tr>
+<td style="text-align: left">step_son</td>
+<td style="text-align: left">step_daughter</td>
+<td style="text-align: left">self</td>
+<td style="text-align: left">child</td>
+</tr>
+<tr>
+<td style="text-align: left">sponsored_dependent</td>
+<td style="text-align: left">dependent_of_minor_dependent</td>
+<td style="text-align: left">ex_spouse</td>
+<td style="text-align: left">guardian</td>
+</tr>
+<tr>
+<td style="text-align: left">court_appointed_guardian</td>
+<td style="text-align: left">collateral_dependent</td>
+<td style="text-align: left">life_partner</td>
+<td style="text-align: left">annuitant</td>
+</tr>
+<tr>
+<td style="text-align: left">trustee</td>
+<td style="text-align: left">other_relationship</td>
+<td style="text-align: left">other_relative</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="coverage_level_codes"></a></p>
+
+<h2 id="coverage-level-codes">Coverage Level Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Children Only</td>
+<td style="text-align: left">Dependents Only</td>
+</tr>
+<tr>
+<td style="text-align: left">Employee and One Dependent</td>
+<td style="text-align: left">Employee and Two Dependents</td>
+</tr>
+<tr>
+<td style="text-align: left">Employee and Three Dependents</td>
+<td style="text-align: left">Employee and One or More Dependents</td>
+</tr>
+<tr>
+<td style="text-align: left">Employee and Two or More Dependents</td>
+<td style="text-align: left">Employee and Three or More Dependents</td>
+</tr>
+<tr>
+<td style="text-align: left">Employee and Four or More Dependents</td>
+<td style="text-align: left">Employee and Five or More Dependents</td>
+</tr>
+<tr>
+<td style="text-align: left">Employee and Children</td>
+<td style="text-align: left">Employee Only</td>
+</tr>
+<tr>
+<td style="text-align: left">Employee and Spouse</td>
+<td style="text-align: left">Family</td>
+</tr>
+<tr>
+<td style="text-align: left">Individual</td>
+<td style="text-align: left">Spouse and Children</td>
+</tr>
+<tr>
+<td style="text-align: left">Spouse Only</td>
+<td style="text-align: left">Two Party</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="purpose_codes"></a></p>
+
+<h2 id="purpose-codes">Purpose Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Original</td>
+</tr>
+<tr>
+<td style="text-align: left">Re-Submission</td>
+</tr>
+<tr>
+<td style="text-align: left">Information Copy</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="action_codes"></a></p>
+
+<h2 id="action-codes">Action Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Change</td>
+</tr>
+<tr>
+<td style="text-align: left">Verify</td>
+</tr>
+<tr>
+<td style="text-align: left">Replace</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="gender_codes"></a></p>
+
+<h2 id="gender-codes">Gender Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Female</td>
+</tr>
+<tr>
+<td style="text-align: left">Male</td>
+</tr>
+<tr>
+<td style="text-align: left">Unknown</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="maintenance_type_codes"></a></p>
+
+<h2 id="maintenance-type-codes">Maintenance Type Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Change</td>
+</tr>
+<tr>
+<td style="text-align: left">Delete</td>
+</tr>
+<tr>
+<td style="text-align: left">Addition</td>
+</tr>
+<tr>
+<td style="text-align: left">Cancellation or Termination</td>
+</tr>
+<tr>
+<td style="text-align: left">Reinstatement</td>
+</tr>
+<tr>
+<td style="text-align: left">Correction</td>
+</tr>
+<tr>
+<td style="text-align: left">Audit or Compare</td>
+</tr>
+<tr>
+<td style="text-align: left">Employee Information Not Applicable</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="maintenance_reason_codes"></a></p>
+
+<h2 id="maintenance-reason-codes">Maintenance Reason Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Divorce</td>
+<td style="text-align: left">Birth</td>
+</tr>
+<tr>
+<td style="text-align: left">Death</td>
+<td style="text-align: left">Retirement</td>
+</tr>
+<tr>
+<td style="text-align: left">Adoption</td>
+<td style="text-align: left">Strike</td>
+</tr>
+<tr>
+<td style="text-align: left">Termination of Benefits</td>
+<td style="text-align: left">Termination of Employment</td>
+</tr>
+<tr>
+<td style="text-align: left">Consolidation Omnibus Budget Reconciliation Act (COBRA)</td>
+<td style="text-align: left">Consolidation Omnibus Budget Reconciliation Act (COBRA) Premium Paid</td>
+</tr>
+<tr>
+<td style="text-align: left">Surviving Spouse</td>
+<td style="text-align: left">Voluntary Withdrawal</td>
+</tr>
+<tr>
+<td style="text-align: left">Primary Care Provider (PCP) Change</td>
+<td style="text-align: left">Quit</td>
+</tr>
+<tr>
+<td style="text-align: left">Fired</td>
+<td style="text-align: left">Suspended</td>
+</tr>
+<tr>
+<td style="text-align: left">Active</td>
+<td style="text-align: left">Disability</td>
+</tr>
+<tr>
+<td style="text-align: left">Plan Change</td>
+<td style="text-align: left">Change in Identifying Data Elements</td>
+</tr>
+<tr>
+<td style="text-align: left">Declined Coverage</td>
+<td style="text-align: left">Pre-Enrollment</td>
+</tr>
+<tr>
+<td style="text-align: left">Initial Enrollment</td>
+<td style="text-align: left">Benefit Selection</td>
+</tr>
+<tr>
+<td style="text-align: left">Legal Separation</td>
+<td style="text-align: left">Marriage</td>
+</tr>
+<tr>
+<td style="text-align: left">Personnel Data</td>
+<td style="text-align: left">Leave of Absence with Benefits</td>
+</tr>
+<tr>
+<td style="text-align: left">Leave of Absence without Benefits</td>
+<td style="text-align: left">Lay Off with Benefits</td>
+</tr>
+<tr>
+<td style="text-align: left">Lay Off without Benefits</td>
+<td style="text-align: left">Re-enrollment</td>
+</tr>
+<tr>
+<td style="text-align: left">Change of Location</td>
+<td style="text-align: left">Non Payment</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="benefit_status_codes"></a></p>
+
+<h2 id="benefit-status-codes">Benefit Status Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Active</td>
+</tr>
+<tr>
+<td style="text-align: left">Consolidated Omnibus Budget Reconciliation Act (COBRA)</td>
+</tr>
+<tr>
+<td style="text-align: left">Surviving Insured</td>
+</tr>
+<tr>
+<td style="text-align: left">Tax Equity and Fiscal Responsibility Act (TEFRA)</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="medicare_plan_codes"></a></p>
+
+<h2 id="medicare-plan-codes">Medicare Plan Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Medicare Part A</td>
+</tr>
+<tr>
+<td style="text-align: left">Medicare Part B</td>
+</tr>
+<tr>
+<td style="text-align: left">Medicare Part A and B</td>
+</tr>
+<tr>
+<td style="text-align: left">Medicare</td>
+</tr>
+<tr>
+<td style="text-align: left">No Medicare</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="medicare_eligibility_reason_codes"></a></p>
+
+<h2 id="medicare-eligibility-reason-codes">Medicare Eligibility Reason Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Age</td>
+</tr>
+<tr>
+<td style="text-align: left">Disability</td>
+</tr>
+<tr>
+<td style="text-align: left">End Stage Renal Disease (ESRD)</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="cobra_qualifying_event_codes"></a></p>
+
+<h2 id="cobra-qualifying-event-codes">COBRA Qualifying Event Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Termination of Employment</td>
+<td style="text-align: left">Reduction of work hours</td>
+</tr>
+<tr>
+<td style="text-align: left">Medicare</td>
+<td style="text-align: left">Death</td>
+</tr>
+<tr>
+<td style="text-align: left">Divorce</td>
+<td style="text-align: left">Separation</td>
+</tr>
+<tr>
+<td style="text-align: left">Ineligible Child</td>
+<td style="text-align: left">Bankruptcy of Retirees Former Employer ( U.S.C. B(f)()(F))</td>
+</tr>
+<tr>
+<td style="text-align: left">Layoff</td>
+<td style="text-align: left">Leave of Absence</td>
+</tr>
+<tr>
+<td style="text-align: left">ZZ Mutually Defined</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="employment_status_codes"></a></p>
+
+<h2 id="employment-status-codes">Employment Status Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Active</td>
+</tr>
+<tr>
+<td style="text-align: left">Active Military - Overseas</td>
+</tr>
+<tr>
+<td style="text-align: left">Active Military - USA</td>
+</tr>
+<tr>
+<td style="text-align: left">Full-time</td>
+</tr>
+<tr>
+<td style="text-align: left">Leave of Absence</td>
+</tr>
+<tr>
+<td style="text-align: left">Part-time</td>
+</tr>
+<tr>
+<td style="text-align: left">Retired</td>
+</tr>
+<tr>
+<td style="text-align: left">Terminated</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="student_status"></a></p>
+
+<h2 id="student-status-codes">Student Status Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Full-time</td>
+</tr>
+<tr>
+<td style="text-align: left">Not a Student</td>
+</tr>
+<tr>
+<td style="text-align: left">Part-time</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="insurance_line_codes"></a></p>
+
+<h2 id="insurance-line-codes">Insurance Line Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Preventative Care/Wellness</td>
+<td style="text-align: left">24 Hour Care</td>
+</tr>
+<tr>
+<td style="text-align: left">Medicare Risk</td>
+<td style="text-align: left">Mental Health</td>
+</tr>
+<tr>
+<td style="text-align: left">Dental Capitation</td>
+<td style="text-align: left">Dental</td>
+</tr>
+<tr>
+<td style="text-align: left">Exclusive Provider Organization</td>
+<td style="text-align: left">Facility</td>
+</tr>
+<tr>
+<td style="text-align: left">Hearing</td>
+<td style="text-align: left">Health</td>
+</tr>
+<tr>
+<td style="text-align: left">Health Maintenance Organization</td>
+<td style="text-align: left">Long-Term Care</td>
+</tr>
+<tr>
+<td style="text-align: left">Long-Term Disability</td>
+<td style="text-align: left">Major Medical</td>
+</tr>
+<tr>
+<td style="text-align: left">Mail Order Drug</td>
+<td style="text-align: left">Prescription Drug</td>
+</tr>
+<tr>
+<td style="text-align: left">Point of Service</td>
+<td style="text-align: left">Preferred Provider Organization</td>
+</tr>
+<tr>
+<td style="text-align: left">Practitioners</td>
+<td style="text-align: left">Short-Term Disability</td>
+</tr>
+<tr>
+<td style="text-align: left">Utilization Review</td>
+<td style="text-align: left">Vision</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="payer_responsibility_codes"></a></p>
+
+<h2 id="payer-responsibility-codes">Payer Responsibility Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Primary</td>
+</tr>
+<tr>
+<td style="text-align: left">Secondary</td>
+</tr>
+<tr>
+<td style="text-align: left">Tertiary</td>
+</tr>
+<tr>
+<td style="text-align: left">Unknown</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="coordination_of_benefit_status_codes"></a></p>
+
+<h2 id="coordination-of-benefits-status-codes">Coordination Of Benefits Status Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">coordination_of_benefits</td>
+</tr>
+<tr>
+<td style="text-align: left">no_coordination_of_benefits</td>
+</tr>
+<tr>
+<td style="text-align: left">unknown</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="marital_status_codes"></a></p>
+
+<h2 id="marital-status-codes">Marital Status Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Widowed</td>
+</tr>
+<tr>
+<td style="text-align: left">Legally Separated</td>
+</tr>
+<tr>
+<td style="text-align: left">Registered Domestic Partner</td>
+</tr>
+<tr>
+<td style="text-align: left">Divorced</td>
+</tr>
+<tr>
+<td style="text-align: left">Single</td>
+</tr>
+<tr>
+<td style="text-align: left">Married</td>
+</tr>
+<tr>
+<td style="text-align: left">Unreported</td>
+</tr>
+<tr>
+<td style="text-align: left">Separated</td>
+</tr>
+<tr>
+<td style="text-align: left">Unmarried (Single or Divorced or Widowed)</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="ethnicity_codes"></a></p>
+
+<h2 id="ethnicity-codes">Ethnicity Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Not Provided</td>
+<td style="text-align: left">Not Applicable</td>
+</tr>
+<tr>
+<td style="text-align: left">Asian or Pacific Islander</td>
+<td style="text-align: left">Black</td>
+</tr>
+<tr>
+<td style="text-align: left">Caucasian</td>
+<td style="text-align: left">Subcontinent Asian American</td>
+</tr>
+<tr>
+<td style="text-align: left">Other Race or Ethnicity</td>
+<td style="text-align: left">Asian Pacific American</td>
+</tr>
+<tr>
+<td style="text-align: left">Native American</td>
+<td style="text-align: left">Hispanic</td>
+</tr>
+<tr>
+<td style="text-align: left">American Indian or Alaskan Native</td>
+<td style="text-align: left">Native Hawaiian</td>
+</tr>
+<tr>
+<td style="text-align: left">Black (Non-Hispanic)</td>
+<td style="text-align: left">White (Non-Hispanic)</td>
+</tr>
+<tr>
+<td style="text-align: left">Pacific Islander</td>
+<td style="text-align: left">Mutually Defined</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="citizenship_status_codes"></a></p>
+
+<h2 id="citizenship-status-codes">Citizenship Status Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">U.S. Citizen</td>
+</tr>
+<tr>
+<td style="text-align: left">Non-Resident Alien</td>
+</tr>
+<tr>
+<td style="text-align: left">Resident Alien</td>
+</tr>
+<tr>
+<td style="text-align: left">Illegal Alien</td>
+</tr>
+<tr>
+<td style="text-align: left">Alien</td>
+</tr>
+<tr>
+<td style="text-align: left">U.S. Citizen - Non-Resident</td>
+</tr>
+<tr>
+<td style="text-align: left">U.S. Citizen - Resident</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="employment_class_codes"></a></p>
+
+<h2 id="employment-class-codes">Employment Class Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Union</td>
+<td style="text-align: left">Non-Union</td>
+</tr>
+<tr>
+<td style="text-align: left">Executive</td>
+<td style="text-align: left">Non-Executive</td>
+</tr>
+<tr>
+<td style="text-align: left">Management</td>
+<td style="text-align: left">Non-Management</td>
+</tr>
+<tr>
+<td style="text-align: left">Hourly</td>
+<td style="text-align: left">Salaried</td>
+</tr>
+<tr>
+<td style="text-align: left">Administrative</td>
+<td style="text-align: left">Non-Administrative</td>
+</tr>
+<tr>
+<td style="text-align: left">Exempt</td>
+<td style="text-align: left">Non-Exempt</td>
+</tr>
+<tr>
+<td style="text-align: left">Highly Compensated</td>
+<td style="text-align: left">Key-Employee</td>
+</tr>
+<tr>
+<td style="text-align: left">Bargaining</td>
+<td style="text-align: left">Non-Bargaining</td>
+</tr>
+<tr>
+<td style="text-align: left">Owner</td>
+<td style="text-align: left">President</td>
+</tr>
+<tr>
+<td style="text-align: left">Vice President</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="wages_paid_frequency_codes"></a></p>
+
+<h2 id="wages-paid-frequency-codes">Wages Paid Frequency Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Weekly</td>
+<td style="text-align: left">Biweekly</td>
+</tr>
+<tr>
+<td style="text-align: left">Semimonthly</td>
+<td style="text-align: left">Monthly</td>
+</tr>
+<tr>
+<td style="text-align: left">Daily</td>
+<td style="text-align: left">Annual</td>
+</tr>
+<tr>
+<td style="text-align: left">Two Calendar Months</td>
+<td style="text-align: left">Lump-Sum Separation Allowance</td>
+</tr>
+<tr>
+<td style="text-align: left">Year-to-Date</td>
+<td style="text-align: left">Single</td>
+</tr>
+<tr>
+<td style="text-align: left">Hourly</td>
+<td style="text-align: left">Quarterly</td>
+</tr>
+<tr>
+<td style="text-align: left">Semiannual</td>
+<td style="text-align: left">Unknown</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="communication_type_codes"></a></p>
+
+<h2 id="communication-type-codes">Communication Type Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Electronic Mail</td>
+<td style="text-align: left">Telephone Extension</td>
+</tr>
+<tr>
+<td style="text-align: left">Facsimile</td>
+<td style="text-align: left">Telephone</td>
+</tr>
+<tr>
+<td style="text-align: left">Home Phone Number</td>
+<td style="text-align: left">Work Phone Number</td>
+</tr>
+<tr>
+<td style="text-align: left">Cellular Phone</td>
+<td style="text-align: left">Beeper Number</td>
+</tr>
+<tr>
+<td style="text-align: left">Alternate Telephone</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="provider_type_codes"></a></p>
+
+<h2 id="provider-type-codes">Provider Type Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Laboratory</td>
+<td style="text-align: left">Obstetrics and Gynecology Facility</td>
+</tr>
+<tr>
+<td style="text-align: left">Hospital</td>
+<td style="text-align: left">Facility</td>
+</tr>
+<tr>
+<td style="text-align: left">Doctor of Optometry</td>
+<td style="text-align: left">Primary Care Provider</td>
+</tr>
+<tr>
+<td style="text-align: left">Pharmacy</td>
+<td style="text-align: left">Dentist</td>
+</tr>
+<tr>
+<td style="text-align: left">Managed Care Organization</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="entity_type_codes"></a></p>
+
+<h2 id="entity-type-codes">Entity Type Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Person</td>
+</tr>
+<tr>
+<td style="text-align: left">Non-Person Entity</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="report_category_qualifiers"></a></p>
+
+<h2 id="report-category-qualifiers">Report Category Qualifiers</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Service Area Code</td>
+<td style="text-align: left">Application Number</td>
+</tr>
+<tr>
+<td style="text-align: left">Contracting District Number</td>
+<td style="text-align: left">Special Program Code</td>
+</tr>
+<tr>
+<td style="text-align: left">Mutually Defined</td>
+<td style="text-align: left">Account Category</td>
+</tr>
+<tr>
+<td style="text-align: left">Client Reporting Category</td>
+<td style="text-align: left">Geographic Number</td>
+</tr>
+<tr>
+<td style="text-align: left">Division Identifier</td>
+<td style="text-align: left">Location Number</td>
+</tr>
+<tr>
+<td style="text-align: left">Plan Number</td>
+<td style="text-align: left">Geographic Key</td>
+</tr>
+<tr>
+<td style="text-align: left">Program Identification Number</td>
+<td style="text-align: left">Branch Identifier</td>
+</tr>
+<tr>
+<td style="text-align: left">Union Number</td>
+<td style="text-align: left">Payment Category</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)</p>
+
+<p><a name="application_data_definition"></a></p>
+
+<h1 id="application-data">Application Data</h1>
+
+<p>API client applications may include custom application data in requests to help
+support scenarios where an application is unable to store the activity id and
+wishes to include application specific data in their API requests so that the
+information will be stored on the request’s activity and returned to the
+application in asynchronous callbacks. This can be useful for scenarios where
+you want to directly associate a PokitDok Platform API request with some
+identifier(s) in your system so that you can do direct lookups to associate
+responses with the appropriate information. For example, suppose you wish to
+fire off a number of eligibility or claims requests and want to include some
+identifiers specific to your application. By including the identifier(s) you
+need in the request’s application_data section, you can easily do direct lookups
+using those identifiers when you receive the API response.</p>
+
+      </div>
+    </div>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-26980236-7', {'cookieDomain': 'platform.pokitdok.com'});
+        ga('send', 'pageview');
+    </script>
+    
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 977558247;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt=""
+          src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/977558247/?value=0&guid=ON&script=0"/>
+        </div>
+    </noscript>
+
+  </body>
+</html>

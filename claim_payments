@@ -1,0 +1,1038 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <link href="/stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+      <script src="/javascripts/all_nosearch.js"></script>
+
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1410094735951733');
+    fbq('track', "PageView");</script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1410094735951733&ev=PageView&noscript=1"
+    /></noscript>
+
+  </head>
+
+  <body class="claim_payments">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="/images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="/images/logo.png" />
+
+      <div id="toc">
+      </div>
+      <ul class="toc-footer">
+          <li><a href="/documentation/v4">PokitDok Platform Documentation</a></li>
+          <li><a href='https://platform.pokitdok.com/signup' target='_blank'>Sign Up for a Free API Key</a></li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="content-2column">
+        <h1 id="claim-payments-reference">Claim Payments Reference</h1>
+
+<p>The claims endpoint makes it easy to submit claims transactions to trading partners.
+If you&rsquo;ve enrolled for claim payment processing, valid claims requests will
+receive a claim payment result after adjudication is complete.</p>
+
+<p>This document describes the PokitDok claim payment (835) result format.
+It&rsquo;s meant to accompany the summary of claims functionality in
+the <a href="/documentation/v4">PokitDok Platform API Documentation</a>.
+All possible subobjects and acceptable field values are presented.</p>
+
+<p>The claim payment result consists of a top-level JSON object, described
+in the &ldquo;Claim Payment Result Object&rdquo; section below. This object can contain a number
+of sub-objects as needed to describe the result, such as financial information and
+patient information. Each sub-object is described in its own table, which
+is linked from the &ldquo;Type&rdquo; parameter. Note that some sub-objects can themselves
+be comprised of other objects.</p>
+
+<h1 id="claim-payment-result-object">Claim Payment Result Object</h1>
+
+<p><a name="claim_payment"></a></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">adjudication_system_version</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The version number of the adjudication system that generated the claim payments.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">authorization_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The authorization number associated with the claim</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">claim_payments</td>
+<td style="text-align: left">List of <a href="#claim_payment_object">Claim Payment objects</a></td>
+<td style="text-align: left">A list of payments that were processed as part of this claim.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">coverage_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">Monetary amount to report the total covered charges for the claim.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">coverage_expiration_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The coverage expiration date</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">discount_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">Monetary amount representing discounts applied to the claim based on contractual obligations, etc.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">financial_information</td>
+<td style="text-align: left"><a href="#financial_information_object">Financial Information object</a></td>
+<td style="text-align: left">Financial institution information related to the claim payment</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">insurance_policy_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The insurance policy number associated with the claim</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">insured</td>
+<td style="text-align: left"><a href="#insured_object">Insured object</a></td>
+<td style="text-align: left">The insured information related to the claim.  This will be set when the patient is not also the insured.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">medical_record_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The medical record number associated with the claim</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">patient</td>
+<td style="text-align: left"><a href="#patient_object">Patient object</a></td>
+<td style="text-align: left">The patient information related to the claim.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">payee</td>
+<td style="text-align: left"><a href="#payee_object">Payee object</a></td>
+<td style="text-align: left">The payee information related to the claim.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">payer</td>
+<td style="text-align: left"><a href="#payer_object">Payer object</a></td>
+<td style="text-align: left">The payer information related to the claim.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">payment_responsibility_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">Monetary amount left to be paid by the patient/insured</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">prior_authorization_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The prior authorization number associated with the claim</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">production_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The date the claim was processed</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">received_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The date the claim was received.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">statement_period_start_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The claim statement period start date</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">statement_period_end_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The claim statement period end date</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">transaction_type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The transaction type.  See <a href="#transaction_type_codes">Transaction Type Codes</a> for possible values.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+</tbody></table>
+
+<p><a name="claim_payment_object"></a></p>
+
+<h2 id="claim-payment-object">Claim Payment object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">adjustments</td>
+<td style="text-align: left">List of <a href="#adjustment_object">Adjustment objects</a></td>
+<td style="text-align: left">A list of adjustments that apply to the claim payment.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">assigned_number</td>
+<td style="text-align: left">{int}</td>
+<td style="text-align: left">Number assigned to the claim payment</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">control_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">Control number assigned to the claim payment</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">filing_indicator</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">Filing indicator for this claim payment.  Possible values are listed in <a href="#filing_indicator_codes">Filing Indicator Codes</a></td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">patient_control_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">Patient control number reference for the claim payment</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">payment_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Payment amount object</a></td>
+<td style="text-align: left">Claim payment amount</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">services</td>
+<td style="text-align: left">List of <a href="#service_object">Service objects</a></td>
+<td style="text-align: left">A list of services covered by this claim payment.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">status</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">Status of this claim payment.  Possible values are listed in <a href="#claim_payment_status_codes">Status Codes</a></td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">total_charge_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Total charge amount object</a></td>
+<td style="text-align: left">Total charge amount for services included in this claim payment</td>
+<td style="text-align: left">Yes</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment">Back to Claim Payment Result</a>)</p>
+
+<p><a name="adjustment_object"></a></p>
+
+<h2 id="adjustment-object">Adjustment object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The amount of the adjustment.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">group</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The group classification of the adjustment. Possible values are listed in <a href="#adjustment_group_codes">Group Codes</a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">reason</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The reason for the adjustment.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">quantity</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The number of items impacted by the adjustment.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment_object">Back to Claim Payment Object</a>)</p>
+
+<p><a name="service_object"></a></p>
+
+<h2 id="service-object">Service object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">adjudicated_procedure_code</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The procedure code that was adjudicated for the service.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">charge_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The amount charged for the service on the claim.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">provider_payment_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetaty Amount object</a></td>
+<td style="text-align: left">The amount the provider was paid for the service.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">submitted_procedure_code</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The procedure code that was submitted in the claim for the service.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">service_units_paid</td>
+<td style="text-align: left">{int}</td>
+<td style="text-align: left">The number of service units that were paid.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">service_units_submitted</td>
+<td style="text-align: left">{int}</td>
+<td style="text-align: left">The number of service units that were submitted on the claim.</td>
+<td style="text-align: left">No</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment_object">Back to Claim Payment Object</a>)</p>
+
+<p><a name="financial_information_object"></a></p>
+
+<h2 id="financial-information-object">Financial Information object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">check_eft_trace_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The check or electronic funds transfer trace number.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">transaction_type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The transaction type.  See <a href="#transaction_type_codes">Transaction Type Codes</a> for possible values.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">effective_date</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The effective date of the payment.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">payer_id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The payer id associated with this financial information</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">originating_company_id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The originating company id associated with this financial information</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">originating_institution</td>
+<td style="text-align: left"><a href="#financial_institution_object">Financial Institution object</a></td>
+<td style="text-align: left">The originating institution associated with this financial information</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">receiving_institution</td>
+<td style="text-align: left"><a href="#financial_institution_object">Financial Institution object</a></td>
+<td style="text-align: left">The receiving institution associated with this financial information</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">payment_amount</td>
+<td style="text-align: left"><a href="#monetary_object">Monetary Amount object</a></td>
+<td style="text-align: left">The amount paid.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">payment_method</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The method used to pay the claim.  See <a href="#payment_method_codes">Payment Method Codes</a> for possible values.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">transaction_handling</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The payment transaction type.  See <a href="#transaction_type_codes">Transaction Type Codes</a> for possible values.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment">Back to Claim Payment Result</a>)</p>
+
+<p><a name="financial_institution_object"></a></p>
+
+<h2 id="financial-institution-object">Financial Institution object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">account_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The bank account number used for claim payment.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">account_type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of bank account.  See <a href="#account_type_codes">Account Type Codes</a> for possible values.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">routing_number</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The bank routing number used for claim payment.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#financial_information_object">Back to Financial Information object</a>)</p>
+
+<p><a name="insured_object"></a></p>
+
+<h2 id="insured-object">Insured object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">first_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The insured&rsquo;s first name</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">middle_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The insured&rsquo;s middle name</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">last_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The insured&rsquo;s last name</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The member ID assigned to the insured</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment">Back to Claim Payment Result</a>)</p>
+
+<p><a name="patient_object"></a></p>
+
+<h2 id="patient-object">Patient object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">first_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The patient&rsquo;s first name</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">middle_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The patient&rsquo;s middle name</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">last_name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The patient&rsquo;s last name</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The member ID assigned to the patient</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment">Back to Claim Payment Result</a>)</p>
+
+<p><a name="payee_object"></a></p>
+
+<h2 id="payee-object">Payee object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The name of the payee.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">npi</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The payee&rsquo;s NPI.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">tax_id</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The tax ID of the payee.</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">address</td>
+<td style="text-align: left"><a href="#address_object">Address object</a></td>
+<td style="text-align: left">The address of the payee</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">contacts</td>
+<td style="text-align: left">List of <a href="#contact_object">Contact objects</a></td>
+<td style="text-align: left">A list of contacts for the payee.</td>
+<td style="text-align: left">No</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment">Back to Claim Payment Result</a>)</p>
+
+<p><a name="payer_object"></a></p>
+
+<h2 id="payer-object">Payer object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The name of the payer.</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">address</td>
+<td style="text-align: left"><a href="#address_object">Address object</a></td>
+<td style="text-align: left">The address of the payer</td>
+<td style="text-align: left">No</td>
+</tr>
+<tr>
+<td style="text-align: left">contacts</td>
+<td style="text-align: left">List of <a href="#contact_object">Contact objects</a></td>
+<td style="text-align: left">A list of contacts for the payer.</td>
+<td style="text-align: left">No</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment">Back to Claim Payment Result</a>)</p>
+
+<p><a name="address_object"></a></p>
+
+<h2 id="address-object">Address object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">address_lines</td>
+<td style="text-align: left">List of {string}</td>
+<td style="text-align: left">Street address information. (e.g. [“123 N MAIN ST”, &ldquo;UNIT 20&rdquo;])</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">city</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">city information. (e.g. “SAN MATEO”)</td>
+<td style="text-align: left">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left">state</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">state information. (e.g. “CA”)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">zipcode</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">zip/postal code. (e.g. “94401”)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">country</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">country information. (e.g. “USA”)</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#payer_object">Back to Payer object</a>)</p>
+
+<p><a name="contact_object"></a></p>
+
+<h2 id="contact-object">Contact object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The name of the contact</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">contact_methods</td>
+<td style="text-align: left">List of <a href="#contact_method_object">Contact Method objects</a></td>
+<td style="text-align: left">Contact methods</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#payer_object">Back to Payer object</a>)</p>
+
+<p><a name="contact_method_object"></a></p>
+
+<h2 id="contact-method-object">Contact Method object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameter</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of contact method.  See <a href="#contact_method_type_codes">Contact Method Type Codes</a> for possible values.</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">value</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">A value representing a Phone number, email address, etc.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#payer_object">Back to Payer object</a>)</p>
+
+<p><a name="monetary_object"></a></p>
+
+<h2 id="monetary-amount-object">Monetary Amount object</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Parameters</th>
+<th style="text-align: left">Type</th>
+<th style="text-align: left">Description</th>
+<th style="text-align: left">Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">currency</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The type of currency. (e. g. USD)</td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">amount</td>
+<td style="text-align: left">{string}</td>
+<td style="text-align: left">The amount of currency.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment">Back to Claim Payment Result</a>)</p>
+
+<h1 id="codes">Codes</h1>
+
+<p>Many of the values above are limited to a set of codes or constants.
+These values are transformed from the corresponding EDI X12 code values that were received from a trading partner.</p>
+
+<p><a name="transaction_type_codes"></a></p>
+
+<h2 id="transaction-type-codes">Transaction Type Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">payment_accompanies_remittance_advice</td>
+</tr>
+<tr>
+<td style="text-align: left">make_payment_only</td>
+</tr>
+<tr>
+<td style="text-align: left">notification_only</td>
+</tr>
+<tr>
+<td style="text-align: left">remittance_information_only</td>
+</tr>
+<tr>
+<td style="text-align: left">prenotification_of_future_transfers</td>
+</tr>
+<tr>
+<td style="text-align: left">split_payment_and_remittance</td>
+</tr>
+<tr>
+<td style="text-align: left">option_to_split_payment_and_remittance</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment">Back to Claim Payment</a>)</p>
+
+<p><a name="filing_indicator_codes"></a></p>
+
+<h2 id="filing-indicator-codes">Filing Indicator Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">preferred_provider_organization</td>
+<td style="text-align: left">point_of_service</td>
+</tr>
+<tr>
+<td style="text-align: left">exclusive_provider_organization</td>
+<td style="text-align: left">indemnity_insurance</td>
+</tr>
+<tr>
+<td style="text-align: left">health_maintenance_organization_medicare_risk</td>
+<td style="text-align: left">dental_maintenance_organization</td>
+</tr>
+<tr>
+<td style="text-align: left">automobile_medical</td>
+<td style="text-align: left">champus</td>
+</tr>
+<tr>
+<td style="text-align: left">disability</td>
+<td style="text-align: left">health_maintenance_organization</td>
+</tr>
+<tr>
+<td style="text-align: left">liability_medical</td>
+<td style="text-align: left">medicare_part_a</td>
+</tr>
+<tr>
+<td style="text-align: left">medicare_part_b</td>
+<td style="text-align: left">medicaid</td>
+</tr>
+<tr>
+<td style="text-align: left">other_federal_program</td>
+<td style="text-align: left">title_v</td>
+</tr>
+<tr>
+<td style="text-align: left">veterans_affairs_plan</td>
+<td style="text-align: left">workers_compensation_health_claim</td>
+</tr>
+<tr>
+<td style="text-align: left">mutually_defined</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment_object">Back to Claim Payment Object</a>)</p>
+
+<p><a name="adjustment_group_codes"></a></p>
+
+<h2 id="adjustment-group-codes">Adjustment Group Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">contractual_obligations</td>
+</tr>
+<tr>
+<td style="text-align: left">other_adjustments</td>
+</tr>
+<tr>
+<td style="text-align: left">payor_initiated_reductions</td>
+</tr>
+<tr>
+<td style="text-align: left">patient_responsibility</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#adjustment_object">Back to Adjustment Object</a>)</p>
+
+<p><a name="payment_method_codes"></a></p>
+
+<h2 id="payment-method-codes">Payment Method Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">automated_clearing_house</td>
+</tr>
+<tr>
+<td style="text-align: left">financial_institution_option</td>
+</tr>
+<tr>
+<td style="text-align: left">check</td>
+</tr>
+<tr>
+<td style="text-align: left">funds_wire_transfer</td>
+</tr>
+<tr>
+<td style="text-align: left">non_payment_data</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#financial_information_object">Back to Financial Information Object</a>)</p>
+
+<p><a name="account_type_codes"></a></p>
+
+<h2 id="account-type-codes">Account Type Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">demand_deposit</td>
+</tr>
+<tr>
+<td style="text-align: left">savings</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#financial_institution_object">Back to Financial Institution object</a>)</p>
+
+<p><a name="claim_payment_status_codes"></a></p>
+
+<h2 id="claim-payment-status-codes">Claim Payment Status Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">processed_as_primary</td>
+</tr>
+<tr>
+<td style="text-align: left">processed_as_secondary</td>
+</tr>
+<tr>
+<td style="text-align: left">processed_as_tertiary</td>
+</tr>
+<tr>
+<td style="text-align: left">denied</td>
+</tr>
+<tr>
+<td style="text-align: left">processed_as_primary_and_forwarded</td>
+</tr>
+<tr>
+<td style="text-align: left">processed_as_secondary_and_forwarded</td>
+</tr>
+<tr>
+<td style="text-align: left">processed_as_tertiary_and_forwarded</td>
+</tr>
+<tr>
+<td style="text-align: left">reversal_of_previous_payment</td>
+</tr>
+<tr>
+<td style="text-align: left">not_our_claim_forwarded_to_additional_payers</td>
+</tr>
+<tr>
+<td style="text-align: left">predetermination_pricing_only_no_payment</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#claim_payment_object">Back to Claim Payment object</a>)</p>
+
+<p><a name="contact_method_type_codes"></a></p>
+
+<h2 id="contact-method-type-codes">Contact Method Type Codes</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: left"></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">email</td>
+</tr>
+<tr>
+<td style="text-align: left">fax</td>
+</tr>
+<tr>
+<td style="text-align: left">phone</td>
+</tr>
+<tr>
+<td style="text-align: left">phone_extension</td>
+</tr>
+</tbody></table>
+
+<p>(<a href="#contact_method_object">Back to Contact Method object</a>)</p>
+
+      </div>
+    </div>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-26980236-7', {'cookieDomain': 'platform.pokitdok.com'});
+        ga('send', 'pageview');
+    </script>
+    
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var google_conversion_id = 977558247;
+        var google_custom_params = window.google_tag_params;
+        var google_remarketing_only = true;
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+    </script>
+    <noscript>
+        <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt=""
+          src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/977558247/?value=0&guid=ON&script=0"/>
+        </div>
+    </noscript>
+
+  </body>
+</html>
