@@ -14,10 +14,15 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
 set :fonts_dir, 'fonts'
-config[:file_watcher_ignore] << /^documentation(\/|$)/
 
 # Activate the syntax highlighter
 activate :syntax
+
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 version', 'Firefox ESR']
+  config.cascade  = false
+  config.inline   = true
+end
 
 # Github pages require relative links
 activate :relative_assets
@@ -25,18 +30,11 @@ set :relative_links, true
 
 # Build Configuration
 configure :build do
+  # If you're having trouble with Middleman hanging, commenting
+  # out the following two lines has been known to help
   activate :minify_css
   activate :minify_javascript
   # activate :relative_assets
   # activate :asset_hash
   # activate :gzip
-end
-
-activate :s3_sync do |s3_sync|
-  s3_sync.delete                     = false
-  s3_sync.after_build                = false
-  s3_sync.prefer_gzip                = false
-  s3_sync.acl                        = 'public-read'
-  s3_sync.index_document             = 'index.html'
-  s3_sync.error_document             = '404.html'
 end

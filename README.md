@@ -5,6 +5,17 @@ PokitDok API Documentation
 
 This repository contains developer docs for the [PokitDok APIs](https://platform.pokitdok.com)
 
+Building the documentation requires
+
+
+### Prerequisites
+
+You're going to need:
+
+ - **Linux or OS X** — Windows may work, but is unsupported.
+ - **Ruby, version 1.9.3 or newer**
+ - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
+ 
 ### Found a bug? Want to help update these docs? Excellent!
 
  1. Fork this repository on Github.
