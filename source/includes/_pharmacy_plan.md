@@ -1,9 +1,28 @@
-## Pharmacy Plan
+## Pharmacy Plans
 
 > Example request to determine pharmacy plan information:
 
 ```python
 pd.pharmacy_plans(trading_partner_id='medicare_national', plan_number='S5884114')
+```
+
+```ruby
+pd.pharmacy_plans(trading_partner_id:'medicare_national', plan_number:'S5884114')
+```
+
+```csharp
+pd.pharmacyPlans(
+                  new Dictionary<string, string> {
+                    {"trading_partner_id", "medicare_national"},
+                    {"plan_number", "S5884114"}
+                });
+```
+
+```java
+Map<String, Object> params = new HashMap<String, Object>();
+params.put("trading_partner_id", "medicare_national");
+params.put("plan_number", "S5884114");
+pd.pharmacyPlans(params);
 ```
 
 > Example pharmacy plan response for a member with Medicare Part D:
