@@ -3,13 +3,56 @@
 > Example fetching pharmacy information by NPI:
 
 ```python
-pd.pharmacy_network(npi='1427382266', trading_partner_id= 'medicare_national', plan_number='S5820003')
+pd.pharmacy_network(npi='1427382266', trading_partner_id='medicare_national', plan_number='S5820003')
+```
+
+```ruby
+pd.pharmacy_network(npi: '1427382266', trading_partner_id: 'medicare_national', plan_number: 'S5820003')
+```
+
+```csharp
+pd.pharmacyNetwork(
+                    "1427382266",
+                    new Dictionary<string, string> {
+                      {"trading_partner_id", "medicare_national"},
+                      {"plan_number", "S5820003"}
+                  });
+```
+
+```java
+Map<String, Object> params = new HashMap<String, Object>();
+params.put("trading_partner_id", "medicare_national");
+params.put("plan_number", "S5820003");
+pd.pharmacyNetwork("1427382266", params);
 ```
 
 > Example searching for in-network pharmacies by plan and zip code:
 
 ```python
-pd.pharmacy_network(trading_partner_id= 'medicare_national', plan_number='S5820003' , zipcode='07097', radius='1mi')
+pd.pharmacy_network(trading_partner_id='medicare_national', plan_number='S5820003' , zipcode='07097', radius='1mi')
+```
+
+```ruby
+pd.pharmacy_network(trading_partner_id: 'medicare_national', plan_number: 'S5820003' , zipcode: '07097', radius: '1mi')
+```
+
+```csharp
+pd.pharmacyNetwork(
+                    new Dictionary<string, string> {
+                      {"trading_partner_id", "medicare_national"},
+                      {"plan_number", "S5820003"},
+                      {"zipcode", "07097"},
+                      {"radius", "1mi"}
+                  });
+```
+
+```java
+Map<String, Object> params = new HashMap<String, Object>();
+params.put("trading_partner_id", "medicare_national");
+params.put("plan_number", "S5820003");
+params.put("zipcode", "07097");
+params.put("radius", "1mi");
+pd.pharmacyNetwork(params);
 ```
 
 > Sample response for /pharmacy/network/{npi} endpoint :

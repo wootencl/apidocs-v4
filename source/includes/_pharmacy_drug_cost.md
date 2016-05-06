@@ -6,10 +6,52 @@
 pd.pharmacy_drug_cost(trading_partner_id= 'medicare_national', plan_number='S0522034', drug= 'simvastatin')
 ```
 
+```ruby
+puts pd.pharmacy_drug_cost(trading_partner_id: 'medicare_national', plan_number: 'S0522034', drug: 'simvastatin')
+```
+
+```csharp
+pd.pharmacyDrugCost(
+                      new Dictionary<string, string> {
+                        {"trading_partner_id", "medicare_national"},
+                        {"plan_number", "S0522034"},
+                        {"drug",  "simvastatin"}
+                    });
+```
+
+```java
+Map<String, Object> params = new HashMap<String, Object>();
+params.put("trading_partner_id", "medicare_national");
+params.put("plan_number", "S0522034");
+params.put("drug", "simvastatin");
+Map<String, Object> response = pd.pharmacyDrugCost(params);
+```
+
 > Example request to determine drug coverage using NDC:
 
 ```python
 pd.pharmacy_drug_cost(trading_partner_id= 'medicare_national', plan_number='S0522034', ndc= '00071101968')
+```
+
+```ruby
+puts pd.pharmacy_drug_cost(trading_partner_id: 'medicare_national', plan_number: 'S0522034', ndc: '00071101968')
+```
+
+```csharp
+pd.pharmacyDrugCost(
+                      new Dictionary<string, string> {
+                        {"trading_partner_id", "medicare_national"},
+                        {"plan_number", "S0522034"},
+                        {"ndc",  "00071101968"}
+                    });
+```
+
+```java
+Map<String, Object> params = new HashMap<String, Object>();
+params.put("trading_partner_id", "medicare_national");
+params.put("plan_number", "S0522034");
+params.put("ndc", "00071101968");
+Map<String, Object> response = pd.pharmacyDrugCost(params);
 ```
 
 > Sample Pharmacy Drug Cost API response when searching for a medication using drug name (SIMVASTATIN):  
