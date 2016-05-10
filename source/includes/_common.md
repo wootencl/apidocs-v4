@@ -55,10 +55,11 @@ time is always included in the meta information.
 
 | Key               | Type     | Description                                                            |
 |:------------------|:---------|:-----------------------------------------------------------------------|
-| activity_id       | {uuid}   | The id of the activity used to process the API request.                |
-| application_mode  | {string} | Indicates if the application is configured for test or production use. |
+| activity_id       | {uuid}   | The id of the activity used to process the API request                 |
+| application_mode  | {string} | Indicates if the application is configured for test or production use  |
 | credits_billed    | {int}    | The amount of credits billed for this request                          |
 | credits_remaining | {int}    | The amount of credits remaining on your API account                    |
+| message           | {string} | Additional API response message                                        |
 | next              | {int}    | A url pointing to the next page of results                             |
 | previous          | {int}    | A url pointing to the previous page of results                         |
 | processing_time   | {int}    | The time to process the request in milliseconds                        |
