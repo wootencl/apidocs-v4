@@ -61,49 +61,161 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
     "data": [
         {
             "drug": "SIMVASTATIN 40 MG TABLET", 
-            "prior_auth": false, 
-            "quantity_limit": false, 
-            "step_therapy": false, 
-            "tier": 1, 
-            "tier_name": "preferred generic"
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "3.89", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "6.89", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "1.60", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "2.60", 
+                    "currency": "USD"
+                }
+            }
         }, 
         {
             "drug": "SIMVASTATIN 20 MG TABLET", 
-            "prior_auth": false, 
-            "quantity_limit": false, 
-            "step_therapy": false, 
-            "tier": 1, 
-            "tier_name": "preferred generic"
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "2.33", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "5.33", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "1.07", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "2.07", 
+                    "currency": "USD"
+                }
+            }
         }, 
         {
             "drug": "SIMVASTATIN 5 MG TABLET", 
-            "prior_auth": false, 
-            "quantity_limit": false, 
-            "step_therapy": false, 
-            "tier": 1, 
-            "tier_name": "preferred generic"
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "2.38", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "5.38", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "1.07", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "2.07", 
+                    "currency": "USD"
+                }
+            }
         }, 
         {
             "drug": "SIMVASTATIN 80 MG TABLET", 
-            "limit_amount": "30", 
-            "limit_days": 30, 
-            "prior_auth": false, 
-            "quantity_limit": true, 
-            "step_therapy": false, 
-            "tier": 1, 
-            "tier_name": "preferred generic"
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "7.41", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "10.41", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "2.80", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "3.80", 
+                    "currency": "USD"
+                }
+            }
         }, 
         {
             "drug": "SIMVASTATIN 10 MG TABLET", 
-            "prior_auth": false, 
-            "quantity_limit": false, 
-            "step_therapy": false, 
-            "tier": 1, 
-            "tier_name": "preferred generic"
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "2.14", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "5.14", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "1.00", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "2.00", 
+                    "currency": "USD"
+                }
+            }
         }
     ]
 }
-
 ```
 
 > Sample Pharmacy Formulary API response when searching by NDC (00071101968) :
@@ -113,13 +225,34 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
     "data": [
         {
             "drug": "LYRICA 225 MG CAPSULE", 
-            "limit_amount": "60", 
-            "limit_days": 30, 
-            "prior_auth": false, 
-            "quantity_limit": true, 
-            "step_therapy": false, 
-            "tier": 3, 
-            "tier_name": "preferred brand"
+            "mail": {
+                "ins_pay_90_day": {
+                    "amount": "793.09", 
+                    "currency": "USD"
+                }, 
+                "oop_90_day": {
+                    "amount": "198.27", 
+                    "currency": "USD"
+                }, 
+                "total_cost_90_day": {
+                    "amount": "991.36", 
+                    "currency": "USD"
+                }
+            }, 
+            "retail": {
+                "ins_pay_30_day": {
+                    "amount": "274.34", 
+                    "currency": "USD"
+                }, 
+                "oop_30_day": {
+                    "amount": "68.58", 
+                    "currency": "USD"
+                }, 
+                "total_cost_30_day": {
+                    "amount": "342.92", 
+                    "currency": "USD"
+                }
+            }
         }
     ]
 }
@@ -136,14 +269,21 @@ Medications can also have restrictions on their coverage such as prior authoriza
 | Endpoint            | HTTP Method | Description                        |
 |:--------------------|:------------|:-----------------------------------|
 | /pharmacy/formulary | GET         | Determine drug coverage for member |
+| /pharmacy/formulary?include=plan | GET | Determine plan info and drug coverage for member |
 
 To use the Pharmacy Formulary Endpoint with a Medicare member, you will need the plan number. This is the contract ID (ex. S1234) + Plan's Plan Benefit Package (PBP) Number PBP number (ex. 001) concatenated together in that order. There are several ways to get this number. The plan number may be on the member’s insurance card. If not, you can use an NCPDP E1 eligibility check or PokitDok’s Eligibility Endpoint. With the Eligibility Endpoint, Medicare members with Part D coverage will have pharmacy.is_eligible set to true and the pharmacy.plan_number will contain their Medicare Part D plan_number. Note: Your NPI must be registered with Medicare to check eligibility. 
  
-A medication for which coverage is being determined will need to be specified. This can be done using the drug name or NDC. A drug name can include the name of the medication, strength, and form. For example, SIMVASTATIN 10 MG TABLET. Simvastatin is the drug name. 10 MG is the strength. Simvastatin can come in other strengths (5mg, 10mg, 20mg, 40mg, and 80mg). The form of this medication is tablet. Some drugs will come in multiple forms. Other examples are capsule, solution, suspension, lotion, cream, etc. The brand name of simvastatin is Zocor. You can search for a drug with just the brand or generic name or any combination of drug +/- strength +/- form.
-
-Access benefits for a specific medication by searching by complete name of the medication. For example, SIMVASTATIN 10 MG TABLET will return coverage information for just that medication. For general results, search “simvastatin” and all of the coverage information for all strengths and forms of the drug will be returned.
+A medication for which coverage is being determined will need to be specified. This can be done using the drug name, NDC, or RXCUI. A drug name can include the name of the medication, strength, and form. For example, SIMVASTATIN 10 MG TABLET. Simvastatin is the drug name. 10 MG is the strength. Simvastatin can come in other strengths (5mg, 10mg, 20mg, 40mg, and 80mg). The form of this medication is tablet. Some drugs will come in multiple forms. Other examples are capsule, solution, suspension, lotion, cream, etc. The brand name of simvastatin is Zocor. You can search for a drug with just the brand or generic name or any combination of drug +/- strength +/- form.
 
 The Pharmacy Formulary Endpoint also accepts national drug code number (NDC). The NDC is a unique 11-digit, 3-segment number used to identify a specific drug product. The segments identify the manufacturer (first 5 numbers), product (middle 4 numbers), and package (last 2 numbers). An alternative way to lookup drug coverage is by using the NDC. One medication can have multiple NDC numbers. For example, simvastatin 10 mg tablets can be supplied to the pharmacy in a 100 count and 1000 count bottle. Both of these will have different NDC numbers even though the same drug is in each of the bottles. Simvastatin from different generic manufacturers will have different NDC numbers. 
+
+Medicare drug plans have different phases of coverage, including deductible, initial coverage, gap coverage, and catastrophic coverage. Each phase has a different out of pocket cost for covered medications. The out of pocket costs included in the Pharmacy Drug Cost Endpoint are for the member during the Initial Coverage Phase.
+
+Out of pocket costs for medications are based on 30 day supply at retail or 90 day supply at mail order pharmacies. Some medication isn’t taken continuously, ex. antibiotics. For those medications, the member would just pay one 30 day supply copay. 
+
+In some cases, the member’s copay will be more than the total cost of the drug. In these situations, the actual amount the member will pay will depend on the pharmacy where they fill the prescription. For example, if the member’s copay is $10 and the drug only costs $4, the pharmacy could decide to charge the member the full $10, or the actual drug price of $4. If the copay is more expensive than the actual cost of the drug, the API will return the actual cost.
+
+include_plans may be used if you would like to include an overview of the pharmacy plan information. This will add a new field to each drug document in the response.
 
 The /pharmacy/formulary endpoint accepts the following parameters:
 
@@ -153,6 +293,7 @@ The /pharmacy/formulary endpoint accepts the following parameters:
 | plan_number        | {string} | Member’s plan identification number. Note: If unknown can use X12 270/271 eligibility                                                                          |
 | drug               | {string} | Name of medication, strength, and form. Note: Strength and form are optional                                                                                   |
 | ndc                | {string} | National drug code: a unique 11-digit, 3-segment number used to identify medication                                                                            |
+| rxcui | {string} | An RxNorm concept unique identifier for a drug  |
 
 The /pharmacy/formulary response contains the following parameters:
 
@@ -166,3 +307,11 @@ The /pharmacy/formulary response contains the following parameters:
 | quantity_limit        | {boolean} | Does this drug have a quantity limit?                                                              |
 | limit_amount | {string}  | Quantity limit amount associated with this drug. The unit of measure is specific to the drug type. |
 | limit_days   | {integer} | Quantity limit days associated with this drug. E.g. 30                                             |
+| retail.oop_30_day        | {string} | Out of pocket cost for 30 day supply of drug at a in-network retail pharmacy                                                            |
+| retail.total_cost_30_day | {string} | Total cost of drug for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)          |
+| retail.ins_pay_30_day    | {string} | Amount insurance covers for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)     |
+| mail.oop_90_day          | {string} | Out of pocket cost for 90 day supply of drug at a in-network mail order pharmacy                                                        |
+
+| mail.total_cost_90_day   | {string} | Total cost of drug for 90 day supply of drug at a in-network mail order pharmacy (average insurance negotiated rate with pharmacy)      |
+
+| mail.ins_pay_90_day      | {string} | Amount insurance covers for 90 day supply of drug at a in-network mail order pharmacy (average insurance negotiated rate with pharmacy) |
