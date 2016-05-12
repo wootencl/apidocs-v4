@@ -269,7 +269,6 @@ Medications can also have restrictions on their coverage such as prior authoriza
 | Endpoint            | HTTP Method | Description                        |
 |:--------------------|:------------|:-----------------------------------|
 | /pharmacy/formulary | GET         | Determine drug coverage for member |
-| /pharmacy/formulary?include=plan | GET | Determine plan info and drug coverage for member |
 
 To use the Pharmacy Formulary Endpoint with a Medicare member, you will need the plan number. This is the contract ID (ex. S1234) + Plan's Plan Benefit Package (PBP) Number PBP number (ex. 001) concatenated together in that order. There are several ways to get this number. The plan number may be on the member’s insurance card. If not, you can use an NCPDP E1 eligibility check or PokitDok’s Eligibility Endpoint. With the Eligibility Endpoint, Medicare members with Part D coverage will have pharmacy.is_eligible set to true and the pharmacy.plan_number will contain their Medicare Part D plan_number. Note: Your NPI must be registered with Medicare to check eligibility. 
  
@@ -294,6 +293,7 @@ The /pharmacy/formulary endpoint accepts the following parameters:
 | drug               | {string} | Name of medication, strength, and form. Note: Strength and form are optional                                                                                   |
 | ndc                | {string} | National drug code: a unique 11-digit, 3-segment number used to identify medication                                                                            |
 | rxcui | {string} | An RxNorm concept unique identifier for a drug  |
+| include=plan | {boolean} | If true, will return plan info in response |
 
 The /pharmacy/formulary response contains the following parameters:
 
