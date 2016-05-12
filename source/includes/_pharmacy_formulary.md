@@ -61,6 +61,11 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
     "data": [
         {
             "drug": "SIMVASTATIN 40 MG TABLET", 
+            "prior_auth": false, 
+            "quantity_limit": false, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic",
             "mail": {
                 "ins_pay_90_day": {
                     "amount": "3.89", 
@@ -91,7 +96,12 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
             }
         }, 
         {
-            "drug": "SIMVASTATIN 20 MG TABLET", 
+            "drug": "SIMVASTATIN 20 MG TABLET",
+            "prior_auth": false, 
+            "quantity_limit": false, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic",
             "mail": {
                 "ins_pay_90_day": {
                     "amount": "2.33", 
@@ -123,6 +133,11 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
         }, 
         {
             "drug": "SIMVASTATIN 5 MG TABLET", 
+            "prior_auth": false, 
+            "quantity_limit": false, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic",
             "mail": {
                 "ins_pay_90_day": {
                     "amount": "2.38", 
@@ -154,6 +169,13 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
         }, 
         {
             "drug": "SIMVASTATIN 80 MG TABLET", 
+            "limit_amount": "30", 
+            "limit_days": 30, 
+            "prior_auth": false, 
+            "quantity_limit": true, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic",
             "mail": {
                 "ins_pay_90_day": {
                     "amount": "7.41", 
@@ -184,7 +206,12 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
             }
         }, 
         {
-            "drug": "SIMVASTATIN 10 MG TABLET", 
+            "drug": "SIMVASTATIN 10 MG TABLET",
+            "prior_auth": false, 
+            "quantity_limit": false, 
+            "step_therapy": false, 
+            "tier": 1, 
+            "tier_name": "preferred generic",
             "mail": {
                 "ins_pay_90_day": {
                     "amount": "2.14", 
@@ -224,7 +251,14 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
 {
     "data": [
         {
-            "drug": "LYRICA 225 MG CAPSULE", 
+            "drug": "LYRICA 225 MG CAPSULE",
+            "limit_amount": "60", 
+            "limit_days": 30, 
+            "prior_auth": false, 
+            "quantity_limit": true, 
+            "step_therapy": false, 
+            "tier": 3, 
+            "tier_name": "preferred brand",
             "mail": {
                 "ins_pay_90_day": {
                     "amount": "793.09", 
