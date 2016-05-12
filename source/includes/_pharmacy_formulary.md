@@ -345,7 +345,6 @@ The /pharmacy/formulary response contains the following parameters:
 | retail.total_cost_30_day | {string} | Total cost of drug for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)          |
 | retail.ins_pay_30_day    | {string} | Amount insurance covers for 30 day supply of drug at a in-network retail pharmacy (average insurance negotiated rate with pharmacy)     |
 | mail.oop_90_day          | {string} | Out of pocket cost for 90 day supply of drug at a in-network mail order pharmacy                                                        |
-
 | mail.total_cost_90_day   | {string} | Total cost of drug for 90 day supply of drug at a in-network mail order pharmacy (average insurance negotiated rate with pharmacy)      |
 
 | mail.ins_pay_90_day      | {string} | Amount insurance covers for 90 day supply of drug at a in-network mail order pharmacy (average insurance negotiated rate with pharmacy) |
