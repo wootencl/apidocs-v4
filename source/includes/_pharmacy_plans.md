@@ -29,7 +29,8 @@ pd.pharmacyPlans(params);
 
 ```json
 {
-    "data": {
+    "data": [
+    	{
         "deductible": {
             "amount": "360.00",
             "currency": "USD"
@@ -71,58 +72,7 @@ pd.pharmacyPlans(params);
         },
         "trading_partner_id": "medicare_national"
     }
-}
-```
-Example pharmacy plan response for a member with Medicare Part D:
-
-```json
-{
-  "plan_name" : "Aetna Medicare Rx Saver",
-  "trading_partner_id" : "medicare_national",
-  "premium" : {
-    "amount" : "24.00",
-    "currency" : "USD"
-  },
-  "deductible" : {
-    "amount" : "360.00",
-    "currency" : "USD"
-  },
-  "initial_coverage_limit" : {
-    "amount" : "3310.00",
-    "currency" : "USD"
-  },
-  "retail": {
-	"tier_one_30_day_copay": {
-		"amount": "1.00",
-		"currency": "USD"
-	},
-	"tier_two_30_day_copay": {
-		"amount": "2.00",
-		"currency": "USD"
-	},
-	"tier_three_30_day_copay": {
-		"amount": "35.00",
-		"currency": "USD"
-	},
-	"tier_four_30_day_coins" : "0.4",
-        "tier_five_30_day_coins" : "0.25"
-	},
-"mail": {
-	"tier_one_90_day_copay": {
-		"amount": "18.00",
-		"currency": "USD"
-	},
-	"tier_two_90_day_copay": {
-		"amount": "21.00",
-		"currency": "USD"
-	},
-	"tier_three_90_day_copay": {
-		"amount": "105.00",
-		"currency": "USD"
-	},
-	"tier_four_90_day_coins" : "0.4",
-	}
-
+  ]
 }
 ```
 
