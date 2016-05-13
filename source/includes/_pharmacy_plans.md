@@ -113,7 +113,7 @@ The /pharmacy/plans response contains the following parameters:
 | retail.tier_one_30_day_copay   | {string} | Copay ($) for a tier 1 medication for 30-day supply at an in-network retail pharmacy           |
 | retail.tier_two_30_day_copay   | {string} | Copay ($) for a tier 2 medication for 30-day supply at an in-network retail pharmacy           |
 | retail.tier_three_30_day_copay | {string} | Copay ($) for a tier 3 medication for 30-day supply at an in-network retail pharmacy           |
-| retail.tier_four_30_day_copayy | {string} | Copay ($) for a tier 4 medication for 30-day supply at an in-network retail pharmacy           |
+| retail.tier_four_30_day_copay | {string} | Copay ($) for a tier 4 medication for 30-day supply at an in-network retail pharmacy           |
 | retail.tier_five_30_day_copay  | {string} | Copay ($) for a tier 5 medication for 30-day supply at an in-network retail pharmacy           |
 | retail.tier_one_30_day_coins   | {string} | Coinsurance (%) for a tier 1 medication for 30-day supply at an in-network retail pharmacy     |
 | retail.tier_two_30_day_coins   | {string} | Coinsurance (%) for a tier 2 medication for 30-day supply at an in-network retail pharmacy     |
