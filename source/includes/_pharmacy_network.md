@@ -85,7 +85,7 @@ pd.pharmacyNetwork(params);
 
 ```
 
-> Sample response for /pharmacy/network endpoint when using zip and radius as parameters:
+> Sample response for /pharmacy/network endpoint when using zipcode and radius as parameters:
 
 ```
 {
