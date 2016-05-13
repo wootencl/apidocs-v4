@@ -396,13 +396,13 @@ A medication for which coverage is being determined will need to be specified. T
 
 The Pharmacy Formulary Endpoint also accepts national drug code number (NDC). The NDC is a unique 11-digit, 3-segment number used to identify a specific drug product. The segments identify the manufacturer (first 5 numbers), product (middle 4 numbers), and package (last 2 numbers). An alternative way to lookup drug coverage is by using the NDC. One medication can have multiple NDC numbers. For example, simvastatin 10 mg tablets can be supplied to the pharmacy in a 100 count and 1000 count bottle. Both of these will have different NDC numbers even though the same drug is in each of the bottles. Simvastatin from different generic manufacturers will have different NDC numbers. 
 
-Medicare drug plans have different phases of coverage, including deductible, initial coverage, gap coverage, and catastrophic coverage. Each phase has a different out of pocket cost for covered medications. The out of pocket costs included in the Pharmacy Drug Cost Endpoint are for the member during the Initial Coverage Phase.
+Medicare drug plans have different phases of coverage, including deductible, initial coverage, gap coverage, and catastrophic coverage. Each phase has a different out of pocket cost for covered medications. The out of pocket costs included in the Pharmacy Formulary Endpoint are for the member during the Initial Coverage Phase.
 
 Out of pocket costs for medications are based on 30 day supply at retail or 90 day supply at mail order pharmacies. Some medication isn’t taken continuously, ex. antibiotics. For those medications, the member would just pay one 30 day supply copay. 
 
 In some cases, the member’s copay will be more than the total cost of the drug. In these situations, the actual amount the member will pay will depend on the pharmacy where they fill the prescription. For example, if the member’s copay is $10 and the drug only costs $4, the pharmacy could decide to charge the member the full $10, or the actual drug price of $4. If the copay is more expensive than the actual cost of the drug, the API will return the actual cost.
 
-include_plans may be used if you would like to include an overview of the pharmacy plan information. This will add a new field to each drug document in the response.
+The field include_plans may be used if you would like to include an overview of the pharmacy plan information. This will add a new field to each drug document in the response.
 
 The /pharmacy/formulary endpoint accepts the following parameters:
 
