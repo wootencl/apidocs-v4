@@ -292,6 +292,92 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
 }
 ```
 
+> Sample Pharmacy Formulary API response including plan info :
+
+```json
+"data" : {
+        "drug": "VIMPAT 200 MG/20 ML VIAL", 
+        "mail": {
+            "ins_pay_90_day": {
+                "amount": "1091.30", 
+                "currency": "USD"
+            }, 
+            "oop_90_day": {
+                "amount": "892.89", 
+                "currency": "USD"
+            }, 
+            "total_cost_90_day": {
+                "amount": "1984.19", 
+                "currency": "USD"
+            }
+        }, 
+        "plan": {
+            "deductible": {
+                "amount": "0.00", 
+                "currency": "USD"
+            }, 
+            "initial_coverage_limit": {
+                "amount": "3310.00", 
+                "currency": "USD"
+            }, 
+            "mail": {
+                "tier_one_90_day_copay": {
+                    "amount": "7.50", 
+                    "currency": "USD"
+                }, 
+                "tier_three_90_day_copay": {
+                    "amount": "110.00", 
+                    "currency": "USD"
+                }, 
+                "tier_two_90_day_copay": {
+                    "amount": "30.00", 
+                    "currency": "USD"
+                }
+            }, 
+            "plan_name": "SilverScript Choice (PDP)", 
+            "plan_number": "S5601026", 
+            "premium": {
+                "amount": "26.00", 
+                "currency": "USD"
+            }, 
+            "retail": {
+                "tier_one_30_day_copay": {
+                    "amount": "3.00", 
+                    "currency": "USD"
+                }, 
+                "tier_three_30_day_copay": {
+                    "amount": "44.00", 
+                    "currency": "USD"
+                }, 
+                "tier_two_30_day_copay": {
+                    "amount": "12.00", 
+                    "currency": "USD"
+                }
+            }, 
+            "trading_partner_id": "medicare_national"
+        }, 
+        "prior_auth": false, 
+        "quantity_limit": false, 
+        "retail": {
+            "ins_pay_30_day": {
+                "amount": "363.96", 
+                "currency": "USD"
+            }, 
+            "oop_30_day": {
+                "amount": "297.79", 
+                "currency": "USD"
+            }, 
+            "total_cost_30_day": {
+                "amount": "661.75", 
+                "currency": "USD"
+            }
+        }, 
+        "step_therapy": false, 
+        "tier": 4, 
+        "tier_name": "non-preferred brand"
+}
+```
+
 The Pharmacy Formulary Endpoint allows a deep dive into the member’s drug benefit. It returns details about what medications are covered in the formulary.  
 
 A formulary is a list of medication that are approved for coverage by an insurance company. Drugs on a formulary are usually grouped into tier levels. The tier that the medication falls in determines the member’s copay. Most plans have between 3 to 5 tiers. The lower the tier, the less expensive the copay. Lower tiers are usually generic medication, middle tiers are brand medications, and the highest tier is usually reserved for specialty medications. 
