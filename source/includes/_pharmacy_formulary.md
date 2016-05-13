@@ -7,7 +7,7 @@ pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522
 ```
 
 ```ruby
-puts pd.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S0522034', drug: 'simvastatin')
+pd.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S0522034', drug: 'simvastatin')
 ```
 
 ```csharp
@@ -34,7 +34,7 @@ pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522
 ```
 
 ```ruby
-puts pd.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S0522034', ndc: '00071101968')
+pd.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S0522034', ndc: '00071101968')
 ```
 
 ```csharp
