@@ -2,6 +2,10 @@
 
 > Example fetching pharmacy information by NPI:
 
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json"  'https://platform.pokitdok.com/api/v4/pharmacy/network/1427382266?trading_partner_id=medicare_national&plan_number=S5820003'
+```
+
 ```python
 pd.pharmacy_network(npi='1427382266', trading_partner_id='medicare_national', plan_number='S5820003')
 ```
@@ -27,6 +31,10 @@ pd.pharmacyNetwork("1427382266", params);
 ```
 
 > Example searching for in-network pharmacies by plan and zip code:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json"  'https://platform.pokitdok.com/api/v4/pharmacy/network?trading_partner_id=medicare_national&plan_number=S5820003&zipcode=07097&radius=1mi'
+```
 
 ```python
 pd.pharmacy_network(trading_partner_id='medicare_national', plan_number='S5820003' , zipcode='07097', radius='1mi')
