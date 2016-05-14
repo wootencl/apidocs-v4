@@ -2,6 +2,10 @@
 
 > Example request to determine drug coverage using drug name:
 
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json"  'https://platform.pokitdok.com/api/v4/pharmacy/formulary?trading_partner_id=medicare_national&plan_number=S5884114&drug=simvastatin'
+```
+
 ```python
 pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522034', drug='simvastatin')
 ```
@@ -28,6 +32,10 @@ Map<String, Object> response = pd.pharmacyFormulary(params);
 ```
 
 > Example request to determine drug coverage using NDC:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json"  'https://platform.pokitdok.com/api/v4/pharmacy/formulary?trading_partner_id=medicare_national&plan_number=S5884114&ndc=00071101968'
+```
 
 ```python
 pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522034', ndc='00071101968')
