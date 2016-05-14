@@ -2,6 +2,10 @@
 
 > Example request to determine pharmacy plan information:
 
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json"  'https://platform.pokitdok.com/api/v4/pharmacy/plans?trading_partner_id=medicare_national&plan_number=S5884114'
+```
+
 ```python
 pd.pharmacy_plans(trading_partner_id='medicare_national', plan_number='S5884114')
 ```
