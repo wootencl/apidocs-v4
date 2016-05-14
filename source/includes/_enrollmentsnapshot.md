@@ -1,5 +1,6 @@
 ## Enrollment Snapshot
-> Example submitting an enrollment snapshot for the MOCKPAYER trading partner.
+
+> Example submitting an enrollment snapshot for the MOCKPAYER trading partner:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -XPOST -F file=@current_membership_enrollment.834 -F trading_partner_id=MOCKPAYER  https://platform.pokitdok.com/api/v4/enrollment/snapshot
@@ -9,37 +10,88 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -XPOST -F file=@current_members
 pd.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834')
 ```
 
-> Example fetching a list of enrollment snapshots owned by the current application.
+```csharp
+client.enrollmentSnapshot("MOCKPAYER", "/path/to/current_membership_enrollment.834");
+```
+
+```ruby
+pd.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834')
+```
+
+```java
+client.enrollmentSnapshot("MOCKPAYER", "/path/to/current_membership_enrollment.834");
+```
+
+> Example fetching a list of enrollment snapshots owned by the current application:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/enrollment/snapshot
 ```
 
 ```python
-#retrieve an index of enrollment snapshots
+# retrieve an index of enrollment snapshots
 pd.enrollment_snapshots()
 ```
 
-> Example fetching information for a specific enrollment snapshot owned by the current application.
+```csharp
+client.enrollmentSnapshot();
+```
+
+```ruby
+# retrieve an index of enrollment snapshots
+pd.enrollment_snapshots
+```
+
+```java
+pd.enrollmentSnapshots();
+```
+
+> Example fetching information for a specific enrollment snapshot owned by the current application:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/enrollment/snapshot/5317f51527a27620f2ec7533
 ```
 
 ```python
-#get information for a specific enrollment snapshot
+# get information for a specific enrollment snapshot
 pd.enrollment_snapshots(snapshot_id='5317f51527a27620f2ec7533')
 ```
 
-> Example fetching enrollment data associated with a specific enrollment snapshot owned by the current application.
+```csharp
+client.enrollmentSnapshot("5317f51527a27620f2ec7533");
+```
+
+```ruby
+# get information for a specific enrollment snapshot
+pd.enrollment_snapshots({snapshot_id='5317f51527a27620f2ec7533'})
+```
+
+```java
+pd.enrollmentSnapshot("5317f51527a27620f2ec7533");
+```
+
+> Example fetching enrollment data associated with a specific enrollment snapshot owned by the current application:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/enrollment/snapshot/5317f51527a27620f2ec7533/data
 ```
 
 ```python
-#get information for a specific enrollment snapshot
+# get information for a specific enrollment snapshot
 pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
+```
+
+```csharp
+client.enrollmentSnapshotData("5317f51527a27620f2ec7533");
+```
+
+```ruby
+# get information for a specific enrollment snapshot
+pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
+```
+
+```java
+pd.enrollmentSnapshotData("5317f51527a27620f2ec7533");
 ```
 
 *Available modes of operation: batch/async only*

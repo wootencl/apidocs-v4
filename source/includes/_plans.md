@@ -13,6 +13,13 @@ pd.plans()
 client.plans();
 ```
 
+```ruby
+pd.plans
+```
+
+```java
+pd.plans();
+```
 
 > example fetching information for plans in Texas:
 
@@ -26,10 +33,21 @@ pd.plans(state='TX')
 
 ```csharp
 client.plans(
-			new Dictionary<string, string> {
-				{ "state", "TX" }
-			}
-		);
+	new Dictionary<string, string> {
+		{ "state", "TX" }
+	}
+);
+```
+
+```ruby
+pd.plans({state: 'TX'})
+```
+
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("state", "TX");
+
+pd.plans(query);
 ```
 
 > example fetching information for PPO plans in South Carolina:
@@ -50,6 +68,19 @@ client.plans(
 			}
 		);
 ```
+
+```ruby
+pd.plans({state: 'SC', plan_type: 'PPO'})
+```
+
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("state", "TX");
+query.put("plan_type", "PPO");
+
+pd.plans(query);
+```
+
 *Available modes of operation: real-time*
 
 The Plans endpoint provides access to information about insurance plans.

@@ -54,6 +54,126 @@ pd.eligibility({
 		});
 ```
 
+```ruby
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
+```
+
+> Example eligibility request to determine general health benefit coverage when a member has a specific group number value assigned:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000",
+        "group_number": "123456"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+
+```python
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000",
+        "group_number": "123456"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"},
+                {"group_number", "123456"}
+            }},
+        {"provider", new Dictionary<string, string> {
+                {"first_name", "JEROME"},
+                {"last_name", "AYA-AY"},
+                {"npi", "1467560003"}
+            }},
+        {"trading_partner_id", "MOCKPAYER"}
+    }
+);
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\",");
+buf.append("        \"group_number\": \"123456\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
+```
+
 > Example eligibility request when operating on behalf of a member and a specific provider is not yet known:
 
 ```shell
@@ -80,8 +200,137 @@ pd.eligibility({
 })
 ```
 
-> Some trading partners support eligibility requests using a CPT code. Here's an example using a
-CPT code to request eligibility information:
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"}
+            }},
+        {"trading_partner_id", "MOCKPAYER"}
+    }
+);
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
+```
+
+> Some trading partners support eligibility requests using specific service type codes. Here's an example using a service type code to request eligibility information:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "service_types": "telemedicine",
+    "trading_partner_id": "MOCKPAYER"
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+
+```python
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "service_types": "telemedicine",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"}
+            }},
+        {"provider", new Dictionary<string, string> {
+                {"first_name", "JEROME"},
+                {"last_name", "AYA-AY"},
+                {"npi", "1467560003"}
+            }},
+        {"service_types", "telemedicine"},
+        {"trading_partner_id", "MOCKPAYER"}
+    }
+);
+```
+
+```ruby
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "service_types": "telemedicine",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"service_types\": \"telemedicine\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
+```
+
+> Some trading partners support eligibility requests using a CPT code. Here's an example using a CPT code to request eligibility information:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
@@ -117,6 +366,67 @@ pd.eligibility({
     "cpt_code": "81291",
     "trading_partner_id": "MOCKPAYER"
 })
+```
+
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"}
+            }},
+        {"provider", new Dictionary<string, string> {
+                {"first_name", "JEROME"},
+                {"last_name", "AYA-AY"},
+                {"npi", "1467560003"}
+            }},
+        {"cpt_code", "81291"},
+        {"trading_partner_id", "MOCKPAYER"}
+    }
+);
+```
+
+```ruby
+pd.eligibility({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "cpt_code": "81291",
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"cpt_code\": \"81291\",");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
 ```
 
 > Example eligibility request using custom application data for easy handling of asynchronous responses:
@@ -165,14 +475,86 @@ pd.eligibility({
 })
 ```
 
-> Example eligibility response when the trading partner is unable to respond at this time
-
+```csharp
+client.eligibility(
+    new Dictionary<string, object> {
+        {"member", new Dictionary<string, string> {
+                {"birth_date", "1970-01-01"},
+                {"first_name", "Jane"},
+                {"last_name", "Doe"},
+                {"id", "W000000000"}
+            }},
+        {"provider", new Dictionary<string, string> {
+                {"first_name", "JEROME"},
+                {"last_name", "AYA-AY"},
+                {"npi", "1467560003"}
+            }},
+        {"trading_partner_id", "MOCKPAYER"},
+        {"application_data", new Dictionary<string, object> {
+                {"patient_id", "ABC1234XYZ"},
+                {"location_id", 123},
+                {"transaction_uuid", "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"}
+            }}
+);
 ```
-{
-    "coverage": {
-        "service_date": "2014-06-26"
+
+```ruby
+pd.eligiblity({
+    "member": {
+        "birth_date": "1970-01-01",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
     },
-    "follow_up_action": "resubmit_original",
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER",
+    "application_data": {
+        "patient_id": "ABC1234XYZ",
+        "location_id": 123,
+        "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
+    }
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\",");
+buf.append("    \"application_data\": {");
+buf.append("        \"patient_id\": \"ABC1234XYZ\",");
+buf.append("        \"location_id\": 123,");
+buf.append("        \"transaction_uuid\": \"93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf\"");
+buf.append("    }");
+buf.append("");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = pd.eligibility(query);
+```
+
+> Example eligibility response when the trading partner is unable to respond at this time:
+
+```json
+{   
+    "coverage": {
+        "active": false
+        },
+    "follow_up_action": "resubmission_allowed",
     "provider": {
         "first_name": "JEROME",
         "last_name": "AYA-AY",
@@ -182,18 +564,19 @@ pd.eligibility({
     "subscriber": {
         "birth_date": "1970-01-01",
         "first_name": "Jane",
+        "gender": "unknown",
         "id": "W000000000",
         "last_name": "Doe"
     },
     "trading_partner_id": "MOCKPAYER",
-    "valid_request": false
+    "valid_request": true
 }
 ```
 
 > Example eligibility response when the trading partner is unable to find the member specified in the
 eligibility request:
 
-```
+```json
 {
     "coverage": {
         "service_date": "2014-06-26"
@@ -216,9 +599,9 @@ eligibility request:
 }
 ```
 
-> Example eligibility response when the trading partner is able to find a member based on the eligibility request but the specified birth date does not match their records
+> Example eligibility response when the trading partner is able to find a member based on the eligibility request, but the specified birth date does not match their records:
 
-```
+```json
 {
     "coverage": {
         "service_date": "2014-06-26"
@@ -242,9 +625,9 @@ eligibility request:
 ```
 
 > Example eligibility response when the trading partner cannot process eligibility requests using
-CPT code:
+a CPT code:
 
-```
+```json
 {
     "coverage": {
         "service_date": "2014-06-26"
@@ -269,7 +652,7 @@ CPT code:
 
 > Sample eligibility response for a successfully executed eligibility request:
 
-```
+```json
 {    "summary": {
          "deductible": {
              "individual": {
@@ -699,7 +1082,7 @@ CPT code:
   Notice that medicare members with part D coverage will have pharmacy.is_eligible set to true and
   the pharmacy.plan_number will contain their medicare part D plan number:
 
-```
+```json
 {
     "coverage": {
         "active": true,

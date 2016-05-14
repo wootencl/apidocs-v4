@@ -1,12 +1,10 @@
-FROM ubuntu:trusty
+FROM ruby:2.1.5
 
 RUN apt-get update
-RUN apt-get install -yq ruby ruby-dev build-essential git
-RUN gem install --no-ri --no-rdoc bundler
-ADD Gemfile /app/Gemfile
-ADD Gemfile.lock /app/Gemfile.lock
-RUN cd /app; bundle install
+WORKDIR /app
+ADD Gemfile* /app/
+RUN bundle install
 ADD . /app
 EXPOSE 4567
-WORKDIR /app
-CMD ["bundle", "exec", "middleman", "server"]
+
+CMD ["middleman", "server"]

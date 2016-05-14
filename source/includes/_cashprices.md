@@ -9,13 +9,26 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 pd.cash_prices(zip_code='32218', cpt_code='87799')
 ```
 
+```ruby
+pd.cash_prices({ zip_code: '32218', cpt_code: '87799'})
+```
+
 ```csharp
 client.pricesCash(
-			new Dictionary<string, string> {
-				{ "zip_code", "30012" },
-				{ "cpt_code", "88142" }
-			});
+    new Dictionary<string, string> {
+        { "zip_code", "32218" },
+        { "cpt_code", "87799" }
+});
 ```
+
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("zip_code", "32218");
+query.put("cpt_code", "87799");
+
+Map<String, Object> results = pd.cashPrices(query);
+```
+
 
 *Available modes of operation: real-time*
 
@@ -43,12 +56,14 @@ The /prices/cash endpoint accepts the following parameters:
 
 The /prices/cash response contains the following fields:
 
-| Field                      | Type      | Description                                                               |
-|:---------------------------|:----------|:--------------------------------------------------------------------------|
-| amounts.average_price      | {decimal} | The average cash price for the procedure                                  |
-| amounts.cpt_code           | {string}  | The CPT code of the procedure                                             |
-| amounts.geo_zip_area       | {string}  | The three character zip code tabulation area code                         |
-| amounts.high_price         | {decimal} | The maximum price for the procedure                                       |
-| amounts.low_price          | {decimal} | The lowest price for the procedure                                        |
-| amounts.median_price       | {decimal} | The median price for the procedure                                        |
-| amounts.standard_deviation | {decimal} | The standard deviation, or variation measure, of prices for the procedure |
+| Field                  | Type      | Description                                                               |
+|:-----------------------|:----------|:--------------------------------------------------------------------------|
+| average_price          | {decimal} | The average cash price for the procedure                                  |
+| cpt_code               | {string}  | The CPT code of the procedure                                             |
+| pokitdok_procedure_urn | {string}  | A URN that uniquely identifies the procedure                              |
+| procedure_description  | {string}  | The description of the procedure                                          |
+| geo_zip_area           | {string}  | The three character zip code tabulation area code                         |
+| high_price             | {decimal} | The maximum price for the procedure                                       |
+| low_price              | {decimal} | The lowest price for the procedure                                        |
+| median_price           | {decimal} | The median price for the procedure                                        |
+| standard_deviation     | {decimal} | The standard deviation, or variation measure, of prices for the procedure |

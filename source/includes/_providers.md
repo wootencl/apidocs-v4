@@ -13,6 +13,17 @@ pd.providers(npi='1467560003')
 client.providers("1467560003");
 ```
 
+```ruby
+pd.providers({npi: '1467560003'})
+```
+
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("npi", "1467560003");
+
+pd.providers(query)
+```
+
 > Example searching providers by zipcode and specialty:
 
 ```shell
@@ -32,14 +43,26 @@ pd.providers(zipcode='29307', specialty='rheumatology', radius='20mi')
 		});
 ```
 
+```ruby
+pd.providers({zipcode: '29307', specialty: 'rheumatology', radius: '20mi'})
+```
+
+```java
+HashMap<String, String> query = new HashMap<String, String>();
+query.put("zipcode", "29307");
+query.put("specialty", "rheumatology");
+query.put("radius", "20mi");
+
+pd.providers(query)
+```
+
 
 *Available modes of operation: real-time only*
 
 The Providers endpoints provide access to PokitDok's provider directory.
 The Providers endpoints can be used to search for Providers, view biographical,
-education and credential information, and view specialty taxonomies. Any of
-the above listed keywords can be used to show additional fields, perform
-searches, and page through results.
+education, credential, and license information. For a complete reference to all possible 
+provider specialties, see our [provider specialties reference](provider_specialties.html).
 
 Available Provider Endpoints:
 
@@ -52,12 +75,13 @@ The /providers/ endpoint accepts the following search parameters:
 
 | Field             | Type     | Description                                                                                                                                         |
 |:------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| address_lines     | {string} | Any or all of number, street name, apartment, suite number                                                                                          |
 | city              | {string} | Name of city in which to search for providers (e.g. "San Mateo" or "Charleston")                                                                    |
 | first_name        | {string} | The provider's first name                                                                                                                           |
 | last_name         | {string} | The provider's last name                                                                                                                            |
 | organization_name | {string} | The business practice name                                                                                                                          |
 | radius            | {string} | Search distance from geographic centerpoint, with unit (e.g. "1mi")                                                                                 |
-| specialty         | {string} | The provider's specialty name (e.g. "RHEUMATOLOGY")                                                                                                 |
+| specialty         | {string} | The provider's specialty name (e.g. "rheumatology").  Partial name-prefixes may be specified (e.g. "rheum")                                         |
 | state             | {string} | Name of U.S. state in which to search for providers (e.g. "CA" or "SC")                                                                             |
 | zipcode           | {string} | Geographic center point in which to search for providers (e.g. "94401")                                                                             |
 | sort              | {string} | Accepted values include 'distance' (default) or 'rank'.  'distance' sort requires city & state or zipcode parameters otherwise sort will be 'rank'. |
