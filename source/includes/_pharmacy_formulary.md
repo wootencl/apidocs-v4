@@ -421,7 +421,7 @@ The /pharmacy/formulary endpoint accepts the following parameters:
 | drug               | {string} | Name of medication, strength, and form. Note: Strength and form are optional                                                                                   |
 | ndc                | {string} | National drug code: a unique 11-digit, 3-segment number used to identify medication                                                                            |
 | rxcui | {string} | An RxNorm concept unique identifier for a drug  |
-| include_plan | {boolean} | If set to true, will return pharmacy plan info in response |
+| include_plans | {boolean} | If set to true, will return pharmacy plan info in response |
 
 The /pharmacy/formulary response contains the following parameters:
 
