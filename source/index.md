@@ -34,6 +34,9 @@ includes:
   - insuranceprices
   - mpc
   - payers
+  - pharmacy_formulary
+  - pharmacy_network
+  - pharmacy_plans
   - plans
   - providers
   - referrals
