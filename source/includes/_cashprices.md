@@ -49,7 +49,7 @@ metropolitan areas. There are approximately 900 "geozips" in the United States.
 
 The /prices/cash endpoint accepts the following parameters:
 
-| Field    | Type     | Description                                |
+| Parameter| Type     | Description                                |
 |:---------|:---------|:-------------------------------------------|
 | cpt_code | {string} | The CPT code of the procedure in question  |
 | zip_code | {string} | Zip code in which to search for procedures |
