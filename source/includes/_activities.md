@@ -95,7 +95,7 @@ Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /activities/ | GET | List current activities. A query string parameter ‘parent_id’ may also be used with this API to get information about sub-activities that were initiated from a batch file upload.
 /activities/{id} | GET | Return detailed information about the specified activity. API applications will receive an activity ID in the API response for all operations that are asynchronous.
-/activities/{id} | PUT | Updates an existing activity. Useful for canceling pending activities that a client application no longer wishes to execute.
+/activities/{id} | PUT | Used for canceling pending activities that a client application no longer wishes to execute.
 
 
 The /activities/ response includes the following fields:
