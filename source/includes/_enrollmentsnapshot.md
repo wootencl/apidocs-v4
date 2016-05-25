@@ -127,3 +127,17 @@ The enrollment snapshot endpoint requires these parameters when creating a new e
 |:-------------------|:-------------------------------------------------------------------------|
 | file               | X12 834 file containing the full benefits enrollment for a group         |
 | trading_partner_id | the id of the trading partner to be associated with this enrollment data |
+
+The /enrollment/snapshot POST returns an enrollment snapshot activity object. For reference take a look at the activites response object [above](#activities_response).
+
+The /enrollment/snapshot GET includes the following fields:
+
+| Field                  | Type      | Description                                                               |
+|:-----------------------|:----------|:--------------------------------------------------------------------------|
+| snapshot_date          | {datetime} | The date of the snapshot.                                 				 |
+| client_id              | {string} | ID of the requesting client                                 				 |
+| trading_partner_id     | {string}	| Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.|
+| snapshot_id            | {string} | The id id of the snapshot.                                 				 |
+
+The /enrollment/snapshot/{id}/data returns a list of enrollment request objects. For reference take a look at the enrollment request object [above](#enrollment_table).
+
