@@ -7,12 +7,12 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 
 ```python
 #retrieve an index of activities
-pd.activities()
+client.activities()
 ```
 
 ```ruby
 #retrieve an index of activities
-pd.activities
+client.activities
 ```
 
 ```csharp
@@ -21,7 +21,7 @@ client.activities();
 ```
 
 ```java
-pd.activities();
+client.activities();
 ```
 
 > Example response:
@@ -59,12 +59,12 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 
 ```python
 #check on a specific activity
-pd.activities(activity_id='5362b5a064da150ef6f2526c')
+client.activities(activity_id='5362b5a064da150ef6f2526c')
 ```
 
 ```ruby
 #check on a specific activity
-pd.activities({activity_id: '5362b5a064da150ef6f2526c'})
+client.activities({activity_id: '5362b5a064da150ef6f2526c'})
 ```
 
 ```csharp
@@ -77,6 +77,39 @@ HashMap<String, String> params = new HashMap<String, String>();
 params.add("activity_id", "5362b5a064da150ef6f2526c");
 client.activities(params);
 
+```
+
+> Example response:
+
+```json
+{
+  "units_of_work": 1,
+  "_type": "PlatformActivityModel",
+  "name": "activities",
+  "_uuid": "4c309a6b-1330-40d7-850b-19246a753162",
+  "state": {
+    "name": "completed",
+    "title": "Completed"
+  },
+  "trading_partner_id": "PokitDok",
+  "id": "5745e9920640fd7aa95935f5",
+  "transition_path": [
+    "process",
+    "complete"
+  ],
+  "history": [
+    {
+      "record_dt": "2016-05-25T18:06:11.239000",
+      "name": "init",
+      "title": "Initializing"
+    },
+    {
+      "record_dt": "2016-05-25T18:06:11.239000",
+      "name": "processing",
+      "title": "Processing transactions"
+    }
+  ]
+}
 ```
 
 > Example to cancel an existing activity:
