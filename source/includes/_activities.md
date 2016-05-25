@@ -108,7 +108,7 @@ callback_url | {string} | The URL that will be invoked to notify the client appl
 history | {array} | Historical status of the progress of this Activity.
 id | {string} | ID of this Activity.
 name | {string} | Activity name.
-trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.
+trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint. 
 parent_id | {string} | Id only present on sub-activities that were initiated via a batch file upload of activities.
 parameters | {dict} | The parameters that were originally supplied to the activity.
 remaining_transitions | {array} | The list of remaining state transitions that the activity has yet to go through.
