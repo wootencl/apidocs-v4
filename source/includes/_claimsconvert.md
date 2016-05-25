@@ -148,7 +148,7 @@ child activity will be created that may be used to track the conversion of indiv
 The activity result for a converted claim will contain a claims_request value that is suitable for submission
 to the claims endpoint.  The activity result will also contain a converted_edi string value that
 represents the converted X12 837 transaction for that claim.  A list of diagnosis_mappings is also
-includes so that the client application may review the scenarios and choices that were utilized to
+included so that the client application may review the scenarios and choices that were utilized to
 map ICD-9 to ICD-10.
 
 
@@ -164,9 +164,9 @@ The /claims/convert endpoint accepts the following parameters:
 | file      | a X12 837 file |
 
 
-The /claims/convert response contains the following parameters:
+The /claims/convert response contains the following fields:
 
-| Parameter                                  | Description                                                                                                                                                         |
+| Field                                      | Description                                                                                                                                                         |
 |:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | claims_request                             | a JSON object representing the converted claims data that's suitable for use with the claims endpoint                                                               |
 | converted_edi                              | a string representing a converted X12 837 transaction with ICD-9 mapped to ICD-10.  The X12 envelope (ISA and GS segments) is preserved from the original X12 file. |
