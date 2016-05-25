@@ -24,6 +24,33 @@ client.activities();
 pd.activities();
 ```
 
+> Example response:
+
+```json
+[
+  {
+    "units_of_work": 1,
+    "_type": "PlatformActivityModel",
+    "name": "activities",
+    "remaining_transitions": [
+      "process",
+      "complete"
+    ],
+    "_uuid": "c0aadbbc-c51f-472f-9bfe-4dc2789c2d70",
+    "state": {
+      "name": "init",
+      "title": "Initializing"
+    },
+    "trading_partner_id": "PokitDok",
+    "id": "5745bbdd0640fd3a8186d5d6",
+    "transition_path": [
+      "process",
+      "complete"
+    ]
+  }
+]
+```
+
 > Example fetching information for a specific activity:
 
 ```shell
