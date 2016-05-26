@@ -1501,7 +1501,7 @@ a CPT code:
 
 *Available modes of operation: batch/async or real-time*
 
-The Eligibility Endpoint makes it easy to verify a member's insurance information in real-time. You can check
+The Eligibility endpoint makes it easy to verify a member's insurance information in real-time. You can check
 co-insurance, copay, deductible and out of pocket amounts for a member along with other benefit information.
 
 Use the [Trading Partners](#trading-partners) Endpoint to determine available trading_partner_id values for use with the
@@ -1544,7 +1544,7 @@ Eligibility and benefit responses vary depending on the trading partner and the 
 may not provide deductible/out-of-pocket, copayment/coinsurance or other specific plan information. PokitDok will provide
 all the information provided by the trading partner in the eligibility response.
 
-PokitDok adds a Summary section in the eligibility response for convenience.  This should not be seen as a total replacement for the detailed deductible and out-of-pocket information in the coverage section of the eligibility response.  The Summary section contains deductible and out-of-pocket information for the overall health benefit plan coverage.  If specific information for other service types is desired, the information will be located in the coverage section of the response.
+PokitDok created a Summary section in the eligibility response for convenience as a quick overview of a member's deductible and out-of-pocket information.  This should not be seen as a total replacement for the detailed deductible and out-of-pocket information in the coverage section of the eligibility response.  The Summary section contains deductible and out-of-pocket values for overall health benefit plan coverage as well as any additional service types for which deductible and out-of-pocket information is received.  When a value of $0 is returned in the Summary section, users should reference the Coverage section to determine if the trading partner returned a zero value or if the information was not provided in the response.
 
 
 The /eligibility/ response contains the following parameters:
