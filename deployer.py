@@ -171,10 +171,6 @@ def get_arguments():
 
 	return parser.parse_args()
 
-def build_docs():
-	# build doc files to ./build directory
-	os.system("docker run -t-v $PWD:/app ruby:2.3 /app/build.sh")
-
 def main():
 	args = get_arguments()
 
@@ -183,8 +179,6 @@ def main():
 	# args.url = "https://platform.pokitdok.com/documentation/v4/"
  	deployer = S3_Deployer(args.bucket, args.directory, args.backup, args.url)
 	
-	build_docs()
-
 	deployer.deploy()
 
 if __name__ == "__main__": 
