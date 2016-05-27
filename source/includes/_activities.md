@@ -120,6 +120,134 @@ curl -XPUT -i -H "Content-Type: application/json"
 -d '{"transition": "cancel"}' https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
 ```
 
+```python
+url = '/activities/574749250640fd22d719e13f'
+client.put(url, data={'transition': 'cancel'})
+```
+
+> Example response: 
+
+```json
+{
+  "_type": "PlatformActivityModel",
+  "_uuid": "bca3cca7-ad83-43a0-8ca6-adcb1222487a",
+  "history": [
+    {
+      "name": "init",
+      "record_dt": "2016-05-26T19:06:13.798000",
+      "title": "Initializing"
+    },
+    {
+      "name": "scheduled",
+      "record_dt": "2016-05-26T19:07:07.693892",
+      "title": "Scheduled for next available transmission to Trading Partner"
+    },
+    {
+      "name": "canceled",
+      "record_dt": "2016-05-26T19:07:07.695615",
+      "title": "Canceled"
+    }
+  ],
+  "id": "574749250640fd22d719e13f",
+  "name": "claims",
+  "parameters": {
+    "async": true,
+    "billing_provider": {
+      "address": {
+        "address_lines": [
+          "8311 WARREN H ABERNATHY HWY"
+        ],
+        "city": "SPARTANBURG",
+        "state": "SC",
+        "zipcode": "29301"
+      },
+      "first_name": "Jerome",
+      "last_name": "Aya-Ay",
+      "npi": "1467560003",
+      "tax_id": "123456789",
+      "taxonomy_code": "207Q00000X"
+    },
+    "claim": {
+      "claim_frequency": "original",
+      "direct_payment": "y",
+      "information_release": "informed_consent",
+      "place_of_service": "office",
+      "plan_participation": "assigned",
+      "provider_signature": true,
+      "service_lines": [
+        {
+          "charge_amount": "60.0",
+          "diagnosis_codes": [
+            "487.1"
+          ],
+          "procedure_code": "99213",
+          "service_date": "2014-06-01",
+          "unit_count": "1.0",
+          "unit_type": "units"
+        }
+      ],
+      "total_charge_amount": "60.0",
+      "value_information": [
+        {
+          "value": "99999999999999999",
+          "value_type": "service_furnished_location_number"
+        }
+      ]
+    },
+    "client_id": "9P10N4H2F7ZbaAU6RYct",
+    "correlation_id": "6bdf5dc0-6840-4466-a802-18056fe41aee",
+    "generate_pdf": false,
+    "payer": {
+      "id": "MOCKPAYER",
+      "organization_name": "MOCKPAYER"
+    },
+    "receiver": {
+      "id": "MOCKRECEIVER",
+      "organization_name": "MOCKRECEIVER"
+    },
+    "submitter": {
+      "email": "support@pokitdok.com",
+      "id": "POKITDOKTEST",
+      "organization_name": "POKITDOK TESTING"
+    },
+    "subscriber": {
+      "address": {
+        "address_lines": [
+          "123 N MAIN ST"
+        ],
+        "city": "SPARTANBURG",
+        "state": "SC",
+        "zipcode": "29301"
+      },
+      "birth_date": "1977-01-01",
+      "first_name": "John",
+      "gender": "male",
+      "last_name": "Doe",
+      "member_id": "W000000001",
+      "payer_responsibility": "primary"
+    },
+    "trading_partner_id": "MOCKPAYER",
+    "transaction_code": "chargeable"
+  },
+  "state": {
+    "name": "canceled",
+    "title": "Canceled"
+  },
+  "trading_partner_id": "MOCKPAYER",
+  "transition_path": [
+    "schedule",
+    "generate",
+    "store",
+    "transmit",
+    "wait",
+    "receive",
+    "process",
+    "complete"
+  ],
+  "units_of_work": 1
+}
+```
+
 *Available modes of operation: real-time*
 
 The Activities endpoint is used to track the life cycle of a transaction.  Results returned will follow the states through which an Activity flows in the PokitDok platform. Long-running operations are performed asynchronously. Upon initiating those operations via an API endpoint, activity tracking information is returned to the caller, which can be used to query the status of the activity later on.
