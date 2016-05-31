@@ -3,6 +3,7 @@
 # This program follows the deployment process for API Documentation
 
 git checkout dev
+git pull origin dev
 
 echo "Enter release tag, followed by [ENTER]: "
 read tag_name
@@ -39,7 +40,7 @@ if [ "$staging_ok" == "Y" ]; then
 	python -mwebbrowser "https://platform.pokitdok.com/documentation/v4/"
 
 	git tag "DOCS-$tag_name"
-	git push origin "DOCS-$tag_name"
+	git push origin master --tags
 
 	echo "Cleaning up..."
 	git branch -d "$tag_name"
