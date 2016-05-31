@@ -350,8 +350,8 @@ The /authorizations/ endpoint uses the same object for both its parameters and r
 | event.delivery                    | Specifies the delivery pattern of the health care services.                                                                                                                                  |
 | event.delivery.units              | *The units of services being requested.                                                                                                                                                    |
 | event.delivery.sample_selection_modulus | *Specify the sampling frequency in terms of a modulus of the Unit of Measure, e.g., every fifth bag, every 1.5 minutes.                                                                                                                                                  |
-| event.delivery.time_period_qualifier | *?                                                                                                                                                 |
-| event.delivery.period_count | *?                                                                                                                                                  |
+| event.delivery.time_period_qualifier | *Defines the time frame in which services are to be rendered or continued. A full list of possibilities can be seen [below](#time_period_qualifier).                                                                                                                                             |
+| event.delivery.period_count | *Used to indicate the number of time_period_qualifiers.                                                                                                                                                  |
 | event.delivery.delivery_frequency_code | *Code which specifies frequency by which services can be performed.                                                                                                                                                 |
 | event.delivery.delivery_pattern_time_code | *Code which specifies the time delivery pattern of the services.                                                                                                                                                  |
 | event.delivery.quantity           | The quantity of services being requested.                                                                                                                                                    |
@@ -427,6 +427,16 @@ If the authorization request is sent using a real-time interface, an authorizati
 | npi                               | The NPI for the provider.                                                                                                                                                              |
 | organization_name                 | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                                   |
 
+
+<a name="time_period_qualifier"></a>
+Possible values that can be used in the event.delivery.time_period_qualifier parameter:
+
+| time_period_qualifier Values |                    |
+|:----------------------------|:-------------------|
+| Hour                        | Day                |
+| Years                       | Episode            |
+| Visit                       | Remaining          |
+| Month                       | Week               |
 
 <a name="certaction"></a>
 Possible values that can be returned in the event.review.certification_action parameter on the authorization response:
