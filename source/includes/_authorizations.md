@@ -12,8 +12,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         },
         "diagnoses": [
             {
-                "code": "789.00",
-                "date": "2014-10-01"
+                "code": "R10.9",
+                "date": "2016-01-01"
             }
         ],
         "place_of_service": "office",
@@ -57,8 +57,8 @@ pd.authorizations({
         },
         "diagnoses": [
             {
-                "code": "789.00",
-                "date": "2014-10-01"
+                "code": "R10.9",
+                "date": "2016-01-01"
             }
         ],
         "place_of_service": "office",
@@ -102,8 +102,8 @@ pd.authorizations({
         },
         "diagnoses": [
             {
-                "code": "789.00",
-                "date": "2014-10-01"
+                "code": "R10.9",
+                "date": "2016-01-01"
             }
         ],
         "place_of_service": "office",
@@ -147,8 +147,8 @@ client.authorizations(
                 {"quantity_qualifier", "visits"}
             }},
             {"diagnoses", new Object[] {new Dictionary<string, string> {
-                    {"code", "789.00"},
-                    {"date", "2014-10-01"}
+                    {"code", "R10.9"},
+                    {"date", "2016-01-01"}
             }}},
             {"place_of_service", "office"},
             {"provider", new Dictionary<string, string> {
@@ -194,8 +194,8 @@ buf.append("            \"quantity_qualifier\": \"visits\"");
 buf.append("        },");
 buf.append("        \"diagnoses\": [");
 buf.append("            {");
-buf.append("                \"code\": \"789.00\",");
-buf.append("                \"date\": \"2014-10-01\"");
+buf.append("                \"code\": \"R10.9\",");
+buf.append("                \"date\": \"2016-01-01\"");
 buf.append("            }");
 buf.append("        ],");
 buf.append("        \"place_of_service\": \"office\",");
@@ -244,8 +244,8 @@ pd.authorizations(query);
         },
         "diagnoses": [
             {
-                "code": "789.00",
-                "date": "2014-10-01"
+                "code": "R10.9",
+                "date": "2016-01-01"
             }
         ],
         "place_of_service": "office",
@@ -357,7 +357,7 @@ The /authorizations/ endpoint uses the same object for both its parameters and r
 | event.delivery.quantity           | The quantity of services being requested.                                                                                                                                                    |
 | event.delivery.quantity_qualifier | The qualifier used to indicate the quantity type. (e.g. visits, month, hours, units, days)                                                                                                   |
 | event.diagnoses                   | An array of diagnosis information related to the event.                                                                                                                                      |
-| event.diagnoses.code              | The diagnosis code. (e.g. 789.00)                                                                                                                                                            |
+| event.diagnoses.code              | The diagnosis code. (e.g. R10.9)                                                                                                                                                            |
 | event.diagnoses.date              | The date of the diagnosis.                                                                                                                                                                   |
 | event.place_of_service            | The location where health care services are rendered.                                                                                                                                        |
 | event.provider                    | Information about the provider being requested for this event. The object used for provider can be seen [below](#service_review_provider_object).                                                                                                                               |
@@ -381,11 +381,12 @@ The /authorizations/ endpoint uses the same object for both its parameters and r
 | event.end_date                    | Optional: The end date of the given event. Only provide the end_date if the start_date is also given. Given in ISO8601 (YYYY-MM-DD).                                                         |
 | follow_up_action                  | *When an authorization request is rejected, a follow up action will be provided to inform your application how to proceed. See the possibilities [below](#follow_up_action).                                           |
 | patient                           | *The patient for the authorization. The object used for the patient can be seen [below](service_review_member_object).                                                                                                                                       |
+| originating_company_id            | *The id of the company where the request originated.                                                                                                                                     |
 | payer                             | *The information source providing claim status information; i.e., the insurance company.                                                                                                                                       |
 | payer.organization_name           | *The payer's organization name.                                                                                                                                       |
 | payer.id                          | *The payer's unique identifier.                                                                                                                                       |
 | provider                          | *The requesting provider. The object used for provider can be seen [below](#service_review_provider_object).                                                                                                                    |
-| reject_reason                     | *When a trading partner is unable to provide authorization information for an authorization request, they will provide a reject reason.                                                                                                                    |
+| reject_reason                     | *When a trading partner is unable to provide authorization information for an authorization request, they will provide a reject reason. A full list of possibilities can be seen under the eligibility section [below](#reject-reason)                                                                                                                  |
 | subscriber                        | *The subscriber for the authorization. The object used for the subscriber can be seen [below](service_review_member_object).                                                                          |
 | trading_partner_id                | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.                                                                              |
 | valid_request                     | *A boolean of whether or not the request was valid.                                                                              |
