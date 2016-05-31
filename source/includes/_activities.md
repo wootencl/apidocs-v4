@@ -72,6 +72,7 @@ queued            | The activity is in queue waiting to start/resume.
 scheduled         | The activity is scheduled for the next available transmission to the trading partner.
 generating        | The activity is generating X12 transactions.
 processing        | The activity is processing X12 transactions that have been received.
+fallback          | The activity is enacting fallback action.
 transmitting      | The activity is transmitting X12 transactions to the trading partner.
 waiting           | The activity is waiting on a trading partner response.
 receiving         | The activity is receiving X12 transactions from a trading partner.
@@ -94,10 +95,12 @@ Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /activities/ | GET | List current activities. A query string parameter ‘parent_id’ may also be used with this API to get information about sub-activities that were initiated from a batch file upload.
 /activities/{id} | GET | Return detailed information about the specified activity. API applications will receive an activity ID in the API response for all operations that are asynchronous.
-/activities/{id} | PUT | Updates an existing activity. Useful for canceling pending activities that a client application no longer wishes to execute.
+/activities/{id} | PUT | Used for canceling pending activities that a client application no longer wishes to execute.
 
 
 The /activities/ response includes the following fields:
+
+<a name="activities_response"></a>
 
 Field | Type | Description
 ----- | ---- | -----------
@@ -105,6 +108,8 @@ callback_url | {string} | The URL that will be invoked to notify the client appl
 history | {array} | Historical status of the progress of this Activity.
 id | {string} | ID of this Activity.
 name | {string} | Activity name.
+trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint. 
+parent_id | {string} | Id only present on sub-activities that were initiated via a batch file upload of activities.
 parameters | {dict} | The parameters that were originally supplied to the activity.
 remaining_transitions | {array} | The list of remaining state transitions that the activity has yet to go through.
 result | {dict} | The result of the activity processing.  This will be populated with the latest response from a trading partner.
