@@ -1868,4 +1868,4 @@ Full list of possible reject_reasons on the eligibility response with descriptio
 | subscriber_insured_not_found    | member id/name not found                                                                                                                               |
 | invalid_subscriber_insured_id   | member id not valid                                                                                                                                    |
 | invalid_subscriber_insured_name | member not found                                                                                                                                       |
-| unable_to_respond_now           | trading partner is experiencing downtime and not able to complete request.  if this is a known outage the response meta section and platform API [status page](https://platform.pokitdok.com/status#/) will have more details.|
+| unable_to_respond_now           | trading partner is experiencing downtime and not able to complete request.  if this is a known outage the response meta section and PokitDok [status page](https://pokitdok.com/status/) will have more details.|
