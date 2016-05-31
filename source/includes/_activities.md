@@ -125,6 +125,23 @@ url = '/activities/574749250640fd22d719e13f'
 client.put(url, data={'transition': 'cancel'})
 ```
 
+```ruby
+# Currently not supported in this language.
+```
+
+```csharp
+string endpoint = "/activities/574da3720640fd092ca61b24";
+string method = "PUT";
+Dictionary<string, object> data = new Dictionary<string, object> { 
+  { "transition", "cancel" }
+};
+client.request(endpoint, method, data);
+```
+
+```java
+// Currently not supported in this language.
+```
+
 > Example response: 
 
 ```json
