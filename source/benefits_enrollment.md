@@ -82,8 +82,8 @@ and maintenance into your solution.
 ## Member object
 | Parameters                  | Type                                                          | Description                                                                                                                                                                         | Required?                                                        |
 |:----------------------------|:--------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|
-| last_name                   | {string}                                                      | The first name for the subscriber.                                                                                                                                                  |                                                                  |
-| first_name                  | {string}                                                      | The last name for the subscriber                                                                                                                                                    |                                                                  |
+| first_name                  | {string}                                                      | The first name for the subscriber.                                                                                                                                                  |                                                                  |
+| last_name                   | {string}                                                      | The last name for the subscriber                                                                                                                                                    |                                                                  |
 | middle_name                 | {string}                                                      | The middle name for the subscriber.                                                                                                                                                 |                                                                  |
 | suffix                      | {string}                                                      | The suffix for the subscriber.                                                                                                                                                      |                                                                  |
 | address                     | <a href="#address_object">Address object</a>                  | The address segment for the subscriber.                                                                                                                                             |                                                                  |
@@ -394,6 +394,14 @@ for submission to the payer.
 | Leave of Absence without Benefits                       | Lay Off with Benefits                                                |
 | Lay Off without Benefits                                | Re-enrollment                                                        |
 | Change of Location                                      | Non Payment                                                          |
+| Dissatisfaction with Office Staff                       | Dissatisfaction with Medical Care/Services Rendered                  |
+| Inconvenient Office Location	                          | Dissatisfaction with Office Hours    			                     |
+| Unable to Schedule Appointments in a Timely Manner      | Dissatisfaction with Physician's Referral Policy               	     |
+| Less Respect and Attention Time Given than to Other Patients | Patient Moved to a New Location    			                 |
+| No Reason Given                                         | Appointment Times not Met in a Timely Manner                         |
+| Algorithm Assigned Benefit Selection                    | Member Benefit Selection   					                         |
+| Notification Only      	 		                      | Transfer   	 	 	 	  					                         |
+
 
 (<a href="#benefits_enrollment">Back to Benefits Enrollment</a>)
 
