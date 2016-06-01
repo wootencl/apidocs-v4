@@ -2,6 +2,7 @@
 > Example fetching activities for the current application:
 
 ```shell
+#retrieve an index of activities
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/
 ```
 
@@ -16,11 +17,12 @@ client.activities
 ```
 
 ```csharp
-// retrieve an index of activities
+//retrieve an index of activities
 client.activities();
 ```
 
 ```java
+//retrieve an index of activities
 client.activities();
 ```
 
@@ -54,6 +56,7 @@ client.activities();
 > Example fetching information for a specific activity:
 
 ```shell
+#check on a specific activity
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
 ```
 
@@ -68,11 +71,12 @@ client.activities({activity_id: '5362b5a064da150ef6f2526c'})
 ```
 
 ```csharp
-// check on a specific activity
+//check on a specific activity
 client.activities("5362b5a064da150ef6f2526c");
 ```
 
 ```java
+//check on a specific activity
 HashMap<String, String> params = new HashMap<String, String>();
 params.add("activity_id", "5362b5a064da150ef6f2526c");
 client.activities(params);
@@ -115,12 +119,14 @@ client.activities(params);
 > Example to cancel an existing activity:
 
 ```shell
+#cancel an existing activity
 curl -XPUT -i -H "Content-Type: application/json"
 -H "Authorization: Bearer $ACCESS_TOKEN"
 -d '{"transition": "cancel"}' https://platform.pokitdok.com/api/v4/activities/5317f51527a27620f2ec7533
 ```
 
 ```python
+#cancel an existing activity
 url = '/activities/574749250640fd22d719e13f'
 client.put(url, data={'transition': 'cancel'})
 ```
@@ -130,6 +136,7 @@ client.put(url, data={'transition': 'cancel'})
 ```
 
 ```csharp
+//cancel an existing activity
 string endpoint = "/activities/574da3720640fd092ca61b24";
 string method = "PUT";
 Dictionary<string, object> data = new Dictionary<string, object> { 
