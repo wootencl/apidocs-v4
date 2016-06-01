@@ -84,7 +84,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.enrollment({
+client.enrollment({
     "action": "Change",
     "dependents": [],
     "master_policy_number": "ABCD012354",
@@ -245,7 +245,7 @@ pd.enrollment({
 ```
 
 ```ruby
-pd.enrollment({
+client.enrollment({
     "action": "Change",
     "dependents": [],
     "master_policy_number": "ABCD012354",
@@ -404,7 +404,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.enrollment(query);
+Map<String, Object> results = client.enrollment(query);
 ```
 
 >Example change request to add a dependent due to a qualifying life event. (Health)
@@ -464,7 +464,7 @@ Map<String, Object> results = pd.enrollment(query);
 ```
 
 ```python
-pd.enrollment({
+client.enrollment({
     "action": "Change",
     "dependents": [
         {
@@ -569,7 +569,7 @@ client.enrollment(
 ```
 
 ```ruby
-pd.enrollment({
+client.enrollment({
     "action": "Change",
     "dependents": [
         {
@@ -678,7 +678,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.enrollment(query);
+Map<String, Object> results = client.enrollment(query);
 ```
 
 > Example request to terminate a subscriber's benefits.
@@ -718,7 +718,7 @@ Map<String, Object> results = pd.enrollment(query);
 ```
 
 ```python
-pd.enrollment({
+client.enrollment({
     "action": "Change",
     "dependents": [],
     "payer": {
@@ -788,7 +788,7 @@ client.enrollment(
 ```
 
 ```ruby
-pd.enrollment({
+client.enrollment({
     "action": "Change",
     "dependents": [],
     "payer": {
@@ -857,7 +857,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.enrollment(query);
+Map<String, Object> results = client.enrollment(query);
 ```
 
 Following the X12 834 format, the Benefits Enrollment API eases the creation and transmission process
