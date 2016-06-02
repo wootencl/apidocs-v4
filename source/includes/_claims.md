@@ -245,6 +245,122 @@ JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
 Map<String, Object> results = pd.claims(query);
 ```
 
+> Example response:
+
+```json
+{
+  "_type": "PlatformActivityModel",
+  "_uuid": "baaf7704-9719-4f7e-92cd-f489b5fd0679",
+  "history": [
+    {
+      "name": "init",
+      "record_dt": "2016-06-02T13:42:07.834940",
+      "title": "Initializing"
+    }
+  ],
+  "id": "575037af0640fd518fe64c36",
+  "name": "claims",
+  "parameters": {
+    "async": false,
+    "billing_provider": {
+      "address": {
+        "address_lines": [
+          "8311 WARREN H ABERNATHY HWY"
+        ],
+        "city": "SPARTANBURG",
+        "state": "SC",
+        "zipcode": "29301"
+      },
+      "first_name": "Jerome",
+      "last_name": "Aya-Ay",
+      "npi": "1467560003",
+      "tax_id": "123456789",
+      "taxonomy_code": "207Q00000X"
+    },
+    "claim": {
+      "claim_frequency": "original",
+      "direct_payment": "y",
+      "information_release": "informed_consent",
+      "place_of_service": "office",
+      "plan_participation": "assigned",
+      "provider_signature": true,
+      "service_lines": [
+        {
+          "charge_amount": "60.0",
+          "diagnosis_codes": [
+            "J10.1"
+          ],
+          "procedure_code": "99213",
+          "service_date": "2016-01-01",
+          "unit_count": "1.0",
+          "unit_type": "units"
+        }
+      ],
+      "total_charge_amount": "60.0"
+    },
+    "client_id": "9P10N4H2F7ZbaAU6RYct",
+    "correlation_id": "0e6ade93-5672-4abd-8d36-ba23cda627bd",
+    "generate_pdf": false,
+    "payer": {
+      "id": "MOCKPAYER",
+      "organization_name": "MOCKPAYER"
+    },
+    "receiver": {
+      "id": "MOCKRECEIVER",
+      "organization_name": "MOCKRECEIVER"
+    },
+    "submitter": {
+      "email": "support@pokitdok.com",
+      "id": "POKITDOKTEST",
+      "organization_name": "POKITDOK TESTING"
+    },
+    "subscriber": {
+      "address": {
+        "address_lines": [
+          "123 N MAIN ST"
+        ],
+        "city": "SPARTANBURG",
+        "state": "SC",
+        "zipcode": "29301"
+      },
+      "birth_date": "1970-01-01",
+      "first_name": "Jane",
+      "gender": "female",
+      "last_name": "Doe",
+      "member_id": "W000000000",
+      "payer_responsibility": "primary"
+    },
+    "trading_partner_id": "MOCKPAYER",
+    "transaction_code": "chargeable"
+  },
+  "remaining_transitions": [
+    "generate",
+    "store",
+    "transmit",
+    "wait",
+    "receive",
+    "process",
+    "complete"
+  ],
+  "state": {
+    "name": "scheduled",
+    "title": "Scheduled for next available transmission to Trading Partner"
+  },
+  "trading_partner_id": "MOCKPAYER",
+  "transition_path": [
+    "schedule",
+    "generate",
+    "store",
+    "transmit",
+    "wait",
+    "receive",
+    "process",
+    "complete"
+  ],
+  "units_of_work": 1
+}
+```
+
 > Sample Claims request where the patient is not the subscriber:
 
 ```shell
@@ -2614,7 +2730,59 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
+  "transaction_code": "chargeable",
+  "trading_partner_id": "MOCKPAYER",
+  "billing_provider": {
+    "taxonomy_code": "207Q00000X",
+    "first_name": "Jerome",
+    "last_name": "Aya-Ay",
+    "npi": "1467560003",
+    "address": {
+      "address_lines": [
+        "8311 WARREN H ABERNATHY HWY"
+      ],
+      "city": "SPARTANBURG",
+      "state": "SC",
+      "zipcode": "29301"
+    },
+    "tax_id": "123456789"
+  },
+  "subscriber": {
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "member_id": "W000000000",
+    "address": {
+      "address_lines": [
+        "123 N MAIN ST"
+      ],
+      "city": "SPARTANBURG",
+      "state": "SC",
+      "zipcode": "29301"
+    },
+    "birth_date": "1970-01-01",
+    "gender": "female"
+  },
+  "claim": {
+    "total_charge_amount": 60.0,
+    "service_lines": [
+      {
+        "procedure_code": "99213",
+        "charge_amount": 60.0,
+        "unit_count": 1.0,
+        "diagnosis_codes": [
+          "X35.XXXD"
+        ],
+        "service_date": "2016-04-01",
+        "service_end_date": "2016-05-01"
+      }
+    ]
+  }
+})
+```
+
+```ruby
+client.claims({
   "transaction_code": "chargeable",
   "trading_partner_id": "MOCKPAYER",
   "billing_provider": {
