@@ -41,9 +41,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "J10.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-01-01"
             }
         ]
     }
@@ -90,9 +90,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "J10.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-01-01"
             }
         ]
     }
@@ -139,9 +139,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "J10.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-01-01"
             }
         ]
     }
@@ -186,8 +186,8 @@ client.claims(
                     {"procedure_code", "99213"},
                     {"charge_amount", 60.0},
                     {"unit_count", 1.0},
-                    {"diagnosis_codes", new string[] {"487.1"}},
-                    {"service_date", "2014-06-01"}
+                    {"diagnosis_codes", new string[] {"J10.1"}},
+                    {"service_date", "2016-01-01"}
         }}}}}
     });
 ```
@@ -233,9 +233,9 @@ buf.append("                \"procedure_code\": \"99213\",");
 buf.append("                \"charge_amount\": 60.0,");
 buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
-buf.append("                    \"487.1\"");
+buf.append("                    \"J10.1\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("                \"service_date\": \"2016-01-01\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -301,9 +301,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "charge_amount": 100.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "J10.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-01-01"
             }
         ]
     }
@@ -364,9 +364,9 @@ pd.claims({
                 "charge_amount": 100.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "J10.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-01-01"
             }
         ]
     }
@@ -427,9 +427,9 @@ pd.claims({
                 "charge_amount": 100.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "J10.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-01-01"
             }
         ]
     }
@@ -487,8 +487,8 @@ client.claims(
                 {"procedure_modifier_codes", new string[] {"GT"}},
                 {"charge_amount", 100.0},
                 {"unit_count", 1.0},
-                {"diagnosis_codes", new string[] {"487.1"}},
-                {"service_date", "2014-06-01"}
+                {"diagnosis_codes", new string[] {"J10.1"}},
+                {"service_date", "2016-01-01"}
         }}}}}
     });
 ```
@@ -548,9 +548,9 @@ buf.append("                \"procedure_modifier_codes\": [\"GT\"],");
 buf.append("                \"charge_amount\": 100.0,");
 buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
-buf.append("                    \"487.1\"");
+buf.append("                    \"J10.1\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("                \"service_date\": \"2016-01-01\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -608,9 +608,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "J10.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-01-01"
             }
         ]
     }
@@ -662,9 +662,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "J10.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-01-01"
             }
         ]
     }
@@ -716,9 +716,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "J10.1"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-01-01"
             }
         ]
     }
@@ -767,8 +767,8 @@ client.claims(
                 {"procedure_code", "99213"},
                 {"charge_amount", 60.0},
                 {"unit_count", 1.0},
-                {"diagnosis_codes", new string[] {"487.1"}},
-                {"service_date", "2014-06-01"}
+                {"diagnosis_codes", new string[] {"J10.1"}},
+                {"service_date", "2016-01-01"}
         }}}}}
     });
 ```
@@ -820,9 +820,9 @@ buf.append("                \"procedure_code\": \"99213\",");
 buf.append("                \"charge_amount\": 60.0,");
 buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
-buf.append("                    \"487.1\"");
+buf.append("                    \"J10.1\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("                \"service_date\": \"2016-01-01\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -876,9 +876,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "charge_amount": 150.00,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "701.9"
+                    "L90.9"
                 ],
-                "service_date": "2014-11-24"
+                "service_date": "2016-03-24"
             }
         ]
     }
@@ -927,9 +927,9 @@ pd.claims({
                 "charge_amount": 150.00,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "701.9"
+                    "L90.9"
                 ],
-                "service_date": "2014-11-24"
+                "service_date": "2016-03-24"
             }
         ]
     }
@@ -978,9 +978,9 @@ pd.claims({
                 "charge_amount": 150.00,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "701.9"
+                    "L90.9"
                 ],
-                "service_date": "2014-11-24"
+                "service_date": "2016-03-24"
             }
         ]
     }
@@ -1026,8 +1026,8 @@ client.claims(
             {"procedure_code", "11100"},
             {"charge_amount", 150.0},
             {"unit_count", 1.0},
-            {"diagnosis_codes", new string[] {"701.9"}},
-            {"service_date", "2014-11-24"}
+            {"diagnosis_codes", new string[] {"L90.9"}},
+            {"service_date", "2016-03-24"}
         }}}}}
     });
 ```
@@ -1076,9 +1076,9 @@ buf.append("                \"procedure_code\": \"11100\",");
 buf.append("                \"charge_amount\": 150.00,");
 buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
-buf.append("                    \"701.9\"");
+buf.append("                    \"L90.9\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2014-11-24\"");
+buf.append("                \"service_date\": \"2016-03-24\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -1133,9 +1133,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "charge_amount": 100.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "W51.XXXA"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -1183,9 +1183,9 @@ pd.claims({
                 "charge_amount": 100.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "W51.XXXA"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -1233,9 +1233,9 @@ pd.claims({
                 "charge_amount": 100.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "W51.XXXA"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -1280,8 +1280,8 @@ pd.claims(
                 {"procedure_modifier_codes", new string[] {"GT"}},
                 {"charge_amount", 100.0},
                 {"unit_count", 1.0},
-                {"diagnosis_codes", new string[] {"487.1"}},
-                {"service_date", "2014-06-01"}
+                {"diagnosis_codes", new string[] {"W51.XXXA"}},
+                {"service_date", "2016-05-01"}
         }}}}}
     });
 ```
@@ -1329,9 +1329,9 @@ buf.append("                \"procedure_modifier_codes\": [\"GT\"],");
 buf.append("                \"charge_amount\": 100.0,");
 buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
-buf.append("                    \"487.1\"");
+buf.append("                    \"W51.XXXA\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("                \"service_date\": \"2016-05-01\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -1383,9 +1383,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "W53.21XA"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -1433,9 +1433,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "W53.21XA"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -1483,9 +1483,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "W53.21XA"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -1530,8 +1530,8 @@ client.claims(
                 {"procedure_code", "99213"},
                 {"charge_amount", 60.0},
                 {"unit_count", 1.0},
-                {"diagnosis_codes", new string[] {"487.1"}},
-                {"service_date", "2014-06-01"}
+                {"diagnosis_codes", new string[] {"W53.21XA"}},
+                {"service_date", "2016-05-01"}
         }}}}}
     });
 ```
@@ -1579,9 +1579,9 @@ buf.append("                \"procedure_code\": \"99213\",");
 buf.append("                \"charge_amount\": 60.0,");
 buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
-buf.append("                    \"487.1\"");
+buf.append("                    \"W53.21XA\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("                \"service_date\": \"2016-05-01\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -1610,9 +1610,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "tax_id": "123456789"
   },
   "claim": {
-    "admission_date": "2011-08-05",
-    "statement_date": "2015-03-01",
-    "statement_end_date": "2015-03-31",
+    "admission_date": "2016-02-05",
+    "statement_date": "2016-04-01",
+    "statement_end_date": "2016-04-30",
     "admission_type": "elective",
     "admission_source": "not_available",
     "patient_status": "still_patient",
@@ -1631,7 +1631,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "occurrence_information": [
       {
         "occurrence_type": "hospice_certification",
-        "occurrence_date": "2013-03-27"
+        "occurrence_date": "2014-03-27"
       }
     ],
     "value_information": [
@@ -1648,7 +1648,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         ],
         "procedure_code": "Q5002",
         "revenue_code": "0651",
-        "service_date": "2015-03-01",
+        "service_date": "2016-04-01",
         "unit_count": "31",
         "unit_type": "days",
         "provider_control_number": "6750000"
@@ -1665,7 +1665,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
       "state": "CA",
       "zipcode": "941001001"
     },
-    "birth_date": "1920-07-25",
+    "birth_date": "1930-07-25",
     "claim_filing_code": "medicare_part_a",
     "first_name": "JOHN",
     "gender": "male",
@@ -1695,9 +1695,9 @@ pd.claims({
     "tax_id": "123456789"
   },
   "claim": {
-    "admission_date": "2011-08-05",
-    "statement_date": "2015-03-01",
-    "statement_end_date": "2015-03-31",
+    "admission_date": "2016-02-05",
+    "statement_date": "2016-04-01",
+    "statement_end_date": "2016-04-01",
     "admission_type": "elective",
     "admission_source": "not_available",
     "patient_status": "still_patient",
@@ -1733,7 +1733,7 @@ pd.claims({
         ],
         "procedure_code": "Q5002",
         "revenue_code": "0651",
-        "service_date": "2015-03-01",
+        "service_date": "2016-04-01",
         "unit_count": "31",
         "unit_type": "days",
         "provider_control_number": "6750000"
@@ -1750,7 +1750,7 @@ pd.claims({
       "state": "CA",
       "zipcode": "941001001"
     },
-    "birth_date": "1920-07-25",
+    "birth_date": "1930-07-25",
     "claim_filing_code": "medicare_part_a",
     "first_name": "JOHN",
     "gender": "male",
@@ -1780,9 +1780,9 @@ pd.claims({
     "tax_id": "123456789"
   },
   "claim": {
-    "admission_date": "2011-08-05",
-    "statement_date": "2015-03-01",
-    "statement_end_date": "2015-03-31",
+    "admission_date": "2016-02-05",
+    "statement_date": "2016-04-01",
+    "statement_end_date": "2016-04-30",
     "admission_type": "elective",
     "admission_source": "not_available",
     "patient_status": "still_patient",
@@ -1801,7 +1801,7 @@ pd.claims({
     "occurrence_information": [
       {
         "occurrence_type": "hospice_certification",
-        "occurrence_date": "2013-03-27"
+        "occurrence_date": "2014-03-27"
       }
     ],
     "value_information": [
@@ -1818,7 +1818,7 @@ pd.claims({
         ],
         "procedure_code": "Q5002",
         "revenue_code": "0651",
-        "service_date": "2015-03-01",
+        "service_date": "2016-04-01",
         "unit_count": "31",
         "unit_type": "days",
         "provider_control_number": "6750000"
@@ -1835,7 +1835,7 @@ pd.claims({
       "state": "CA",
       "zipcode": "941001001"
     },
-    "birth_date": "1920-07-25",
+    "birth_date": "1930-07-25",
     "claim_filing_code": "medicare_part_a",
     "first_name": "JOHN",
     "gender": "male",
@@ -1864,9 +1864,9 @@ client.claims(
             {"tax_id", "123456789"}
         }},
         {"claim", new Dictionary<string, object> {
-            {"admission_date", "2011-08-05"},
-            {"statement_date", "2015-03-01"},
-            {"statement_end_date", "2015-03-31"},
+            {"admission_date", "2016-02-05"},
+            {"statement_date", "2016-04-01"},
+            {"statement_end_date", "2016-04-30"},
             {"admission_type", "elective"},
             {"admission_source", "not_available"},
             {"patient_status", "still_patient"},
@@ -1884,7 +1884,7 @@ client.claims(
             {"plan_participation", "assigned"},
             {"occurrence_information", new Object[] {new Dictionary<string, string> {
                 {"occurrence_type", "hospice_certification"},
-                {"occurrence_date", "2013-03-27"}
+                {"occurrence_date", "2014-03-27"}
             }}},
             {"value_information", new Object[] {new Dictionary<string, string> {
                 {"value_type", "service_furnished_location_number"},
@@ -1895,7 +1895,7 @@ client.claims(
                 {"diagnosis_codes", new string[] {"29411"}},
                 {"procedure_code", "Q5002"},
                 {"revenue_code", "0651"},
-                {"service_date", "2015-03-01"},
+                {"service_date", "2016-04-01"},
                 {"unit_count", "31"},
                 {"unit_type", "days"},
                 {"provider_control_number", "6750000"}
@@ -1909,7 +1909,7 @@ client.claims(
                 {"state", "CA"},
                 {"zipcode", "941001001"}
             }},
-            {"birth_date", "1920-07-25"},
+            {"birth_date", "1930-07-25"},
             {"claim_filing_code", "medicare_part_a"},
             {"first_name", "JOHN"},
             {"gender", "male"},
@@ -1941,9 +1941,9 @@ buf.append("    \"taxonomy_code\": \"251G00000X\",");
 buf.append("    \"tax_id\": \"123456789\"");
 buf.append("  },");
 buf.append("  \"claim\": {");
-buf.append("    \"admission_date\": \"2011-08-05\",");
-buf.append("    \"statement_date\": \"2015-03-01\",");
-buf.append("    \"statement_end_date\": \"2015-03-31\",");
+buf.append("    \"admission_date\": \"2016-02-05\",");
+buf.append("    \"statement_date\": \"2016-04-01\",");
+buf.append("    \"statement_end_date\": \"2016-04-30\",");
 buf.append("    \"admission_type\": \"elective\",");
 buf.append("    \"admission_source\": \"not_available\",");
 buf.append("    \"patient_status\": \"still_patient\",");
@@ -1962,7 +1962,7 @@ buf.append("    \"plan_participation\": \"assigned\",");
 buf.append("    \"occurrence_information\": [");
 buf.append("      {");
 buf.append("        \"occurrence_type\": \"hospice_certification\",");
-buf.append("        \"occurrence_date\": \"2013-03-27\"");
+buf.append("        \"occurrence_date\": \"2014-03-27\"");
 buf.append("      }");
 buf.append("    ],");
 buf.append("    \"value_information\": [");
@@ -1979,7 +1979,7 @@ buf.append("          \"29411\"");
 buf.append("        ],");
 buf.append("        \"procedure_code\": \"Q5002\",");
 buf.append("        \"revenue_code\": \"0651\",");
-buf.append("        \"service_date\": \"2015-03-01\",");
+buf.append("        \"service_date\": \"2016-04-01\",");
 buf.append("        \"unit_count\": \"31\",");
 buf.append("        \"unit_type\": \"days\",");
 buf.append("        \"provider_control_number\": \"6750000\"");
@@ -1996,7 +1996,7 @@ buf.append("      \"city\": \"NEW TOWN\",");
 buf.append("      \"state\": \"CA\",");
 buf.append("      \"zipcode\": \"941001001\"");
 buf.append("    },");
-buf.append("    \"birth_date\": \"1920-07-25\",");
+buf.append("    \"birth_date\": \"1930-07-25\",");
 buf.append("    \"claim_filing_code\": \"medicare_part_a\",");
 buf.append("    \"first_name\": \"JOHN\",");
 buf.append("    \"gender\": \"male\",");
@@ -2061,9 +2061,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "W56.22XA"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -2114,9 +2114,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "W56.22XA"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -2167,9 +2167,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "W56.22XA"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -2217,8 +2217,8 @@ client.claims(
                 {"procedure_code", "99213"},
                 {"charge_amount", 60.0},
                 {"unit_count", 1.0},
-                {"diagnosis_codes", new string[] {"487.1"}},
-                {"service_date", "2014-06-01"}
+                {"diagnosis_codes", new string[] {"W56.22XA"}},
+                {"service_date", "2016-05-01"}
         }}}}}
     });
 ```
@@ -2269,9 +2269,9 @@ buf.append("                \"procedure_code\": \"99213\",");
 buf.append("                \"charge_amount\": 60.0,");
 buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
-buf.append("                    \"487.1\"");
+buf.append("                    \"W56.22XA\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("                \"service_date\": \"2016-05-01\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -2330,9 +2330,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "V91.35"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -2386,9 +2386,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "V91.35"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -2442,9 +2442,9 @@ pd.claims({
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "V91.35"
                 ],
-                "service_date": "2014-06-01"
+                "service_date": "2016-05-01"
             }
         ]
     }
@@ -2494,8 +2494,8 @@ client.claims(
                 {"procedure_code", "99213"},
                 {"charge_amount", 60.0},
                 {"unit_count", 1.0},
-                {"diagnosis_codes", new string[] {"487.1"}},
-                {"service_date", "2014-06-01"}
+                {"diagnosis_codes", new string[] {"V91.35"}},
+                {"service_date", "2016-05-01"}
         }}}}}
     });
 ```
@@ -2549,9 +2549,9 @@ buf.append("                \"procedure_code\": \"99213\",");
 buf.append("                \"charge_amount\": 60.0,");
 buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
-buf.append("                    \"487.1\"");
+buf.append("                    \"V91.35\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2014-06-01\"");
+buf.append("                \"service_date\": \"2016-05-01\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -2603,10 +2603,10 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "charge_amount": 60.0,
                 "unit_count": 1.0,
                 "diagnosis_codes": [
-                    "487.1"
+                    "X35.XXXD"
                 ],
-                "service_date": "2014-06-01",
-                "service_end_date": "2014-07-01"
+                "service_date": "2016-04-01",
+                "service_end_date": "2016-05-01"
             }
         ]
     }
@@ -2650,9 +2650,9 @@ client.claims(
                             {"procedure_code", "99213"},
                             {"charge_amount", 60.0},
                             {"unit_count", 1.0},
-                            {"diagnosis_codes", new string[] {"487.1"}},
-                            {"service_date", "2014-06-01"},
-                            {"service_end_date", "2014-07-01"}
+                            {"diagnosis_codes", new string[] {"X35.XXXD"}},
+                            {"service_date", "2016-04-01"},
+                            {"service_end_date", "2016-05-01"}
                         }}}
             }}
     }
@@ -2701,10 +2701,10 @@ buf.append("                \"procedure_code\": \"99213\",");
 buf.append("                \"charge_amount\": 60.0,");
 buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
-buf.append("                    \"487.1\"");
+buf.append("                    \"X35.XXXD\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2014-06-01\",");
-buf.append("                \"service_end_date\": \"2014-07-01\"");
+buf.append("                \"service_date\": \"2016-04-01\",");
+buf.append("                \"service_end_date\": \"2016-05-01\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -2716,24 +2716,15 @@ Map<String, Object> results = pd.claims(query);
 
 *Available modes of operation: batch/async*
 
-Following the standard X12 837 format, the Claims endpoint allows
-applications to easily file claims to designated trading partners.
+Following the standard X12 837 format, the Claims endpoint allows applications to easily submit claims to designated trading partners. A Claim is submitted to the trading partner to report services completed and request compensation.  To understand how the Claims endpoint works, reference our <a href="https://pokitdok.com/developers/api/#api-claim-submission">Claims workflow</a>.
 
-When using the Claims endpoint, there is an option to supply a callback_url,
-which indicates that your application should be notified when the asynchronous
-processing is complete and a claim acknowledgement has been received from the
-trading partner. The full claims request activity will be POSTed back to the
-callback_url. A claim acknowledgement will be returned for each submitted
-claims request. Once a claim is adjudicated, an 835 Electronic Remittance
-Advice transaction will be returned to applications that are registered to receive them.
-If a callback_url was registered on the claims request and claim payment information is received,
-the full claims request activity will be POSTed back to the callback_url a second time.  The claim payment information will be
-contained in the result section of the claims activity JSON.   The original claims acknowledgement will move to
-the result_history section of the claims activity.  For a complete reference to all possible values in a claim payment result,
-see our [claim payments reference](claim_payments.html).
-If you are interested in receiving 835 files, please <a href="http://pokitdok.com/contact?context=PokitDok">contact us</a>.
+The Claims endpoint gives clients the ability to submit either Professional (837P) or Institutional (837I) claims, using the same endpoint. Professional format claims are submitted using the CMS-1500 parameters by physicians, suppliers and other non-institutional providers.  Institutional format claims are submitted using the UB-04 parameters by hospitals, skilled nursing facilities, and other institutions. If a claims request includes an _Institutional claim specific (837I)_ parameter, the Claims endpoint will validate the request as an institutional claim and submit it accordingly. If no _Institutional claim specific_ parameter is passed in the request, then the request will be validated and transmitted as a professional claim. To review which trading partners support various claim types, visit our <a href="https://platform.pokitdok.com/tradingpartners#/">trading partners list</a>.
 
-The PokitDok Claims endpoint gives clients the ability to submit either professional (837P) or institutional (837I) claims, using the same claims endpoint. If a claims request includes an _Institutional claim specific (837I)_ parameter, then the Claims endpoint will validate the request as an institutional claim and submit it accordingly. If no _Institutional claim specific_ parameter is passed in the request, then the request will be validated and transmitted as a professional claim.
+Once a claim has been submitted, status can be tracked through PokitDok's system using the Activities endpoint.  There is also an option to supply a callback_url in the claim request which indicates that your application should be notified when the asynchronous processing is complete and a claim acknowledgement has been received from the trading partner.  In order to track status in the trading partner's adjudication system, please utilize the Claim Status endpoint.
+
+A trading partner's first response lets you know if the request has been accepted (or rejected) by their claims validation system. Once your claim submission is accepted by the trading partner, it will enter their adjudication system. A tracking id or claim control number will be assigned after passing the validation stage, which can then be used in claims status requests to track the claim. A claim can be monitored via a Claims Status request once the claim has been accepted in the trading partner’s adjudication system. The speed at which a claim is adjudicated is dependent on the trading partner. On average it takes 5-7 days for a claim to enter a payer’s adjudication system, thus it is recommended to wait at least a week after submitting a claim to check its status. Once adjudication is complete, the trading partner will return an electronic remittance advice or ERA (if registered to receive ERAs), otherwise a paper remittance advice is sent with final adjudication information.
+
+
 Parameters that are specific to Institutional claims only have (_Insitutional claim specific_) in the Description column in the below endpoint parameter table.
 
 | Endpoint | HTTP Method | Description                                      |
