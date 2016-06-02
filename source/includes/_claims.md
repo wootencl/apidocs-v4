@@ -2613,6 +2613,58 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 }` https://platform.pokitdok.com/api/v4/claims/
 ```
 
+```python
+pd.claims({
+  "transaction_code": "chargeable",
+  "trading_partner_id": "MOCKPAYER",
+  "billing_provider": {
+    "taxonomy_code": "207Q00000X",
+    "first_name": "Jerome",
+    "last_name": "Aya-Ay",
+    "npi": "1467560003",
+    "address": {
+      "address_lines": [
+        "8311 WARREN H ABERNATHY HWY"
+      ],
+      "city": "SPARTANBURG",
+      "state": "SC",
+      "zipcode": "29301"
+    },
+    "tax_id": "123456789"
+  },
+  "subscriber": {
+    "first_name": "Jane",
+    "last_name": "Doe",
+    "member_id": "W000000000",
+    "address": {
+      "address_lines": [
+        "123 N MAIN ST"
+      ],
+      "city": "SPARTANBURG",
+      "state": "SC",
+      "zipcode": "29301"
+    },
+    "birth_date": "1970-01-01",
+    "gender": "female"
+  },
+  "claim": {
+    "total_charge_amount": 60.0,
+    "service_lines": [
+      {
+        "procedure_code": "99213",
+        "charge_amount": 60.0,
+        "unit_count": 1.0,
+        "diagnosis_codes": [
+          "X35.XXXD"
+        ],
+        "service_date": "2016-04-01",
+        "service_end_date": "2016-05-01"
+      }
+    ]
+  }
+})
+```
+
 ```csharp
 client.claims(
     new Dictionary<string, object> {
