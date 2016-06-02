@@ -2,31 +2,60 @@
 > Example fetching cash price information:
 
 ```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/prices/cash?cpt_code=87799&zip_code=32218
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/prices/cash?cpt_code=99385&zip_code=29412
 ```
 
 ```python
-pd.cash_prices(zip_code='32218', cpt_code='97001')
+pd.cash_prices(zip_code='29412', cpt_code='99385')
 ```
 
 ```ruby
-pd.cash_prices({ zip_code: '32218', cpt_code: '87799'})
+pd.cash_prices({ zip_code: '29412', cpt_code: '99385'})
 ```
 
 ```csharp
 client.pricesCash(
     new Dictionary<string, string> {
-        { "zip_code", "32218" },
-        { "cpt_code", "87799" }
+        { "zip_code", "29412" },
+        { "cpt_code", "99385" }
 });
 ```
 
 ```java
 HashMap<String, String> query = new HashMap<String, String>();
-query.put("zip_code", "32218");
-query.put("cpt_code", "87799");
+query.put("zip_code", "29412");
+query.put("cpt_code", "99385");
 
 Map<String, Object> results = pd.cashPrices(query);
+```
+
+> Example response:
+
+```json
+[
+	{
+	  "high_price": 233.42479280373698,
+	  "cpt_code": "99385",
+	  "procedure_description": "Annual Physical Exam",
+	  "standard_deviation": 15.016994378560673,
+	  "average_price": 187.76838048263573,
+	  "pokitdok_procedure_urn": "urn:pokitdok:procedure:annual_physical_exam",
+	  "geo_zip_area": "294",
+	  "low_price": 120.62963537852661,
+	  "median_price": 190.01923076923077
+	},
+	{
+	  "high_price": 251.83022827001753,
+	  "cpt_code": "99385",
+	  "procedure_description": "Well Woman Exam",
+	  "standard_deviation": 16.2527628493356,
+	  "average_price": 202.86013582521684,
+	  "pokitdok_procedure_urn": "urn:pokitdok:procedure:well_woman_exam",
+	  "geo_zip_area": "294",
+	  "low_price": 130.14122556829363,
+	  "median_price": 206.2905376344086
+	}
+]
 ```
 
 
