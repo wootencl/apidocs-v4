@@ -11,7 +11,7 @@ The PokitDok Drop-in UI enables anyone to add eligibility checks to their own we
 First you will need to <a href='https://platform.pokitdok.com/signup' target='_blank'>sign up for a PokitDok Platform account</a> and grab your ```Client ID``` from the Platform dashboard.
 
 
-## Configure HTML
+## Include JS File
 
 ```html
 <script src="pokitdok.js"></script>
@@ -20,17 +20,19 @@ First you will need to <a href='https://platform.pokitdok.com/signup' target='_b
 Download the `pokitdok.js` file <a href="">here</a> and include it in your website.
 
 
+## Add HTML Container
+
 ```html
 <div id="dropin-ui"></div>
 ```
 
-Then add a container with a specific ID that will house your drop-in UI.
+Add an HTML container with a specific ID that will house your drop-in UI.
 
 
-## Configure Javascript
+## Initialize Drop-in
 
 ```javascript
-PokitDok.dropin(<INSERT YOUR CLIENT ID HERE>, {
+PokitDok.dropin('INSERT YOUR CLIENT ID HERE', {
    container: 'dropin-ui'
    type: 'eligibility'
 })
@@ -40,12 +42,14 @@ Call the `PokitDok.dropin` function, using your PokitDok Platform `Client ID` an
 
 You can also configure the drop-in on the <a href='https://platform.pokitdok.com' target='_blank'>Platform dashboard</a>.
 
+The drop-in UI form will auto-populate in the HTML container that you specified, and you can run eligibility checks right away.
+
 ## Options
 
 > Example with options:
 
 ```javascript
-Pokitdok.dropin(<INSERT YOUR CLIENT ID HERE>, {
+Pokitdok.dropin('INSERT YOUR CLIENT ID HERE', {
     container: 'dropin-ui',
     type: 'eligibility',
     onFormSuccess: function() {
@@ -57,7 +61,9 @@ Pokitdok.dropin(<INSERT YOUR CLIENT ID HERE>, {
 }
 ```
 
-`container` and `type` are required options for the drop-in UI to work.
+<aside class="warning">
+'container' and 'type' are required options for the drop-in UI to work.
+</aside>
 
 Name              | Description
 ------------------|--------------------------------------------------------------------------------------
