@@ -166,12 +166,18 @@ The /claims/convert endpoint accepts the following parameters:
 
 The /claims/convert response contains the following fields:
 
-| Field                                      | Description                                                                                                                                                         |
-|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| claims_request                             | a JSON object representing the converted claims data that's suitable for use with the claims endpoint                                                               |
-| converted_edi                              | a string representing a converted X12 837 transaction with ICD-9 mapped to ICD-10.  The X12 envelope (ISA and GS segments) is preserved from the original X12 file. |
-| diagnosis_mappings                         | a list of diagnosis mapping information that was used to convert ICD-9 to ICD-10 for this claim                                                                     |
-| diagnosis_mappings.destination_scenarios   | a list of mapping scenarios that apply for the matched ICD-9 code                                                                                                   |
-| diagnosis_mappings.source_code.description | a string representing a description of the source ICD-9 code                                                                                                        |
-| diagnosis_mappings.source_code.system      | a string representing the code system (icd9)                                                                                                                        |
-| diagnosis_mappings.source_code.value       | a string containing the ICD-9 code value                                                                                                                            |
+| Field                                                              | Description                                                                                                                                                         |
+|:-------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| claims_request                                                     | a JSON object representing the converted claims data that's suitable for use with the claims endpoint                                                               |
+| converted_edi                                                      | a string representing a converted X12 837 transaction with ICD-9 mapped to ICD-10.  The X12 envelope (ISA and GS segments) is preserved from the original X12 file. |
+| diagnosis_mappings                                                 | a list of diagnosis mapping information that was used to convert ICD-9 to ICD-10 for this claim                                                                     |
+| diagnosis_mappings.destination_scenarios                           | a list of mapping scenarios that apply for the matched ICD-9 code                                                                                                   |
+| diagnosis_mappings.destination_scenarios.choice_lists              | ?                                                                                                   |
+| diagnosis_mappings.destination_scenarios.choice_lists.description  | ?                                                                                                   |
+| diagnosis_mappings.destination_scenarios.choice_lists.value        | ?                                                                                                   |
+| diagnosis_mappings.destination_scenarios.choice_lists.system       | ?                                                                                                   |
+| diagnosis_mappings.source_code.description                         | a string representing a description of the source ICD-9 code                                                                                                        |
+| diagnosis_mappings.source_code.system                              | a string representing the code system (icd9)                                                                                                                        |
+| diagnosis_mappings.source_code.value                               | a string containing the ICD-9 code value                                                                                                                            |
+| diagnosis_mappings.approximate                                     | ?                                                                                                |
+| diagnosis_mappings.combination                                     | ?                                                                                                  |
