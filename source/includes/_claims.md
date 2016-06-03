@@ -1707,7 +1707,7 @@ pd.claims({
       "last_name": "SMITH",
       "taxonomy_code": "251G00000X"
     },
-    " equency": "interim_continuing_claims",
+    "claim_frequency": "interim_continuing_claims",
     "direct_payment": "y",
     "information_release": "informed_consent",
     "medical_record_number": "661",
@@ -2873,7 +2873,7 @@ A claim goes through an entire lifecycle after its transmission to a payer.
 For details on this process, and how the [Claims Status](#claims-status)
 Endpoint ties in, see our [claims API workflow](https://pokitdok.com/developers/api/#api-claim-submission).
 
-The /claims/ response contains an activity and thus returns the same object as the activity endpoint. This object can be seen under the activities endpoint documnetation [above](#activities_response). The only difference between the activities and claims response is the data returned via the 'parameters' field. The following objects/fields are attached internally and can be accessed via the parameters object:
+The /claims/ response contains an activity and thus returns the same object as the activity endpoint. This object can be seen under the activities endpoint documentation [above](#activities_response). The only difference between the activities and claims response is the data returned via the 'parameters' field. The following objects/fields are attached internally and can be accessed via the parameters object:
 
 | Field                                           | Description                                                                                                       |
 |:------------------------------------------------|:------------------------------------------------------------------------------------------------------------------|
@@ -3161,7 +3161,7 @@ Full list of possible values that can be used in the claim.occurrence_informatio
 
 
 <a name="valuecode"></a>
-Full list of possible values that can be used in the claim.value_information parameter on the claim:
+Full list of possible values that can be used in the claim.value_information.value_type parameter on the claim:
 
 | value_information.value_type                                  |                                                      |
 |:--------------------------------------------------------------|:-----------------------------------------------------|
