@@ -74,50 +74,50 @@ Currently the Cash Prices endpoint only supports the top fifty procedures. A lis
 
 | Procedure              												| cpt_code      | 
 |:----------------------------------------------------------------------|:--------------|
-| Botox Injections      												| 64612		    |
-| Skin Tag Removal      												| 11200		    |
-| Carotid Duplex Ultrasound  											| 93880		    |
-| Urgent Care Visit      												| 99203		    |
-| MRI (Knee)		      												| 73721		    |
-| Pap Smear/ Gynecological Exam      								    | 88142		    |
-| Total Hip Replacement      						  					| 27130		    |
-| Breast Augmentation      												| 19325		    |
-| EKG				      												| 93000		    |
-| Annual Physical Exam      											| 99385		    |
-| Physical Therapy Session      					  					| 97001		    |
-| Lasik Surgery - Double Eye 											| 65760		    |
-| Desensitization/ Immune Therapy      									| 95115		    |
-| Reclast Infusion      												| 96365		    |
-| PSA Blood Test & DRE Exam (Prostate Cancer Screening) 				| 84153		    |
-| Echocardiogram	      												| 93306		    |
-| X-ray (Lumbar spine)      											| 72100		    |
-| Flu Shot			      												| 90658		    |
-| Rotator Cuff Surgery      											| 29827		    |
-| Psychiatric Consultation      										| 90791		    |
 | Allergy Testing       												| 95017		    |
-| Cataract Surgery      												| 66984		    |
-| Shoulder Scope        												| 29805		    |
-| Gastric Bypass         												| 43846		    |
-| Septorhinoplasty (Nasal Obstruction)      							| 30420		    |
+| Annual Physical Exam      											| 99385		    |
 | Blepharoplasty (Eyelid)  												| 15822		    |
-| Facelift (forehead)     												| 15824		    |
-| Polysomnogram (Sleep Study)      										| 95810		    |
-| In-vitro Fertilization     											| 58970		    |
+| Botox Injections      												| 64612		    |
+| Breast Augmentation      												| 19325		    |
+| Cardiac Stress Test      												| 93015		    |
+| Carotid Duplex Ultrasound  											| 93880		    |
+| Cataract Surgery      												| 66984		    |
 | Cesarean Section      												| 59510		    |
-| Total Knee Replacement      											| 27447		    |
-| Lap Band Surgery      												| 43770		    |
+| Chiropractic Visit      												| 98940		    |
 | Colonoscopy		      												| 45378		    |
-| Lithotripsy (Kidney Stone)      										| 50590		    |
 | CT Scan (Chest)     	 												| 71250		    |
+| Desensitization/ Immune Therapy      									| 95115		    |
+| Echocardiogram	      												| 93306		    |
+| EKG				      												| 93000		    |
+| Facelift (forehead)     												| 15824		    |
+| Flu Shot			      												| 90658		    |
+| Gastric Bypass         												| 43846		    |
+| Holter Monitor (24 hour)      										| 93224		    |
+| In-vitro Fertilization     											| 58970		    |
+| Lap Band Surgery      												| 43770		    |
+| Lasik Surgery - Double Eye 											| 65760		    |
+| Lipid Profile		      												| 80061		    |
+| Lithotripsy (Kidney Stone)      										| 50590		    |
+| Mammogram			      												| 77051		    |
+| MRI (Knee)		      												| 73721		    |
+| Myringotomy Tubes (Ear Tubes)      									| 69436		    |
+| Pap Smear/ Gynecological Exam      								    | 88142		    |
+| Physical Therapy Session      					  					| 97001		    |
+| Polysomnogram (Sleep Study)      										| 95810		    |
+| Prenatal Example      												| 59426		    |
+| PSA Blood Test & DRE Exam (Prostate Cancer Screening) 				| 84153		    |
+| Psychiatric Consultation      										| 90791		    |
+| Reclast Infusion      												| 96365		    |
+| Rotator Cuff Surgery      											| 29827		    |
+| Septorhinoplasty (Nasal Obstruction)      							| 30420		    |
+| Shoulder Scope        												| 29805		    |
+| Skin Tag Removal      												| 11200		    |
+| Testosterone/ Erectile Dysfunction Evaluation   						| 84402		    |
+| Total Hip Replacement      						  					| 27130		    |
+| Total Knee Replacement      											| 27447		    |
+| Trigger Point Injection      											| 20552		    |
 | Ultrasound Abdomen Complete      										| 76700		    |
 | Ultrasound Right Upper Quadrant (Gallbladder)      					| 76705		    |
-| Holter Monitor (24 hour)      										| 93224		    |
-| Chiropractic Visit      												| 98940		    |
-| Prenatal Example      												| 59426		    |
-| Mammogram			      												| 77051		    |
-| Cardiac Stress Test      												| 93015		    |
-| Trigger Point Injection      											| 20552		    |
-| Testosterone/ Erectile Dysfunction Evaluation   						| 84402		    |
-| Lipid Profile		      												| 80061		    |
-| Myringotomy Tubes (Ear Tubes)      									| 69436		    |
+| Urgent Care Visit      												| 99203		    |
 | Wart Removal      													| 17110		    |
+| X-ray (Lumbar spine)      											| 72100		    |
