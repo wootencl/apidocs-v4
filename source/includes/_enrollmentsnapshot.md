@@ -29,7 +29,6 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-# retrieve an index of enrollment snapshots
 pd.enrollment_snapshots()
 ```
 
@@ -38,7 +37,6 @@ client.enrollmentSnapshot();
 ```
 
 ```ruby
-# retrieve an index of enrollment snapshots
 pd.enrollment_snapshots
 ```
 
@@ -53,7 +51,6 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-# get information for a specific enrollment snapshot
 pd.enrollment_snapshots(snapshot_id='5317f51527a27620f2ec7533')
 ```
 
@@ -62,7 +59,6 @@ client.enrollmentSnapshot("5317f51527a27620f2ec7533");
 ```
 
 ```ruby
-# get information for a specific enrollment snapshot
 pd.enrollment_snapshots({snapshot_id='5317f51527a27620f2ec7533'})
 ```
 
@@ -77,7 +73,6 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-# get information for a specific enrollment snapshot
 pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
 ```
 
@@ -86,7 +81,6 @@ client.enrollmentSnapshotData("5317f51527a27620f2ec7533");
 ```
 
 ```ruby
-# get information for a specific enrollment snapshot
 pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
 ```
 
