@@ -298,7 +298,6 @@ Map<String, Object> results = pd.claims(query);
       ],
       "total_charge_amount": "60.0"
     },
-    "client_id": "9P10N4H2F7ZbaAU6RYct",
     "correlation_id": "0e6ade93-5672-4abd-8d36-ba23cda627bd",
     "generate_pdf": false,
     "payer": {
