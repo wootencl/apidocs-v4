@@ -890,12 +890,11 @@ endpoint. For a complete reference to all possible values in an enrollment
 request, see our [benefits enrollment reference](benefits_enrollment.html).
 <a name="enrollment_table"></a>
 
-| Parameters                                 | Description                                                                                                                                             |
+| Parameter                                  | Description                                                                                                                                             |
 |:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | dependents                                 | A list of dependents covered under benefits by the subscriber.                                                                                          |
 |                                            | Each dependent list item may utilize the same request parameters as a subscriber.                                                                       |
 | master_policy_number                       | The master policy number for the sponsor.                                                                                                               |
-| relationship                               | The relationship of the subject of the transaction to the policy holder.<br/>Acceptable values: see <a href="#api_relationships">relationship codes</a> |
 | sponsor                                    | The employer/sponsor of the benefits.                                                                                                                   |
 | sponsor.name                               | The name of the sponsor.                                                                                                                                |
 | sponsor.tax_id                             | The tax id of the sponsor.                                                                                                                              |
@@ -933,7 +932,8 @@ request, see our [benefits enrollment reference](benefits_enrollment.html).
 | subscriber.ssn                             | The social security number for the subscriber.                                                                                                          |
 | subscriber.substance_abuse                 | Does the subscriber have a problem with substance abuse? True or False.                                                                                 |
 | subscriber.suffix                          | The suffix for the subscriber.                                                                                                                          |
-| subscriber.tobacco_use                     | Does the subscriber use tobacco? True or False.                                                                                                         |
+| subscriber.tobacco_use                     | Does the subscriber use tobacco? True or False.        
+| subscriber.relationship                    | The relationship of the subject of the transaction to the policy holder.<br/>Acceptable values: see <a href="#api_relationships">relationship codes</a> |                                                                                                 |
 | trading_partner_id                         | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.                                                              |
 *Additional parameters can be submitted to the carrier depending on the needs of specific groups or carriers.*
 
