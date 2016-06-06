@@ -6,11 +6,11 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.cash_prices(zip_code='29412', cpt_code='99385')
+client.cash_prices(zip_code='29412', cpt_code='99385')
 ```
 
 ```ruby
-pd.cash_prices({ zip_code: '29412', cpt_code: '99385'})
+client.cash_prices({ zip_code: '29412', cpt_code: '99385'})
 ```
 
 ```csharp
