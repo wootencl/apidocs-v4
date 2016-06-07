@@ -6,7 +6,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -XPOST -F file=@eligibility_req
 ```
 
 ```python
-pd.files('MOCKPAYER', 'eligibility_requests.270')
+client.files('MOCKPAYER', 'eligibility_requests.270')
 ```
 
 ```csharp
@@ -17,11 +17,11 @@ client.files(
 ```
 
 ```ruby
-pd.files('MOCKPAYER', 'eligibility_requests.270')
+client.files('MOCKPAYER', 'eligibility_requests.270')
 ```
 
 ```java
-pd.files("MOCKPAYER", "eligibility_requests.270");
+client.files("MOCKPAYER", "eligibility_requests.270");
 ```
 
 *Available modes of operation: batch/async*
