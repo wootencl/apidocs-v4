@@ -22,6 +22,47 @@ pd.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834'
 client.enrollmentSnapshot("MOCKPAYER", "/path/to/current_membership_enrollment.834");
 ```
 
+> Example response:
+
+```json
+{
+  "units_of_work": 1,
+  "_type": "PlatformActivityModel",
+  "name": "enrollment_snapshot_PostTest",
+  "parameters": {
+    "file_url": "https://ohp-files-staging.s3.amazonaws.com/07525ee33a4142fe8342a015b9c26310.txt",
+    "trading_partner_id": "MOCKPAYER"
+  },
+  "remaining_transitions": [
+    "wait",
+    "receive",
+    "notify",
+    "complete"
+  ],
+  "_uuid": "580042ca-d23a-478f-b414-21dbccfc1ada",
+  "state": {
+    "name": "scheduled",
+    "title": "Scheduled for execution"
+  },
+  "trading_partner_id": "MOCKPAYER",
+  "id": "57571d8d0640fd3171a95552",
+  "transition_path": [
+    "schedule",
+    "wait",
+    "receive",
+    "notify",
+    "complete"
+  ],
+  "history": [
+    {
+      "record_dt": "2016-06-07T19:16:29.458590",
+      "name": "init",
+      "title": "Initializing"
+    }
+  ]
+}
+``` 
+
 > Example fetching a list of enrollment snapshots owned by the current application:
 
 ```shell
@@ -44,6 +85,23 @@ pd.enrollment_snapshots
 
 ```java
 pd.enrollmentSnapshots();
+```
+
+> Example response:
+
+```json
+[
+  {
+    "snapshot_date": "2016-05-24T20:21:47.099000",
+    "trading_partner_id": "MOCKPAYER",
+    "snapshot_id": "5744b7db0640fd757c0c0d6e"
+  },
+  {
+    "snapshot_date": "2016-05-24T20:21:46.168000",
+    "trading_partner_id": "MOCKPAYER",
+    "snapshot_id": "5744b7da0640fd757c0c0d67"
+  }
+]
 ```
 
 > Example fetching information for a specific enrollment snapshot owned by the current application:
@@ -70,6 +128,16 @@ pd.enrollment_snapshots({snapshot_id='5317f51527a27620f2ec7533'})
 pd.enrollmentSnapshot("5317f51527a27620f2ec7533");
 ```
 
+> Example response:
+
+```json
+{
+    "snapshot_date": "2016-06-07T19:42:45.395000",
+    "trading_partner_id": "MOCKPAYER",
+    "snapshot_id": "5317f51527a27620f2ec7533"
+}
+```
+
 > Example fetching enrollment data associated with a specific enrollment snapshot owned by the current application:
 
 ```shell
@@ -92,6 +160,69 @@ pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
 
 ```java
 pd.enrollmentSnapshotData("5317f51527a27620f2ec7533");
+```
+
+> Example response: 
+
+```json
+[
+  {
+    "reference_number": "a4db5c6981cb418eab3401fa36dbf1b6",
+    "trading_partner_id": "MOCKPAYER",
+    "payer": {
+      "name": "WELLPOINT COMPANY",
+      "tax_id": "953760001"
+    },
+    "subscriber": {
+      "maintenance_type": "Addition",
+      "first_name": "JOHN",
+      "last_name": "DOE",
+      "benefits": [
+        {
+          "maintenance_type": "Addition",
+          "begin_date": "2015-09-01",
+          "late_enrollment": false,
+          "benefit_type": "Preferred Provider Organization",
+          "description": "1K4C"
+        },
+        {
+          "maintenance_type": "Addition",
+          "begin_date": "2015-09-01",
+          "late_enrollment": false,
+          "benefit_type": "Dental",
+          "description": "1QCS"
+        }
+      ],
+      "relationship": "Self",
+      "benefit_status": "Active",
+      "gender": "Male",
+      "employment_status": "Full-time",
+      "group_or_policy_number": "A64692",
+      "maintenance_reason": "Active",
+      "handicapped": false,
+      "hire_date": "2015-08-02",
+      "eligibility_begin_date": "2015-09-01",
+      "ssn": "777999542",
+      "address": {
+        "city": "CANOGA PARK",
+        "line": "123 MAIN ST",
+        "postal_code": "91303",
+        "state": "CA"
+      },
+      "birth_date": "1985-11-11",
+      "substance_abuse": false,
+      "tobacco_use": false
+    },
+    "correlation_id": "acafbe38-e4fa-4af0-808b-147056dd391b",
+    "purpose": "Original",
+    "action": "Change",
+    "dependents": [],
+    "sponsor": {
+      "name": "AGBANAYI CONSTRUCTION",
+      "tax_id": "123456789"
+    }
+  }
+]
 ```
 
 *Available modes of operation: batch/async only*
