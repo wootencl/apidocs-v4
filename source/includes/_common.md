@@ -91,23 +91,11 @@ See cURL example.
 See cURL example.
 ```
 
-```javascript
-See cURL example.
-```
-
 ```csharp
 See cURL example.
 ```
 
 ```java
-See cURL example.
-```
-
-```haskell
-See cURL example.
-```
-
-```lua
 See cURL example.
 ```
 
@@ -133,23 +121,11 @@ See cURL example.
 See cURL example.
 ```
 
-```javascript
-See cURL example.
-```
-
 ```csharp
 See cURL example.
 ```
 
 ```java
-See cURL example.
-```
-
-```haskell
-See cURL example.
-```
-
-```lua
 See cURL example.
 ```
 
@@ -176,23 +152,11 @@ See cURL example.
 See cURL example.
 ```
 
-```javascript
-See cURL example.
-```
-
 ```csharp
 See cURL example.
 ```
 
 ```java
-See cURL example.
-```
-
-```haskell
-See cURL example.
-```
-
-```lua
 See cURL example.
 ```
 
@@ -246,23 +210,11 @@ See cURL example.
 See cURL example.
 ```
 
-```javascript
-See cURL example.
-```
-
 ```csharp
 See cURL example.
 ```
 
 ```java
-See cURL example.
-```
-
-```haskell
-See cURL example.
-```
-
-```lua
 See cURL example.
 ```
 
