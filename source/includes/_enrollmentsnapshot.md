@@ -7,7 +7,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -XPOST -F file=@current_members
 ```
 
 ```python
-pd.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834')
+client.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834')
 ```
 
 ```csharp
@@ -15,7 +15,7 @@ client.enrollmentSnapshot("MOCKPAYER", "/path/to/current_membership_enrollment.8
 ```
 
 ```ruby
-pd.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834')
+client.enrollment_snapshot('MOCKPAYER', '/path/to/current_membership_enrollment.834')
 ```
 
 ```java
@@ -29,7 +29,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.enrollment_snapshots()
+client.enrollment_snapshots()
 ```
 
 ```csharp
@@ -37,11 +37,11 @@ client.enrollmentSnapshot();
 ```
 
 ```ruby
-pd.enrollment_snapshots
+client.enrollment_snapshots
 ```
 
 ```java
-pd.enrollmentSnapshots();
+client.enrollmentSnapshots();
 ```
 
 > Example fetching information for a specific enrollment snapshot owned by the current application:
@@ -51,7 +51,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.enrollment_snapshots(snapshot_id='5317f51527a27620f2ec7533')
+client.enrollment_snapshots(snapshot_id='5317f51527a27620f2ec7533')
 ```
 
 ```csharp
@@ -59,11 +59,11 @@ client.enrollmentSnapshot("5317f51527a27620f2ec7533");
 ```
 
 ```ruby
-pd.enrollment_snapshots({snapshot_id='5317f51527a27620f2ec7533'})
+client.enrollment_snapshots({snapshot_id='5317f51527a27620f2ec7533'})
 ```
 
 ```java
-pd.enrollmentSnapshot("5317f51527a27620f2ec7533");
+client.enrollmentSnapshot("5317f51527a27620f2ec7533");
 ```
 
 > Example fetching enrollment data associated with a specific enrollment snapshot owned by the current application:
@@ -73,7 +73,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
+client.enrollment_snapshot_data('5317f51527a27620f2ec7533')
 ```
 
 ```csharp
@@ -81,11 +81,11 @@ client.enrollmentSnapshotData("5317f51527a27620f2ec7533");
 ```
 
 ```ruby
-pd.enrollment_snapshot_data('5317f51527a27620f2ec7533')
+client.enrollment_snapshot_data('5317f51527a27620f2ec7533')
 ```
 
 ```java
-pd.enrollmentSnapshotData("5317f51527a27620f2ec7533");
+client.enrollmentSnapshotData("5317f51527a27620f2ec7533");
 ```
 
 *Available modes of operation: batch/async only*
