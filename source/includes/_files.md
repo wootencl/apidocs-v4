@@ -36,3 +36,5 @@ using one of the other endpoints that accepts JSON request payloads.
 | Endpoint | HTTP Method | Description                                                         |
 |:---------|:------------|:--------------------------------------------------------------------|
 | /files/  | POST        | Submit an X12 file to the specified trading partner for processing. |
+
+The /files/ POST returns a files activity object. For reference take a look at the activites response object [above](#activities_response).
