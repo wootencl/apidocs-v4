@@ -24,6 +24,45 @@ pd.files('MOCKPAYER', 'eligibility_requests.270')
 pd.files("MOCKPAYER", "eligibility_requests.270");
 ```
 
+> Example response:
+
+```json
+{
+  "units_of_work": 1,
+  "_type": "PlatformActivityModel",
+  "name": "batch file",
+  "remaining_transitions": [
+    "process",
+    "complete"
+  ],
+  "_uuid": "7c3effe8-a370-481c-bd2e-2ef280acd5ed",
+  "state": {
+    "name": "queued",
+    "title": "In queue waiting to start"
+  },
+  "trading_partner_id": "MOCKPAYER",
+  "id": "57572ba50640fd4672d85a96",
+  "transition_path": [
+    "store",
+    "queue",
+    "process",
+    "complete"
+  ],
+  "history": [
+    {
+      "record_dt": "2016-06-07T20:16:37.242258",
+      "name": "init",
+      "title": "Initializing"
+    },
+    {
+      "record_dt": "2016-06-07T20:16:37.245216",
+      "name": "stored",
+      "title": "Batch transactions stored for later processing"
+    }
+  ]
+}
+```
+
 *Available modes of operation: batch/async*
 
 All endpoints that result in the transmission of X12 transaction sets to our trading partners accept parameters via a JSON representation. This keeps applications developers from having to interact directly with raw X12 files.  The Files endpoint, however, accepts raw ASC X12 EDI files for transmission to our trading partners.
