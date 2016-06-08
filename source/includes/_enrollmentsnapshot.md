@@ -30,7 +30,6 @@ client.enrollmentSnapshot("MOCKPAYER", "/path/to/current_membership_enrollment.8
   "_type": "PlatformActivityModel",
   "name": "enrollment_snapshot_PostTest",
   "parameters": {
-    "file_url": "https://ohp-files-staging.s3.amazonaws.com/07525ee33a4142fe8342a015b9c26310.txt",
     "trading_partner_id": "MOCKPAYER"
   },
   "remaining_transitions": [
@@ -218,7 +217,7 @@ pd.enrollmentSnapshotData("5317f51527a27620f2ec7533");
     "action": "Change",
     "dependents": [],
     "sponsor": {
-      "name": "AGBANAYI CONSTRUCTION",
+      "name": "ACME INC",
       "tax_id": "123456789"
     }
   }
