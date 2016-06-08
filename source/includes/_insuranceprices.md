@@ -50,12 +50,12 @@ Available Insurance Prices Endpoints:
 
 The /prices/insurance endpoint accepts the following parameters:
 
-| Field    | Type     | Description                                |
+| Parameter| Type     | Description                                |
 |:---------|:---------|:-------------------------------------------|
 | cpt_code | {string} | The CPT code of the procedure in question  |
 | zip_code | {string} | Zip code in which to search for procedures |
 
-The /prices/insurance response contains the following fields
+The /prices/insurance response contains the following fields:
 
 | Field                 | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |:----------------------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -355,7 +355,7 @@ The response will include details about the pharmacy such as name, address, phon
 
 The /pharmacy/network endpoint accepts the following parameters:
 
-| Field              | Type     | Description                                                                                                                                                    |
+| Parameter          | Type     | Description                                                                                                                                                    |
 |:-------------------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the [Trading Partners](https://platform.pokitdok.com/documentation/v4/#trading-partners) endpoint. |
 | plan_number        | {string} | Member’s plan identification number. Note: If unknown can use X12 270/271 eligibility                                                                          |
@@ -365,7 +365,7 @@ The /pharmacy/network endpoint accepts the following parameters:
 | state              | {string} | Name of U.S. state in which to search for providers (e.g. “CA” or “SC”)                                                                                        |
 | sort               | {string} | Accepted values include ‘distance’ (default) or 'rank’. 'distance’ sort requires city & state or zipcode parameters otherwise sort will be 'rank’.             |
 
-The /pharmacy/network response contains the following parameters:
+The /pharmacy/network response contains the following fields:
 
 | Field                            | Type      | Description                            |
 |:---------------------------------|:----------|:---------------------------------------|

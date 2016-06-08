@@ -81,6 +81,7 @@ The /icd/convert endpoint accepts the following parameters:
 
 The /icd/convert response contains the following fields:
 
+<<<<<<< HEAD
 | Field                                                     | Description                                                                                                       |
 |:----------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------|
 | source_code                                               | information about a diagnosis code                                                                                |
@@ -94,3 +95,12 @@ The /icd/convert response contains the following fields:
 | destination_scenarios.choice_lists.description            | a string representing a description of the source ICD-9 code                                                      |
 | destination_scenarios.choice_lists.system                 | a string representing the code system (icd9)                                                                      |
 | destination_scenarios.choice_lists.value                  | a string containing the ICD-9 code value                                                                          |
+=======
+| Field                                      | Description                                                                         |
+|:-------------------------------------------|:------------------------------------------------------------------------------------|
+| diagnosis_mappings                         | a list of diagnosis mapping information that may be used to convert ICD-9 to ICD-10 |
+| diagnosis_mappings.destination_scenarios   | a list of ICD-10 mapping scenarios that apply for the matched ICD-9 code            |
+| diagnosis_mappings.source_code.description | a string representing a description of the source ICD-9 code                        |
+| diagnosis_mappings.source_code.system      | a string representing the code system (icd9)                                        |
+| diagnosis_mappings.source_code.value       | a string containing the ICD-9 code value                                            |
+>>>>>>> 8d25c7a9070c3ffab5c5b8f7f0e8605f61863dc4
