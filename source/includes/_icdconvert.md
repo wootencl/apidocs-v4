@@ -79,9 +79,9 @@ The /icd/convert endpoint accepts the following parameters:
 | code      | ICD-9 code  |
 
 
-The /icd/convert response contains the following parameters:
+The /icd/convert response contains the following fields:
 
-| Parameter                                  | Description                                                                         |
+| Field                                      | Description                                                                         |
 |:-------------------------------------------|:------------------------------------------------------------------------------------|
 | diagnosis_mappings                         | a list of diagnosis mapping information that may be used to convert ICD-9 to ICD-10 |
 | diagnosis_mappings.destination_scenarios   | a list of ICD-10 mapping scenarios that apply for the matched ICD-9 code            |
