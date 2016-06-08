@@ -246,7 +246,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "last_name": "AYA-AY",
         "npi": "1467560003"
     },
-    "service_types": "telemedicine",
+    "service_types": "emergency_services",
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/eligibility/
 ```
@@ -264,7 +264,7 @@ pd.eligibility({
         "last_name": "AYA-AY",
         "npi": "1467560003"
     },
-    "service_types": "telemedicine",
+    "service_types": "emergency_services",
     "trading_partner_id": "MOCKPAYER"
 })
 ```
@@ -283,7 +283,7 @@ client.eligibility(
                 {"last_name", "AYA-AY"},
                 {"npi", "1467560003"}
             }},
-        {"service_types", "telemedicine"},
+        {"service_types", "emergency_services"},
         {"trading_partner_id", "MOCKPAYER"}
     }
 );
@@ -302,7 +302,7 @@ pd.eligibility({
         "last_name": "AYA-AY",
         "npi": "1467560003"
     },
-    "service_types": "telemedicine",
+    "service_types": "emergency_services",
     "trading_partner_id": "MOCKPAYER"
 })
 ```
@@ -322,7 +322,7 @@ buf.append("        \"first_name\": \"JEROME\",");
 buf.append("        \"last_name\": \"AYA-AY\",");
 buf.append("        \"npi\": \"1467560003\"");
 buf.append("    },");
-buf.append("    \"service_types\": \"telemedicine\",");
+buf.append("    \"service_types\": \"emergency_services\",");
 buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
