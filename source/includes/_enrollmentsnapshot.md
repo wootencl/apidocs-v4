@@ -253,7 +253,7 @@ point-in-time reporting for groups using their system.
 
 The enrollment snapshot endpoint requires these parameters when creating a new enrollment snapshot:
 
-| Parameters         | Description                                                              |
+| Parameter         | Description                                                              |
 |:-------------------|:-------------------------------------------------------------------------|
 | file               | X12 834 file containing the full benefits enrollment for a group         |
 | trading_partner_id | the id of the trading partner to be associated with this enrollment data |

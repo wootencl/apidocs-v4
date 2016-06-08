@@ -304,7 +304,7 @@ If the referral request is sent using a real-time interface, a referral response
 
 The /referrals/ response contains the following fields:
 
-| Parameter                         | Description                                                                                                                                                                                                              |
+| Field                             | Description                                                                                                                                                                                                              |
 |:----------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | event                             | The patient event that is being submitted for approval.                                                                                                                                                                  |
 | event.category                    | The category of the event being submitted for review. For referrals to specialists, a category value of "specialty_care_review" should always be used. A full list of possible values can be found [below](#r_category). |

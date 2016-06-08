@@ -401,7 +401,7 @@ Learn more about our [Identity Management workflows.](https://platform.pokitdok.
 
 The /identity/ endpoint accepts the following parameters:
 
-| Field                 | Type     | Description                                                                                                        |
+| Parameter             | Type     | Description                                                                                                        |
 |:----------------------|:---------|:-------------------------------------------------------------------------------------------------------------------|
 | address.address_lines | {array}  | Address lines                                                                                                      |
 | address.city          | {string} | Name of city in which to search for identity records (e.g. "San Mateo" or "Charleston")                            |
@@ -422,9 +422,9 @@ The /identity/ endpoint accepts the following parameters:
 | suffix                | {string} | Suffix                                                                                                             |
 | uuid                  | {uuid}   | Identity resource unique identifier                                                                                |
 
-Each identifier, or identifiers list entry, represents an external system utilized by a provider at a specific location. Fields within an identifier entry include:
+Each identifier, or identifiers list entry, represents an external system utilized by a provider at a specific location. Parameters within an identifier entry include:
 
-| Field         | Type     | Description                                        |
+| Parameter     | Type     | Description                                        |
 |:--------------|:---------|:---------------------------------------------------|
 | location      | {array}  | Optional: GeoJSON array of \[longitude, latitude\] |
 | provider_uuid | {uuid}   | The unique identifier for the provider             |

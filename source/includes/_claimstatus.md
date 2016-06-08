@@ -1063,9 +1063,9 @@ The /claims/status endpoint accepts the following parameters:
 | trading_partner_id         | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.                      |
 
 
-The /claim/status response contains the following parameters:
+The /claim/status response contains the following fields:
 
-| Parameter                                             | Description                                                                                                                                                                                                                                                                                                                                        |
+| Field                                                 | Description                                                                                                                                                                                                                                                                                                                                        |
 |:------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | patient                                               | Information about a patient including any matching claims.                                                                                                                                                                                                                                                                                         |
 | patient.claims                                        | A list of matching claims returned by the trading partner for a claims status request.                                                                                                                                                                                                                                                             |
