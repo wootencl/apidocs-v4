@@ -81,7 +81,7 @@ The /icd/convert endpoint accepts the following parameters:
 
 The /icd/convert response contains the following parameters:
 
-| Parameter                                                 | Description                                                                                                       |
+| Field                                                     | Description                                                                                                       |
 |:----------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------|
 | source_code                                               | information about a diagnosis code                                                                                |
 | source_code.description                                   | a string representing a description of the source ICD-9 code                                                      |
