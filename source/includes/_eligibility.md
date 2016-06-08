@@ -246,7 +246,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "last_name": "AYA-AY",
         "npi": "1467560003"
     },
-    "service_types": "telemedicine",
+    "service_types": "emergency_services",
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/eligibility/
 ```
@@ -264,7 +264,7 @@ pd.eligibility({
         "last_name": "AYA-AY",
         "npi": "1467560003"
     },
-    "service_types": "telemedicine",
+    "service_types": "emergency_services",
     "trading_partner_id": "MOCKPAYER"
 })
 ```
@@ -283,7 +283,7 @@ client.eligibility(
                 {"last_name", "AYA-AY"},
                 {"npi", "1467560003"}
             }},
-        {"service_types", "telemedicine"},
+        {"service_types", "emergency_services"},
         {"trading_partner_id", "MOCKPAYER"}
     }
 );
@@ -302,7 +302,7 @@ pd.eligibility({
         "last_name": "AYA-AY",
         "npi": "1467560003"
     },
-    "service_types": "telemedicine",
+    "service_types": "emergency_services",
     "trading_partner_id": "MOCKPAYER"
 })
 ```
@@ -322,7 +322,7 @@ buf.append("        \"first_name\": \"JEROME\",");
 buf.append("        \"last_name\": \"AYA-AY\",");
 buf.append("        \"npi\": \"1467560003\"");
 buf.append("    },");
-buf.append("    \"service_types\": \"telemedicine\",");
+buf.append("    \"service_types\": \"emergency_services\",");
 buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
@@ -1504,7 +1504,7 @@ a CPT code:
 The Eligibility endpoint makes it easy to verify a member's insurance information in real-time. You can check
 co-insurance, copay, deductible and out of pocket amounts for a member along with other benefit information.
 
-Use the [Trading Partners](#trading-partners) Endpoint to determine available trading_partner_id values for use with the
+Use the [Trading Partners](#trading-partners) endpoint to determine available trading_partner_id values for use with the
 Eligibility API.
 
 | Endpoint      | HTTP Method | Description                                                  |
@@ -1514,14 +1514,12 @@ Eligibility API.
 
 All eligibility requests must include a valid Provider NPI. Some trading partners require that the submitting provider’s
 NPI be registered or be a participating provider with that health plan to successfully check eligibility.
-When a request is made without a provider name and NPI, the PokitDok NPI and organization name will default in. It is
-important to note that the PokitDok NPI may not be accepted by all trading partners.
 
-The PokitDok Eligibility Endpoint allows you to request eligibility for specific service types. The service_type parameter
-allows you to specify which particular service(s) you want to check eligibility for. If no service type is specified, the
-request will be made for general health benefits (health_benefit_plan_coverage). Please note that some trading partners may
-not support specific service type inquiries. A full listing of possible service_types values is included [below](#service-type).
-You can also request eligibility information for a specific CPT code, however not all trading partners support such requests.
+The Eligibility endpoint allows you to request eligibility for service types. The service_type parameter
+allows you to specify particular service(s), however, if no service type is specified the
+request will be made for general benefit coverage (health_benefit_plan_coverage). Some trading partners may not support specific service type inquiries. A full listing of possible service_types values is included [below](#service-type).
+
+Some trading partners allow combinations of the below parameters to return a successful eligibility response.  PokitDok will be adding details on available search options per trading partner in the near future.
 
 The /eligibility/ endpoint accepts the following parameters:
 
@@ -1552,12 +1550,9 @@ The /eligibility/ endpoint accepts the following parameters:
 | trading_partner_id         | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.                                                                                                 |
 
 
-Eligibility and benefit responses vary depending on the trading partner and the plan a member is enrolled in. Some plans
-may not provide deductible/out-of-pocket, copayment/coinsurance or other specific plan information. PokitDok will provide
-all the information provided by the trading partner in the eligibility response.
+Eligibility and benefit responses vary depending on the trading partner and the plan in which a member is enrolled. Some trading partners may not provide deductible, out-of-pocket, copayment, coinsurance or other specific plan information. PokitDok will return all information received from the trading partner in the eligibility response.
 
-PokitDok created a Summary section in the eligibility response for convenience as a quick overview of a member's deductible and out-of-pocket information.  This should not be seen as a total replacement for the detailed deductible and out-of-pocket information in the coverage section of the eligibility response.  The Summary section contains deductible and out-of-pocket values for overall health benefit plan coverage as well as any additional service types for which deductible and out-of-pocket information is received.  When a value of $0 is returned in the Summary section, users should reference the Coverage section to determine if the trading partner returned a zero value or if the information was not provided in the response.
-
+PokitDok adds a Summary section in the eligibility response for convenience as a quick overview of a member's deductible and out-of-pocket information.  This should not be seen as a total replacement for the detailed deductible and out-of-pocket information in the coverage section of the eligibility response.  The Summary section contains deductible and out-of-pocket values for overall health benefit plan coverage as well as any additional service types for which deductible and out-of-pocket information is received.  When a value of $0 is returned in the Summary section, users should reference the Coverage section to determine if the trading partner returned a zero value or if the information was not provided in the response.
 
 The /eligibility/ response contains the following parameters:
 
