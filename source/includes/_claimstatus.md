@@ -20,7 +20,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -57,7 +57,7 @@ client.claimsStatus(
 ```
 
 ```ruby
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -94,7 +94,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claimsStatus(query);
+Map<String, Object> results = client.claimsStatus(query);
 ```
 
 > Example claim status request when the patient is not the subscriber on the insurance policy:
@@ -124,7 +124,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "2000-01-01",
         "first_name": "JOHN",
@@ -173,7 +173,7 @@ client.claimsStatus(new Dictionary<string, object> {
 
 
 ```ruby
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "2000-01-01",
         "first_name": "JOHN",
@@ -222,7 +222,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claimsStatus(query);
+Map<String, Object> results = client.claimsStatus(query);
 ```
 
 > Example claim status request when the claim service period covers several days:
@@ -247,7 +247,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -285,7 +285,7 @@ client.claimsStatus(new Dictionary<string, object> {
 ```
 
 ```ruby
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -324,7 +324,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claimsStatus(query);
+Map<String, Object> results = client.claimsStatus(query);
 ```
 
 > Example claim status request using a claim tracking id to refine the search:
@@ -349,7 +349,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -387,7 +387,7 @@ client.claimsStatus(new Dictionary<string, object> {
 ```
 
 ```ruby
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -426,7 +426,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claimsStatus(query);
+Map<String, Object> results = client.claimsStatus(query);
 ```
 
 > Example claims status response when the trading partner is unable to locate
