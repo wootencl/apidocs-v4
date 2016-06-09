@@ -81,6 +81,249 @@ query.put("plan_type", "PPO");
 pd.plans(query);
 ```
 
+> The plans endpoint will return an array of plan objects dependent on your query. Here is an example of response json for one plan object:
+
+```json
+{
+  "benefits_summary_url": "http://www.bcbstx.com/coverage/individual/on-exchange/",
+  "county": "Anderson",
+  "customer_service_phone": "1-888-697-0683",
+  "deductible": {
+    "family": 9750.0,
+    "individual": 3250.0
+  },
+  "max_out_of_pocket": {
+    "family": 9750.0,
+    "individual": 3250.0
+  },
+  "metallic_level": "gold",
+  "plan_id": "33602TX0420001",
+  "plan_name": "Blue Choice Gold PPO? 001",
+  "plan_type": "PPO",
+  "premiums": [
+    {
+      "adults": 1,
+      "age": 21,
+      "children": 0,
+      "cost": 307.03
+    },
+    {
+      "adults": 1,
+      "age": 27,
+      "children": 0,
+      "cost": 321.77
+    },
+    {
+      "adults": 1,
+      "age": 30,
+      "children": 0,
+      "cost": 348.48
+    },
+    {
+      "adults": 1,
+      "age": 40,
+      "children": 0,
+      "cost": 392.39
+    },
+    {
+      "adults": 1,
+      "age": 50,
+      "children": 0,
+      "cost": 548.36
+    },
+    {
+      "adults": 1,
+      "age": 60,
+      "children": 0,
+      "cost": 833.29
+    },
+    {
+      "adults": 1,
+      "age": 21,
+      "children": 1,
+      "cost": 502.0
+    },
+    {
+      "adults": 1,
+      "age": 30,
+      "children": 1,
+      "cost": 543.45
+    },
+    {
+      "adults": 1,
+      "age": 40,
+      "children": 1,
+      "cost": 587.36
+    },
+    {
+      "adults": 1,
+      "age": 50,
+      "children": 1,
+      "cost": 743.33
+    },
+    {
+      "adults": 1,
+      "age": 21,
+      "children": 2,
+      "cost": 696.97
+    },
+    {
+      "adults": 1,
+      "age": 30,
+      "children": 2,
+      "cost": 738.42
+    },
+    {
+      "adults": 1,
+      "age": 40,
+      "children": 2,
+      "cost": 782.33
+    },
+    {
+      "adults": 1,
+      "age": 50,
+      "children": 2,
+      "cost": 938.3
+    },
+    {
+      "adults": 1,
+      "age": 21,
+      "children": 3,
+      "cost": 891.94
+    },
+    {
+      "adults": 1,
+      "age": 30,
+      "children": 3,
+      "cost": 933.39
+    },
+    {
+      "adults": 1,
+      "age": 40,
+      "children": 3,
+      "cost": 977.3
+    },
+    {
+      "adults": 1,
+      "age": 50,
+      "children": 3,
+      "cost": 1133.27
+    },
+    {
+      "adults": 0,
+      "age": 21,
+      "children": 1,
+      "cost": 194.97
+    },
+    {
+      "adults": 2,
+      "age": 21,
+      "children": 0,
+      "cost": 614.06
+    },
+    {
+      "adults": 2,
+      "age": 30,
+      "children": 0,
+      "cost": 696.96
+    },
+    {
+      "adults": 2,
+      "age": 40,
+      "children": 0,
+      "cost": 784.78
+    },
+    {
+      "adults": 2,
+      "age": 50,
+      "children": 0,
+      "cost": 1096.72
+    },
+    {
+      "adults": 2,
+      "age": 60,
+      "children": 0,
+      "cost": 1666.58
+    },
+    {
+      "adults": 2,
+      "age": 21,
+      "children": 1,
+      "cost": 809.03
+    },
+    {
+      "adults": 2,
+      "age": 30,
+      "children": 1,
+      "cost": 891.93
+    },
+    {
+      "adults": 2,
+      "age": 40,
+      "children": 1,
+      "cost": 979.75
+    },
+    {
+      "adults": 2,
+      "age": 50,
+      "children": 1,
+      "cost": 1291.69
+    },
+    {
+      "adults": 2,
+      "age": 21,
+      "children": 2,
+      "cost": 1004.0
+    },
+    {
+      "adults": 2,
+      "age": 30,
+      "children": 2,
+      "cost": 1086.9
+    },
+    {
+      "adults": 2,
+      "age": 40,
+      "children": 2,
+      "cost": 1174.72
+    },
+    {
+      "adults": 2,
+      "age": 50,
+      "children": 2,
+      "cost": 1486.66
+    },
+    {
+      "adults": 2,
+      "age": 21,
+      "children": 3,
+      "cost": 1198.97
+    },
+    {
+      "adults": 2,
+      "age": 30,
+      "children": 3,
+      "cost": 1281.87
+    },
+    {
+      "adults": 2,
+      "age": 40,
+      "children": 3,
+      "cost": 1369.69
+    },
+    {
+      "adults": 2,
+      "age": 50,
+      "children": 3,
+      "cost": 1681.63
+    }
+  ],
+  "public_exchange": true,
+  "state": "TX",
+  "trading_partner_id": "blue_cross_and_blue_shield_texas"
+}
+``` 
+
 *Available modes of operation: real-time*
 
 The Plans endpoint provides access to information about insurance plans.
