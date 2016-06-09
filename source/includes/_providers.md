@@ -78,7 +78,9 @@ The /providers/ endpoint accepts the following search parameters:
 | address_lines     | {string} | Any or all of number, street name, apartment, suite number                                                                                          |
 | city              | {string} | Name of city in which to search for providers (e.g. "San Mateo" or "Charleston")                                                                    |
 | first_name        | {string} | The provider's first name                                                                                                                           |
+| middle_name       | {string} | The provider's middle name                                                                                                                          |
 | last_name         | {string} | The provider's last name                                                                                                                            |
+| gender            | {string} | The provider's gender                                                                                                                               |
 | organization_name | {string} | The business practice name                                                                                                                          |
 | radius            | {string} | Search distance from geographic centerpoint, with unit (e.g. "1mi")                                                                                 |
 | specialty         | {string} | The provider's specialty name (e.g. "rheumatology").  Partial name-prefixes may be specified (e.g. "rheum")                                         |
@@ -115,6 +117,8 @@ The response from the /providers/ endpoints contain the following fields:
 | provider.licensures.status            | {string}  | Optional: Licensure status ('active', 'inactive')                                                                        |
 | provider.licensures.state             | {string}  | Optional: Licensure state                                                                                                |
 | provider.licensures.verified          | {string}  | Optional: Licensure verification status ('Y' or 'N')                                                                     |
+| provider.licensures.renewal_date      | {string}  | Optional: Renewal date of license                                                                     |
+| provider.licensures.type              | {string}  | Optional: Type of license                                                                     |
 | provider.locations                    | {array}   | Optional: List of locations associated with the provider                                                                 |
 | provider.locations.address_lines      | {array}   | Address lines                                                                                                            |
 | provider.locations.city               | {string}  | City                                                                                                                     |
@@ -124,10 +128,13 @@ The response from the /providers/ endpoints contain the following fields:
 | provider.locations.phone              | {string}  | Optional: Phone number                                                                                                   |
 | provider.locations.state              | {string}  | State                                                                                                                    |
 | provider.locations.zipcode            | {string}  | Zip code                                                                                                                 |
+| provider.locations.county             | {string}  | County                                                                                                                   |
 | provider.locations.role               | {list}    | Optional: Address role(s). One or both of: ('mailing' or 'practice').  When missing the address is the practice address. |
+| provider.locations.suite              | {string}  | Optional: Address suite																								   |
 | provider.middle_name                  | {string}  | Optional: The provider's middle name or initial                                                                          |
 | provider.npi                          | {string}  | The provider's NPI                                                                                                       |
 | provider.organization_name            | {string}  | Optional: The business practice name                                                                                     |
+| provider.other_organization_name      | {string}  | Optional: The business practice's other name                                                                             |
 | provider.phone                        | {string}  | Optional: The provider's phone number                                                                                    |
 | provider.prefix                       | {string}  | Optional: The provider's prefix (Mr., Mrs., Dr., etc)                                                                    |
 | provider.residencies                  | {array}   | Optional: Provider residency and education information                                                                   |
