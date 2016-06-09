@@ -3,31 +3,60 @@
 > example fetching insurance price information
 
 ```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/prices/insurance?cpt_code=87799&zip_code=32218
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/prices/insurance?cpt_code=90658&zip_code=94401
 ```
 
 ```python
-pd.insurance_prices(zip_code='32218', cpt_code='87799')
+pd.insurance_prices(zip_code='94401', cpt_code='90658')
 ```
 
 ```csharp
 client.pricesInsurance(
 			new Dictionary<string, string> {
-				{ "zip_code", "32218" },
-				{ "cpt_code", "87799" }
+				{ "zip_code", "94401" },
+				{ "cpt_code", "90658" }
 			});
 ```
 
 ```ruby
-pd.insurance_prices({zip_code: '32218', cpt_code: '87799'})
+pd.insurance_prices({zip_code: '94401', cpt_code: '90658'})
 ```
 
 ```java
 HashMap<String, String>() query = new HashMap<String, String>();
-query.put("zip_code", "32218");
-query.put("cpt_code", "87799");
+query.put("zip_code", "94401");
+query.put("cpt_code", "90658");
 
 pd.insurancePrices(query);
+```
+
+>Example Response:
+
+```json
+{
+  "amounts": [
+    {
+      "high_price": 24.38,
+      "standard_deviation": 3.409736666884995,
+      "average_price": 18.491500000000002,
+      "payer_type": "insurance",
+      "payment_type": "allowed",
+      "low_price": 13.57,
+      "median_price": 19.27
+    },
+    {
+      "high_price": 51.71,
+      "standard_deviation": 8.675179825225527,
+      "average_price": 32.05,
+      "payer_type": "insurance",
+      "payment_type": "submitted",
+      "low_price": 24.32,
+      "median_price": 31.02
+    }
+  ],
+  "cpt_code": "90658",
+  "geo_zip_area": "944"
+}
 ```
 
 *Available modes of operation: real-time*
