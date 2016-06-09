@@ -83,7 +83,7 @@ The /icd/convert response contains the following fields:
 
 | Field                                                     | Description                                                                                                       |
 |:----------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------|
-| source_code                                               | information about a diagnosis code                                                                                |
+| source_code                                               | information about a source diagnosis code                                                                                |
 | source_code.description                                   | a string representing a description of the source ICD-9 code                                                      |
 | source_code.system                                        | a string representing the code system (icd9)                                                                      |
 | source_code.value                                         | a string containing the ICD-9 code value                                                                          |
