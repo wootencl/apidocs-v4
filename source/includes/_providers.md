@@ -117,8 +117,6 @@ The response from the /providers/ endpoints contain the following fields:
 | provider.licensures.status            | {string}  | Optional: Licensure status ('active', 'inactive')                                                                        |
 | provider.licensures.state             | {string}  | Optional: Licensure state                                                                                                |
 | provider.licensures.verified          | {string}  | Optional: Licensure verification status ('Y' or 'N')                                                                     |
-| provider.licensures.renewal_date      | {string}  | Optional: Renewal date of license                                                                     |
-| provider.licensures.type              | {string}  | Optional: Type of license                                                                     |
 | provider.locations                    | {array}   | Optional: List of locations associated with the provider                                                                 |
 | provider.locations.address_lines      | {array}   | Address lines                                                                                                            |
 | provider.locations.city               | {string}  | City                                                                                                                     |
