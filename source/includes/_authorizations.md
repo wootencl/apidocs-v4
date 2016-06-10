@@ -451,12 +451,12 @@ Possible values that can be returned in the event.review.certification_action pa
 <a name="follow_up_action"></a>
 Possible values that can be returned in the follow_up_action field on the authorization response:
 
-| follow_up_action Values |                    |
-|:----------------------------|:-------------------|
-| do_not_resubmit_sent_to_third_party                   | do_not_resubmit_will_respond_again           |
-| correct_and_resubmit          | resubmit_original |
-| wait_10_days_and_resubmit           | wait_30_days_and_resubmit      |
-| resubmission_allowed               | resubmission_not_allowed             |
+| follow_up_action Values               |                                   |
+|:--------------------------------------|:----------------------------------|
+| do_not_resubmit_sent_to_third_party   | do_not_resubmit_will_respond_again|
+| correct_and_resubmit                  | resubmit_original                 |
+| wait_10_days_and_resubmit             | wait_30_days_and_resubmit         |
+| resubmission_allowed                  | resubmission_not_allowed          |
 
 <a name="decision"></a>
 List of possible values that can be returned in the event.review.decision_reason parameter on the authorization response:
