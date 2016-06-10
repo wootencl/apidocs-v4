@@ -43,7 +43,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.referrals({
+client.referrals({
     "event": {
         "category": "specialty_care_review",
         "certification_type": "initial",
@@ -121,7 +121,7 @@ pd.referrals({
 ```
 
 ```ruby
-pd.referrals({
+client.referrals({
     "event": {
         "category": "specialty_care_review",
         "certification_type": "initial",
@@ -200,7 +200,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.referrals(query);
+Map<String, Object> results = client.referrals(query);
 ```
 
 > Example referrals response when the trading partner has authorized the request:
