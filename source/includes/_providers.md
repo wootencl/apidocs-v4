@@ -6,7 +6,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.providers(npi='1467560003')
+client.providers(npi='1467560003')
 ```
 
 ```csharp
@@ -14,14 +14,14 @@ client.providers("1467560003");
 ```
 
 ```ruby
-pd.providers({npi: '1467560003'})
+client.providers({npi: '1467560003'})
 ```
 
 ```java
 HashMap<String, String> query = new HashMap<String, String>();
 query.put("npi", "1467560003");
 
-pd.providers(query)
+client.providers(query)
 ```
 
 > Example searching providers by zipcode and specialty:
@@ -31,7 +31,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.providers(zipcode='29307', specialty='rheumatology', radius='20mi')
+client.providers(zipcode='29307', specialty='rheumatology', radius='20mi')
 ```
 
 ```csharp
@@ -44,7 +44,7 @@ pd.providers(zipcode='29307', specialty='rheumatology', radius='20mi')
 ```
 
 ```ruby
-pd.providers({zipcode: '29307', specialty: 'rheumatology', radius: '20mi'})
+client.providers({zipcode: '29307', specialty: 'rheumatology', radius: '20mi'})
 ```
 
 ```java
@@ -53,7 +53,7 @@ query.put("zipcode", "29307");
 query.put("specialty", "rheumatology");
 query.put("radius", "20mi");
 
-pd.providers(query)
+client.providers(query)
 ```
 
 
