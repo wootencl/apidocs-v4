@@ -81,6 +81,39 @@ query.put("plan_type", "PPO");
 pd.plans(query);
 ```
 
+> The plans endpoint will return an array of plan objects dependent on your query. The following is an incomplete example of response json for one plan object. If you would like a more complete example of the plans endpoint entire response json it is recommended you use the test application.
+
+```json
+{
+  "benefits_summary_url": "http://www.bcbstx.com/coverage/individual/on-exchange/",
+  "county": "Anderson",
+  "customer_service_phone": "1-888-697-0683",
+  "deductible": {
+    "family": 9750.0,
+    "individual": 3250.0
+  },
+  "max_out_of_pocket": {
+    "family": 9750.0,
+    "individual": 3250.0
+  },
+  "metallic_level": "gold",
+  "plan_id": "33602TX0420001",
+  "plan_name": "Blue Choice Gold PPO? 001",
+  "plan_type": "PPO",
+  "premiums": [
+    {
+      "adults": 1,
+      "age": 21,
+      "children": 0,
+      "cost": 307.03
+    }
+  ],
+  "public_exchange": true,
+  "state": "TX",
+  "trading_partner_id": "blue_cross_and_blue_shield_texas"
+}
+``` 
+
 *Available modes of operation: real-time*
 
 The Plans endpoint provides access to information about insurance plans.
