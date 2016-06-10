@@ -14,7 +14,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         },
         "diagnoses": [
             {
-                "code": "384.20",
+                "code": "H72.90",
                 "date": "2014-09-30"
             }
         ],
@@ -53,7 +53,7 @@ pd.referrals({
         },
         "diagnoses": [
             {
-                "code": "384.20",
+                "code": "H72.90",
                 "date": "2014-09-30"
             }
         ],
@@ -93,7 +93,7 @@ pd.referrals({
 							}},
 						{"diagnoses", new Dictionary<string, string>[] {
 							new Dictionary<string, string> {
-								{"code", "384.20"},
+								{"code", "H72.90"},
 								{"date", "2014-09-30"}
 							}}},
 						{"place_of_service", "office"},
@@ -131,7 +131,7 @@ pd.referrals({
         },
         "diagnoses": [
             {
-                "code": "384.20",
+                "code": "H72.90",
                 "date": "2014-09-30"
             }
         ],
@@ -172,7 +172,7 @@ buf.append("            \"quantity_qualifier\": \"visits\"");
 buf.append("        },");
 buf.append("        \"diagnoses\": [");
 buf.append("            {");
-buf.append("                \"code\": \"384.20\",");
+buf.append("                \"code\": \"H72.90\",");
 buf.append("                \"date\": \"2014-09-30\"");
 buf.append("            }");
 buf.append("        ],");
@@ -216,7 +216,7 @@ Map<String, Object> results = pd.referrals(query);
         },
         "diagnoses": [
             {
-                "code": "384.20",
+                "code": "H72.90",
                 "date": "2014-09-30"
             }
         ],
@@ -280,7 +280,7 @@ The /referrals/ endpoint uses the same object for both its parameters and respon
 | event.delivery.quantity                       | The quantity of services being requested.                                                                                                                                                                                             |
 | event.delivery.quantity_qualifier             | The qualifier used to indicate the quantity type. (e.g. visits, month, hours, units, days)                                                                                                                                            |
 | event.diagnoses                               | An array of diagnosis information related to the event.                                                                                                                                                                               |
-| event.diagnoses.code                          | The diagnosis code. (e.g. 384.20)                                                                                                                                                                                                     |
+| event.diagnoses.code                          | The diagnosis code. (e.g. H72.90)                                                                                                                                                                                                     |
 | event.diagnoses.date                          | The date of the diagnosis.                                                                                                                                                                                                            |
 | event.place_of_service                        | The location where health care services are rendered.                                                                                                                                                                                 |
 | event.provider                                | Information about the provider being requested for this event. The object used for provider can be seen [below](#referral_service_review_provider_object).                                                                            |
