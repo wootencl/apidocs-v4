@@ -1,5 +1,5 @@
 ## Medical Procedure Code
-> example fetching medical procedure information by code
+> Example fetching medical procedure information by code:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/mpc/99213
@@ -24,7 +24,17 @@ query.put("code", "office");
 pd.mpc(query);
 ```
 
-> curl example searching medical procedure information by consumer friendly name
+>Example Response:
+
+```json
+{
+  "code": "99213",
+  "name": "Established patient office or other outpatient visit, typically 15 minutes",
+  "description": "Level 3 outpatient visit for evaluation and management of establlished patient with problem of low to moderate severity, including expanded history and medical decision making of low complexity - typical time with patient and/or family 15 minutes"
+}
+```
+
+> Example searching medical procedure information by consumer friendly name:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/mpc/?name=office
@@ -50,6 +60,48 @@ HashMap<String, String>() query = new HashMap<String, String>();
 query.put("name", "office");
 
 pd.mpc(query);
+```
+
+> Example Response:
+
+```json
+[
+  {
+    "code": "99244",
+    "name": "Patient office consultation, typically 60 minutes",
+    "description": "Level 4 outpatient consultation for established patient with problem of moderate to high severity, including comprehensive history and physical examination and medical decision making of moderate complexity - typical time with patient and/or family 60 minutes"
+  },
+  {
+    "code": "99243",
+    "name": "Patient office consultation, typically 40 minutes",
+    "description": "Level 3 outpatient consultation for established patient with problem of moderate severity, including detailed history and physical examination and medical decision making of moderate complexity - typical time with patient and/or family 40 minutes"
+  },
+  {
+    "code": "99242",
+    "name": "Patient office consultation, typically 30 minutes",
+    "description": "Level 2 outpatient consultation for established patient with problem of low severity, including expanded problem focused history and physical examination and straightforward medical decision making - typical time with patient and/or family 30 minutes"
+  },
+  {
+    "code": "99241",
+    "name": "Patient office consultation, typically 15 minutes",
+    "description": "Level 1 outpatient consultation for established patient with self-limited and/or minor problem, including problem focused history and physical examination and straightforward medical decision making - typical time with patient and/or family 15 minutes"
+  },
+  {
+    "code": "99245",
+    "name": "Patient office consultation, typically 80 minutes",
+    "description": "Level 5 outpatient consultation for established patient with problem of moderate to high severity, including comprehensive history and physical examination and medical decision making of high complexity - typical time with patient and/or family 80 minutes"
+  },
+  {
+    "code": "99050",
+    "name": "Services provided in the office when the office is normally closed",
+    "description": "Services provided in the office at times other than regularly scheduled office hours, or days when the office is normally closed"
+  },
+  {
+    "code": "99051",
+    "name": "Services provided in an office during regularly scheduled office hours, evening, weekend, or holiday",
+    "description": "Services provided in the office during regularly scheduled evening, weekend, or holiday office hours"
+  }
+]
 ```
 
 *Available modes of operation: real-time only*
