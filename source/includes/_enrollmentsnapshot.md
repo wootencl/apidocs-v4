@@ -54,7 +54,7 @@ client.enrollmentSnapshot("MOCKPAYER", "/path/to/current_membership_enrollment.8
   ],
   "history": [
     {
-      "record_dt": "2016-06-07T19:16:29.458590",
+      "record_dt": "2016-06-25T19:16:29.458590",
       "name": "init",
       "title": "Initializing"
     }
@@ -91,12 +91,12 @@ pd.enrollmentSnapshots();
 ```json
 [
   {
-    "snapshot_date": "2016-05-24T20:21:47.099000",
+    "snapshot_date": "2016-05-25T20:21:47.099000",
     "trading_partner_id": "MOCKPAYER",
     "snapshot_id": "5744b7db0640fd757c0c0d6e"
   },
   {
-    "snapshot_date": "2016-05-24T20:21:46.168000",
+    "snapshot_date": "2016-05-25T20:21:46.168000",
     "trading_partner_id": "MOCKPAYER",
     "snapshot_id": "5744b7da0640fd757c0c0d67"
   }
@@ -131,7 +131,7 @@ pd.enrollmentSnapshot("5317f51527a27620f2ec7533");
 
 ```json
 {
-    "snapshot_date": "2016-06-07T19:42:45.395000",
+    "snapshot_date": "2016-06-25T19:42:45.395000",
     "trading_partner_id": "MOCKPAYER",
     "snapshot_id": "5317f51527a27620f2ec7533"
 }
@@ -179,14 +179,14 @@ pd.enrollmentSnapshotData("5317f51527a27620f2ec7533");
       "benefits": [
         {
           "maintenance_type": "Addition",
-          "begin_date": "2015-09-01",
+          "begin_date": "2015-09-25",
           "late_enrollment": false,
           "benefit_type": "Preferred Provider Organization",
           "description": "1K4C"
         },
         {
           "maintenance_type": "Addition",
-          "begin_date": "2015-09-01",
+          "begin_date": "2015-09-25",
           "late_enrollment": false,
           "benefit_type": "Dental",
           "description": "1QCS"
@@ -199,8 +199,8 @@ pd.enrollmentSnapshotData("5317f51527a27620f2ec7533");
       "group_or_policy_number": "A64692",
       "maintenance_reason": "Active",
       "handicapped": false,
-      "hire_date": "2015-08-02",
-      "eligibility_begin_date": "2015-09-01",
+      "hire_date": "2015-08-25",
+      "eligibility_begin_date": "2015-09-25",
       "ssn": "777999542",
       "address": {
         "city": "CANOGA PARK",
@@ -208,7 +208,7 @@ pd.enrollmentSnapshotData("5317f51527a27620f2ec7533");
         "postal_code": "91303",
         "state": "CA"
       },
-      "birth_date": "1985-11-11",
+      "birth_date": "1985-11-25",
       "substance_abuse": false,
       "tobacco_use": false
     },
@@ -262,11 +262,11 @@ The /enrollment/snapshot POST returns an enrollment snapshot activity object. Fo
 
 The /enrollment/snapshot GET response includes the following fields:
 
-| Field                  | Type      | Description                                                              												   |
+| Field                  | Type      | Description                                                              												                           |
 |:-----------------------|:----------|:----------------------------------------------------------------------------------------------------------------------------|
-| snapshot_date          | {datetime}| The date of the snapshot.                                 				 												   |
-| trading_partner_id     | {string}	 | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.			   |
-| snapshot_id            | {string}  | The id of the snapshot.                                 				 													   |
+| snapshot_date          | {datetime}| The date of the snapshot. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).                                 				 							 |
+| trading_partner_id     | {string}	 | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.			       |
+| snapshot_id            | {string}  | The id of the snapshot.                                 				 													                                   |
 
 The /enrollment/snapshot/{id}/data returns a list of enrollment request objects. For reference take a look at the enrollment request object [above](#enrollment_table).
 

@@ -4,7 +4,7 @@
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -21,7 +21,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 pd.eligibility({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -40,7 +40,7 @@ pd.eligibility({
 			new Dictionary<string, object> {
 			 	{"member", new Dictionary<string, object> {
 					{"id", "W000000000"},
-					{"birth_date", "1970-01-01"},
+					{"birth_date", "1970-01-25"},
 					{"first_name", "Jane"},
 					{"last_name", "Doe"}
 					}},
@@ -57,7 +57,7 @@ pd.eligibility({
 ```ruby
 pd.eligibility({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -76,7 +76,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"member\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"Jane\",");
 buf.append("        \"last_name\": \"Doe\",");
 buf.append("        \"id\": \"W000000000\"");
@@ -98,7 +98,7 @@ Map<String, Object> results = pd.eligibility(query);
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000",
@@ -116,7 +116,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 pd.eligibility({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000",
@@ -135,7 +135,7 @@ pd.eligibility({
 client.eligibility(
     new Dictionary<string, object> {
         {"member", new Dictionary<string, string> {
-                {"birth_date", "1970-01-01"},
+                {"birth_date", "1970-01-25"},
                 {"first_name", "Jane"},
                 {"last_name", "Doe"},
                 {"id", "W000000000"},
@@ -156,7 +156,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"member\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"Jane\",");
 buf.append("        \"last_name\": \"Doe\",");
 buf.append("        \"id\": \"W000000000\",");
@@ -179,7 +179,7 @@ Map<String, Object> results = pd.eligibility(query);
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -191,7 +191,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 pd.eligibility({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -204,7 +204,7 @@ pd.eligibility({
 client.eligibility(
     new Dictionary<string, object> {
         {"member", new Dictionary<string, string> {
-                {"birth_date", "1970-01-01"},
+                {"birth_date", "1970-01-25"},
                 {"first_name", "Jane"},
                 {"last_name", "Doe"},
                 {"id", "W000000000"}
@@ -219,7 +219,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"member\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"Jane\",");
 buf.append("        \"last_name\": \"Doe\",");
 buf.append("        \"id\": \"W000000000\"");
@@ -236,7 +236,7 @@ Map<String, Object> results = pd.eligibility(query);
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -254,7 +254,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 pd.eligibility({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -273,7 +273,7 @@ pd.eligibility({
 client.eligibility(
     new Dictionary<string, object> {
         {"member", new Dictionary<string, string> {
-                {"birth_date", "1970-01-01"},
+                {"birth_date", "1970-01-25"},
                 {"first_name", "Jane"},
                 {"last_name", "Doe"},
                 {"id", "W000000000"}
@@ -292,7 +292,7 @@ client.eligibility(
 ```ruby
 pd.eligibility({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -312,7 +312,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"member\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"Jane\",");
 buf.append("        \"last_name\": \"Doe\",");
 buf.append("        \"id\": \"W000000000\"");
@@ -335,7 +335,7 @@ Map<String, Object> results = pd.eligibility(query);
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -353,7 +353,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 pd.eligibility({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -372,7 +372,7 @@ pd.eligibility({
 client.eligibility(
     new Dictionary<string, object> {
         {"member", new Dictionary<string, string> {
-                {"birth_date", "1970-01-01"},
+                {"birth_date", "1970-01-25"},
                 {"first_name", "Jane"},
                 {"last_name", "Doe"},
                 {"id", "W000000000"}
@@ -391,7 +391,7 @@ client.eligibility(
 ```ruby
 pd.eligibility({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -411,7 +411,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"member\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"Jane\",");
 buf.append("        \"last_name\": \"Doe\",");
 buf.append("        \"id\": \"W000000000\"");
@@ -434,7 +434,7 @@ Map<String, Object> results = pd.eligibility(query);
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -456,7 +456,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 pd.eligibility({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -479,7 +479,7 @@ pd.eligibility({
 client.eligibility(
     new Dictionary<string, object> {
         {"member", new Dictionary<string, string> {
-                {"birth_date", "1970-01-01"},
+                {"birth_date", "1970-01-25"},
                 {"first_name", "Jane"},
                 {"last_name", "Doe"},
                 {"id", "W000000000"}
@@ -501,7 +501,7 @@ client.eligibility(
 ```ruby
 pd.eligiblity({
     "member": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -525,7 +525,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"member\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"Jane\",");
 buf.append("        \"last_name\": \"Doe\",");
 buf.append("        \"id\": \"W000000000\"");
@@ -562,7 +562,7 @@ Map<String, Object> results = pd.eligibility(query);
     },
     "reject_reason": "unable_to_respond_now",
     "subscriber": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "gender": "unknown",
         "id": "W000000000",
@@ -579,7 +579,7 @@ eligibility request:
 ```json
 {
     "coverage": {
-        "service_date": "2014-06-26"
+        "service_date": "2014-06-25"
     },
     "follow_up_action": "correct_and_resubmit",
     "provider": {
@@ -589,7 +589,7 @@ eligibility request:
     },
     "reject_reason": "subscriber_insured_not_found",
     "subscriber": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "id": "W000000000",
         "last_name": "Doe"
@@ -604,7 +604,7 @@ eligibility request:
 ```json
 {
     "coverage": {
-        "service_date": "2014-06-26"
+        "service_date": "2014-06-25"
     },
     "follow_up_action": "correct_and_resubmit",
     "provider": {
@@ -614,7 +614,7 @@ eligibility request:
     },
     "reject_reason": "patient_birth_date_mismatch",
     "subscriber": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "id": "W000000000",
         "last_name": "Doe"
@@ -630,7 +630,7 @@ a CPT code:
 ```json
 {
     "coverage": {
-        "service_date": "2014-06-26"
+        "service_date": "2014-06-25"
     },
     "follow_up_action": "resubmission_not_allowed",
     "provider": {
@@ -640,7 +640,7 @@ a CPT code:
     },
     "reject_reason": "unable_to_respond_now",
     "subscriber": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "id": "W000000000",
         "last_name": "Doe"
@@ -880,7 +880,7 @@ a CPT code:
                     "currency": "USD"
                 },
                 "coverage_level": "family",
-                "eligibility_date": "2013-01-01",
+                "eligibility_date": "2013-01-25",
                 "in_plan_network": "yes",
                 "messages": [],
                 "time_period": "calendar_year"
@@ -901,7 +901,7 @@ a CPT code:
                     "currency": "USD"
                 },
                 "coverage_level": "individual",
-                "eligibility_date": "2013-01-01",
+                "eligibility_date": "2013-01-25",
                 "in_plan_network": "yes",
                 "messages": [],
                 "time_period": "calendar_year"
@@ -922,7 +922,7 @@ a CPT code:
                     "currency": "USD"
                 },
                 "coverage_level": "family",
-                "eligibility_date": "2013-01-01",
+                "eligibility_date": "2013-01-25",
                 "in_plan_network": "no",
                 "messages": [],
                 "time_period": "calendar_year"
@@ -943,7 +943,7 @@ a CPT code:
                     "currency": "USD"
                 },
                 "coverage_level": "individual",
-                "eligibility_date": "2013-01-01",
+                "eligibility_date": "2013-01-25",
                 "in_plan_network": "no",
                 "messages": [],
                 "time_period": "calendar_year"
@@ -959,7 +959,7 @@ a CPT code:
                 "time_period": "remaining"
             }
         ],
-        "eligibility_begin_date": "2012-02-01",
+        "eligibility_begin_date": "2012-02-25",
         "group_description": "MOCK INDIVIDUAL ADVANTAGE PLAN",
         "group_number": "000000000000013",
         "level": "employee_and_spouse",
@@ -1034,9 +1034,9 @@ a CPT code:
                 "time_period": "remaining"
             }
         ],
-        "plan_begin_date": "2013-02-15",
+        "plan_begin_date": "2013-02-25",
         "plan_number": "0000000",
-        "service_date": "2013-08-10",
+        "service_date": "2013-08-25",
         "service_type_codes": [
             "98"
         ],
@@ -1068,7 +1068,7 @@ a CPT code:
             "state": "CA",
             "zipcode": "94401"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "Jane",
         "id": "W000000000",
         "last_name": "Doe"
@@ -1235,8 +1235,8 @@ a CPT code:
                 ]
             }
         ],
-        "plan_begin_date": "2016-01-01",
-        "plan_end_date": "2016-12-31",
+        "plan_begin_date": "2016-01-25",
+        "plan_end_date": "2016-12-25",
         "service_type_codes": [
             "30",
             "UC",
@@ -1421,7 +1421,7 @@ a CPT code:
             "state": "NJ",
             "zipcode": "07631"
         },
-        "birth_date": "1940-01-01",
+        "birth_date": "1940-01-25",
         "first_name": "JANE",
         "gender": "female",
         "id": "000000000A",
@@ -1527,13 +1527,13 @@ The /eligibility/ endpoint accepts the following parameters:
 |:---------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | cpt_code                   | The CPT code that should be used to request specific eligibility information. Note: requests based on CPT code are not supported by all trading partners.                                                       |
 | payer                      | The payer associated with a request. Uses the payer [object](#eligibility-payer).                                                                                                                               |
-| member.birth_date          | The named insured’s birth date as specified on their policy. May be omitted if member.id is provided.                                                                                                           |
+| member.birth_date          | The named insured’s birth date as specified on their policy. May be omitted if member.id is provided. In ISO8601 format (YYYY-MM-DD).                                                                           |
 | member.first_name          | The named insured’s first name as specified on their policy.                                                                                                                                                    |
 | member.middle_name         | The named insured’s middle name as specified on their policy.                                                                                                                                                   |
 | member.suffix              | The named insured’s suffix.                                                                                                                                                                                     |
 | member.id                  | The named insured’s member identifier. May be omitted if member.birth_date is provided.                                                                                                                         |
 | member.last_name           | The named insured’s last name as specified on their policy.                                                                                                                                                     |
-| member.plan_start_date     | The date that plan coverage started for the member.                                                                                                                                                             |
+| member.plan_start_date     | The date that plan coverage started for the member. In ISO8601 format (YYYY-MM-DD).                                                                                                                             |
 | member.group_number        | Group number for the member.                                                                                                                                                                                    |
 | provider.first_name        | The provider’s first name when the provider is an individual.                                                                                                                                                   |
 | provider.middle_name       | The provider’s middle name when the provider is an individual.                                                                                                                                                  |
@@ -1543,7 +1543,7 @@ The /eligibility/ endpoint accepts the following parameters:
 | provider.npi               | The NPI for the provider.                                                                                                                                                                                       |
 | provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                                                            |
 | service_types              | The service type(s) the eligibility request is being made against. Defaults to health_benefit_plan_coverage. A full listing of possible service_types values is included [below](#service-type).                |
-| service_type_codes         | The service type codes the eligibility request is being made against. A full listing of possible service_type_codes values is included [below](#service-type).                                                   |
+| service_type_codes         | The service type codes the eligibility request is being made against. A full listing of possible service_type_codes values is included [below](#service-type).                                                  |
 | procedure_id               | The unique identifier of the procedure.                                                                                                                                                                         |
 | procedure_id_qualifier     | The qualifier associated with the procedure id (e.g. cpt). A full list of possible values is included [below](#procedure-id-qualifier).                                                                         |
 | transaction_code           | The purpose of the eligibility transaction. Defaults to request. Other possibility is cancellation.                                                                                                             |
@@ -1629,7 +1629,7 @@ The /eligibility/ response contains the following fields:
 | coverage.copay.delivery                             | Object containing service delivery information. Uses the delivery [object](#eligibility-delivery).                                                                                                                                                                                                                                                                                                                                                                                    |
 | coverage.deductibles                                | List of deductible information for the member.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | coverage.deductibles.messages.message               | Messages associated with the coverage's deductible.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| coverage.deductibles.eligibility_date               | The eligibility date of the deductible.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| coverage.deductibles.eligibility_date               | The eligibility date of the deductible. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                                                                                                                                                               |
 | coverage.deductibles.delivery                       | Object containing service delivery information. Uses the delivery [object](#eligibility-delivery).                                                                                                                                                                                                                                                                                                                                                                                    |
 | coverage.deductibles.service_type_codes             | The service type codes the eligibility request is being made against. A full listing of possible service_type_codes values is included [below](#service-type).                                                                                                                                                                                                                                                                                                                        |
 | coverage.deductibles.procedure_id                   | The unique identifier of the procedure.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -1651,7 +1651,7 @@ The /eligibility/ response contains the following fields:
 | coverage.other_payers.plan_description              | The product name or special program name for the insurance plan. This is often the brand or marketing name for the plan.                                                                                                                                                                                                                                                                                                                                                              |
 | coverage.other_payers.plan_number                   | Plan ID/number for the member specified in the eligibility request.                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | coverage.other_payers.coordination_of_benefits      | The role of this payer in the coordination of benefits. Possible values include: primary_payer, secondary_payer, tertiary_payer                                                                                                                                                                                                                                                                                                                                                       |
-| coverage.other_payers.coordination_of_benefits_date | The date when this payer started participating in the coordination of benefits.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| coverage.other_payers.coordination_of_benefits_date | The date when this payer started participating in the coordination of benefits. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                                                                                                                       |
 | coverage.other_payers.coverage_level                | The coverage level for this plan. Possible values include: employee_only, employee_and_spouse, employee_and_children, family, individual                                                                                                                                                                                                                                                                                                                                              |
 | coverage.other_payers.id                            | The unique id used for this payer.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | coverage.other_payers.name                          | The name of this payer. (e.g. MEDICARE).                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -1683,7 +1683,7 @@ The /eligibility/ response contains the following fields:
 | coverage.service_type_codes                         | The service type codes the eligibility request is being made against. A full listing of possible service_type_codes values is included [below](#service-type).                                                                                                                                                                                                                                                                                                                        |
 | coverage.procedure_id                               | The unique identifier of the procedure.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | coverage.procedure_id_qualifier                     | The qualifier associated with the procedure id (e.g. cpt). A full list of possible values is included [below](#procedure-id-qualifier).                                                                                                                                                                                                                                                                                                                                               |
-| coverage.plan_date                                  | The plan date associated with the coverage.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| coverage.plan_date                                  | The plan date associated with the coverage. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                                                                                                                                                           |
 | coverage.primary_care_provider                      | The primary care provider for the eligibility check.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | coverage.primary_care_provider.phone                | The phone number of the primary care provider.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | coverage.primary_care_provider.email                | The email of the primary care provider.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -1696,16 +1696,16 @@ The /eligibility/ response contains the following fields:
 | coverage.primary_care_provider.suffix               | The primary care provider's suffix.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | coverage.primary_care_provider.organization_name    | The primary care provider's name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                                                                                                                                                                                                                                                                                                                     |
 | coverage.primary_care_provider.messages.message     | Messages associated with the coverages benefit's plan.                                                                                                                                                                                                                                                                                                                                                                                                                                |                                                                                                                                                                                                                                                                                                                                            |
-| coverage.eligibility_begin_date                     | The date eligibility started for the member's plan.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| coverage.eligibility_begin_date                     | The date eligibility started for the member's plan. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                                                                                                                                                   |
 | coverage.group_description                          | Group description for the member specified in the eligibility request.                                                                                                                                                                                                                                                                                                                                                                                                                |
 | coverage.group_number                               | Group number for the member specified in the eligibility request.                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | coverage.insurance_type                             | The type of insurance coverage. Possible values include: hmo, ppo, pos, cobra, commercial, medicaid, medicare_part_a, medicare_part_b, other                                                                                                                                                                                                                                                                                                                                          |
 | coverage.level                                      | The coverage level the member has for their plan. Possible values include: employee_only, employee_and_spouse, employee_and_children, family, individual                                                                                                                                                                                                                                                                                                                              |
-| coverage.plan_begin_date                            | The date that plan coverage started for the member specified in the eligibility request.                                                                                                                                                                                                                                                                                                                                                                                              |
-| coverage.plan_end_date                              | The date that plan coverage ends for the member specified in the eligibility request.                                                                                                                                                                                                                                                                                                                                                                                                 |
+| coverage.plan_begin_date                            | The date that plan coverage started for the member specified in the eligibility request. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                                                                                                              |
+| coverage.plan_end_date                              | The date that plan coverage ends for the member specified in the eligibility request. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                                                                                                                 |
 | coverage.plan_description                           | The product name or special program name for the insurance plan. This is often the brand or marketing name for the plan.                                                                                                                                                                                                                                                                                                                                                              |
 | coverage.plan_number                                | Plan ID/number for the member specified in the eligibility request.                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| coverage.service_date                               | The date the eligibility request was processed.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| coverage.service_date                               | The date the eligibility request was processed. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                                                                                                                                                       |
 | follow_up_action                                    | When an eligibility request is rejected, a follow up action will be provided to inform your application how to proceed. Possible values include: correct_and_resubmit, resubmit_original, resubmission_not_allowed                                                                                                                                                                                                                                                                    |
 | dependent                                           | The dependent associated with the eligibility request.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | dependent.address                                   | The dependent's address information. Uses the address [object](#eligibility-address).                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -1717,7 +1717,7 @@ The /eligibility/ response contains the following fields:
 | dependent.relationship                              | The dependent's relationship.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | payer                                               | The payer returned by the trading partner for the eligibility request. Uses the payer [object](#eligibility-payer).                                                                                                                                                                                                                                                                                                                                                                   |
 | pharmacy.benefits_manager                           | The pharmacy benefits manager information.                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| pharmacy.benefit_date                               | The benefit date associated with the pharmacy.                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| pharmacy.benefit_date                               | The benefit date associated with the pharmacy. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                                                                                                                                                        |
 | pharmacy.benefits_manager.name                      | The name of the entity that is responsible for managing pharmacy benefits.                                                                                                                                                                                                                                                                                                                                                                                                            |
 | pharmacy.benefits_manager.phone                     | Contact phone number for the pharmacy benefits manager.                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | pharmacy.benefits_manager.url                       | The pharmacy benefits manager's web site.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -1786,7 +1786,7 @@ The /eligibility/ response contains the following fields:
 | first_name                 | The subscriber’s first name as specified on their policy.                                                                                                                                                                                                                                        |
 | middle_name                | The subscriber's middle name as specified on their policy.                                                                                                                                                                                                                                       |
 | last_name                  | The subscriber’s last name as specified on their policy.                                                                                                                                                                                                                                         |
-| birth_date                 | The subscriber’s birth date as specified on their policy.                                                                                                                                                                                                                                        |
+| birth_date                 | The subscriber’s birth date as specified on their policy. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                        |
 | gender                     | The subscriber’s gender as specified on their policy. Possible values include: 'female', 'male', and 'unknown'. 'unknown' will be returned when gender is not specified in the trading partner's eligibility data or when the trading partner explicitly returns a value of 'unknown'.           |
 | relationship               | The subscriber's relationship.                                                                                                                                                                                                                                                                   |
 | group_number               | Group number for the subscriber.                                                                                                                                                                                                                                                                 |

@@ -11,7 +11,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
        "middle_name": "Harold",
        "last_name": "Whitmire",
        "suffix": "IV",
-       "birth_date": "2000-05-01",
+       "birth_date": "2000-05-25",
        "gender": "male",
        "email": "oscar@pokitdok.com",
        "phone": "555-555-5555",
@@ -41,7 +41,7 @@ pd.create_identity({
     "middle_name": "Harold",
     "last_name": "Whitmire",
     "suffix": "IV",
-    "birth_date": "2000-05-01",
+    "birth_date": "2000-05-25",
     "gender": "male",
     "email": "oscar@pokitdok.com",
     "phone": "555-555-5555",
@@ -72,7 +72,7 @@ client.createIdentity(
         {"middle_name", "Harold"},
         {"last_name", "Whitmire"},
         {"suffix", "IV"},
-        {"birth_date", "2000-05-01"},
+        {"birth_date", "2000-05-25"},
         {"gender", "male"},
         {"email", "oscar@pokitdok.com"},
         {"phone", "555-555-5555"},
@@ -100,7 +100,7 @@ pd.create_identity({
     "middle_name": "Harold",
     "last_name": "Whitmire",
     "suffix": "IV",
-    "birth_date": "2000-05-01",
+    "birth_date": "2000-05-25",
     "gender": "male",
     "email": "oscar@pokitdok.com",
     "phone": "555-555-5555",
@@ -132,7 +132,7 @@ buf.append("       \"first_name\": \"Oscar\",");
 buf.append("       \"middle_name\": \"Harold\",");
 buf.append("       \"last_name\": \"Whitmire\",");
 buf.append("       \"suffix\": \"IV\",");
-buf.append("       \"birth_date\": \"2000-05-01\",");
+buf.append("       \"birth_date\": \"2000-05-25\",");
 buf.append("       \"gender\": \"male\",");
 buf.append("       \"email\": \"oscar@pokitdok.com\",");
 buf.append("       \"phone\": \"555-555-5555\",");
@@ -168,7 +168,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
        "middle_name": "Harold",
        "last_name": "Whitmire",
        "suffix": "IV",
-       "birth_date": "2000-05-01",
+       "birth_date": "2000-05-25",
        "gender": "male",
        "email": "oscar.whitmire@pokitdok.com",
        "phone": "555-555-5555",
@@ -198,7 +198,7 @@ pd.update_identity("881bc095-2068-43cb-9783-cce630364122", {
     "middle_name": "Harold",
     "last_name": "Whitmire",
     "suffix": "IV",
-    "birth_date": "2000-05-01",
+    "birth_date": "2000-05-25",
     "gender": "male",
     "email": "oscar.whitmire@pokitdok.com",
     "phone": "555-555-5555",
@@ -229,7 +229,7 @@ client.updateIdentity("881bc095-2068-43cb-9783-cce630364122",
 		{"middle_name", "Harold"},
 		{"last_name", "Whitmire"},
 		{"suffix", "IV"},
-		{"birth_date", "2000-05-01"},
+		{"birth_date", "2000-05-25"},
 		{"gender", "male"},
 		{"email", "oscar.whitmire@pokitdok.com"},
 		{"phone", "555-555-5555"},
@@ -257,7 +257,7 @@ pd.update_identity("881bc095-2068-43cb-9783-cce630364122", {
     "middle_name": "Harold",
     "last_name": "Whitmire",
     "suffix": "IV",
-    "birth_date": "2000-05-01",
+    "birth_date": "2000-05-25",
     "gender": "male",
     "email": "oscar.whitmire@pokitdok.com",
     "phone": "555-555-5555",
@@ -289,7 +289,7 @@ buf.append("       \"first_name\": \"Oscar\",");
 buf.append("       \"middle_name\": \"Harold\",");
 buf.append("       \"last_name\": \"Whitmire\",");
 buf.append("       \"suffix\": \"IV\",");
-buf.append("       \"birth_date\": \"2000-05-01\",");
+buf.append("       \"birth_date\": \"2000-05-25\",");
 buf.append("       \"gender\": \"male\",");
 buf.append("       \"email\": \"oscar.whitmire@pokitdok.com\",");
 buf.append("       \"phone\": \"555-555-5555\",");
@@ -407,7 +407,7 @@ The /identity/ endpoint accepts the following parameters:
 | address.city          | {string} | Name of city in which to search for identity records (e.g. "San Mateo" or "Charleston")                            |
 | address.state         | {string} | Name of U.S. state in which to search for identity records (e.g. "CA" or "SC")                                     |
 | address.zipcode       | {string} | Geographic center point in which to search for identity records.                                                   |
-| birth_date            | {string} | Birth date in ISO-8601 format. Ex: 1990-01-01                                                                      |
+| birth_date            | {string} | Birth date in ISO-8601 format. Ex: 1990-01-25                                                                      |
 | email                 | {string} | Valid email address including "@" separator and appropriate domain prefix                                          |
 | first_name            | {string} | First name                                                                                                         |
 | gender                | {string} | Valid values include: male, female, or unknown                                                                     |

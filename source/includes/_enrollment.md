@@ -28,7 +28,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "benefit_status": "Active",
         "benefits": [
             {
-                "begin_date": " 2015-01-01",
+                "begin_date": " 2015-01-25",
                 "benefit_type": "Health",
                 "coordination_of_benefits": [
                     {
@@ -41,19 +41,19 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "maintenance_type": "Addition"
             },
             {
-                "begin_date": "2015-01-01",
+                "begin_date": "2015-01-25",
                 "benefit_type": "Dental",
                 "late_enrollment": false,
                 "maintenance_type": "Addition"
             },
             {
-                "begin_date": "2015-01-01",
+                "begin_date": "2015-01-25",
                 "benefit_type": "Vision",
                 "late_enrollment": false,
                 "maintenance_type": "Addition"
             }
         ],
-        "birth_date": "1940-01-01",
+        "birth_date": "1940-01-25",
         "contacts": [
             {
                 "communication_number2": "7172341240",
@@ -62,7 +62,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "primary_communication_type": "Home Phone Number"
             }
         ],
-        "eligibility_begin_date": "2014-01-01",
+        "eligibility_begin_date": "2014-01-25",
         "employment_status": "Full-time",
         "first_name": "JOHN",
         "gender": "Male",
@@ -107,7 +107,7 @@ pd.enrollment({
         "benefit_status": "Active",
         "benefits": [
             {
-                "begin_date": " 2015-01-01",
+                "begin_date": " 2015-01-25",
                 "benefit_type": "Health",
                 "coordination_of_benefits": [
                     {
@@ -120,19 +120,19 @@ pd.enrollment({
                 "maintenance_type": "Addition"
             },
             {
-                "begin_date": "2015-01-01",
+                "begin_date": "2015-01-25",
                 "benefit_type": "Dental",
                 "late_enrollment": False,
                 "maintenance_type": "Addition"
             },
             {
-                "begin_date": "2015-01-01",
+                "begin_date": "2015-01-25",
                 "benefit_type": "Vision",
                 "late_enrollment": False,
                 "maintenance_type": "Addition"
             }
         ],
-        "birth_date": "1940-01-01",
+        "birth_date": "1940-01-25",
         "contacts": [
             {
                 "communication_number2": "7172341240",
@@ -141,7 +141,7 @@ pd.enrollment({
                 "primary_communication_type": "Home Phone Number"
             }
         ],
-        "eligibility_begin_date": "2014-01-01",
+        "eligibility_begin_date": "2014-01-25",
         "employment_status": "Full-time",
         "first_name": "JOHN",
         "gender": "Male",
@@ -188,7 +188,7 @@ pd.enrollment({
                 { "benefit_status", "Active"},
                 { "benefits", new List<Dictionary<string, object>> {
                                 new Dictionary<string, object> {
-                                    { "begin_date", "2015-01-01"},
+                                    { "begin_date", "2015-01-25"},
                                     { "benefit_type", "Health"},
                                     { "coordination_of_benefits", new List<Dictionary<string, object>> {
                                         new Dictionary<string, object> {
@@ -202,19 +202,19 @@ pd.enrollment({
                                     { "maintenance_type", "Addition" }
                                 }, // benefits[0]
                                 new Dictionary<string, object> {
-                                    { "begin_date", "2015-01-01"},
+                                    { "begin_date", "2015-01-25"},
                                     { "benefit_type", "Dental"},
                                     { "late_enrollment", false},
                                     { "maintenance_type", "Addition" }
                                     },
                                 new Dictionary<string, object> {
-                                    { "begin_date", "2015-01-01"},
+                                    { "begin_date", "2015-01-25"},
                                     { "benefit_type", "Vision"},
                                     { "late_enrollment", false},
                                     { "maintenance_type", "Addition" }
                                     }} // End list
                     },
-                    { "birth_date", "1940-01-01"},
+                    { "birth_date", "1940-01-25"},
                     { "contacts", new List<Dictionary<string, object>> {
                             new Dictionary<string, object> {
                                 { "communication_number2", "7172341240"},
@@ -223,7 +223,7 @@ pd.enrollment({
                                 { "primary_communication_type", "Home Phone Number" }
                                 }
                     } },
-                    { "eligibility_begin_date", "2014-01-01"},
+                    { "eligibility_begin_date", "2014-01-25"},
                     { "employment_status", "Full-time"},
                     { "first_name", "JOHN"},
                     { "gender", "Male"},
@@ -268,7 +268,7 @@ pd.enrollment({
         "benefit_status": "Active",
         "benefits": [
             {
-                "begin_date": " 2015-01-01",
+                "begin_date": " 2015-01-25",
                 "benefit_type": "Health",
                 "coordination_of_benefits": [
                     {
@@ -281,19 +281,19 @@ pd.enrollment({
                 "maintenance_type": "Addition"
             },
             {
-                "begin_date": "2015-01-01",
+                "begin_date": "2015-01-25",
                 "benefit_type": "Dental",
                 "late_enrollment": false,
                 "maintenance_type": "Addition"
             },
             {
-                "begin_date": "2015-01-01",
+                "begin_date": "2015-01-25",
                 "benefit_type": "Vision",
                 "late_enrollment": false,
                 "maintenance_type": "Addition"
             }
         ],
-        "birth_date": "1940-01-01",
+        "birth_date": "1940-01-25",
         "contacts": [
             {
                 "communication_number2": "7172341240",
@@ -302,7 +302,7 @@ pd.enrollment({
                 "primary_communication_type": "Home Phone Number"
             }
         ],
-        "eligibility_begin_date": "2014-01-01",
+        "eligibility_begin_date": "2014-01-25",
         "employment_status": "Full-time",
         "first_name": "JOHN",
         "gender": "Male",
@@ -349,7 +349,7 @@ buf.append("        },");
 buf.append("        \"benefit_status\": \"Active\",");
 buf.append("        \"benefits\": [");
 buf.append("            {");
-buf.append("                \"begin_date\": \" 2015-01-01\",");
+buf.append("                \"begin_date\": \" 2015-01-25\",");
 buf.append("                \"benefit_type\": \"Health\",");
 buf.append("                \"coordination_of_benefits\": [");
 buf.append("                    {");
@@ -362,19 +362,19 @@ buf.append("                \"late_enrollment\": false,");
 buf.append("                \"maintenance_type\": \"Addition\"");
 buf.append("            },");
 buf.append("            {");
-buf.append("                \"begin_date\": \"2015-01-01\",");
+buf.append("                \"begin_date\": \"2015-01-25\",");
 buf.append("                \"benefit_type\": \"Dental\",");
 buf.append("                \"late_enrollment\": false,");
 buf.append("                \"maintenance_type\": \"Addition\"");
 buf.append("            },");
 buf.append("            {");
-buf.append("                \"begin_date\": \"2015-01-01\",");
+buf.append("                \"begin_date\": \"2015-01-25\",");
 buf.append("                \"benefit_type\": \"Vision\",");
 buf.append("                \"late_enrollment\": false,");
 buf.append("                \"maintenance_type\": \"Addition\"");
 buf.append("            }");
 buf.append("        ],");
-buf.append("        \"birth_date\": \"1940-01-01\",");
+buf.append("        \"birth_date\": \"1940-01-25\",");
 buf.append("        \"contacts\": [");
 buf.append("            {");
 buf.append("                \"communication_number2\": \"7172341240\",");
@@ -383,7 +383,7 @@ buf.append("                \"primary_communication_number\": \"7172343334\",");
 buf.append("                \"primary_communication_type\": \"Home Phone Number\"");
 buf.append("            }");
 buf.append("        ],");
-buf.append("        \"eligibility_begin_date\": \"2014-01-01\",");
+buf.append("        \"eligibility_begin_date\": \"2014-01-25\",");
 buf.append("        \"employment_status\": \"Full-time\",");
 buf.append("        \"first_name\": \"JOHN\",");
 buf.append("        \"gender\": \"Male\",");
@@ -417,14 +417,14 @@ Map<String, Object> results = pd.enrollment(query);
             "benefit_status": "Active",
             "benefits": [
                 {
-                    "begin_date": "2014-01-01",
+                    "begin_date": "2014-01-25",
                     "benefit_type": "Health",
                     "late_enrollment": false,
                     "maintenance_type": "Addition"
                 }
             ],
-            "birth_date": "1999-01-01",
-            "education_end_date": "2016-01-01",
+            "birth_date": "1999-01-25",
+            "education_end_date": "2016-01-25",
             "first_name": "JAMES",
             "gender": "Male",
             "group_or_policy_number": "123456001",
@@ -471,14 +471,14 @@ pd.enrollment({
             "benefit_status": "Active",
             "benefits": [
                 {
-                    "begin_date": "2014-01-01",
+                    "begin_date": "2014-01-25",
                     "benefit_type": "Health",
                     "late_enrollment": False,
                     "maintenance_type": "Addition"
                 }
             ],
-            "birth_date": "1999-01-01",
-            "education_end_date": "2016-01-01",
+            "birth_date": "1999-01-25",
+            "education_end_date": "2016-01-25",
             "first_name": "JAMES",
             "gender": "Male",
             "group_or_policy_number": "123456001",
@@ -524,13 +524,13 @@ client.enrollment(
         {"dependents", new Object[] {new Dictionary<string, object> {
                     {"benefit_status", "Active"},
                     {"benefits", new Object[] {new Dictionary<string, object> {
-                                {"begin_date", "2014-01-01"},
+                                {"begin_date", "2014-01-25"},
                                 {"benefit_type", "Health"},
                                 {"late_enrollment", false},
                                 {"maintenance_type", "Addition"}
                             }}},
-                    {"birth_date", "1999-01-01"},
-                    {"education_end_date", "2016-01-01"},
+                    {"birth_date", "1999-01-25"},
+                    {"education_end_date", "2016-01-25"},
                     {"first_name", "JAMES"},
                     {"gender", "Male"},
                     {"group_or_policy_number", "123456001"},
@@ -576,14 +576,14 @@ pd.enrollment({
             "benefit_status": "Active",
             "benefits": [
                 {
-                    "begin_date": "2014-01-01",
+                    "begin_date": "2014-01-25",
                     "benefit_type": "Health",
                     "late_enrollment": false,
                     "maintenance_type": "Addition"
                 }
             ],
-            "birth_date": "1999-01-01",
-            "education_end_date": "2016-01-01",
+            "birth_date": "1999-01-25",
+            "education_end_date": "2016-01-25",
             "first_name": "JAMES",
             "gender": "Male",
             "group_or_policy_number": "123456001",
@@ -632,14 +632,14 @@ buf.append("        {");
 buf.append("            \"benefit_status\": \"Active\",");
 buf.append("            \"benefits\": [");
 buf.append("                {");
-buf.append("                    \"begin_date\": \"2014-01-01\",");
+buf.append("                    \"begin_date\": \"2014-01-25\",");
 buf.append("                    \"benefit_type\": \"Health\",");
 buf.append("                    \"late_enrollment\": false,");
 buf.append("                    \"maintenance_type\": \"Addition\"");
 buf.append("                }");
 buf.append("            ],");
-buf.append("            \"birth_date\": \"1999-01-01\",");
-buf.append("            \"education_end_date\": \"2016-01-01\",");
+buf.append("            \"birth_date\": \"1999-01-25\",");
+buf.append("            \"education_end_date\": \"2016-01-25\",");
 buf.append("            \"first_name\": \"JAMES\",");
 buf.append("            \"gender\": \"Male\",");
 buf.append("            \"group_or_policy_number\": \"123456001\",");
@@ -697,7 +697,7 @@ Map<String, Object> results = pd.enrollment(query);
     "subscriber": {
         "benefit_status": "Active",
         "contacts": [],
-        "eligibility_end_date": "2015-01-01",
+        "eligibility_end_date": "2015-01-25",
         "employment_status": "Terminated",
         "first_name": "JOHN",
         "group_or_policy_number": "123456001",
@@ -731,7 +731,7 @@ pd.enrollment({
     "subscriber": {
         "benefit_status": "Active",
         "contacts": [],
-        "eligibility_end_date": "2015-01-01",
+        "eligibility_end_date": "2015-01-25",
         "employment_status": "Terminated",
         "first_name": "JOHN",
         "group_or_policy_number": "123456001",
@@ -766,7 +766,7 @@ client.enrollment(
         {"subscriber", new Dictionary<string, object> {
                 {"benefit_status", "Active"},
                 {"contacts", new string[] {}},
-                {"eligibility_end_date", "2015-01-01"},
+                {"eligibility_end_date", "2015-01-25"},
                 {"employment_status", "Terminated"},
                 {"first_name", "JOHN"},
                 {"group_or_policy_number", "123456001"},
@@ -801,7 +801,7 @@ pd.enrollment({
     "subscriber": {
         "benefit_status": "Active",
         "contacts": [],
-        "eligibility_end_date": "2015-01-01",
+        "eligibility_end_date": "2015-01-25",
         "employment_status": "Terminated",
         "first_name": "JOHN",
         "group_or_policy_number": "123456001",
@@ -837,7 +837,7 @@ buf.append("    },");
 buf.append("    \"subscriber\": {");
 buf.append("        \"benefit_status\": \"Active\",");
 buf.append("        \"contacts\": [],");
-buf.append("        \"eligibility_end_date\": \"2015-01-01\",");
+buf.append("        \"eligibility_end_date\": \"2015-01-25\",");
 buf.append("        \"employment_status\": \"Terminated\",");
 buf.append("        \"first_name\": \"JOHN\",");
 buf.append("        \"group_or_policy_number\": \"123456001\",");
@@ -907,15 +907,15 @@ request, see our [benefits enrollment reference](benefits_enrollment.html).
 | subscriber.address.line2                   | The second address line for the subscriber.                                                                                                             |
 | subscriber.address.postal_code             | The postal/zip code for the subscriber.                                                                                                                 |
 | subscriber.benefits                        | The list of benefits for the subscriber.                                                                                                                |
-| subscriber.benefits.begin_date             | The date benefits start for this list item.                                                                                                             |
+| subscriber.benefits.begin_date             | The date benefits start for this list item. In ISO8601 format (YYYY-MM-DD).                                                                             |
 | subscriber.benefits.benefit_type           | The type of benefit.                                                                                                                                    |
-| subscriber.benefits.end_date               | The date benefits end for this list item.                                                                                                               |
+| subscriber.benefits.end_date               | The date benefits end for this list item. In ISO8601 format (YYYY-MM-DD).                                                                               |
 | subscriber.benefits.late_enrollment        | Is the benefit enrolling late? True or False.                                                                                                           |
 | subscriber.benefits.maintenance_resason    | The reason for benefit maintenance.<br/>Acceptable values: see <a href="#maintenance_reason_codes">reasons</a>                                          |
 | subscriber.benefits.maintenance_type       | The type of benefit maintenance.<br/>Acceptable values: see <a href="#maintenance_type_codes">types</a>                                                 |
-| subscriber.birth_date                      | The date of birth for the subscriber.                                                                                                                   |
-| subscriber.eligibility_begin_date          | The date benefits become eligible for the subscriber.                                                                                                   |
-| subscriber.eligibility_end_date            | The date benefits become ineligible for the subscriber.                                                                                                 |
+| subscriber.birth_date                      | The date of birth for the subscriber. In ISO8601 format (YYYY-MM-DD).                                                                                   |
+| subscriber.eligibility_begin_date          | The date benefits become eligible for the subscriber. In ISO8601 format (YYYY-MM-DD).                                                                   |
+| subscriber.eligibility_end_date            | The date benefits become ineligible for the subscriber. In ISO8601 format (YYYY-MM-DD).                                                                 |
 | subscriber.employment_status               | The employment status for the subscriber.<br/>Acceptable values: see <a href="#employment_status_codes">statuses</a>                                    |
 | subscriber.first_name                      | The first name for the subscriber.                                                                                                                      |
 | subscriber.gender                          | The gender for the subscriber.<br/>Acceptable values: see <a href="#gender_codes">gender codes</a>                                                      |
@@ -932,8 +932,8 @@ request, see our [benefits enrollment reference](benefits_enrollment.html).
 | subscriber.ssn                             | The social security number for the subscriber.                                                                                                          |
 | subscriber.substance_abuse                 | Does the subscriber have a problem with substance abuse? True or False.                                                                                 |
 | subscriber.suffix                          | The suffix for the subscriber.                                                                                                                          |
-| subscriber.tobacco_use                     | Does the subscriber use tobacco? True or False.        
-| subscriber.relationship                    | The relationship of the subject of the transaction to the policy holder.<br/>Acceptable values: see <a href="#api_relationships">relationship codes</a> |                                                                                                 |
+| subscriber.tobacco_use                     | Does the subscriber use tobacco? True or False.                                                                                                         |
+| subscriber.relationship                    | The relationship of the subject of the transaction to the policy holder.<br/>Acceptable values: see <a href="#api_relationships">relationship codes</a> |                                                                              
 | trading_partner_id                         | Unique id for the intended trading partner, as specified by the Trading Partners endpoint.                                                              |
 *Additional parameters can be submitted to the carrier depending on the needs of specific groups or carriers.*
 

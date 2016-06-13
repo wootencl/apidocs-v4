@@ -30,7 +30,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -43,7 +43,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "J10.1"
                 ],
-                "service_date": "2016-01-01"
+                "service_date": "2016-01-25"
             }
         ]
     }
@@ -79,7 +79,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -92,7 +92,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "J10.1"
                 ],
-                "service_date": "2016-01-01"
+                "service_date": "2016-01-25"
             }
         ]
     }
@@ -128,7 +128,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -141,7 +141,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "J10.1"
                 ],
-                "service_date": "2016-01-01"
+                "service_date": "2016-01-25"
             }
         ]
     }
@@ -176,7 +176,7 @@ client.claims(
                 {"state", "SC"},
                 {"zipcode", "29301"}
             }},
-            {"birth_date", "1970-01-01"},
+            {"birth_date", "1970-01-25"},
             {"gender", "female"}
         }},
         {"claim", new Dictionary<string, object> {
@@ -187,7 +187,7 @@ client.claims(
                     {"charge_amount", 60.0},
                     {"unit_count", 1.0},
                     {"diagnosis_codes", new string[] {"J10.1"}},
-                    {"service_date", "2016-01-01"}
+                    {"service_date", "2016-01-25"}
         }}}}}
     });
 ```
@@ -222,7 +222,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"gender\": \"female\"");
 buf.append("    },");
 buf.append("    \"claim\": {");
@@ -235,7 +235,7 @@ buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
 buf.append("                    \"J10.1\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2016-01-01\"");
+buf.append("                \"service_date\": \"2016-01-25\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -254,7 +254,7 @@ Map<String, Object> results = pd.claims(query);
   "history": [
     {
       "name": "init",
-      "record_dt": "2016-06-02T13:42:07.834940",
+      "record_dt": "2016-06-25T13:42:07.834940",
       "title": "Initializing"
     }
   ],
@@ -291,7 +291,7 @@ Map<String, Object> results = pd.claims(query);
             "J10.1"
           ],
           "procedure_code": "99213",
-          "service_date": "2016-01-01",
+          "service_date": "2016-01-25",
           "unit_count": "1.0",
           "unit_type": "units"
         }
@@ -322,7 +322,7 @@ Map<String, Object> results = pd.claims(query);
         "state": "SC",
         "zipcode": "29301"
       },
-      "birth_date": "1970-01-01",
+      "birth_date": "1970-01-25",
       "first_name": "Jane",
       "gender": "female",
       "last_name": "Doe",
@@ -391,7 +391,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1971-01-01",
+        "birth_date": "1971-01-25",
         "gender": "male"
     },
     "subscriber": {
@@ -404,7 +404,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -418,7 +418,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "J10.1"
                 ],
-                "service_date": "2016-01-01"
+                "service_date": "2016-01-25"
             }
         ]
     }
@@ -454,7 +454,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1971-01-01",
+        "birth_date": "1971-01-25",
         "gender": "male"
     },
     "subscriber": {
@@ -467,7 +467,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -481,7 +481,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "J10.1"
                 ],
-                "service_date": "2016-01-01"
+                "service_date": "2016-01-25"
             }
         ]
     }
@@ -517,7 +517,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1971-01-01",
+        "birth_date": "1971-01-25",
         "gender": "male"
     },
     "subscriber": {
@@ -530,7 +530,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -544,7 +544,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "J10.1"
                 ],
-                "service_date": "2016-01-01"
+                "service_date": "2016-01-25"
             }
         ]
     }
@@ -579,7 +579,7 @@ client.claims(
                 {"state", "SC"},
                 {"zipcode", "29301"}
             }},
-            {"birth_date", "1971-01-01"},
+            {"birth_date", "1971-01-25"},
             {"gender", "male"}
         }},
         {"subscriber", new Dictionary<string, object> {
@@ -592,7 +592,7 @@ client.claims(
                 {"state", "SC"},
                 {"zipcode", "29301"}
             }},
-            {"birth_date", "1970-01-01"},
+            {"birth_date", "1970-01-25"},
             {"gender", "female"}
         }},
         {"claim", new Dictionary<string, object> {
@@ -603,7 +603,7 @@ client.claims(
                 {"charge_amount", 100.0},
                 {"unit_count", 1.0},
                 {"diagnosis_codes", new string[] {"J10.1"}},
-                {"service_date", "2016-01-01"}
+                {"service_date", "2016-01-25"}
         }}}}}
     });
 ```
@@ -638,7 +638,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1971-01-01\",");
+buf.append("        \"birth_date\": \"1971-01-25\",");
 buf.append("        \"gender\": \"male\"");
 buf.append("    },");
 buf.append("    \"subscriber\": {");
@@ -651,7 +651,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"gender\": \"female\"");
 buf.append("    },");
 buf.append("    \"claim\": {");
@@ -665,7 +665,7 @@ buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
 buf.append("                    \"J10.1\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2016-01-01\"");
+buf.append("                \"service_date\": \"2016-01-25\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -712,7 +712,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -725,7 +725,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "J10.1"
                 ],
-                "service_date": "2016-01-01"
+                "service_date": "2016-01-25"
             }
         ]
     }
@@ -766,7 +766,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -779,7 +779,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "J10.1"
                 ],
-                "service_date": "2016-01-01"
+                "service_date": "2016-01-25"
             }
         ]
     }
@@ -820,7 +820,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -833,7 +833,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "J10.1"
                 ],
-                "service_date": "2016-01-01"
+                "service_date": "2016-01-25"
             }
         ]
     }
@@ -873,7 +873,7 @@ client.claims(
                 {"state", "SC"},
                 {"zipcode", "29301"}
             }},
-            {"birth_date", "1970-01-01"},
+            {"birth_date", "1970-01-25"},
             {"gender", "female"}
         }},
         {"claim", new Dictionary<string, object> {
@@ -883,7 +883,7 @@ client.claims(
                 {"charge_amount", 60.0},
                 {"unit_count", 1.0},
                 {"diagnosis_codes", new string[] {"J10.1"}},
-                {"service_date", "2016-01-01"}
+                {"service_date", "2016-01-25"}
         }}}}}
     });
 ```
@@ -924,7 +924,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"gender\": \"female\"");
 buf.append("    },");
 buf.append("    \"claim\": {");
@@ -937,7 +937,7 @@ buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
 buf.append("                    \"J10.1\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2016-01-01\"");
+buf.append("                \"service_date\": \"2016-01-25\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -978,7 +978,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "male"
     },
     "claim": {
@@ -993,7 +993,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "L90.9"
                 ],
-                "service_date": "2016-03-24"
+                "service_date": "2016-03-25"
             }
         ]
     }
@@ -1029,7 +1029,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "male"
     },
     "claim": {
@@ -1044,7 +1044,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "L90.9"
                 ],
-                "service_date": "2016-03-24"
+                "service_date": "2016-03-25"
             }
         ]
     }
@@ -1080,7 +1080,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "male"
     },
     "claim": {
@@ -1095,7 +1095,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "L90.9"
                 ],
-                "service_date": "2016-03-24"
+                "service_date": "2016-03-25"
             }
         ]
     }
@@ -1130,7 +1130,7 @@ client.claims(
             {"state", "SC"},
             {"zipcode", "29301"}
         }},
-        {"birth_date", "1970-01-01"},
+        {"birth_date", "1970-01-25"},
         {"gender", "male"}
     }},
     {"claim", new Dictionary<string, object> {
@@ -1142,7 +1142,7 @@ client.claims(
             {"charge_amount", 150.0},
             {"unit_count", 1.0},
             {"diagnosis_codes", new string[] {"L90.9"}},
-            {"service_date", "2016-03-24"}
+            {"service_date", "2016-03-25"}
         }}}}}
     });
 ```
@@ -1178,7 +1178,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"gender\": \"male\"");
 buf.append("    },");
 buf.append("    \"claim\": {");
@@ -1193,7 +1193,7 @@ buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
 buf.append("                    \"L90.9\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2016-03-24\"");
+buf.append("                \"service_date\": \"2016-03-25\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -1236,7 +1236,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -1250,7 +1250,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "W51.XXXA"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -1286,7 +1286,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -1300,7 +1300,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "W51.XXXA"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -1336,7 +1336,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -1350,7 +1350,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "W51.XXXA"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -1385,7 +1385,7 @@ pd.claims(
                 {"state", "SC"},
                 {"zipcode", "29301"}
             }},
-            {"birth_date", "1970-01-01"},
+            {"birth_date", "1970-01-25"},
             {"gender", "female"}
         }},
         {"claim", new Dictionary<string, object> {
@@ -1396,7 +1396,7 @@ pd.claims(
                 {"charge_amount", 100.0},
                 {"unit_count", 1.0},
                 {"diagnosis_codes", new string[] {"W51.XXXA"}},
-                {"service_date", "2016-05-01"}
+                {"service_date", "2016-05-25"}
         }}}}}
     });
 ```
@@ -1432,7 +1432,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"gender\": \"female\"");
 buf.append("    },");
 buf.append("    \"claim\": {");
@@ -1446,7 +1446,7 @@ buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
 buf.append("                    \"W51.XXXA\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2016-05-01\"");
+buf.append("                \"service_date\": \"2016-05-25\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -1487,7 +1487,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -1500,7 +1500,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "W53.21XA"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -1537,7 +1537,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -1550,7 +1550,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "W53.21XA"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -1587,7 +1587,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -1600,7 +1600,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "W53.21XA"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -1636,7 +1636,7 @@ client.claims(
                 {"state", "SC"},
                 {"zipcode", "29301"}
             }},
-            {"birth_date", "1970-01-01"},
+            {"birth_date", "1970-01-25"},
             {"gender", "female"}
         }},
         {"claim", new Dictionary<string, object> {
@@ -1646,7 +1646,7 @@ client.claims(
                 {"charge_amount", 60.0},
                 {"unit_count", 1.0},
                 {"diagnosis_codes", new string[] {"W53.21XA"}},
-                {"service_date", "2016-05-01"}
+                {"service_date", "2016-05-25"}
         }}}}}
     });
 ```
@@ -1683,7 +1683,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"gender\": \"female\"");
 buf.append("    },");
 buf.append("    \"claim\": {");
@@ -1696,7 +1696,7 @@ buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
 buf.append("                    \"W53.21XA\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2016-05-01\"");
+buf.append("                \"service_date\": \"2016-05-25\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -1725,9 +1725,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "tax_id": "123456789"
   },
   "claim": {
-    "admission_date": "2016-02-05",
-    "statement_date": "2016-04-01",
-    "statement_end_date": "2016-04-30",
+    "admission_date": "2016-02-25",
+    "statement_date": "2016-04-25",
+    "statement_end_date": "2016-04-25",
     "admission_type": "elective",
     "admission_source": "not_available",
     "patient_status": "still_patient",
@@ -1746,7 +1746,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "occurrence_information": [
       {
         "occurrence_type": "hospice_certification",
-        "occurrence_date": "2014-03-27"
+        "occurrence_date": "2014-03-25"
       }
     ],
     "value_information": [
@@ -1763,7 +1763,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         ],
         "procedure_code": "Q5002",
         "revenue_code": "0651",
-        "service_date": "2016-04-01",
+        "service_date": "2016-04-25",
         "unit_count": "31",
         "unit_type": "days",
         "provider_control_number": "6750000"
@@ -1810,9 +1810,9 @@ pd.claims({
     "tax_id": "123456789"
   },
   "claim": {
-    "admission_date": "2016-02-05",
-    "statement_date": "2016-04-01",
-    "statement_end_date": "2016-04-01",
+    "admission_date": "2016-02-25",
+    "statement_date": "2016-04-25",
+    "statement_end_date": "2016-04-25",
     "admission_type": "elective",
     "admission_source": "not_available",
     "patient_status": "still_patient",
@@ -1831,7 +1831,7 @@ pd.claims({
     "occurrence_information": [
       {
         "occurrence_type": "hospice_certification",
-        "occurrence_date": "2013-03-27"
+        "occurrence_date": "2013-03-25"
       }
     ],
     "value_information": [
@@ -1848,7 +1848,7 @@ pd.claims({
         ],
         "procedure_code": "Q5002",
         "revenue_code": "0651",
-        "service_date": "2016-04-01",
+        "service_date": "2016-04-25",
         "unit_count": "31",
         "unit_type": "days",
         "provider_control_number": "6750000"
@@ -1895,9 +1895,9 @@ pd.claims({
     "tax_id": "123456789"
   },
   "claim": {
-    "admission_date": "2016-02-05",
-    "statement_date": "2016-04-01",
-    "statement_end_date": "2016-04-30",
+    "admission_date": "2016-02-25",
+    "statement_date": "2016-04-25",
+    "statement_end_date": "2016-04-25",
     "admission_type": "elective",
     "admission_source": "not_available",
     "patient_status": "still_patient",
@@ -1916,7 +1916,7 @@ pd.claims({
     "occurrence_information": [
       {
         "occurrence_type": "hospice_certification",
-        "occurrence_date": "2014-03-27"
+        "occurrence_date": "2014-03-25"
       }
     ],
     "value_information": [
@@ -1933,7 +1933,7 @@ pd.claims({
         ],
         "procedure_code": "Q5002",
         "revenue_code": "0651",
-        "service_date": "2016-04-01",
+        "service_date": "2016-04-25",
         "unit_count": "31",
         "unit_type": "days",
         "provider_control_number": "6750000"
@@ -1979,9 +1979,9 @@ client.claims(
             {"tax_id", "123456789"}
         }},
         {"claim", new Dictionary<string, object> {
-            {"admission_date", "2016-02-05"},
-            {"statement_date", "2016-04-01"},
-            {"statement_end_date", "2016-04-30"},
+            {"admission_date", "2016-02-25"},
+            {"statement_date", "2016-04-25"},
+            {"statement_end_date", "2016-04-25"},
             {"admission_type", "elective"},
             {"admission_source", "not_available"},
             {"patient_status", "still_patient"},
@@ -1999,7 +1999,7 @@ client.claims(
             {"plan_participation", "assigned"},
             {"occurrence_information", new Object[] {new Dictionary<string, string> {
                 {"occurrence_type", "hospice_certification"},
-                {"occurrence_date", "2014-03-27"}
+                {"occurrence_date", "2014-03-25"}
             }}},
             {"value_information", new Object[] {new Dictionary<string, string> {
                 {"value_type", "service_furnished_location_number"},
@@ -2010,7 +2010,7 @@ client.claims(
                 {"diagnosis_codes", new string[] {"29411"}},
                 {"procedure_code", "Q5002"},
                 {"revenue_code", "0651"},
-                {"service_date", "2016-04-01"},
+                {"service_date", "2016-04-25"},
                 {"unit_count", "31"},
                 {"unit_type", "days"},
                 {"provider_control_number", "6750000"}
@@ -2056,9 +2056,9 @@ buf.append("    \"taxonomy_code\": \"251G00000X\",");
 buf.append("    \"tax_id\": \"123456789\"");
 buf.append("  },");
 buf.append("  \"claim\": {");
-buf.append("    \"admission_date\": \"2016-02-05\",");
-buf.append("    \"statement_date\": \"2016-04-01\",");
-buf.append("    \"statement_end_date\": \"2016-04-30\",");
+buf.append("    \"admission_date\": \"2016-02-25\",");
+buf.append("    \"statement_date\": \"2016-04-25\",");
+buf.append("    \"statement_end_date\": \"2016-04-25\",");
 buf.append("    \"admission_type\": \"elective\",");
 buf.append("    \"admission_source\": \"not_available\",");
 buf.append("    \"patient_status\": \"still_patient\",");
@@ -2077,7 +2077,7 @@ buf.append("    \"plan_participation\": \"assigned\",");
 buf.append("    \"occurrence_information\": [");
 buf.append("      {");
 buf.append("        \"occurrence_type\": \"hospice_certification\",");
-buf.append("        \"occurrence_date\": \"2014-03-27\"");
+buf.append("        \"occurrence_date\": \"2014-03-25\"");
 buf.append("      }");
 buf.append("    ],");
 buf.append("    \"value_information\": [");
@@ -2094,7 +2094,7 @@ buf.append("          \"29411\"");
 buf.append("        ],");
 buf.append("        \"procedure_code\": \"Q5002\",");
 buf.append("        \"revenue_code\": \"0651\",");
-buf.append("        \"service_date\": \"2016-04-01\",");
+buf.append("        \"service_date\": \"2016-04-25\",");
 buf.append("        \"unit_count\": \"31\",");
 buf.append("        \"unit_type\": \"days\",");
 buf.append("        \"provider_control_number\": \"6750000\"");
@@ -2165,7 +2165,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -2178,7 +2178,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "W56.22XA"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -2218,7 +2218,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -2231,7 +2231,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "W56.22XA"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -2271,7 +2271,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -2284,7 +2284,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "W56.22XA"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -2323,7 +2323,7 @@ client.claims(
                 {"state", "SC"},
                 {"zipcode", "29301"}
             }},
-            {"birth_date", "1970-01-01"},
+            {"birth_date", "1970-01-25"},
             {"gender", "female"}
         }},
         {"claim", new Dictionary<string, object> {
@@ -2333,7 +2333,7 @@ client.claims(
                 {"charge_amount", 60.0},
                 {"unit_count", 1.0},
                 {"diagnosis_codes", new string[] {"W56.22XA"}},
-                {"service_date", "2016-05-01"}
+                {"service_date", "2016-05-25"}
         }}}}}
     });
 ```
@@ -2373,7 +2373,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"gender\": \"female\"");
 buf.append("    },");
 buf.append("    \"claim\": {");
@@ -2386,7 +2386,7 @@ buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
 buf.append("                    \"W56.22XA\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2016-05-01\"");
+buf.append("                \"service_date\": \"2016-05-25\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -2427,7 +2427,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -2447,7 +2447,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "V91.35"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -2483,7 +2483,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -2503,7 +2503,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "V91.35"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -2539,7 +2539,7 @@ pd.claims({
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -2559,7 +2559,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "V91.35"
                 ],
-                "service_date": "2016-05-01"
+                "service_date": "2016-05-25"
             }
         ]
     }
@@ -2594,7 +2594,7 @@ client.claims(
                 {"state", "SC"},
                 {"zipcode", "29301"}
             }},
-            {"birth_date", "1970-01-01"},
+            {"birth_date", "1970-01-25"},
             {"gender", "female"}
         }},
         {"claim", new Dictionary<string, object> {
@@ -2610,7 +2610,7 @@ client.claims(
                 {"charge_amount", 60.0},
                 {"unit_count", 1.0},
                 {"diagnosis_codes", new string[] {"V91.35"}},
-                {"service_date", "2016-05-01"}
+                {"service_date", "2016-05-25"}
         }}}}}
     });
 ```
@@ -2646,7 +2646,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"gender\": \"female\"");
 buf.append("    },");
 buf.append("    \"claim\": {");
@@ -2666,7 +2666,7 @@ buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
 buf.append("                    \"V91.35\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2016-05-01\"");
+buf.append("                \"service_date\": \"2016-05-25\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -2707,7 +2707,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "state": "SC",
             "zipcode": "29301"
         },
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "gender": "female"
     },
     "claim": {
@@ -2720,8 +2720,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
                 "diagnosis_codes": [
                     "X35.XXXD"
                 ],
-                "service_date": "2016-04-01",
-                "service_end_date": "2016-05-01"
+                "service_date": "2016-04-25",
+                "service_end_date": "2016-05-25"
             }
         ]
     }
@@ -2759,7 +2759,7 @@ client.claims({
       "state": "SC",
       "zipcode": "29301"
     },
-    "birth_date": "1970-01-01",
+    "birth_date": "1970-01-25",
     "gender": "female"
   },
   "claim": {
@@ -2772,8 +2772,8 @@ client.claims({
         "diagnosis_codes": [
           "X35.XXXD"
         ],
-        "service_date": "2016-04-01",
-        "service_end_date": "2016-05-01"
+        "service_date": "2016-04-25",
+        "service_end_date": "2016-05-25"
       }
     ]
   }
@@ -2811,7 +2811,7 @@ client.claims({
       "state": "SC",
       "zipcode": "29301"
     },
-    "birth_date": "1970-01-01",
+    "birth_date": "1970-01-25",
     "gender": "female"
   },
   "claim": {
@@ -2824,8 +2824,8 @@ client.claims({
         "diagnosis_codes": [
           "X35.XXXD"
         ],
-        "service_date": "2016-04-01",
-        "service_end_date": "2016-05-01"
+        "service_date": "2016-04-25",
+        "service_end_date": "2016-05-25"
       }
     ]
   }
@@ -2860,7 +2860,7 @@ client.claims(
                         {"state", "SC"},
                         {"zipcode", "29301"}
                     }},
-                {"birth_date", "1970-01-01"},
+                {"birth_date", "1970-01-25"},
                 {"gender", "female"}
             }},
         {"claim", new Dictionary<string, object> {
@@ -2870,8 +2870,8 @@ client.claims(
                             {"charge_amount", 60.0},
                             {"unit_count", 1.0},
                             {"diagnosis_codes", new string[] {"X35.XXXD"}},
-                            {"service_date", "2016-04-01"},
-                            {"service_end_date", "2016-05-01"}
+                            {"service_date", "2016-04-25"},
+                            {"service_end_date", "2016-05-25"}
                         }}}
             }}
     }
@@ -2909,7 +2909,7 @@ buf.append("            \"city\": \"SPARTANBURG\",");
 buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"gender\": \"female\"");
 buf.append("    },");
 buf.append("    \"claim\": {");
@@ -2922,8 +2922,8 @@ buf.append("                \"unit_count\": 1.0,");
 buf.append("                \"diagnosis_codes\": [");
 buf.append("                    \"X35.XXXD\"");
 buf.append("                ],");
-buf.append("                \"service_date\": \"2016-04-01\",");
-buf.append("                \"service_end_date\": \"2016-05-01\"");
+buf.append("                \"service_date\": \"2016-04-25\",");
+buf.append("                \"service_end_date\": \"2016-05-25\"");
 buf.append("            }");
 buf.append("        ]");
 buf.append("    }");
@@ -2957,23 +2957,23 @@ The /claims/ endpoint accepts the following parameters:
 |:----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|
 | billing_provider                              | Required: A dictionary of information for the provider that is billing for services. Uses the provider object [below](#claims-provider-object).                                                                                                                                       | 33: Billing Provider Info                          |
 | claim                                         | Dictionary of information representing a claim for services that have been performed by a health care provider for the patient.                                                                                                                                                       |                                                    |
-| claim.admission_date                          | (_Institutional claim specific_) The date the patient was admitted. UB-04 field: *12. Admission Date*                                                                                                                                                                                 |                                                    |
+| claim.admission_date                          | (_Institutional claim specific_) The date the patient was admitted. UB-04 field: *12. Admission Date* In ISO8601 format (YYYY-MM-DD).                                                                                                                                                 |                                                    |
 | claim.admission_source                        | (_Institutional claim specific_) The source of the patient's admission. A full list of possible values can be found [below](#admitsource). UB-04 field: *15. Admission Source*                                                                                                        |                                                    |
 | claim.admission_type                          | (_Institutional claim specific_) The admission/type priority of the patient's admission. A full list of possible values can be found [below](#admittype).  UB-04 field: *14. Priority (Type) of Visit*                                                                                |                                                    |
 | claim.facility_type                           | (_Institutional claim specific_) The type of facility where the patient was admitted. A full list of possible values can be found [below](#faciltype).                                                                                                                                |                                                    |
-| claim.claim_frequency                         | Used to identify if a claim is original, corrected or canceled. Defaults to original. A full list of possible values can be found [below](#claim-frequency).                                                                                                                           |                                                    |
+| claim.claim_frequency                         | Used to identify if a claim is original, corrected or canceled. Defaults to original. A full list of possible values can be found [below](#claim-frequency).                                                                                                                          |                                                    |
 | claim.provider_signature                      | Whether a provider signature is associated with the claim. Defaults to true.                                                                                                                                                                                                          |                                                    |
 | claim.plan_participation                      | Whether there is plan participation associated with the claim. Defaults to assigned. Possible values are assigned, lab, and n/a.                                                                                                                                                      |                                                    |
 | claim.direct_payment                          | Whether the claim was a direct payment. Possible values are y, n, and n/a.                                                                                                                                                                                                            |                                                    |
 | claim.information_release                     | Information release informatin associated with the claim. Possible values are informed_consent and signed_statement.                                                                                                                                                                  |                                                    |
 | claim.medical_record_number                   | The patient's medical record number.                                                                                                                                                                                                                                                  |                                                    |
-| claim.onset_date                              | Optional: the date of first symptoms for the illness.                                                                                                                                                                                                                                 | 14: Date of current illness OR injury OR pregnancy |
+| claim.onset_date                              | Optional: the date of first symptoms for the illness. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                 | 14: Date of current illness OR injury OR pregnancy |
 | claim.place_of_service                        | The location where services were performed (e.g. office). A full list of possible values is included [below](#place-of-service).                                                                                                                                                      | 24b: Place of service                              |
 | claim.patient_paid_amount                     | Optional: The amount the patient has already paid the provider for the services listed in the claim. When reporting cash payment encounters for the purpose of contributing those amounts toward the member's deductible, the patient_paid_amount will equal the total_charge_amount. | 29: Amount Paid                                    |
 | claim.patient_signature_on_file               | Boolean indicator for whether or not a patient's signature is on file to authorize the release of medical records. Defaults to true if not specified.                                                                                                                                 | 12: Patient's or authorized person's signature     |
 | claim.patient_status                          | (_Institutional claim specific_) The patient's status as of the dates covered through the statement. A full list of possible values can be found [below](#patstatus).  UB-04 field: *17. Patient Discharge Status*                                                                    |                                                    |
-| claim.statement_date                          | The (start) date of this statement.                                                                                                                                                                                                                                                   |                                                    |
-| claim.statement_end_date                      | The end date of this statement.                                                                                                                                                                                                                                                       |                                                    |
+| claim.statement_date                          | The (start) date of this statement. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                   |                                                    |
+| claim.statement_end_date                      | The end date of this statement. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                       |                                                    |
 | claim.value_information                       | (_Institutional claim specific_) The value information that applies to this claim.                                                                                                                                                                                                    |                                                    |
 | claim.value_information.value_type            | (_Institutional claim specific_) The value type that applies to this claim. A full list of possible values can be found [below](#valuecode).                                                                                                                                          |                                                    |
 | claim.value_information.value                 | (_Institutional claim specific_) The value amount that applies to this claim.                                                                                                                                                                                                         |                                                    |
@@ -2984,10 +2984,10 @@ The /claims/ endpoint accepts the following parameters:
 | claim.attending_provider.last_name            | (_Institutional claim specific_) The last name of the attending provider.                                                                                                                                                                                                             |                                                    |
 | claim.attending_provider.npi                  | (_Institutional claim specific_) The National Provider Identifier for the attending provider.                                                                                                                                                                                         |                                                    |
 | claim.attending_provider.taxonomy_code        | (_Institutional claim specific_) The taxonomy code for the attending provider.                                                                                                                                                                                                        |                                                    |
-| claim.attending_provider.organization_name    | (_Institutional claim specific_) The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                                                                                                                                                                                    |                                                    |
+| claim.attending_provider.organization_name    | (_Institutional claim specific_) The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                                                                                                 |                                                    |
 | claim.occurrence_information                  | (_Institutional claim specific_) A dictionary of information related to the occurrence/frequency of the claim.                                                                                                                                                                        |                                                    |
 | claim.occurrence_information.occurrence_type  | (_Institutional claim specific_) The type of claim-related occurrence for specifc dates. A full list of possible values can be found [below](#occtype). UB-04 field: *31. Occurrence Code*                                                                                            |                                                    |
-| claim.occurrence_information.occurrence_dates | (_Institutional claim specific_) The specific dates for the claim-related occurrence type. UB-04 field: *31. Occurrence Date*                                                                                                                                                         |                                                    |
+| claim.occurrence_information.occurrence_dates | (_Institutional claim specific_) The specific dates for the claim-related occurrence type. UB-04 field: *31. Occurrence Date* In ISO8601 format (YYYY-MM-DD).                                                                                                                         |                                                    |
 | claim.service_lines                           | List of services that were performed as part of this claim.                                                                                                                                                                                                                           |                                                    |
 | claim.service_lines.charge_amount             | The amount charged for this specific service. (e.g. 100.00)                                                                                                                                                                                                                           | 24f: Charges                                       |
 | claim.service_lines.diagnosis_codes           | A list of diagnosis codes related to this service. (e.g. 487.1)                                                                                                                                                                                                                       | 21: Diagnosis or nature of illness or injury       |
@@ -2995,16 +2995,16 @@ The /claims/ endpoint accepts the following parameters:
 | claim.service_lines.procedure_modifier_codes  | Optional: List of modifier codes for the specified procedure. (e.g. ["GT"])                                                                                                                                                                                                           | 24d: Procedures, Services, or Supplies             |
 | claim.service_lines.provider_control_number   | The provider's control number.                                                                                                                                                                                                                                                        |                                                    |
 | claim.service_lines.revenue_code              | (_Institutional claim specific_) The revenue code related to this service. UB-04 field: *42. Revenue Code*                                                                                                                                                                            |                                                    |
-| claim.service_lines.service_date              | The date the service was performed.                                                                                                                                                                                                                                                   | 24a: Date(s) of service (from)                     |
-| claim.service_lines.service_end_date          | Optional: The end date for the service. Use this to utilize a date range for the service date.                                                                                                                                                                                        | 24a: Date(s) of service (to)                       |
+| claim.service_lines.service_date              | The date the service was performed. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                   | 24a: Date(s) of service (from)                     |
+| claim.service_lines.service_end_date          | Optional: The end date for the service. Use this to utilize a date range for the service date. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                        | 24a: Date(s) of service (to)                       |
 | claim.service_lines.unit_count                | Number of units of this service. (e.g. 1.0)                                                                                                                                                                                                                                           | 24g: Days or Units                                 |
 | claim.service_lines.unit_type                 | The type of unit being described for this particular service's unit count. Possible values include: units, days                                                                                                                                                                       |                                                    |
 | claim.service_lines.procedure_description     | The procedure description of the service.                                                                                                                                                                                                                                             |                                                    |
 | claim.service_lines.sales_tax                 | The sales tax of a service.                                                                                                                                                                                                                                                           |                                                    |
 | claim.service_lines.is_emergency              | Boolean of whether the service is an emergency.                                                                                                                                                                                                                                       |                                                    |
-| claim.service_lines.begin_therapy_date        | The start date of therapy associated to a service.                                                                                                                                                                                                                                    |                                                    |
-| claim.service_lines.certification_revision_date| Date of revision for Durable Medical Equipment Certification.                                                                                                                                                                                                                                                                                   |                                                    |
-| claim.service_lines.last_certification_date   | Date of last certification for Durable Medical Equipment.                                                                                                                                                                                                                                                                                     |                                                    |
+| claim.service_lines.begin_therapy_date        | The start date of therapy associated to a service. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                    |                                                    |
+| claim.service_lines.certification_revision_date| Date of revision for Durable Medical Equipment Certification. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                        |                                                    |
+| claim.service_lines.last_certification_date   | Date of last certification for Durable Medical Equipment. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                             |                                                    |
 | claim.service_lines.ambulance_patient_count   | The ambulance patient count associated with the service. Required if more than one patient is transported in the same vehicle.                                                                                                                                                        |                                                    |
 | claim.service_lines.note                      | Additional information on the service.                                                                                                                                                                                                                                                |                                                    |
 | claim.service_lines.note.reference_code       | Reference codes associated with a note. Possibilities are additional_information (ADD) and goals_rehab_discharge (DCP).                                                                                                                                                               |                                                    |
@@ -3022,7 +3022,7 @@ The /claims/ endpoint accepts the following parameters:
 | claim.service_lines.drug.precription_number   | The prescription number associated to the drug.                                                                                                                                                                                                                                       |                                                    |
 | claim.service_lines.dme_certification         | Information regarding the durable medical equipment certification.                                                                                                                                                                                                                    |                                                    |
 | claim.service_lines.dme_certification.type    | The type of certification associated with the DME. Possible values are initial, renewal, revised.                                                                                                                                                                                     |                                                    |
-| claim.service_lines.dme_certification.months  | Number of months associated with the durable medical equipment certification.                                                                                                                                                                                                                                                                                     |                                                    |
+| claim.service_lines.dme_certification.months  | Number of months associated with the durable medical equipment certification.                                                                                                                                                                                                         |                                                    |
 | claim.service_lines.paperwork                 | Supplemental claim information (paperwork traveling separate from the claim transaction).                                                                                                                                                                                             |                                                    |
 | claim.service_lines.paperwork.report_type     | The report type associated with the paperwork.                                                                                                                                                                                                                                        |                                                    |
 | claim.service_lines.paperwork.transmission_method| The transmission method of the paperwork (e.g. email, fax).                                                                                                                                                                                                                        |                                                    |
@@ -3040,16 +3040,16 @@ The /claims/ endpoint accepts the following parameters:
 | claim.paperwork.transmission_method           | The transmission method of the paperwork (e.g. email, fax).                                                                                                                                                                                                                           |                                                    |
 | claim.paperwork.control_number                | The control number associated with the paperwork.                                                                                                                                                                                                                                     |                                                    |
 | claim.total_charge_amount                     | The total amount charged/billed for the claim. (e.g. 100.00)                                                                                                                                                                                                                          | 28: Total Charge                                   |
-| claim.initial_treatment_date                  | The initial treatment date of this claim.                                                                                                                                                                                                                                             |                                                    |
-| claim.acute_manifestation_date                | The acute manifestation date of this claim.                                                                                                                                                                                                                                           |                                                    |
-| claim.last_x_ray_date                         | The last x-ray date associated with this claim.                                                                                                                                                                                                                                       |                                                    |
-| claim.accident_date                           | The accident date associated with this claim.                                                                                                                                                                                                                                         |                                                    |
+| claim.initial_treatment_date                  | The initial treatment date of this claim. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                             |                                                    |
+| claim.acute_manifestation_date                | The acute manifestation date of this claim. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                           |                                                    |
+| claim.last_x_ray_date                         | The last x-ray date associated with this claim. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                       |                                                    |
+| claim.accident_date                           | The accident date associated with this claim. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                         |                                                    |
 | claim.referring_provider                      | The referring provider associated with this claim. Uses the provider object [below](#claims-provider-object).                                                                                                                                                                         |                                                    |
 | claim.rendering_provider                      | The rendering provider associated with this claim. Uses the provider object [below](#claims-provider-object). Used if the top level billing provider is not the health care provider that provided services.                                                                          |                                                    |
 | claim.supervising_provider                    | The supervising provider associated with this claim. Uses the provider object [below](#claims-provider-object). Used if the top level billing provider is not the health care provider that provided services.                                                                        |                                                    |
 | claim.related_causes_code                     | Codes specifying a cause associated with the claim. Possibilities are auto_accident (AA), employment (EM), and other_accident (OA). Used if the top level billing provider is not the health care provider that provided services.                                                    |                                                    |
 | claim.original_reference_number               | The original reference number of the claim. Used if the top level billing provider is not the health care provider that provided services.                                                                                                                                            |                                                    |
-| claim.other_subscriber                        | The other subscriber associated with the claim. Uses the subscriber [object](#claims-subscriber-object). Used if the top level billing provider is not the health care provider that provided services.                                                                                |                                                    |
+| claim.other_subscriber                        | The other subscriber associated with the claim. Uses the subscriber [object](#claims-subscriber-object). Used if the top level billing provider is not the health care provider that provided services.                                                                               |                                                    |
 | claim.patient_control_number                  | The patient control number associated with the claim. Used if the top level billing provider is not the health care provider that provided services.                                                                                                                                  |                                                    |
 | claim.ambulance                               | Ambulance information associated with the claim.                                                                                                                                                                                                                                      |                                                    |
 | claim.patient_weight                          | The weight of the patient transported in the ambulance.                                                                                                                                                                                                                               |                                                    |
@@ -3072,10 +3072,10 @@ The /claims/ endpoint accepts the following parameters:
 | claim.service_facility.address                | Address of the service facility. Uses an address [object](#claims-address).                                                                                                                                                                                                           |                                                    |
 | patient                                       | Information about the patient that received services outlined in the claim. Patient information is only required when the patient is not the insurance subscriber.                                                                                                                    |                                                    |
 | patient.address                               | Required: The patient’s address information. Uses the address [object](#claims-address).                                                                                                                                                                                              | 5: Patient's address                               |
-| patient.birth_date                            | The patient’s birth date as specified on their policy.                                                                                                                                                                                                                                | 3: Patients Birth Date                             |
+| patient.birth_date                            | The patient’s birth date as specified on their policy. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                | 3: Patients Birth Date                             |
 | patient.first_name                            | Required: The patient’s first name.                                                                                                                                                                                                                                                   | 2: Patient's Name                                  |
 | patient.gender                                | The patient’s gender.                                                                                                                                                                                                                                                                 | 3: The patient's sex                               |
-| patient.death_date                            | The patient’s date of death.                                                                                                                                                                                                                                                          |                                                    |
+| patient.death_date                            | The patient’s date of death. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                          |                                                    |
 | patient.suffix                                | The suffix of the patient.                                                                                                                                                                                                                                                            |                                                    |
 | patient.phone                                 | The patient’s phone number.                                                                                                                                                                                                                                                           |                                                    |
 | patient.ssn                                   | The patient’s ssn.                                                                                                                                                                                                                                                                    |                                                    |
@@ -3118,8 +3118,8 @@ The /claims/ response contains an activity and thus returns the same object as t
 
 | Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
-| address                            | The subscriber’s address information as specified on their policy. Uses an address [object](#claims-address).                                                                                                                                                                          | 7: Insured's address                               |
-| birth_date                         | The subscriber’s birth date as specified on their policy.                                                                                                                                                                                                                             | 11a: Insured's date of birth                       |
+| address                            | The subscriber’s address information as specified on their policy. Uses an address [object](#claims-address).                                                                                                                                                                         | 7: Insured's address                               |
+| birth_date                         | The subscriber’s birth date as specified on their policy. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                             | 11a: Insured's date of birth                       |
 | claim_filing_code                  | Indicates the type of payment for the claim. It is an optional field and when left blank or not passed in the request, defaults to "mutually_defined". A full list of possible values is included [below](#filing).                                                                   |                                                    |
 | claim_filing_code                  | Indicates the type of payment for the claim. It is an optional field and when left blank or not passed in the request, defaults to "mutually_defined". A full list of possible values is included [below](#filing).                                                                   |                                                    |
 | first_name                         | Required: The subscriber’s first name as specified on their policy.                                                                                                                                                                                                                   |                                                    |
@@ -3133,7 +3133,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 | member_id                          | Required: The subscriber’s member identifier.                                                                                                                                                                                                                                         | 1a: Insured's ID number                            |
 | last_name                          | Required: The subscriber’s last name as specified on their policy.                                                                                                                                                                                                                    | 4: Insured's name                                  |
 | ssn                                | The subscriber’s ssn name as specified on their policy.                                                                                                                                                                                                                               |                                                    |
-| payer_responsibility               | Determines the position of the payer with regards to coordination of benefits. Defaults to primary. List of possibilities can be seen [below](#payer-responsibility).                                                                                                                                                                                    |                                                    |
+| payer_responsibility               | Determines the position of the payer with regards to coordination of benefits. Defaults to primary. List of possibilities can be seen [below](#payer-responsibility).                                                                                                                 |                                                    |
 
 <a name="claims-provider-object"></a>
 ###Provider object:
@@ -3183,7 +3183,7 @@ Full list of possible values that can be used in the claim.claim_frequency param
 <a name="drug-units"></a>
 Full list of possible values that can be used in the claim.service_lines.drug.unit_type parameter on the claim:
 
-| unit_type Values                 |                           |
+| unit_type Values                   |                           |
 |:-----------------------------------|:--------------------------|
 | international                      | gram                      |
 | milligram                          | milliliter                |
