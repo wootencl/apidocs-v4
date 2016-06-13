@@ -21,7 +21,7 @@ pd.trading_partners
 pd.tradingPartners();
 ```
 
->Example response:
+>Example response (for a more complete response please use the test application):
 
 ```json
 [
@@ -82,7 +82,7 @@ pd.trading_partners('aetna')
 pd.tradingPartners("aetna");
 ```
 
-> Example response (for a more complete response please use the test application):
+> Example response:
 
 ```json
 {
