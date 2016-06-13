@@ -301,7 +301,7 @@ client.authorizations(query);
     "client_id": "",
     "provider": {
         "first_name": "JEROME",
-        "last_name": "Aye-ay",
+        "last_name": "AYA-AY",
         "npi": "1760779011"
     },
     "async": false,

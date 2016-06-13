@@ -73,7 +73,7 @@ Available Provider Endpoints:
 
 The /providers/ endpoint accepts the following search parameters:
 
-| Field             | Type     | Description                                                                                                                                         |
+| Parameter         | Type     | Description                                                                                                                                         |
 |:------------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | address_lines     | {string} | Any or all of number, street name, apartment, suite number                                                                                          |
 | city              | {string} | Name of city in which to search for providers (e.g. "San Mateo" or "Charleston")                                                                    |

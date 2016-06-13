@@ -204,7 +204,6 @@ client.request(endpoint, method, data);
         }
       ]
     },
-    "client_id": "9P10N4H2F7ZbaAU6RYct",
     "correlation_id": "6bdf5dc0-6840-4466-a802-18056fe41aee",
     "generate_pdf": false,
     "payer": {

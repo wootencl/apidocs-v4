@@ -414,7 +414,7 @@ The field include_plans may be used if you would like to include an overview of 
 
 The /pharmacy/formulary endpoint accepts the following parameters:
 
-| Field              | Type     | Description                                                                                                                                                    |
+| Parameter          | Type     | Description                                                                                                                                                    |
 |:-------------------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | trading_partner_id | {string} | Unique id for the intended [trading partner](https://platform.pokitdok.com/documentation/v4/#trading-partners), as specified by the Trading Partners endpoint. |
 | plan_number        | {string} | Member’s plan identification number. Note: If unknown can use X12 270/271 eligibility                                                                          |
@@ -423,7 +423,7 @@ The /pharmacy/formulary endpoint accepts the following parameters:
 | rxcui | {string} | An RxNorm concept unique identifier for a drug  |
 | include_plans | {boolean} | If set to true, will return pharmacy plan info in response |
 
-The /pharmacy/formulary response contains the following parameters:
+The /pharmacy/formulary response contains the following fields:
 
 | Field                 | Type      | Description                                                                                        |
 |:----------------------|:----------|:---------------------------------------------------------------------------------------------------|

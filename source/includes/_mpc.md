@@ -65,14 +65,15 @@ Available Medical Procedure Code Endpoints:
 |:------------|:------------|:----------------------------------------------------------------------------|
 | /mpc/       | GET         | Get a list of medical procedure information meeting certain search criteria |
 | /mpc/{code} | GET         | Retrieve the data for a specific procedure code                             |
+
 The /mpc/ endpoint accepts the following parameters:
 
-| Field       | Type     | Description                                                                      |
+| Parameter   | Type     | Description                                                                      |
 |:------------|:---------|:---------------------------------------------------------------------------------|
 | name        | {string} | Search medical procedure information by consumer friendly name                   |
 | description | {string} | A partial or full description to be used to locate medical procedure information |
 
-The /mpc/ response contains the following fields
+The /mpc/ response contains the following fields:
 
 | Field       | Type     | Description                                        |
 |:------------|:---------|:---------------------------------------------------|
