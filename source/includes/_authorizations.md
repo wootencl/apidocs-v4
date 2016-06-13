@@ -350,8 +350,6 @@ The /authorizations/ endpoint uses the same object for both its parameters and r
 | event.delivery                    | Specifies the delivery pattern of the health care services.                                                                                                                                  |
 | event.delivery.units              | The units of services being requested.                                                                                                                                                    |
 | event.delivery.sample_selection_modulus | Specify the sampling frequency in terms of a modulus of the Unit of Measure, e.g., every fifth bag, every 1.5 minutes.                                                                                                                                                  |
-| event.delivery.time_period_qualifier | Defines the time frame in which services are to be rendered or continued. A full list of possibilities can be seen [below](#time_period_qualifier).                                                                                                                                             |
-| event.delivery.period_count | Used to indicate the number of time_period_qualifiers.                                                                                                                                                  |
 | event.delivery.delivery_frequency_code | Code which specifies frequency by which services can be performed.                                                                                                                                                 |
 | event.delivery.delivery_pattern_time_code | Code which specifies the time delivery pattern of the services.                                                                                                                                                  |
 | event.delivery.quantity           | The quantity of services being requested.                                                                                                                                                    |
@@ -398,7 +396,7 @@ If the authorization request is sent using a real-time interface, an authorizati
 
 | Field                             | Description                                                           |
 |:----------------------------------|:----------------------------------------------------------------------|
-| birth_date                        | The members’s birth date as specified on their policy.                |
+| birth_date                        | The member’s birth date as specified on their policy.                 |
 | gender                            | The member's gender (Male, Female, Unknown)                           |
 | last_name                         | The member’s last name as specified on their policy.                  |
 | first_name                        | The member’s first name as specified on their policy.                 |
@@ -410,7 +408,7 @@ If the authorization request is sent using a real-time interface, an authorizati
 | ssn                               | The ssn of the member.                                                |
 | estimated_birth_date              | The estimated date of birth of the patient.                           |
 | illness_date                      | The date the member became ill.                                       |
-| accident_date                     | The date the member's accident.                                                                                                                                     |
+| accident_date                     | The date of the member's accident.                                                                                                                                     |
 
 <a name="service_review_provider_object"></a>
 ###Provider object:
@@ -427,17 +425,6 @@ If the authorization request is sent using a real-time interface, an authorizati
 | npi                               | The NPI for the provider.                                                                                                                                                              |
 | organization_name                 | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                                   |
 
-
-<a name="time_period_qualifier"></a>
-Possible values that can be used in the event.delivery.time_period_qualifier parameter:
-
-| time_period_qualifier Values |                    |
-|:----------------------------|:-------------------|
-| Hour                        | Day                |
-| Years                       | Episode            |
-| Visit                       | Remaining          |
-| Month                       | Week               |
-
 <a name="certaction"></a>
 Possible values that can be returned in the event.review.certification_action parameter on the authorization response:
 
@@ -451,12 +438,12 @@ Possible values that can be returned in the event.review.certification_action pa
 <a name="follow_up_action"></a>
 Possible values that can be returned in the follow_up_action field on the authorization response:
 
-| follow_up_action Values |                    |
-|:----------------------------|:-------------------|
-| do_not_resubmit_sent_to_third_party                   | do_not_resubmit_will_respond_again           |
-| correct_and_resubmit          | resubmit_original |
-| wait_10_days_and_resubmit           | wait_30_days_and_resubmit      |
-| resubmission_allowed               | resubmission_not_allowed             |
+| follow_up_action Values               |                                   |
+|:--------------------------------------|:----------------------------------|
+| do_not_resubmit_sent_to_third_party   | do_not_resubmit_will_respond_again|
+| correct_and_resubmit                  | resubmit_original                 |
+| wait_10_days_and_resubmit             | wait_30_days_and_resubmit         |
+| resubmission_allowed                  | resubmission_not_allowed          |
 
 <a name="decision"></a>
 List of possible values that can be returned in the event.review.decision_reason parameter on the authorization response:
