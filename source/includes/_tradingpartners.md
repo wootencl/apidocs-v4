@@ -6,7 +6,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.trading_partners()
+client.trading_partners()
 ```
 
 ```csharp
@@ -14,11 +14,11 @@ client.tradingPartners();
 ```
 
 ```ruby
-pd.trading_partners
+client.trading_partners
 ```
 
 ```java
-pd.tradingPartners();
+client.tradingPartners();
 ```
 
 > Example fetching information for a specific trading partner:
@@ -28,7 +28,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.trading_partners('aetna')
+client.trading_partners('aetna')
 ```
 
 ```csharp
@@ -36,11 +36,11 @@ client.tradingPartners("MOCKPAYER");
 ```
 
 ```ruby
-pd.trading_partners('aetna')
+client.trading_partners('aetna')
 ```
 
 ```java
-pd.tradingPartners("aetna");
+client.tradingPartners("aetna");
 ```
 
 *Available modes of operation: real-time*
