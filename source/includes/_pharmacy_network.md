@@ -7,15 +7,15 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.pharmacy_network(npi='1427382266', trading_partner_id='medicare_national', plan_number='S5820003')
+client.pharmacy_network(npi='1427382266', trading_partner_id='medicare_national', plan_number='S5820003')
 ```
 
 ```ruby
-pd.pharmacy_network(npi: '1427382266', trading_partner_id: 'medicare_national', plan_number: 'S5820003')
+client.pharmacy_network(npi: '1427382266', trading_partner_id: 'medicare_national', plan_number: 'S5820003')
 ```
 
 ```csharp
-pd.pharmacyNetwork(
+client.pharmacyNetwork(
                     "1427382266",
                     new Dictionary<string, string> {
                       {"trading_partner_id", "medicare_national"},
@@ -27,7 +27,7 @@ pd.pharmacyNetwork(
 Map<String, Object> params = new HashMap<String, Object>();
 params.put("trading_partner_id", "medicare_national");
 params.put("plan_number", "S5820003");
-pd.pharmacyNetwork("1427382266", params);
+client.pharmacyNetwork("1427382266", params);
 ```
 
 > Example searching for in-network pharmacies by plan and zip code:
@@ -37,15 +37,15 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.pharmacy_network(trading_partner_id='medicare_national', plan_number='S5820003' , zipcode='07097', radius='1mi')
+client.pharmacy_network(trading_partner_id='medicare_national', plan_number='S5820003' , zipcode='07097', radius='1mi')
 ```
 
 ```ruby
-pd.pharmacy_network(trading_partner_id: 'medicare_national', plan_number: 'S5820003' , zipcode: '07097', radius: '1mi')
+client.pharmacy_network(trading_partner_id: 'medicare_national', plan_number: 'S5820003' , zipcode: '07097', radius: '1mi')
 ```
 
 ```csharp
-pd.pharmacyNetwork(
+client.pharmacyNetwork(
                     new Dictionary<string, string> {
                       {"trading_partner_id", "medicare_national"},
                       {"plan_number", "S5820003"},
@@ -60,7 +60,7 @@ params.put("trading_partner_id", "medicare_national");
 params.put("plan_number", "S5820003");
 params.put("zipcode", "07097");
 params.put("radius", "1mi");
-pd.pharmacyNetwork(params);
+client.pharmacyNetwork(params);
 ```
 
 > Sample response for /pharmacy/network/{npi} endpoint :
@@ -355,7 +355,7 @@ The response will include details about the pharmacy such as name, address, phon
 
 The /pharmacy/network endpoint accepts the following parameters:
 
-| Field              | Type     | Description                                                                                                                                                    |
+| Parameter          | Type     | Description                                                                                                                                                    |
 |:-------------------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the [Trading Partners](https://platform.pokitdok.com/documentation/v4/#trading-partners) endpoint. |
 | plan_number        | {string} | Member’s plan identification number. Note: If unknown can use X12 270/271 eligibility                                                                          |
@@ -365,7 +365,7 @@ The /pharmacy/network endpoint accepts the following parameters:
 | state              | {string} | Name of U.S. state in which to search for providers (e.g. “CA” or “SC”)                                                                                        |
 | sort               | {string} | Accepted values include ‘distance’ (default) or 'rank’. 'distance’ sort requires city & state or zipcode parameters otherwise sort will be 'rank’.             |
 
-The /pharmacy/network response contains the following parameters:
+The /pharmacy/network response contains the following fields:
 
 | Field                            | Type      | Description                            |
 |:---------------------------------|:----------|:---------------------------------------|

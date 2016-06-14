@@ -11,11 +11,11 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -XPOST -F file=@test_claim.837 
 ```
 
 ```python
-pd.claims_convert('test_claim.837')
+client.claims_convert('test_claim.837')
 ```
 
 ```ruby
-pd.claims_convert('test_claim.837')
+client.claims_convert('test_claim.837')
 ```
 
 ```csharp
@@ -23,7 +23,7 @@ client.claimsConvert('test_claim.837')
 ```
 
 ```java
-pd.claimsConvert("test_claim.837");
+client.claimsConvert("test_claim.837");
 ```
 
 > Example claims convert response when a single claim is included in the uploaded X12 837 file

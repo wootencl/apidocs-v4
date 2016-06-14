@@ -20,7 +20,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -57,7 +57,7 @@ client.claimsStatus(
 ```
 
 ```ruby
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -94,7 +94,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claimsStatus(query);
+Map<String, Object> results = client.claimsStatus(query);
 ```
 
 > Example claim status request when the patient is not the subscriber on the insurance policy:
@@ -124,7 +124,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "2000-01-01",
         "first_name": "JOHN",
@@ -173,7 +173,7 @@ client.claimsStatus(new Dictionary<string, object> {
 
 
 ```ruby
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "2000-01-01",
         "first_name": "JOHN",
@@ -222,7 +222,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claimsStatus(query);
+Map<String, Object> results = client.claimsStatus(query);
 ```
 
 > Example claim status request when the claim service period covers several days:
@@ -247,7 +247,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -285,7 +285,7 @@ client.claimsStatus(new Dictionary<string, object> {
 ```
 
 ```ruby
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -324,7 +324,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claimsStatus(query);
+Map<String, Object> results = client.claimsStatus(query);
 ```
 
 > Example claim status request using a claim tracking id to refine the search:
@@ -349,7 +349,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -387,7 +387,7 @@ client.claimsStatus(new Dictionary<string, object> {
 ```
 
 ```ruby
-pd.claims_status({
+client.claims_status({
     "patient": {
         "birth_date": "1970-01-01",
         "first_name": "JANE",
@@ -426,7 +426,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claimsStatus(query);
+Map<String, Object> results = client.claimsStatus(query);
 ```
 
 > Example claims status response when the trading partner is unable to locate
@@ -1022,18 +1022,12 @@ been denied (not paid) and the charges are applied to the deductible:
 
 *Available modes of operation: real-time*
 
-The Claims Status Endpoint allows an application to request information about
-previously submitted claims. You can send a request to a payer to determine
-where the claim is in their adjudication system and the status of the claim.
-The PokitDok Claims Status Endpoint can be used to query the status of multiple
-claims.
+The claims status endpoint allows an application to request information from a trading partner about previously submitted claims.  You may send a request to a trading partner to determine where the claim is in their adjudication system and the status of the claim. The Claims Status endpoint can be used to query the status of multiple claims. The claims status endpoint can be used to check the status of claims in the trading partners' system regardless of the submitter or means of submission. Claims status DOES NOT offer insight into where a claim is in PokitDok's system (for more info on monitoring PokitDok's processing of your claims, please see our [activities endpoint](#activities) and [callback url](#api-callbacks)).
+
+The speed at which a claim is adjudicated is dependent on the trading partner. On average it takes 5-7 days for a claim to enter a payer's adjudication system, thus it is recommended to wait at least a week after submitting a claim to check its status.
 
 To understand how the [Claims](#claims) and [Claims Status](#claims_status) Endpoints work together,
 see the [claims API workflow](https://pokitdok.com/developers/api/#api-claims-status).
-
-Please note that on average it takes 5-7 days for a claim to enter a payer’s
-adjudication system, thus it recommended to wait at least a week after
-submitting a claim to check its status.  
 
 
 | Endpoint       | HTTP Method | Description                                                     |
@@ -1043,55 +1037,144 @@ submitting a claim to check its status.
 
 The /claims/status endpoint accepts the following parameters:
 
-| Parameter                  | Description                                                                                                                          |
-|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
-| patient.birth_date         | The patient’s birth date as specified on their policy.                                                                               |
-| patient.id                 | The patient’s member identifier.                                                                                                     |
-| patient.first_name         | The patient’s first name as specified on their policy.                                                                               |
-| patient.last_name          | The patient’s last name as specified on their policy.                                                                                |
-| provider.first_name        | The provider’s first name when the provider is an individual.                                                                        |
-| provider.last_name         | The provider’s last name when the provider is an individual.                                                                         |
-| provider.npi               | The NPI for the provider.                                                                                                            |
-| provider.organization_name | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name. |
-| service_date               | The date services were performed or started for the claim service period.                                                            |
-| service_end_date           | Optional: The date services ended for the claim service period.                                                                      |
-| subscriber.birth_date      | Optional: The subscriber’s birth date as specified on their policy. Specify when the patient is not the subscriber.                  |
-| subscriber.first_name      | Optional: The subscriber’s first name as specified on their policy. Specify when the patient is not the subscriber.                  |
-| subscriber.id              | Optional: The subscriber’s member identifier. Specify when the patient is not the subscriber.                                        |
-| subscriber.last_name       | Optional: The subscriber’s last name as specified on their policy. Specify when the patient is not the subscriber.                   |
-| tracking_id                | Optional: The payer's claim tracking id. Specify a tracking id to refine the search criteria for a specific claim.                   |
-| trading_partner_id         | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.                      |
+| Parameter                                | Description                                                                                                                                                                                                                                                                                          |
+|:-----------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| patient                                  | The patient associated with the claim. Uses the member [object](#claims_status_member_object).                                                                                                                                                                                                       |
+| provider.first_name                      | The provider’s first name when the provider is an individual.                                                                                                                                                                                                                                        |
+| provider.middle_name                     | The provider’s middle name when the provider is an individual.                                                                                                                                                                                                                                       |
+| provider.last_name                       | The provider’s last name when the provider is an individual.                                                                                                                                                                                                                                         |
+| provider.suffix                          | The provider’s suffix when the provider is an individual.                                                                                                                                                                                                                                            |
+| provider.tax_id                          | The provider’s tax identifier.                                                                                                                                                                                                                                                                       |
+| provider.npi                             | The NPI for the billing provider.                                                                                                                                                                                                                                                                    |
+| provider.organization_name               | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                                                                                                                                                 |
+| service_date                             | The date services were performed or started for the claim service period.                                                                                                                                                                                                                            |
+| service_end_date                         | Optional: The date services ended for the claim service period.                                                                                                                                                                                                                                      |
+| subscriber                               | Optional: The subscriber associated with the claim. Specify when the patient is not the subscriber. Uses the member [object](#claims_status_member_object).                                                                                                                                          |
+| tracking_id                              | Optional: The payer's claim tracking id. Specify this value to refine the search criteria for a claim. If a payer claim control number was returned on the claim submission, this number should be used in the tracking id field for the greatest chance of returning valid claim status information.|
+| trading_partner_id                       | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.                                                                                                                                                                                      |
+| payer                                    | Information associated with the payer of the claim.                                                                                                                                                                                                                                                  |
+| payer.organization_name                  | The organization name of the payer.                                                                                                                                                                                                                                                                  |
+| payer.id                                 | The unique identifier of the payer.                                                                                                                                                                                                                                                                  |
+| receiver                                 | Information associated with the submitter of the claim status request.                                                                                                                                                                                                                               |
+| receiver                                 | Information associated with the submitter of the claim status request.                                                                                                                                                                                                                               |
+| receiver.first_name                      | The receiver’s first name when the receiver is an individual.                                                                                                                                                                                                                                        |
+| receiver.middle_name                     | The receiver’s middle name when the receiver is an individual.                                                                                                                                                                                                                                       |
+| receiver.last_name                       | The receiver’s last name when the receiver is an individual.                                                                                                                                                                                                                                         |
+| receiver.id                              | The unique identifier of the receiver.                                                                                                                                                                                                                                                               |
+| receiver.organization_name               | The receiver’s name when the receiver is an organization. first_name and last_name should be omitted when sending organization_name.                                                                                                                                                                 |
+| pharmacy_prescription_number             | The pharmacy prescription number associated with the claim                                                                                                                                                                                                                                           |
 
 
-The /claim/status response contains the following parameters:
+The /claim/status response contains the following fields:
 
-| Parameter                                             | Description                                                                                                                                                                                                                                                                                                                                        |
+| Field                                                 | Description                                                                                                                                                                                                                                                                                                                                        |
 |:------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| trading_partner_id                                    | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.                                                                                                                                                                                                                                    |
+| payer                                                 | Information associated with the payer of the claim.                                                                                                                                                                                                                                                                                                |
+| payer.name                                            | The name of the payer                                                                                                                                                                                                                                                                                                                              |
+| payer.id                                              | The unique identifier of the payer.                                                                                                                                                                                                                                                                                                                |
+| payer.date_received                                   | The the date the payer received the claim.                                                                                                                                                                                                                                                                                                         |
+| payer.date_received                                   | The the date the payer processed the claim.                                                                                                                                                                                                                                                                                                        |
+| submitter                                             | Information associated with the submitter of the claim status request.                                                                                                                                                                                                                                                                             |
+| submitter.first_name                                  | The submitter’s first name when the submitter is an individual.                                                                                                                                                                                                                                                                                    |
+| submitter.middle_name                                 | The submitter’s middle name when the submitter is an individual.                                                                                                                                                                                                                                                                                   |
+| submitter.last_name                                   | The submitter’s last name when the submitter is an individual.                                                                                                                                                                                                                                                                                     |
+| submitter.id                                          | The unique identifier of the submitter.                                                                                                                                                                                                                                                                                                            |
+| submitter.organization_name                           | The submitter’s name when the submitter is an organization.                                                                                                                                                                                                                                                                                        |
+| submitter.tracking_id                                 | The tracking identifier associated with the submitter.                                                                                                                                                                                                                                                                                             |
+| submitter.statuses                                    | A list of statuses associated with the submitter. Uses the status information [object](#claims_status_status_information).                                                                                                                                                                                                                         |
+| submitter.accepted_quantity                           | # of units being accepted.                                                                                                                                                                                                                                                                                                                         |
+| submitter.rejected_quantity                           | # of units being rejected.                                                                                                                                                                                                                                                                                                                         |
+| submitter.amount_in_process                           | The monetary amount of claims currently in process. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                             |
+| submitter.amount_returned                             | The monetary amount returned based on claims. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                   |
+| providers                                             | List of providers associated with the claim status request.                                                                                                                                                                                                                                                                                        |
+| providers.first_name                                  | The provider’s first name when the provider is an individual.                                                                                                                                                                                                                                                                                      |
+| providers.middle_name                                 | The provider’s middle name when the provider is an individual.                                                                                                                                                                                                                                                                                     |
+| providers.last_name                                   | The provider’s last name when the provider is an individual.                                                                                                                                                                                                                                                                                       |
+| providers.suffix                                      | The provider’s suffix when the provider is an individual.                                                                                                                                                                                                                                                                                          |
+| providers.tax_id                                      | The unique tax identifier of the provider.                                                                                                                                                                                                                                                                                                         |
+| providers.npi                                         | The provider's NPI.                                                                                                                                                                                                                                                                                                                                |
+| providers.trace_number                                | The trace number associated with the provider.                                                                                                                                                                                                                                                                                                     |
+| providers.secondary_id                                | Secondary identifiers for the provider.                                                                                                                                                                                                                                                                                                            |
+| providers.secondary_id.id_qualifier                   | Qualifier associated with the provider's secondary identifier.                                                                                                                                                                                                                                                                                     |
+| providers.secondary_id.id                             | The actual id associated with the provider's secondary identifier.                                                                                                                                                                                                                                                                                 |
+| providers.organization_name                           | The provider’s name when the providers is an organization.                                                                                                                                                                                                                                                                                         |
+| providers.statuses                                    | A list of statuses associated with the provider. Uses the status information [object](#claims_status_status_information).                                                                                                                                                                                                                          |
+| providers.accepted_quantity                           | # of units being accepted.                                                                                                                                                                                                                                                                                                                         |
+| providers.rejected_quantity                           | # of units being rejected.                                                                                                                                                                                                                                                                                                                         |
+| providers.amount_in_process                           | The monetary amount of claims currently in process. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                             |
+| providers.amount_returned                             | The monetary amount returned based on claims. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                   |
 | patient                                               | Information about a patient including any matching claims.                                                                                                                                                                                                                                                                                         |
 | patient.claims                                        | A list of matching claims returned by the trading partner for a claims status request.                                                                                                                                                                                                                                                             |
 | patient.claims.adjudication_finalized_date            | The date adjudication was finalized for the claim.                                                                                                                                                                                                                                                                                                 |
 | patient.claims.applied_to_deductible                  | Boolean that indicates whether or not claim charges are applied to the deductible.                                                                                                                                                                                                                                                                 |
+| patient.claims.patient_control_number                 | The control number associated with a patient. This number is assigned by the payer.                                                                                                                                                                                                                                                                |
+| patient.claims.claim_id_number                        | The id number associated with a claim.                                                                                                                                                                                                                                                                                                             |
+| patient.claims.bill_type_id                           | The bill type id associated with a claim.                                                                                                                                                                                                                                                                                                          |
+| patient.claims.pharmacy_prescription_number           | The pharmacy prescription number associated with a claim.                                                                                                                                                                                                                                                                                          |
+| patient.claims.tracking_id                            | The patient's claim tracking id.                                                                                                                                                                                                                                                                                                                   |
+| patient.claims.status_code                            | Indicates the status of the service on the claim.                                                                                                                                                                                                                                                                                                  |
 | patient.claims.check_number                           | The check or EFT trace number for a claim payment.                                                                                                                                                                                                                                                                                                 |
 | patient.claims.claim_control_number                   | The Payer's Claim Control Number.                                                                                                                                                                                                                                                                                                                  |
-| patient.claims.claim_payment_amount                   | The amount that's been paid on the claim.                                                                                                                                                                                                                                                                                                          |
+| patient.claims.claim_payment_amount                   | The amount that's been paid on the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                       |
 | patient.claims.remittance_date                        | The date the check was issued or EFT funds became available.                                                                                                                                                                                                                                                                                       |
 | patient.claims.service_date                           | The date services were performed or started for the claim service period.                                                                                                                                                                                                                                                                          |
 | patient.claims.service_end_date                       | The date services ended for the claim service period.                                                                                                                                                                                                                                                                                              |
 | patient.claims.services                               | A list of services linked to the claim.                                                                                                                                                                                                                                                                                                            |
-| patient.claims.services.charge_amount                 | The amount charged for a particular service on the claim.                                                                                                                                                                                                                                                                                          |
+| patient.claims.services.charge_amount                 | The amount charged for a particular service on the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                       |
 | patient.claims.services.cpt_code                      | The CPT code indicating the type of service that was performed.                                                                                                                                                                                                                                                                                    |
-| patient.claims.services.payment_amount                | The amount paid for a particular service on the claim.                                                                                                                                                                                                                                                                                             |
+| patient.claims.services.payment_amount                | The amount paid for a particular service on the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                          |
 | patient.claims.services.service_date                  | The date the service was performed or started for the claim service period.                                                                                                                                                                                                                                                                        |
 | patient.claims.services.service_end_date              | The date the service ended for the claim service period.                                                                                                                                                                                                                                                                                           |
-| patient.claims.services.statuses                      | A listing of status information for the claim.                                                                                                                                                                                                                                                                                                     |
-| patient.claims.services.statuses.status_category      | A verbose message about the general category of the service's claim status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).    |
-| patient.claims.services.statuses.status_category_code | The code indicating the general category of the service's claim status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).           |
-| patient.claims.services.statuses.status_code          | Indicates the status of the service on the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-codes/). |
-| patient.claims.statuses                               | A listing of status information for the claim.                                                                                                                                                                                                                                                                                                     |
-| patient.claims.statuses.status_category               | A verbose message about the general category of the claim's status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).            |
-| patient.claims.statuses.status_category_code          | The code indicating the general category of the claim's status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).                   |
-| patient.claims.statuses.status_code                   | Indicates the status of the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).       |
-| patient.claims.total_claim_amount                     | The total charges submitted for the claim.                                                                                                                                                                                                                                                                                                         |
+| patient.claims.services.statuses                      | A listing of status information for the claim. Uses the status information [object](#claims_status_status_information).                                                                                                                                                                                                                            |
+| patient.claims.services.line_item_control_number      | The line item control number associated with a patient's service.                                                                                                                                                                                                                                                                                  |
+| patient.claims.services.pharmacy_prescription_number  | The pharmacy prescription number associated with a service.                                                                                                                                                                                                                                                                                        |
+| patient.claims.statuses                               | A listing of status information for the claim. Uses the status information [object](#claims_status_status_information).                                                                                                                                                                                                                            |
+| patient.claims.total_claim_amount                     | The total charges submitted for the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                      |
 | patient.first_name                                    | The patient’s first name as specified on their policy.                                                                                                                                                                                                                                                                                             |
+| patient.middle_name                                   | The patient’s middle name as specified on their policy.                                                                                                                                                                                                                                                                                            |
 | patient.id                                            | The patient’s member identifier.                                                                                                                                                                                                                                                                                                                   |
 | patient.last_name                                     | The patient’s last name as specified on their policy.                                                                                                                                                                                                                                                                                              |
+| patient.suffix                                        | The patient’s suffix.                                                                                                                                                                                                                                                                                                                              |
+
+<a name="claims_status_member_object"></a>
+###Member object:
+
+| Field                             | Description                                                           |
+|:----------------------------------|:----------------------------------------------------------------------|
+| birth_date                        | The members’s birth date as specified on their policy.                |
+| gender                            | The member's gender (Male, Female, Unknown)                           |
+| last_name                         | The member’s last name as specified on their policy.                  |
+| first_name                        | The member’s first name as specified on their policy.                 |
+| middle_name                       | The member’s middle name as specified on their policy.                |
+| suffix                            | The suffix for the member                                             |
+| id                                | The member identifier.                                                |
+
+<a name="claims_status_status_information"></a>
+###Status Information object:
+
+| Field                             | Description                                                                                                                                                                                                                                                                                                                                        |
+|:----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| status_category                   | A verbose message about the general category of the claim's status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).            |
+| status_category_code              | The code indicating the general category of the claim's status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).                   |
+| status_effective_date             | The effective date associated with a claim's status                                                                                                                                                                                                                                                                                                |
+| secondary_status_category         | A verbose message about the general category of the claim's status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).            |
+| secondary_status_category_code    | The code indicating the general category of the claim's status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).                   |
+| secondary_status_code             | Indicates the status of the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).       |
+| tertiary_status_category          | A verbose message about the general category of the claim's status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).            |
+| tertiary_status_category_code     | The code indicating the general category of the claim's status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).                   |
+| tertiary_status_code              | Indicates the status of the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).       |
+| adjudication_finalized_date       | Date that the claim is paid or declined.                                                                                                                                                                                                                                                                                                           |
+| remittance_date                   | The date the check was issued or EFT funds became available.                                                                                                                                                                                                                                                                                       |
+| status_code                       | Indicates the status of the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).       |
+| total_claim_amount                | The total monetary amount of the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                         |
+| claim_payment_amount              | The amount that's been paid on the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                       |
+| check_number                      | The check or EFT trace number for a claim payment.                                                                                                                                                                                                                                                                                                 |
+
+<a name="claims-status-monetary-amount"></a>
+###Monetary amount object:
+
+| Field                                 | Description                                                                                                                                                                               |
+|:--------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| amount                                | The value amount for this item.                                                                                                                                                           |
+| currency                              | The currency used in the amount.                                                                                                                                                          |
