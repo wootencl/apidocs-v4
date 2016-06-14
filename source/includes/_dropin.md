@@ -74,7 +74,7 @@ Name              | Description
 ------------------|--------------------------------------------------------------------------------------
 container         | The id of the HTML container that the drop-in UI will be housed in.
 type              | The only type of drop-in UI currently supported is `eligibility`
-styles            | Custom CSS styles for the drop-in
+styles            | URL pointing to a css file to override styles with
 values            | An object of values that the form will pre-populate with
 autoSubmit        | False by default; boolean indicating that form should submit automatically once all fields are filled
 onFormSuccess     | Function that gets called when the form has been submitted successfully
