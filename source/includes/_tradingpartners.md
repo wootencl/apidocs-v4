@@ -21,6 +21,45 @@ pd.trading_partners
 pd.tradingPartners();
 ```
 
+>Example response (for a more complete response please use the test application):
+
+```json
+[
+  {
+    "enrollment_required": [],
+    "id": "aetna",
+    "is_enabled": true,
+    "name": "Aetna",
+    "supported_transactions": [
+      "276",
+      "270",
+      "278",
+      "837"
+    ]
+  },
+  {
+    "enrollment_required": [],
+    "id": "aetna_affordable_health_src",
+    "is_enabled": true,
+    "name": "Aetna Affordable Health Choices SM SRC",
+    "supported_transactions": [
+      "837"
+    ]
+  },
+  {
+    "enrollment_required": [],
+    "id": "aetna_better_health",
+    "is_enabled": true,
+    "name": "Aetna Better Health",
+    "supported_transactions": [
+      "276",
+      "837",
+      "270"
+    ]
+  }
+]
+```
+
 > Example fetching information for a specific trading partner:
 
 ```shell
@@ -41,6 +80,44 @@ pd.trading_partners('aetna')
 
 ```java
 pd.tradingPartners("aetna");
+```
+
+> Example response:
+
+```json
+{
+  "enrollment_required": [],
+  "id": "aetna",
+  "is_enabled": true,
+  "metrics": {
+    "real_time_response_average": 3003.6001872586876,
+    "real_time_response_percentiles": {
+      "50": 2003.67335,
+      "75": 2966.8265625,
+      "95": 8257.593599999927
+    }
+  },
+  "monitoring": {
+    "eligibility": {
+      "last_updated": "2016-06-02T11:42:30.546000",
+      "status": "available"
+    }
+  },
+  "name": "Aetna",
+  "supported_search_options": [
+    "no_id_search",
+    "no_first_name_search",
+    "no_birth_date_search",
+    "no_name_search",
+    "primary_search"
+  ],
+  "supported_transactions": [
+    "270",
+    "837",
+    "276",
+    "278"
+  ]
+}
 ```
 
 *Available modes of operation: real-time*
