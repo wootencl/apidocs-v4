@@ -130,11 +130,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-<<<<<<< HEAD
-client.providers(zipcode='29307', specialty='rheumatology', radius='20mi')
-=======
-pd.providers(zipcode='29307', specialty='rheumatology', radius='3mi')
->>>>>>> df8fc6212c607697dc2f22d05ef933dd49c3ef54
+client.providers(zipcode='29307', specialty='rheumatology', radius='3mi')
 ```
 
 ```csharp
@@ -147,11 +143,7 @@ pd.providers(zipcode='29307', specialty='rheumatology', radius='3mi')
 ```
 
 ```ruby
-<<<<<<< HEAD
-client.providers({zipcode: '29307', specialty: 'rheumatology', radius: '20mi'})
-=======
-pd.providers({zipcode: '29307', specialty: 'rheumatology', radius: '3mi'})
->>>>>>> df8fc6212c607697dc2f22d05ef933dd49c3ef54
+client.providers({zipcode: '29307', specialty: 'rheumatology', radius: '3mi'})
 ```
 
 ```java
