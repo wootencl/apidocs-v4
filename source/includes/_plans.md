@@ -126,15 +126,15 @@ Additional plans may be added later.
 
 The /plans/ endpoint accepts the following parameters:
 
-| Parameter          | Description                                           |
-|:-------------------|:------------------------------------------------------|
-| trading_partner_id | The trading partner id of the payer offering the plan |
-| county             | The county in which the plan is available             |
-| state              | The state in which the plan is available              |
-| plan_id            | The identifier for the plan                           |
-| plan_type          | The type of plan (e.g. EPO, PPO, HMO, POS)            |
-| plan_name          | The name of the plan                                  |
-| metallic_level     | The metal level of the plan                           |
+| Parameter          | Description                                           										 |
+|:-------------------|:----------------------------------------------------------------------------------------------|
+| trading_partner_id | The trading partner id of the payer offering the plan 										 |
+| county             | The county in which the plan is available             										 |
+| state              | The state in which the plan is available              										 |
+| plan_id            | The identifier for the plan                           										 |
+| plan_type          | The type of plan (e.g. EPO, PPO, HMO, POS)            										 |
+| plan_name          | The name of the plan                                  										 |
+| metallic_level     | The metal level of the plan. A list of possible values can be found [below](#metallic_level). |
 
 The /plans/ response contains the following fields:
 
@@ -151,6 +151,7 @@ The /plans/ response contains the following fields:
 | metallic_level               | {string} | The metal level for marketplace plans (e.g.: bronze, silver, gold, and platinum)      |
 | plan_id                      | {string} | The ID assigned to the plan by the issuer                                             |
 | plan_name                    | {string} | Full name of the insurance plan                                                       |
+| public_exchange              | {boolean}| Whether or not the plan is offered on a public exchange                               |
 | plan_type                    | {string} | The type of the plan (e.g.: PPO, HMO, EPO, etc.)                                      |
 | premiums                     | {array}  | A list of monthly premium information for the plan (when available)                   |
 | premiums.age                 | {int}    | The age of the insurance subscriber                                                   |
@@ -158,4 +159,14 @@ The /plans/ response contains the following fields:
 | premiums.children            | {int}    | Number of children covered on the plan                                                |
 | premiums.cost                | {float}  | The monthly premium cost for the plan                                                 |
 | state                        | {string} | The state where the plan is offered (e.g.: CA, SC, etc.)                              |
+| county                       | {string} | The county in which the plan is available   	  	                                  |
 | trading_partner_id           | {string} | The trading partner id for the issuer of the plan                                     |
+
+<a name="metallic_level"></a>
+Possible values that can be used in the metallic_level parameter:
+
+| metallic_level     |                 |
+|:-------------------|:----------------|
+| bronze   	         | silver          |
+| gold               | platinum        |
+| catastrophic       |                 |
