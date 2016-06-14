@@ -176,26 +176,23 @@ client.post('/schedule/patient/', data={
 })
 ```
 
+```ruby
+# Currently not supported in this language.
+```
+
 ```csharp
- client.appointments(
-            new Dictionary<string, string> {
-                {"pd_patient_uuid", "2773f6ff-00cb-460f-823f-5ff2208511e7"},
-                {"pd_provider_uuid", "b691b7f9-bfa8-486d-a689-214ae47ea6f8"},
-                {"location", new string[] { "32.788110", ""-79.932364"}}
-            });
+string endpoint = "/schedule/patient/";
+string method = "POST";
+Dictionary<string, object> data = new Dictionary<string, object> {
+  {"pd_patient_uuid", "2773f6ff-00cb-460f-823f-5ff2208511e7"},
+  {"pd_provider_uuid", "b691b7f9-bfa8-486d-a689-214ae47ea6f8"},
+  {"location", new string[] { "32.788110", "-79.932364"}}
+};
+client.request(endpoint, method, data);
 ```
 
 ```java
-StringBuffer buf = new StringBuffer();
-
-buf.append("{");
-buf.append("    \"pd_patient_uuid\": \"2773f6ff-00cb-460f-823f-5ff2208511e7\",");
-buf.append("    \"pd_provider_uuid\": \"b691b7f9-bfa8-486d-a689-214ae47ea6f8\",");
-buf.append("    \"location\": [32.788110, -79.932364]");
-buf.append("}");
-
-JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = client.appointments(query);
+// Currently not supported in this language.
 ```
 
 > Response:
@@ -291,6 +288,20 @@ curl -s -XDELETE -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.poki
 
 ```python
 client.delete('/schedule/slots/ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2')
+```
+
+```ruby
+# Currently not supported in this language.
+```
+
+```csharp
+string endpoint = "/schedule/slots/ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2";
+string method = "DELETE";
+client.request(endpoint, method);
+```
+
+```java
+// Currently not supported in this language.
 ```
 
 > Example scheduling request used to query for open slots and booked appointments:
@@ -554,6 +565,10 @@ curl -i -XDELETE -H "Authorization: Bearer $ACCESS_TOKEN"  "https://platform.pok
 ```
 
 ```python
+client.cancel_appointment('ef987691-0a19-447f-814d-f8f3abbf4859')
+```
+
+```ruby
 client.cancel_appointment('ef987691-0a19-447f-814d-f8f3abbf4859')
 ```
 
