@@ -6,7 +6,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.plans()
+client.plans()
 ```
 
 ```csharp
@@ -14,11 +14,11 @@ client.plans();
 ```
 
 ```ruby
-pd.plans
+client.plans
 ```
 
 ```java
-pd.plans();
+client.plans();
 ```
 
 > example fetching information for plans in Texas:
@@ -28,7 +28,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.plans(state='TX')
+client.plans(state='TX')
 ```
 
 ```csharp
@@ -40,14 +40,14 @@ client.plans(
 ```
 
 ```ruby
-pd.plans({state: 'TX'})
+client.plans({state: 'TX'})
 ```
 
 ```java
 HashMap<String, String> query = new HashMap<String, String>();
 query.put("state", "TX");
 
-pd.plans(query);
+client.plans(query);
 ```
 
 > example fetching information for PPO plans in South Carolina:
@@ -57,7 +57,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.plans(state='SC', plan_type='PPO')
+client.plans(state='SC', plan_type='PPO')
 ```
 
 ```csharp
@@ -70,7 +70,7 @@ client.plans(
 ```
 
 ```ruby
-pd.plans({state: 'SC', plan_type: 'PPO'})
+client.plans({state: 'SC', plan_type: 'PPO'})
 ```
 
 ```java
@@ -78,7 +78,7 @@ HashMap<String, String> query = new HashMap<String, String>();
 query.put("state", "TX");
 query.put("plan_type", "PPO");
 
-pd.plans(query);
+client.plans(query);
 ```
 
 > The plans endpoint will return an array of plan objects dependent on your query. The following is an incomplete example of response json for one plan object. If you would like a more complete example of the plans endpoint entire response json it is recommended you use the test application.

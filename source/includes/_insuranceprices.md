@@ -7,7 +7,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.insurance_prices(zip_code='94401', cpt_code='90658')
+client.insurance_prices(zip_code='94401', cpt_code='90658')
 ```
 
 ```csharp
@@ -19,7 +19,7 @@ client.pricesInsurance(
 ```
 
 ```ruby
-pd.insurance_prices({zip_code: '94401', cpt_code: '90658'})
+client.insurance_prices({zip_code: '94401', cpt_code: '90658'})
 ```
 
 ```java
@@ -27,7 +27,7 @@ HashMap<String, String>() query = new HashMap<String, String>();
 query.put("zip_code", "94401");
 query.put("cpt_code", "90658");
 
-pd.insurancePrices(query);
+client.insurancePrices(query);
 ```
 
 >Example Response:

@@ -6,17 +6,14 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-#retrieve an index of activities
 client.activities()
 ```
 
 ```ruby
-#retrieve an index of activities
 client.activities
 ```
 
 ```csharp
-// retrieve an index of activities
 client.activities();
 ```
 
@@ -58,17 +55,14 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-#check on a specific activity
 client.activities(activity_id='5362b5a064da150ef6f2526c')
 ```
 
 ```ruby
-#check on a specific activity
 client.activities({activity_id: '5362b5a064da150ef6f2526c'})
 ```
 
 ```csharp
-// check on a specific activity
 client.activities("5362b5a064da150ef6f2526c");
 ```
 
@@ -76,7 +70,6 @@ client.activities("5362b5a064da150ef6f2526c");
 HashMap<String, String> params = new HashMap<String, String>();
 params.add("activity_id", "5362b5a064da150ef6f2526c");
 client.activities(params);
-
 ```
 
 > Example response:

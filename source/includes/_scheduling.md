@@ -8,7 +8,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.schedulers()
+client.schedulers()
 ```
 
 ```csharp
@@ -16,11 +16,11 @@ client.schedulers();
 ```
 
 ```ruby
-pd.schedulers
+client.schedulers
 ```
 
 ```java
-pd.schedulers();
+client.schedulers();
 ```
 
 > Response:
@@ -52,7 +52,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.schedulers(scheduler_uuid='967d207f-b024-41cc-8cac-89575a1f6fef')
+client.schedulers(scheduler_uuid='967d207f-b024-41cc-8cac-89575a1f6fef')
 ```
 
 ```csharp
@@ -60,11 +60,11 @@ client.schedulers("967d207f-b024-41cc-8cac-89575a1f6fef");
 ```
 
 ```ruby
-pd.schedulers({scheduler_uuid: '967d207f-b024-41cc-8cac-89575a1f6fef'})
+client.schedulers({scheduler_uuid: '967d207f-b024-41cc-8cac-89575a1f6fef'})
 ```
 
 ```java
-pd.schedulers("967d207f-b024-41cc-8cac-89575a1f6fef");
+client.schedulers("967d207f-b024-41cc-8cac-89575a1f6fef");
 ```
 
 > Response:
@@ -86,7 +86,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.appointment_types()
+client.appointment_types()
 ```
 
 ```csharp
@@ -94,11 +94,11 @@ client.appointmentTypes();
 ```
 
 ```ruby
-pd.appointment_types
+client.appointment_types
 ```
 
 ```java
-pd.appointmentTypes();
+client.appointmentTypes();
 ```
 
 > Response:
@@ -129,7 +129,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.appointment_types(appointment_type_uuid='ef987693-0a19-447f-814d-f8f3abbf4860')
+client.appointment_types(appointment_type_uuid='ef987693-0a19-447f-814d-f8f3abbf4860')
 ```
 
 ```csharp
@@ -137,11 +137,11 @@ client.appointmentTypes("a3a45130-4adb-4d2c-9411-85a9d9ac4aa2");
 ```
 
 ```ruby
-pd.appointment_types({appointment_type_uuid: 'ef987693-0a19-447f-814d-f8f3abbf4860'})
+client.appointment_types({appointment_type_uuid: 'ef987693-0a19-447f-814d-f8f3abbf4860'})
 ```
 
 ```java
-pd.appointmentTypes("ef987693-0a19-447f-814d-f8f3abbf4860");
+client.appointmentTypes('ef987693-0a19-447f-814d-f8f3abbf4860');
 ```
 
 > Response:
@@ -169,7 +169,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.post('/schedule/patient/', data={
+client.post('/schedule/patient/', data={
     "pd_patient_uuid": "2773f6ff-00cb-460f-823f-5ff2208511e7",
     "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
     "location": [32.788110, -79.932364]
@@ -221,7 +221,7 @@ curl -s -XPOST -H "Authorization: Bearer $ACCESS_TOKEN" - H "Content-Type: appli
 ```
 
 ```python
-pd.schedule_slots({
+client.schedule_slots({
     "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
     "location": [32.788110, -79.932364],
     "appointment_type": "AT1",
@@ -242,7 +242,7 @@ client.createSlot(
 ```
 
 ```ruby
-pd.schedule_slots({
+client.schedule_slots({
     "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
     "location": [32.788110, -79.932364],
     "appointment_type": "AT1",
@@ -263,7 +263,7 @@ buf.append("    \"end_date\": \"2014-12-16T16:09:34.197717\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.scheduleSlots(query);
+Map<String, Object> results = client.scheduleSlots(query);
 ```
 
 > Response:
@@ -287,7 +287,7 @@ curl -s -XDELETE -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.poki
 ```
 
 ```python
-pd.delete('/schedule/slots/ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2')
+client.delete('/schedule/slots/ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2')
 ```
 
 ```ruby
@@ -311,7 +311,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.appointments(appointment_type='SS1', start_date='2015-01-14T08:00:00',
+client.appointments(appointment_type='SS1', start_date='2015-01-14T08:00:00',
     end_date='2015-01-16T17:00:00', patient_uuid='8ae236ff-9ccc-44b0-8717-42653cd719d0')
 ```
 
@@ -326,7 +326,7 @@ client.appointments(
 ```
 
 ```ruby
-pd.appointments({appointment_type: 'SS1', start_date: '2015-01-14T08:00:00',
+client.appointments({appointment_type: 'SS1', start_date: '2015-01-14T08:00:00',
     end_date: '2015-01-16T17:00:00', patient_uuid: '8ae236ff-9ccc-44b0-8717-42653cd719d0'})
 ```
 
@@ -372,7 +372,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.appointments(appointment_uuid='ef987691-0a19-447f-814d-f8f3abbf4859')
+client.appointments(appointment_uuid='ef987691-0a19-447f-814d-f8f3abbf4859')
 ```
 
 ```csharp
@@ -380,7 +380,7 @@ client.appointments("bf8440b1-fd20-4994-bb28-e3981833e796");
 ```
 
 ```ruby
-pd.appointments({appointment_uuid: 'ef987691-0a19-447f-814d-f8f3abbf4859'})
+client.appointments({appointment_uuid: 'ef987691-0a19-447f-814d-f8f3abbf4859'})
 ```
 
 ```java
@@ -392,7 +392,7 @@ client.appointments("bf8440b1-fd20-4994-bb28-e3981833e796");
 ```json
 [
     {
-      "pd_appointment_uuid": "ef987691-0a19-447f-814d-f8f3abbf4859",
+      "client_appointment_uuid": "ef987691-0a19-447f-814d-f8f3abbf4859",
       "appointment_id": "UYQDUHSMIRCA",
       "appointment_type": "OV1",
       "patient": {
@@ -429,7 +429,7 @@ curl -s -XPUT -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: applica
 ```
 
 ```python
-pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
+client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
     "patient": {
         "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
         "email": "john@hondoe.com",
@@ -459,7 +459,7 @@ pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
 ```
 
 ```ruby
-pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
+client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
     "patient": {
         "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
         "email": "john@hondoe.com",
@@ -489,7 +489,7 @@ buf.append("\"description\": \"Welcome to M0d3rN Healthcare\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.bookAppointment("ef987691-0a19-447f-814d-f8f3abbf4859", query);
+Map<String, Object> results = client.bookAppointment("ef987691-0a19-447f-814d-f8f3abbf4859", query);
 ```
 
 > Response:
@@ -522,11 +522,11 @@ curl -s -XPUT -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: applica
 ```
 
 ```python
-pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {"description": "Welcome to M0d3rN Healthcare"})
+client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {"description": "Welcome to M0d3rN Healthcare"})
 ```
 
 ```ruby
-pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', { "description": "Welcome to M0d3rN Healthcare" })
+client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', { "description": "Welcome to M0d3rN Healthcare" })
 ```
 
 ```csharp
@@ -541,7 +541,7 @@ pd.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', { "description": "We
 HashMap<String, String> query = new HashMap<String, String>();
 query.put("description", "Welcome to M0d3rN Healthcare");
 
-pd.book_appointment("ef987691-0a19-447f-814d-f8f3abbf4859", query);
+client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', query);
 ```
 
 > Response:
@@ -565,7 +565,7 @@ curl -i -XDELETE -H "Authorization: Bearer $ACCESS_TOKEN"  "https://platform.pok
 ```
 
 ```python
-pd.cancel_appointment('ef987691-0a19-447f-814d-f8f3abbf4859')
+client.cancel_appointment('ef987691-0a19-447f-814d-f8f3abbf4859')
 ```
 
 ```ruby

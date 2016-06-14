@@ -6,7 +6,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.mpc(code='99213')
+client.mpc(code='99213')
 ```
 
 ```csharp
@@ -14,14 +14,14 @@ client.medicalProcedureCode("99211");
 ```
 
 ```ruby
-pd.mpc({code: '99213'})
+client.mpc({code: '99213'})
 ```
 
 ```java
 HashMap<String, String>() query = new HashMap<String, String>();
 query.put("code", "office");
 
-pd.mpc(query);
+client.mpc(query);
 ```
 
 >Example Response:
@@ -41,7 +41,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.mpc(name='office')
+client.mpc(name='office')
 ```
 
 ```csharp
@@ -52,14 +52,14 @@ client.medicalProcedureCode(
 ```
 
 ```ruby
-pd.mpc({name: 'office'})
+client.mpc({name: 'office'})
 ```
 
 ```java
 HashMap<String, String>() query = new HashMap<String, String>();
 query.put("name", "office");
 
-pd.mpc(query);
+client.mpc(query);
 ```
 
 > Example Response:
