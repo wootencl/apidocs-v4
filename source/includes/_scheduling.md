@@ -609,11 +609,11 @@ The /schedule/appointmenttypes/ response includes the following fields:
 
 The /schedule/patient/ endpoint accepts the following parameters:
 
-| Parameter        | Type           | Description                                             |
-|:-----------------|:---------------|:--------------------------------------------------------|
-| pd_patient_uuid  | {uuid}         | The PokitDok unique identifier for the user record.     |
-| pd_provider_uuid | {uuid}         | The PokitDok unique identifier for the provider record. |
-| location         | {geo-location} | The geo-location of the provider's physical address.    |
+| Parameter        | Type           | Description                                                                           |
+|:-----------------|:---------------|:--------------------------------------------------------------------------------------|
+| pd_patient_uuid  | {uuid}         | The PokitDok unique identifier for the user record.                                   |
+| pd_provider_uuid | {uuid}         | The PokitDok unique identifier for the provider record.                               |
+| location         | {geo-location} | The geo-location of the provider's physical address, formatted [latitude, longitude]. |
 
 The /schedule/patient/ endpoint response returns a patient [object](#scheduling_patient_object).
 
@@ -624,13 +624,13 @@ The /schedule/patient/ endpoint response returns a patient [object](#scheduling_
 
 The /schedule/slots/ POST endpoint accepts the following parameters:
 
-| Parameter        | Type           | Description                                                                        |
-|:-----------------|:---------------|:-----------------------------------------------------------------------------------|
-| pd_provider_uuid | {uuid}         | The PokitDok unique identifier for the provider record.                            |
-| location         | {geo-location} | The geo-location of the provider's physical address.                               |
-| appointment_type | {string}       | The "appointment_type" used to identify a specific appointment procedure/category. |
-| start_date       | {datetime}     | The beginning date and UTC time of the appointment query, formatted as ISO8601.    |
-| end_date         | {datetime}     | The ending date and UTC time of the appointment query, formatted as ISO8601.       |
+| Parameter        | Type           | Description                                                                           |
+|:-----------------|:---------------|:--------------------------------------------------------------------------------------|
+| pd_provider_uuid | {uuid}         | The PokitDok unique identifier for the provider record.                               |
+| location         | {geo-location} | The geo-location of the provider's physical address, formatted [latitude, longitude]. |
+| appointment_type | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.    |
+| start_date       | {datetime}     | The beginning date and UTC time of the appointment query, formatted as ISO8601.       |
+| end_date         | {datetime}     | The ending date and UTC time of the appointment query, formatted as ISO8601.          |
 
 | Endpoint                                      | HTTP Method | Description                                                                                                                                       | Scope          |
 |:----------------------------------------------|:------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
@@ -658,14 +658,14 @@ The /schedule/appointments/{pd_appointment_uuid} endpoint for booking an appoint
 | pd_appointment_uuid     | {uuid}         | The PokitDok unique identifier for the appointment.                                            |
 | booked                  | {boolean}      | Whether or not the appointment has been booked.                                                |
 | patient                 | {object}       | Patient associated with the appointment. Uses the patient [object](#scheduling_patient_object).| 
-| description             | {boolean}      | Brief description of the appointment.                                                          |
+| description             | {string}       | Brief description of the appointment.                                                          |
 
 The /schedule/appointments/{pd_appointment_uuid} endpoint for updating an appointment description accepts the following parameters:
 
 | Field                   | Type           | Description                                                                                    |
 |:------------------------|:---------------|:-----------------------------------------------------------------------------------------------|
 | pd_appointment_uuid     | {uuid}         | The PokitDok unique identifier for the appointment.                                            |
-| description             | {boolean}      | Brief description of the appointment.                                                          |
+| description             | {string}       | Brief description of the appointment.                                                          |
 
 Both the /schedule/slots/ (POST) and /schedule/appointments (GET/PUT) endpoints' response includes the following fields:
 
@@ -679,7 +679,7 @@ Both the /schedule/slots/ (POST) and /schedule/appointments (GET/PUT) endpoints'
 | end_date                | {datetime}     | The ending date and UTC time of the appointment query, formatted as ISO8601.                   |
 | booked                  | {boolean}      | Whether or not the appointment has been booked.                                                |
 | patient                 | {object}       | Patient associated with the appointment. Uses the patient [object](#scheduling_patient_object).| 
-| description             | {boolean}      | Brief description of the appointment.                                                          |
+| description             | {string}       | Brief description of the appointment.                                                          |
 
 
 <a name="scheduling_patient_object"></a>
