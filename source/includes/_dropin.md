@@ -52,6 +52,11 @@ The drop-in UI form will auto-populate in the HTML container that you specified,
 pokitdok.dropin('INSERT YOUR DROP-IN TOKEN HERE', {
     container: 'dropin-ui',
     type: 'eligibility',
+    styles: 'styles.css',
+    values: {
+        'trading_partner_id': 'MOCKPAYER'
+    },
+    autoSubmit: true,
     onFormSuccess: function() {
         // do stuff here
     },
@@ -69,5 +74,8 @@ Name              | Description
 ------------------|--------------------------------------------------------------------------------------
 container         | The id of the HTML container that the drop-in UI will be housed in.
 type              | The only type of drop-in UI currently supported is `eligibility`
+styles            | Custom CSS styles for the drop-in
+values            | An object of values that the form will pre-populate with
+autoSubmit        | False by default; boolean indicating that form should submit automatically once all fields are filled
 onFormSuccess     | Function that gets called when the form has been submitted successfully
 onFormLoad        | Function that gets called when the form has been loaded successfully
