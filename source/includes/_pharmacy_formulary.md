@@ -7,15 +7,15 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522034', drug='simvastatin')
+client.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522034', drug='simvastatin')
 ```
 
 ```ruby
-pd.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S0522034', drug: 'simvastatin')
+client.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S0522034', drug: 'simvastatin')
 ```
 
 ```csharp
-pd.pharmacyFormulary(
+client.pharmacyFormulary(
                       new Dictionary<string, string> {
                         {"trading_partner_id", "medicare_national"},
                         {"plan_number", "S0522034"},
@@ -28,7 +28,7 @@ Map<String, Object> params = new HashMap<String, Object>();
 params.put("trading_partner_id", "medicare_national");
 params.put("plan_number", "S0522034");
 params.put("drug", "simvastatin");
-Map<String, Object> response = pd.pharmacyFormulary(params);
+Map<String, Object> response = client.pharmacyFormulary(params);
 ```
 
 > Example request to determine drug coverage using NDC:
@@ -38,15 +38,15 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522034', ndc='00071101968')
+client.pharmacy_formulary(trading_partner_id='medicare_national', plan_number='S0522034', ndc='00071101968')
 ```
 
 ```ruby
-pd.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S0522034', ndc: '00071101968')
+client.pharmacy_formulary(trading_partner_id: 'medicare_national', plan_number: 'S0522034', ndc: '00071101968')
 ```
 
 ```csharp
-pd.pharmacyFormulary(
+client.pharmacyFormulary(
                       new Dictionary<string, string> {
                         {"trading_partner_id", "medicare_national"},
                         {"plan_number", "S0522034"},
@@ -59,7 +59,7 @@ Map<String, Object> params = new HashMap<String, Object>();
 params.put("trading_partner_id", "medicare_national");
 params.put("plan_number", "S0522034");
 params.put("ndc", "00071101968");
-Map<String, Object> response = pd.pharmacyFormulary(params);
+Map<String, Object> response = client.pharmacyFormulary(params);
 ```
 
 > Sample Pharmacy Formulary API response when searching for a drug name (SIMVASTATIN) : 
