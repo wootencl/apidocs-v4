@@ -3493,7 +3493,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 ###Coordination of Benefits object:
 | Field                                 | Description                                                                                                       |
 |:--------------------------------------|:------------------------------------------------------------------------------------------------------------------|
-| subscriber                            | Required: The subscriber listed on the additional payer. May be the same as the original payer. Has additional required fields. Uses the subscriber [object](#claims-other-subscriber-object). |
+| subscriber                            | Required: The subscriber listed on the additional payer. May be the same as the original payer. Has additional required fields. Uses the other subscriber model [object](#claims-other-subscriber-object). |
 | other_payer                           | Required: Some primary payers require identifying information about payers involved in the COB. Uses Other Payer model [object](#claims-other-payer-object). |
 | claim_level_adjustments               | Situational Requirement: Only when submitting to secondary payer. Information related to adjustements made on the claim level. Uses Claim Level Adjustments model [object](#claims-claim-level-adjustments-object). |
 | line_level_adjustments                | Situational Requirement: Only when submitting to secondary payer. Information related to adjustements made on the line level. Uses Line Level Adjustments model [object](#claims-line-level-adjustments-object). |
@@ -3520,13 +3520,13 @@ The /claims/ response contains an activity and thus returns the same object as t
 | payer_responsibility               | Required: Determines the position of the payer with regards to coordination of benefits. Defaults to primary. List of possibilities can be seen [below](#payer-responsibility).                                                                                                                                                                                    |                                                    |
 | relationship                       | Required: The patient’s relationship to the subscriber. A full list of possible values is included [below](#relationships).                                                                                                                                                           | 6: Patient's relationship to the insured           |
 | authorize_payment_to_billing_provider | Values: [no, default: yes] |
-| patient_signature_source           | Values [other, default: patient] |
-| release_of_information_code        | Values [signed_statement, default: informed_consent] |
+| patient_signature_source           | Values: [other, default: patient] |
+| release_of_information_code        | Values: [signed_statement, default: informed_consent] |
 
 
 <a name="claims-other-payer-object"></a>
 ###Other Payer object
-| Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
+| Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | organization_name                  | Required: Name of the organization. |
 | id                                 | Required: Payer ID number. |
@@ -3535,7 +3535,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 
 <a name="claims-claim-level-adjustments-object"></a>
 ###Claim Level Adjustments object
-| Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
+| Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | claim_adjustment_group_code        | Required for Secondary: Code which defines the reason for the adjustments. [object](#claim-adjustment-group-codes) |
 | adjustment_amount                  | Required for Secondary: Adjustment amount as specified for the secondary payer. |
@@ -3546,7 +3546,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 
 <a name="claims-claim-level-adjustment-items"></a>
 ###Claim Level Adjustment Items object
-| Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
+| Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | claim_adjustment_reason_code       | Required for Secondary: Reason code as provided in the 835 response from the primary payer. |
 | adjustment_amount                  | Required for Secondary: Adjustment amount as specified for the secondary payer. |
@@ -3554,14 +3554,14 @@ The /claims/ response contains an activity and thus returns the same object as t
 
 <a name="claims-line-level-adjustments-object"></a>
 ###Line Level Adjustments object
-| Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
+| Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | adjustments                        | Required for Secondary: List of line level adjustments with reason, amount, and quantity. [object](#claims-line-level-adjustment-items) |
 
 
 <a name="claims-line-level-adjustment-items"></a>
 ###Line Level Adjustment Items object
-| Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
+| Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | adjustment_amount                  | Required for Secondary: Adjustment amount as specified for the secondary payer. |
 | adjustment_quantity                | Required for Secondary: Adjustment quantity as specified for the secondary payer. |
@@ -3573,7 +3573,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 
 <a name="claims-line-level-adjustment-information-items"></a>
 ###Line Level Adjustment Information Items object
-| Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
+| Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | claim_adjustment_group_code        | Group code describing the type of adjustment [object](#claim-adjustment-group-codes) |
 | claim_adjustment_reason_code       | Required for Secondary: Reason code as provided in the 835 response from the primary payer. |
@@ -3582,9 +3582,10 @@ The /claims/ response contains an activity and thus returns the same object as t
 
 
 <a name="claim-adjustment-group-codes"></a>
-###Claim Adjustment Group Codes
-| Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
-|:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
+Full list of possible values that can be used in the claim_adjusment_group_code fields:
+
+| claim_adjustment_group_code Values                       |
+|:---------------------------------- |
 | 'contractual_obligations' |
 | 'other_adjustments' |
 | 'payor_initiated_reductions' |
@@ -3594,6 +3595,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 
 <a name="claim-frequency"></a>
 Full list of possible values that can be used in the claim.claim_frequency parameter on the claim:
+
 | claim_frequency Values             |                           |
 |:-----------------------------------|:--------------------------|
 | nonpayment                         | original                  |
