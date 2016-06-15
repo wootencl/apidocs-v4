@@ -28,7 +28,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "benefit_status": "Active",
         "benefits": [
             {
-                "begin_date": " 2015-01-01",
+                "begin_date": "2015-01-01",
                 "benefit_type": "Health",
                 "coordination_of_benefits": [
                     {
@@ -107,7 +107,7 @@ pd.enrollment({
         "benefit_status": "Active",
         "benefits": [
             {
-                "begin_date": " 2015-01-01",
+                "begin_date": "2015-01-01",
                 "benefit_type": "Health",
                 "coordination_of_benefits": [
                     {
@@ -268,7 +268,7 @@ pd.enrollment({
         "benefit_status": "Active",
         "benefits": [
             {
-                "begin_date": " 2015-01-01",
+                "begin_date": "2015-01-01",
                 "benefit_type": "Health",
                 "coordination_of_benefits": [
                     {
@@ -349,7 +349,7 @@ buf.append("        },");
 buf.append("        \"benefit_status\": \"Active\",");
 buf.append("        \"benefits\": [");
 buf.append("            {");
-buf.append("                \"begin_date\": \" 2015-01-01\",");
+buf.append("                \"begin_date\": \"2015-01-01\",");
 buf.append("                \"benefit_type\": \"Health\",");
 buf.append("                \"coordination_of_benefits\": [");
 buf.append("                    {");
@@ -435,7 +435,7 @@ Map<String, Object> results = pd.enrollment(query);
             "middle_name": "E",
             "relationship": "Child",
             "school": {
-                "name": "PENN STATE UNIVERSITY"
+                "organization_name": "PENN STATE UNIVERSITY"
             },
             "ssn": "987654321",
             "student_status": "Full-time",
@@ -489,7 +489,7 @@ pd.enrollment({
             "middle_name": "E",
             "relationship": "Child",
             "school": {
-                "name": "PENN STATE UNIVERSITY"
+                "organization_name": "PENN STATE UNIVERSITY"
             },
             "ssn": "987654321",
             "student_status": "Full-time",
@@ -541,7 +541,7 @@ client.enrollment(
                     {"middle_name", "E"},
                     {"relationship", "Child"},
                     {"school", new Dictionary<string, string> {
-                            {"name", "PENN STATE UNIVERSITY"}
+                            {"organization_name", "PENN STATE UNIVERSITY"}
                         }},
                     {"ssn", "987654321"},
                     {"student_status", "Full-time"},
@@ -594,7 +594,7 @@ pd.enrollment({
             "middle_name": "E",
             "relationship": "Child",
             "school": {
-                "name": "PENN STATE UNIVERSITY"
+                "organization_name": "PENN STATE UNIVERSITY"
             },
             "ssn": "987654321",
             "student_status": "Full-time",
@@ -650,7 +650,7 @@ buf.append("            \"maintenance_type\": \"Addition\",");
 buf.append("            \"middle_name\": \"E\",");
 buf.append("            \"relationship\": \"Child\",");
 buf.append("            \"school\": {");
-buf.append("                \"name\": \"PENN STATE UNIVERSITY\"");
+buf.append("                \"organization_name\": \"PENN STATE UNIVERSITY\"");
 buf.append("            },");
 buf.append("            \"ssn\": \"987654321\",");
 buf.append("            \"student_status\": \"Full-time\",");

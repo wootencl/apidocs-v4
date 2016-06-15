@@ -392,7 +392,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
             "zipcode": "29301"
         },
         "birth_date": "1971-01-01",
-        "gender": "male"
+        "gender": "male",
+        "relationship" : "child"
     },
     "subscriber": {
         "first_name": "Jane",
@@ -455,7 +456,8 @@ pd.claims({
             "zipcode": "29301"
         },
         "birth_date": "1971-01-01",
-        "gender": "male"
+        "gender": "male",
+        "relationship": "child"
     },
     "subscriber": {
         "first_name": "Jane",
@@ -518,7 +520,8 @@ pd.claims({
             "zipcode": "29301"
         },
         "birth_date": "1971-01-01",
-        "gender": "male"
+        "gender": "male",
+        "relationship": "child"
     },
     "subscriber": {
         "first_name": "Jane",
@@ -580,7 +583,8 @@ client.claims(
                 {"zipcode", "29301"}
             }},
             {"birth_date", "1971-01-01"},
-            {"gender", "male"}
+            {"gender", "male"},
+            {"relationship" , "child"}
         }},
         {"subscriber", new Dictionary<string, object> {
             {"first_name", "Jane"},
@@ -639,7 +643,8 @@ buf.append("            \"state\": \"SC\",");
 buf.append("            \"zipcode\": \"29301\"");
 buf.append("        },");
 buf.append("        \"birth_date\": \"1971-01-01\",");
-buf.append("        \"gender\": \"male\"");
+buf.append("        \"gender\": \"male\",");
+buf.append("        \"relationship\": \"child\"");
 buf.append("    },");
 buf.append("    \"subscriber\": {");
 buf.append("        \"first_name\": \"Jane\",");
@@ -1719,7 +1724,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
       "state": "CA",
       "zipcode": "941001001"
     },
-    "npi": "1912301953",
+    "npi": "1467560003",
     "organization_name": "TEST FACILITY,LLC",
     "taxonomy_code": "251G00000X",
     "tax_id": "123456789"
@@ -1804,7 +1809,7 @@ pd.claims({
       "state": "CA",
       "zipcode": "941001001"
     },
-    "npi": "1912301953",
+    "npi": "1467560003",
     "organization_name": "TEST FACILITY,LLC",
     "taxonomy_code": "251G00000X",
     "tax_id": "123456789"
@@ -1889,7 +1894,7 @@ pd.claims({
       "state": "CA",
       "zipcode": "941001001"
     },
-    "npi": "1912301953",
+    "npi": "1467560003",
     "organization_name": "TEST FACILITY,LLC",
     "taxonomy_code": "251G00000X",
     "tax_id": "123456789"
@@ -1973,7 +1978,7 @@ client.claims(
                 {"state", "CA"},
                 {"zipcode", "941001001"}
             }},
-            {"npi", "1912301953"},
+            {"npi", "1467560003"},
             {"organization_name", "TEST FACILITY,LLC"},
             {"taxonomy_code", "251G00000X"},
             {"tax_id", "123456789"}
@@ -2050,7 +2055,7 @@ buf.append("      \"city\": \"New Town\",");
 buf.append("      \"state\": \"CA\",");
 buf.append("      \"zipcode\": \"941001001\"");
 buf.append("    },");
-buf.append("    \"npi\": \"1912301953\",");
+buf.append("    \"npi\": \"1467560003\",");
 buf.append("    \"organization_name\": \"TEST FACILITY,LLC\",");
 buf.append("    \"taxonomy_code\": \"251G00000X\",");
 buf.append("    \"tax_id\": \"123456789\"");
@@ -2433,7 +2438,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
     "claim": {
         "total_charge_amount": 60.0,
         "rendering_provider": {
-              "npi": "2228880001",
+              "npi": "1467560003",
               "first_name": "JANE",
               "last_name": "DOE",
               "taxonomy_code": "207N00000X"
@@ -2489,7 +2494,7 @@ pd.claims({
     "claim": {
         "total_charge_amount": 60.0,
         "rendering_provider": {
-              "npi": "2228880001",
+              "npi": "1467560003",
               "first_name": "JANE",
               "last_name": "DOE",
               "taxonomy_code": "207N00000X"
@@ -2545,7 +2550,7 @@ pd.claims({
     "claim": {
         "total_charge_amount": 60.0,
         "rendering_provider": {
-              "npi": "2228880001",
+              "npi": "1467560003",
               "first_name": "JANE",
               "last_name": "DOE",
               "taxonomy_code": "207N00000X"
@@ -2600,7 +2605,7 @@ client.claims(
         {"claim", new Dictionary<string, object> {
             {"total_charge_amount", 60.0},
             {"rendering_provider", new Dictionary<string, string> {
-                {"npi", "2228880001"},
+                {"npi", "1467560003"},
                 {"first_name", "JANE"},
                 {"last_name", "DOE"},
                 {"taxonomy_code", "207N00000X"}
@@ -2652,7 +2657,7 @@ buf.append("    },");
 buf.append("    \"claim\": {");
 buf.append("        \"total_charge_amount\": 60.0,");
 buf.append("        \"rendering_provider\": {");
-buf.append("              \"npi\": \"2228880001\",");
+buf.append("              \"npi\": \"1467560003\",");
 buf.append("              \"first_name\": \"JANE\",");
 buf.append("              \"last_name\": \"DOE\",");
 buf.append("              \"taxonomy_code\": \"207N00000X\"");
