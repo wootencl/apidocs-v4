@@ -51,7 +51,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -100,7 +100,7 @@ pd.claims({
 ```
 
 ```ruby
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -242,7 +242,7 @@ buf.append("    }");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 > Example response:
@@ -426,7 +426,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -489,7 +489,7 @@ pd.claims({
 ```
 
 ```ruby
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -672,7 +672,7 @@ buf.append("    }");
 buf.append("");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 > Sample Claims request that includes custom application data for easy handling
@@ -733,7 +733,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
     "application_data": {
         "patient_id": "ABC1234XYZ",
         "location_id": 123,
@@ -787,7 +787,7 @@ pd.claims({
 ```
 
 ```ruby
-pd.claims({
+client.claims({
     "application_data": {
         "patient_id": "ABC1234XYZ",
         "location_id": 123,
@@ -943,7 +943,7 @@ buf.append("        ]");
 buf.append("    }");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 > Sample Claims Request using the patient paid amount to report a cash payment
@@ -1001,7 +1001,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -1052,7 +1052,7 @@ pd.claims({
 ```
 
 ```ruby
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -1200,7 +1200,7 @@ buf.append("    }");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 > Sample Claims request when using procedure modifier codes. This example uses
@@ -1258,7 +1258,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -1308,7 +1308,7 @@ pd.claims({
 ```
 
 ```ruby
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -1358,7 +1358,7 @@ pd.claims({
 ```
 
 ```csharp
-pd.claims(
+client.claims(
     new Dictionary<string, object> {
         {"transaction_code", "chargeable"},
         {"trading_partner_id", "MOCKPAYER"},
@@ -1452,7 +1452,7 @@ buf.append("        ]");
 buf.append("    }");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 > Sample Claims request submitting a claim with an application's callback_url specified:
@@ -1508,7 +1508,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
     "callback_url": "https://yourapp.com/claims/status",
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
@@ -1558,7 +1558,7 @@ pd.claims({
 ```
 
 ```ruby
-pd.claims({
+client.claims({
     "callback_url": "https://yourapp.com/claims/status",
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
@@ -1703,7 +1703,7 @@ buf.append("    }");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 > Sample Institutional claim for continuing/hospice care:
@@ -1794,7 +1794,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
   "billing_provider": {
     "address": {
       "address_lines": [
@@ -1879,7 +1879,7 @@ pd.claims({
 ```
 
 ```ruby
-pd.claims({
+client.claims({
   "billing_provider": {
     "address": {
       "address_lines": [
@@ -2124,7 +2124,7 @@ buf.append("  \"transaction_code\": \"chargeable\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 > Claims request registering a callback_url and requesting a mock claim payment callback.
@@ -2186,7 +2186,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
     "callback_url": "https://your-application.com/callback/1234",
     "application_data": {
         "mock_claim_payment": True
@@ -2239,7 +2239,7 @@ pd.claims({
 ```
 
 ```ruby
-pd.claims({
+client.claims({
     "callback_url": "https://your-application.com/callback/1234",
     "application_data": {
         "mock_claim_payment": true
@@ -2393,7 +2393,7 @@ buf.append("    }");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 > Claims request containing information for rendering provider.
@@ -2455,7 +2455,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -2511,7 +2511,7 @@ pd.claims({
 ```
 
 ```ruby
-pd.claims({
+client.claims({
     "transaction_code": "chargeable",
     "trading_partner_id": "MOCKPAYER",
     "billing_provider": {
@@ -2673,7 +2673,7 @@ buf.append("    }");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 > Sample Claims request for sending service date range, using service date and service end date:
@@ -2930,7 +2930,7 @@ buf.append("    }");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.claims(query);
+Map<String, Object> results = client.claims(query);
 ```
 
 *Available modes of operation: batch/async*

@@ -19,7 +19,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.eligibility({
+client.eligibility({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -55,7 +55,7 @@ pd.eligibility({
 ```
 
 ```ruby
-pd.eligibility({
+client.eligibility({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -90,7 +90,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.eligibility(query);
+Map<String, Object> results = client.eligibility(query);
 ```
 
 > Example eligibility request to determine general health benefit coverage when a member has a specific group number value assigned:
@@ -114,7 +114,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.eligibility({
+client.eligibility({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -171,7 +171,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.eligibility(query);
+Map<String, Object> results = client.eligibility(query);
 ```
 
 > Example eligibility request when operating on behalf of a member and a specific provider is not yet known:
@@ -189,7 +189,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.eligibility({
+client.eligibility({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -228,7 +228,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.eligibility(query);
+Map<String, Object> results = client.eligibility(query);
 ```
 
 > Some trading partners support eligibility requests using specific service type codes. Here's an example using a service type code to request eligibility information:
@@ -252,7 +252,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.eligibility({
+client.eligibility({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -290,7 +290,7 @@ client.eligibility(
 ```
 
 ```ruby
-pd.eligibility({
+client.eligibility({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -327,7 +327,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.eligibility(query);
+Map<String, Object> results = client.eligibility(query);
 ```
 
 > Some trading partners support eligibility requests using a CPT code. Here's an example using a CPT code to request eligibility information:
@@ -351,7 +351,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.eligibility({
+client.eligibility({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -389,7 +389,7 @@ client.eligibility(
 ```
 
 ```ruby
-pd.eligibility({
+client.eligibility({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -426,7 +426,7 @@ buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.eligibility(query);
+Map<String, Object> results = client.eligibility(query);
 ```
 
 > Example eligibility request using custom application data for easy handling of asynchronous responses:
@@ -454,7 +454,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.eligibility({
+client.eligibility({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -499,7 +499,7 @@ client.eligibility(
 ```
 
 ```ruby
-pd.eligiblity({
+client.eligiblity({
     "member": {
         "birth_date": "1970-01-25",
         "first_name": "Jane",
@@ -544,7 +544,7 @@ buf.append("    }");
 buf.append("");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.eligibility(query);
+Map<String, Object> results = client.eligibility(query);
 ```
 
 > Example eligibility response when the trading partner is unable to respond at this time:
