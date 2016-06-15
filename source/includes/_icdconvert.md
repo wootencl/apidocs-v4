@@ -7,7 +7,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.icd_convert('250.12')
+client.icd_convert('250.12')
 ```
 
 ```csharp
@@ -15,11 +15,11 @@ client.icdConvert("250.12");
 ```
 
 ```ruby
-pd.icd_convert('250.12')
+client.icd_convert('250.12')
 ```
 
 ```java
-pd.icdConvert("250.12");
+client.icdConvert("250.12");
 ```
 
 > Example ICD convert response

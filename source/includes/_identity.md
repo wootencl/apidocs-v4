@@ -35,7 +35,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.create_identity({
+client.create_identity({
     "prefix": "Mr.",
     "first_name": "Oscar",
     "middle_name": "Harold",
@@ -94,7 +94,7 @@ client.createIdentity(
 ```
 
 ```ruby
-pd.create_identity({
+client.create_identity({
     "prefix": "Mr.",
     "first_name": "Oscar",
     "middle_name": "Harold",
@@ -155,7 +155,7 @@ buf.append("       ]    ");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.createIdentity(query);
+Map<String, Object> results = client.createIdentity(query);
 ```
 
 > Example updating an identity resource
@@ -192,7 +192,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.update_identity("881bc095-2068-43cb-9783-cce630364122", {
+client.update_identity("881bc095-2068-43cb-9783-cce630364122", {
     "prefix": "Mr.",
     "first_name": "Oscar",
     "middle_name": "Harold",
@@ -251,7 +251,7 @@ client.updateIdentity("881bc095-2068-43cb-9783-cce630364122",
 ```
 
 ```ruby
-pd.update_identity("881bc095-2068-43cb-9783-cce630364122", {
+client.update_identity("881bc095-2068-43cb-9783-cce630364122", {
     "prefix": "Mr.",
     "first_name": "Oscar",
     "middle_name": "Harold",
@@ -311,7 +311,7 @@ buf.append("       ]    ");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.updateIdentity(query);
+Map<String, Object> results = client.updateIdentity(query);
 ```
 
 > Query for a single identity resource
@@ -321,7 +321,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.identity("881bc095-2068-43cb-9783-cce630364122")
+client.identity("881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```csharp
@@ -329,11 +329,11 @@ client.identity("4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae");
 ```
 
 ```ruby
-pd.identity("881bc095-2068-43cb-9783-cce630364122")
+client.identity("881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```java
-pd.identity("881bc095-2068-43cb-9783-cce630364122");
+client.identity("881bc095-2068-43cb-9783-cce630364122");
 ```
 
 > Query for one or more identity resources using parameters:
@@ -343,11 +343,11 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.identity(first_name='Oscar', last_name='Whitmire', gender='male')
+client.identity(first_name='Oscar', last_name='Whitmire', gender='male')
 ```
 
 ```ruby
-pd.identity({first_name: 'Oscar', last_name: 'Whitmire', gender: 'male'})
+client.identity({first_name: 'Oscar', last_name: 'Whitmire', gender: 'male'})
 ```
 
 ```csharp
@@ -366,11 +366,11 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.identity_history("881bc095-2068-43cb-9783-cce630364122")
+client.identity_history("881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```ruby
-pd.identity_history("881bc095-2068-43cb-9783-cce630364122")
+client.identity_history("881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```csharp
@@ -378,7 +378,7 @@ client.identityHistory("881bc095-2068-43cb-9783-cce630364122");
 ```
 
 ```java
-pd.identityHistory("881bc095-2068-43cb-9783-cce630364122");
+client.identityHistory("881bc095-2068-43cb-9783-cce630364122");
 ```
 
 **Available modes of operation: real-time.**
