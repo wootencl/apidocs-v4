@@ -66,6 +66,21 @@ pokitdok.dropin('INSERT YOUR DROP-IN TOKEN HERE', {
 }
 ```
 
+> Full list of values available to pre-populate:
+
+```javascript
+{
+    'member': {
+        'first_name': 'Jane',
+        'last_name': 'Doe',
+        // (Insurance Member ID)
+        'id': '123456789',
+        'birth_date': '1970-01-01'
+    }
+    'trading_partner_id': 'MOCKPAYER'
+}
+```
+
 <aside class="warning">
 'container' and 'type' are required options for the drop-in UI to work.
 </aside>
