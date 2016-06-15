@@ -2940,61 +2940,56 @@ Map<String, Object> results = client.claims(query);
 pd.claims({
     "trading_partner_id": "MOCKPAYER",
     "transaction_code": "chargeable",
-    "submitter": {
-        "organization_name": "Pokitdok, Inc.",
-        "id": "TGJ23",
-        "email": "x12info@pokitdok.com"
-    },
     "receiver": {
-        "organization_name": "AHLIC",
-        "id": "66783JJT"
+        "organization_name": "MOCKRECEIVER",
+        "id": "MOCKRECEIVER"
     },
     "billing_provider": {
-        "taxonomy_code": "203BF0100Y",
-        "organization_name": "BEN KILDARE SERVICE",
-        "npi": "1912301953",
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
         "address": {
             "address_lines": [
-                "234 SEAWAY ST"
+                "8311 WARREN H ABERNATHY HWY"
             ],
-            "city": "MIAMI",
-            "state": "FL",
-            "zipcode": "331110000"
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
         },
-        "tax_id": "587654321"
+        "tax_id": "123456789"
     },
     "payer": {
-        "organization_name": "ALLIANCE HEALTH AND LIFE INSURANCE",
-        "id": "741234"
+        "organization_name": "MOCKPAYER A",
+        "id": "000001"
     },
     "subscriber": {
-        "group_number": "12312",
-        "first_name": "TED",
-        "last_name": "SMITH",
-        "member_id": "00221111",
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
         "address": {
-            "address_lines": ["236 N MAIN ST"],
-            "city": "MIAMI",
-            "state": "FL",
-            "zipcode": "33413"
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
         },
-        "birth_date": "1943-05-01",
-        "gender": "male",
+        "birth_date": "1970-01-01",
+        "gender": "female",
         "payer_responsibility": "primary"
     },
     "claim": {
         "direct_payment": "y",
         "medical_record_number": "000000000",
         "information_release": "informed_consent",
-        "patient_signature_on_file": true,
-        "provider_signature": true,
+        "patient_signature_on_file": True,
+        "provider_signature": True,
         "plan_participation": "assigned",
         "claim_frequency": "original",
-        "patient_control_number": "CLAIM1",
+        "patient_control_number": "01010101010101",
         "place_of_service": "office",
         "total_charge_amount": "100.0",
         "patient_paid_amount": "100.0",
-        "onset_date": "1998-10-03",
+        "onset_date": "2015-10-03",
         "service_lines": [
             {
                 "procedure_code": "99213",
@@ -3003,7 +2998,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "J020"
                 ],
-                "service_date": "2006-10-03",
+                "service_date": "2015-10-03",
                 "unit_type": "units"
             },
             {
@@ -3013,7 +3008,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "J020"
                 ],
-                "service_date": "2006-10-03",
+                "service_date": "2015-10-03",
                 "unit_type": "units"
             },
             {
@@ -3023,7 +3018,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "Z1159"
                 ],
-                "service_date": "2006-10-10",
+                "service_date": "2015-10-10",
                 "unit_type": "units"
             },
             {
@@ -3033,7 +3028,7 @@ pd.claims({
                 "diagnosis_codes": [
                     "Z1159"
                 ],
-                "service_date": "2006-10-10",
+                "service_date": "2015-10-10",
                 "unit_type": "units"
             }
         ],
@@ -3058,8 +3053,8 @@ pd.claims({
             "payer_responsibility": "secondary"
         },
         "other_payer": {
-            "organization_name": "super cool secondary payer",
-            "id": "8675309"
+            "organization_name": "MOCKPAYER B",
+            "id": "000002"
         }
     }
 
@@ -3074,32 +3069,28 @@ pd.claims({
 pd.claims({
   "trading_partner_id": "MOCKPAYER",
   "transaction_code": "chargeable",
-  "submitter": {
-    "organization_name": "Pokitdok, Inc.",
-    "id": "TGJ23",
-    "email": "x12info@pokitdok.com"
-  },
   "receiver": {
-    "organization_name": "AHLIC",
-    "id": "66783JJT"
+    "organization_name": "MOCKRECEIVER",
+    "id": "MOCKRECEIVER"
   },
   "billing_provider": {
-    "taxonomy_code": "203BF0100Y",
-    "organization_name": "BEN KILDARE SERVICE",
-    "npi": "1912301953",
-    "address": {
-      "address_lines": [
-        "234 SEAWAY ST"
-      ],
-      "city": "MIAMI",
-      "state": "FL",
-      "zipcode": "331110000"
+        "taxonomy_code": "207Q00000X",
+        "first_name": "Jerome",
+        "last_name": "Aya-Ay",
+        "npi": "1467560003",
+        "address": {
+            "address_lines": [
+                "8311 WARREN H ABERNATHY HWY"
+            ],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "tax_id": "123456789"
     },
-    "tax_id": "587654321"
-  },
   "payer": {
-    "organization_name": "super cool secondary payer",
-    "id": "8675309"
+    "organization_name": "MOCKPAYER B",
+    "id": "000002"
   },
   "subscriber": {
     "group_number": "000111000111",
@@ -3123,15 +3114,15 @@ pd.claims({
     "direct_payment": "y",
     "medical_record_number": "000000000",
     "information_release": "informed_consent",
-    "patient_signature_on_file": true,
-    "provider_signature": true,
+    "patient_signature_on_file": True,
+    "provider_signature": True,
     "plan_participation": "assigned",
     "claim_frequency": "original",
-    "patient_control_number": "CLAIM1",
+    "patient_control_number": "01010101010101",
     "place_of_service": "office",
     "total_charge_amount": "50.0",
     "patient_paid_amount": "50.0",
-    "onset_date": "1998-10-03",
+    "onset_date": "2015-10-03",
     "service_lines": [
       {
         "procedure_code": "99213",
@@ -3140,7 +3131,7 @@ pd.claims({
         "diagnosis_codes": [
           "J020"
         ],
-        "service_date": "2006-10-03",
+        "service_date": "2015-10-03",
         "unit_type": "units"
       },
       {
@@ -3150,7 +3141,7 @@ pd.claims({
         "diagnosis_codes": [
           "J020"
         ],
-        "service_date": "2006-10-03",
+        "service_date": "2015-10-03",
         "unit_type": "units"
       },
       {
@@ -3160,7 +3151,7 @@ pd.claims({
         "diagnosis_codes": [
           "Z1159"
         ],
-        "service_date": "2006-10-10",
+        "service_date": "2015-10-10",
         "unit_type": "units"
       },
       {
@@ -3170,26 +3161,31 @@ pd.claims({
         "diagnosis_codes": [
           "Z1159"
         ],
-        "service_date": "2006-10-10",
+        "service_date": "2015-10-10",
         "unit_type": "units"
       }
     ],
     "prior_authorization_number": "0A02d"
   },
   "coordination_of_benefits": {
-    "subscriber": {
-      "group_number": "12312",
-      "first_name": "TED",
-      "last_name": "SMITH",
-      "member_id": "00221111",
-      "address": {
-        "address_lines": [
-          "236 N MAIN ST"
-        ],
-        "city": "MIAMI",
-        "state": "FL",
-        "zipcode": "33413"
-      },
+   "subscriber": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "member_id": "W000000000",
+        "address": {
+            "address_lines": ["123 N MAIN ST"],
+            "city": "SPARTANBURG",
+            "state": "SC",
+            "zipcode": "29301"
+        },
+        "birth_date": "1970-01-01",
+        "gender": "female"
+        "relationship": "self",
+        "payer_responsibility": "primary",
+        "patient_signature_source": "patient",
+        "authorize_payment_to_billing_provider": "yes",
+        "release_of_information_code": "informed_consent"
+    },
       "birth_date": "1943-05-01",
       "gender": "male",
       "relationship": "self",
@@ -3199,8 +3195,8 @@ pd.claims({
       "release_of_information_code": "informed_consent"
     },
     "other_payer": {
-      "organization_name": "ALLIANCE HEALTH AND LIFE INSURANCE",
-      "id": "741234"
+      "organization_name": "PAYER A",
+      "id": "000001"
     },
     "claim_level_adjustments": {
       "claim_adjustment_group_code": "other_adjustments",
@@ -3566,7 +3562,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 | adjustment_amount                  | Required for Secondary: Adjustment amount as specified for the secondary payer. |
 | adjustment_quantity                | Required for Secondary: Adjustment quantity as specified for the secondary payer. |
 | cpt_code                           | The CPT code indicating the type of service that was performed. |
-| procedure_modifiers                | A list of proceudre modifier codes for the 837. |
+| procedure_modifiers                | A list of procedure modifier codes for the 837. |
 | procedure_code_description         | Description relating to the procedure code. |
 | adjustment_information             | List of line level adjustments with reason, amount, group code, and quantity. [object](#claims-line-level-adjustment-information-items) |
 
