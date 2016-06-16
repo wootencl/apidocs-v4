@@ -434,6 +434,7 @@ any matching claims:
 
 ```json
 {
+    "client_id": "<client_id>",
     "patient": {
         "claims": [
             {
@@ -495,7 +496,7 @@ name, and they are unable to find a match:
 
 ```json
 {  
-    "client_id":"fFFgqPeK5GETjZkC3JPB",
+    "client_id": "<client_id>",
     "payer":{  
         "name":"MOCKPAYER",
         "id":"MOCKPAYER"
@@ -531,6 +532,7 @@ has been paid:
 
 ```json
 {
+    "client_id": "<client_id>",
     "patient": {
         "claims": [
             {
@@ -700,6 +702,7 @@ has been paid:
 
 ```json
 {
+    "client_id": "<client_id>",
     "patient": {
         "claims": [
             {
@@ -916,6 +919,7 @@ been denied (not paid) and the charges are applied to the deductible:
 
 ```json
 {
+    "client_id": "<client_id>",
     "patient": {
         "claims": [
             {
@@ -1069,6 +1073,7 @@ The /claim/status response contains the following fields:
 
 | Field                                                 | Description                                                                                                                                                                                                                                                                                                                                        |
 |:------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| client_id                                             | The unique identifier associated with the client making the eligibility request.                                                                                                                                                                                                                                                                   |
 | trading_partner_id                                    | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.                                                                                                                                                                                                                                    |
 | payer                                                 | Information associated with the payer of the claim.                                                                                                                                                                                                                                                                                                |
 | payer.name                                            | The name of the payer                                                                                                                                                                                                                                                                                                                              |
