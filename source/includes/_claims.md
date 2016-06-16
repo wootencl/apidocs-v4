@@ -2959,10 +2959,6 @@ pd.claims({
         },
         "tax_id": "123456789"
     },
-    "payer": {
-        "organization_name": "MOCKPAYER A",
-        "id": "000001"
-    },
     "subscriber": {
         "first_name": "Jane",
         "last_name": "Doe",
@@ -3035,6 +3031,7 @@ pd.claims({
         "prior_authorization_number": "0A02d"
     },
     "coordination_of_benefits": {
+        "trading_partner_id": "MOCKPAYER",
         "subscriber": {
             "group_number": "000111000111",
             "first_name": "Danny",
@@ -3088,10 +3085,6 @@ pd.claims({
         },
         "tax_id": "123456789"
     },
-  "payer": {
-    "organization_name": "MOCKPAYER B",
-    "id": "000002"
-  },
   "subscriber": {
     "group_number": "000111000111",
     "first_name": "Danny",
@@ -3168,6 +3161,7 @@ pd.claims({
     "prior_authorization_number": "0A02d"
   },
   "coordination_of_benefits": {
+   "trading_partner_id": "MOCKPAYER",
    "subscriber": {
         "first_name": "Jane",
         "last_name": "Doe",
@@ -3193,10 +3187,6 @@ pd.claims({
       "patient_signature_source": "patient",
       "authorize_payment_to_billing_provider": "yes",
       "release_of_information_code": "informed_consent"
-    },
-    "other_payer": {
-      "organization_name": "PAYER A",
-      "id": "000001"
     },
     "claim_level_adjustments": {
       "claim_adjustment_group_code": "other_adjustments",
@@ -3489,8 +3479,8 @@ The /claims/ response contains an activity and thus returns the same object as t
 ###Coordination of Benefits object:
 | Field                                 | Description                                                                                                       |
 |:--------------------------------------|:------------------------------------------------------------------------------------------------------------------|
+| trading_partner_id                    | Required: The trading_partner_id of the alternate payer (if submitting second claim, then provide primary ID here).
 | subscriber                            | Required: The subscriber listed on the additional payer. May be the same as the original payer. Has additional required fields. Uses the other subscriber model [object](#claims-other-subscriber-object). |
-| other_payer                           | Required: Some primary payers require identifying information about payers involved in the COB. Uses Other Payer model [object](#claims-other-payer-object). |
 | claim_level_adjustments               | Required for Secondary: Only when submitting to secondary payer. Information related to adjustements made on the claim level. Uses Claim Level Adjustments model [object](#claims-claim-level-adjustments-object). |
 | line_level_adjustments                | Required for Secondary: Only when submitting to secondary payer. Information related to adjustements made on the line level. Uses Line Level Adjustments model [object](#claims-line-level-adjustments-object). |
 
@@ -3520,13 +3510,6 @@ The /claims/ response contains an activity and thus returns the same object as t
 | release_of_information_code        | Values: [signed_statement, default: informed_consent] |
 
 
-<a name="claims-other-payer-object"></a>
-###Other Payer object
-| Field                              | Description                                                                                                                                                                                                                                                                           |
-|:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
-| organization_name                  | Required: Name of the organization. |
-| id                                 | Required: Payer ID number. |
-| address                            | Payer address information. [object](#claims-address) |
 
 
 <a name="claims-claim-level-adjustments-object"></a>
