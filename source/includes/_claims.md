@@ -3495,7 +3495,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 | line_level_adjustments                | Required for Secondary: Only when submitting to secondary payer. Information related to adjustements made on the line level. Uses Line Level Adjustments model [object](#claims-line-level-adjustments-object). |
 
 <a name="claims-other-subscriber-object"></a>
-###Other Subscriber object
+###Other Subscriber object:
 | Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | address                            | The subscriber’s address information as specified on their policy. Uses an address [object](#claims-address).                                                                                                                                                                          | 7: Insured's address                               |
