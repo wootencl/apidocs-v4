@@ -57,7 +57,7 @@ headers={'Authorization': 'Bearer ' + access_token}).json()
 # using https://github.com/pokitdok/pokitdok-python
 import pokitdok
 
-pd = pokitdok.api.connect('<your client id>', '<your client secret>')
+client = pokitdok.api.connect('<your client id>', '<your client secret>')
 ```
 
 The Python tab contains an example of authentication from scratch using Python

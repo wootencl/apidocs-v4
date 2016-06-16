@@ -6,7 +6,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.trading_partners()
+client.trading_partners()
 ```
 
 ```csharp
@@ -14,11 +14,50 @@ client.tradingPartners();
 ```
 
 ```ruby
-pd.trading_partners
+client.trading_partners
 ```
 
 ```java
-pd.tradingPartners();
+client.tradingPartners();
+```
+
+>Example response (for a more complete response please use the test application):
+
+```json
+[
+  {
+    "enrollment_required": [],
+    "id": "aetna",
+    "is_enabled": true,
+    "name": "Aetna",
+    "supported_transactions": [
+      "276",
+      "270",
+      "278",
+      "837"
+    ]
+  },
+  {
+    "enrollment_required": [],
+    "id": "aetna_affordable_health_src",
+    "is_enabled": true,
+    "name": "Aetna Affordable Health Choices SM SRC",
+    "supported_transactions": [
+      "837"
+    ]
+  },
+  {
+    "enrollment_required": [],
+    "id": "aetna_better_health",
+    "is_enabled": true,
+    "name": "Aetna Better Health",
+    "supported_transactions": [
+      "276",
+      "837",
+      "270"
+    ]
+  }
+]
 ```
 
 > Example fetching information for a specific trading partner:
@@ -28,7 +67,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/a
 ```
 
 ```python
-pd.trading_partners('aetna')
+client.trading_partners('aetna')
 ```
 
 ```csharp
@@ -36,17 +75,55 @@ client.tradingPartners("MOCKPAYER");
 ```
 
 ```ruby
-pd.trading_partners('aetna')
+client.trading_partners('aetna')
 ```
 
 ```java
-pd.tradingPartners("aetna");
+client.tradingPartners("aetna");
+```
+
+> Example response:
+
+```json
+{
+  "enrollment_required": [],
+  "id": "aetna",
+  "is_enabled": true,
+  "metrics": {
+    "real_time_response_average": 3003.6001872586876,
+    "real_time_response_percentiles": {
+      "50": 2003.67335,
+      "75": 2966.8265625,
+      "95": 8257.593599999927
+    }
+  },
+  "monitoring": {
+    "eligibility": {
+      "last_updated": "2016-06-02T11:42:30.546000",
+      "status": "available"
+    }
+  },
+  "name": "Aetna",
+  "supported_search_options": [
+    "no_id_search",
+    "no_first_name_search",
+    "no_birth_date_search",
+    "no_name_search",
+    "primary_search"
+  ],
+  "supported_transactions": [
+    "270",
+    "837",
+    "276",
+    "278"
+  ]
+}
 ```
 
 *Available modes of operation: real-time*
 
 The Trading Partners endpoint provides access to the collection of PokitDok's trading
-partners PokitDok.
+partners.
 
 Available Trading Partner endpoints:
 
@@ -56,19 +133,20 @@ Available Trading Partner endpoints:
 | /tradingpartners/{id} | GET         | Retreive the data for a specified trading partner; the ID is the PokitDok trading partner id. |
 
 
-The /tradingpartners/ response contains the following parameters:
+The /tradingpartners/ response contains the following fields:
 
-| Parameter                              | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|:---------------------------------------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id                                     | {string}  | The "trading_partner_id" used in requests/EDI files to identify this trading partner.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| is_enabled                             | {boolean} | Indicates if the connection to this trading partner is enabled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| name                                   | {string}  | Full name for the trading partner.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| supported_transactions                 | {array}   | Identifies the x12 transaction sets (270, 276, 837, etc.) the trading partner supports. The list of supported transactions also indicates the API Endpoints that are enabled for the trading partner. If the trading partner supports 270 transactions, you may use that trading_partner_id with the eligibility API. If 276 transactions are supported, you may use that trading_partner_id with the claim status API. If 837 transactions are supported, you may use that trading_partner_id with the claims API.                                                                                                                                                                                                                                                                                                                                                                                                 |
-| enrollment_required                    | {array}   | Identifies the x12 transaction sets (270, 276, 837, etc.) that require additional enrollment steps before they may be used by your API application. Contact us if you'd like to use a transaction with a trading partner that requires enrollment prior to use.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| metrics                                | {object}  | When a specific trading partner id is requested and metrics are available, they will be included in the response. Timings are in milliseconds unless otherwise specified.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| metrics.real_time_response_average     | {float}   | The average response time (milliseconds) for requests to this trading partner.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| metrics.real_time_response_percentiles | {object}  | Provides a percentile rank of the trading partner's response times, with the following groupings: 50%, 75%, and 95%.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| monitoring                             | {object}  | When a specific trading partner id is requested and monitoring data is available, monitoring information will be included in the response. Each key in the monitoring section corresponds to the name of an API where connectivity is enabled (e.g. authorizations, claim_status, eligibility, etc). Each API name will be associated with a monitoring status value and a timestamp to indicate when the status was last updated.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| monitoring.{api_name}.status           | {string}  | The most recent status for the trading partner/API combination as returned by our monitoring system. Possible values include: available, unavailable, delayed, and unknown. A status of "available" indicates that the trading partner is operating normally based successful transactions executing within their average response time range. A status of "unavailable" indicates that the trading partner is unable to respond normally at that time. This may be due to scheduled or unplanned downtime. A status of "delayed" indicates that the trading partner is able to respond successfully to requests but that response times are higher than their average response time. A status of "unknown" will be returned for new trading partners that have just been added to the system and also for cases where the monitoring system encounters an exception and is unable to determine the current status. |
-| monitoring.{api_name}.last_updated     | {string}  | The date the monitoring status was last updated (ISO 8601 format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| restricted_transactions                | {array}   | Identifies the X12 transaction sets (270, 278, 837) that require NPI submission in the client dashboard prior to use.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Field                                  | Type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         															|
+|:---------------------------------------|:----------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                                     | {string}  | The "trading_partner_id" used in requests to identify this trading partner.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               																	|
+| is_enabled                             | {boolean} | Indicates if the connection to the trading partner is enabled.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     															|
+| name                                   | {string}  | Full name for the trading partner.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  															|
+| supported_transactions                 | {array}   | Identifies the X12 transaction sets (270, 276, 278, 837, etc.) available for a trading partner. The list of supported transactions indicates the API Endpoints that are enabled for the trading partner.                                                                                                                                                                                                                                                                                                                                                                                      																																																																																												|
+| enrollment_required                    | {array}   | Identifies the X12 transaction sets (270, 276, 278, 837, etc.) that require additional set up before transacting.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       																																																						|
+| metrics                                | {object}  | When a specific trading partner id is requested and metrics are available, they will be included in the response. Timings are in milliseconds unless otherwise specified. Field returned only for /tradingpartners/{id} request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          	|
+| metrics.real_time_response_average     | {float}   | The average response time (milliseconds) for requests to this trading partner. Field returned only for /tradingpartners/{id} request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      	|
+| metrics.real_time_response_percentiles | {object}  | Provides a percentile rank of the trading partner's response times, with the following groupings: 50%, 75%, and 95%. Field returned only for /tradingpartners/{id} request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	|
+| monitoring                             | {object}  | When a specific trading partner id is requested and monitoring data is available, monitoring information will be included in the response. Each key in the monitoring section corresponds to the name of an API where connectivity is enabled (e.g. authorizations, claim_status, eligibility, etc). Each API name will be associated with a monitoring status value and a timestamp to indicate when the status was last updated. Field returned only for /tradingpartners/{id} request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 	|
+| monitoring.{api_name}.status           | {string}  | The most recent status for the trading partner/API combination as returned by our monitoring system. Possible values include: available, unavailable, delayed, and unknown. A status of "available" indicates that the trading partner is operating normally based successful transactions executing within their average response time range. A status of "unavailable" indicates that the trading partner is unable to respond normally at that time. This may be due to scheduled or unplanned downtime. A status of "delayed" indicates that the trading partner is able to respond successfully to requests but that response times are higher than their average response time. A status of "unknown" will be returned for new trading partners that have just been added to the system and also for cases where the monitoring system encounters an exception and is unable to determine the current status. Field returned only for /tradingpartners/{id} request. 	|
+| monitoring.{api_name}.last_updated     | {string}  | The date the monitoring status was last updated (ISO 8601 format). Field returned only for /tradingpartners/{id} request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  	|
+| restricted_transactions                | {array}   | Identifies the X12 transaction sets (270, 278, 837) that require NPI submission in the client dashboard prior to use. Field returned only for /tradingpartners/{id} request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           						|
+| supported_search_options               | {array}   | Coming soon. 																																																																																																																																																																																																																																								|

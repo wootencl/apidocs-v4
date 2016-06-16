@@ -7,15 +7,15 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.pharmacy_plans(trading_partner_id='medicare_national', plan_number='S5884114')
+client.pharmacy_plans(trading_partner_id='medicare_national', plan_number='S5884114')
 ```
 
 ```ruby
-pd.pharmacy_plans(trading_partner_id:'medicare_national', plan_number:'S5884114')
+client.pharmacy_plans(trading_partner_id:'medicare_national', plan_number:'S5884114')
 ```
 
 ```csharp
-pd.pharmacyPlans(
+client.pharmacyPlans(
                   new Dictionary<string, string> {
                     {"trading_partner_id", "medicare_national"},
                     {"plan_number", "S5884114"}
@@ -26,7 +26,7 @@ pd.pharmacyPlans(
 Map<String, Object> params = new HashMap<String, Object>();
 params.put("trading_partner_id", "medicare_national");
 params.put("plan_number", "S5884114");
-pd.pharmacyPlans(params);
+client.pharmacyPlans(params);
 ```
 
 > Example pharmacy plan response for a member with Medicare Part D:
@@ -95,7 +95,7 @@ To use the Pharmacy Plans Endpoint with a Medicare member, you will need the pla
 
 The /pharmacy/plans endpoint accepts the following parameters:
 
-| Field              | Type     | Description                                                                                |
+| Parameter          | Type     | Description                                                                                |
 |:-------------------|:---------|:-------------------------------------------------------------------------------------------|
 | trading_partner_id | {string} | Unique id for the intended trading partner, as specified by the Trading Partners endpoint. |
 | plan_number        | {string} | Member’s plan identification number. Note: If unknown can use X12 270/271 eligibility      |
@@ -105,7 +105,7 @@ The Pharmacy Plans Endpoint allows you to dive into the member’s drug benefit 
 Medicare drug plans have different phases of coverage, including deductible, initial coverage, gap coverage, and catastrophic coverage. Each phase has a different out of pocket cost for covered medications. The copays included in the Pharmacy Plan Endpoint are for the member during the Initial Coverage Phase. 
 Medications are grouped into tiers or levels. Plans may have several tiers and the copay for a drug depends on which tier the drug is in. Usually the lower tiers contain less expensive medications and the higher tiers are reserved for more expensive medications. Each tier level will have either a copay or coinsurance associated with it. The copay will be a dollar amount that the member will be responsible for paying out of pocket. Ex. retail_30_day_tier_1_copay The co-insurance will be a percentage of the total cost of the drug that the member will pay out of pocket. Ex. retail_30_day_tier_4_coins
 
-The /pharmacy/plans response contains the following parameters:
+The /pharmacy/plans response contains the following fields:
 
 | Field                          | Type     | Description                                                                                    |
 |:-------------------------------|:---------|:-----------------------------------------------------------------------------------------------|

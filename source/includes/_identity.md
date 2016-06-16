@@ -35,7 +35,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.create_identity({
+client.create_identity({
     "prefix": "Mr.",
     "first_name": "Oscar",
     "middle_name": "Harold",
@@ -94,7 +94,7 @@ client.createIdentity(
 ```
 
 ```ruby
-pd.create_identity({
+client.create_identity({
     "prefix": "Mr.",
     "first_name": "Oscar",
     "middle_name": "Harold",
@@ -155,7 +155,7 @@ buf.append("       ]    ");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.createIdentity(query);
+Map<String, Object> results = client.createIdentity(query);
 ```
 
 > Example updating an identity resource
@@ -192,7 +192,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```
 
 ```python
-pd.update_identity("881bc095-2068-43cb-9783-cce630364122", {
+client.update_identity("881bc095-2068-43cb-9783-cce630364122", {
     "prefix": "Mr.",
     "first_name": "Oscar",
     "middle_name": "Harold",
@@ -251,7 +251,7 @@ client.updateIdentity("881bc095-2068-43cb-9783-cce630364122",
 ```
 
 ```ruby
-pd.update_identity("881bc095-2068-43cb-9783-cce630364122", {
+client.update_identity("881bc095-2068-43cb-9783-cce630364122", {
     "prefix": "Mr.",
     "first_name": "Oscar",
     "middle_name": "Harold",
@@ -311,7 +311,7 @@ buf.append("       ]    ");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
-Map<String, Object> results = pd.updateIdentity(query);
+Map<String, Object> results = client.updateIdentity(query);
 ```
 
 > Query for a single identity resource
@@ -321,7 +321,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.identity("881bc095-2068-43cb-9783-cce630364122")
+client.identity("881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```csharp
@@ -329,11 +329,11 @@ client.identity("4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae");
 ```
 
 ```ruby
-pd.identity("881bc095-2068-43cb-9783-cce630364122")
+client.identity("881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```java
-pd.identity("881bc095-2068-43cb-9783-cce630364122");
+client.identity("881bc095-2068-43cb-9783-cce630364122");
 ```
 
 > Query for one or more identity resources using parameters:
@@ -343,11 +343,11 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.identity(first_name='Oscar', last_name='Whitmire', gender='male')
+client.identity(first_name='Oscar', last_name='Whitmire', gender='male')
 ```
 
 ```ruby
-pd.identity({first_name: 'Oscar', last_name: 'Whitmire', gender: 'male'})
+client.identity({first_name: 'Oscar', last_name: 'Whitmire', gender: 'male'})
 ```
 
 ```csharp
@@ -366,11 +366,11 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/
 ```
 
 ```python
-pd.identity_history("881bc095-2068-43cb-9783-cce630364122")
+client.identity_history("881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```ruby
-pd.identity_history("881bc095-2068-43cb-9783-cce630364122")
+client.identity_history("881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```csharp
@@ -378,7 +378,7 @@ client.identityHistory("881bc095-2068-43cb-9783-cce630364122");
 ```
 
 ```java
-pd.identityHistory("881bc095-2068-43cb-9783-cce630364122");
+client.identityHistory("881bc095-2068-43cb-9783-cce630364122");
 ```
 
 **Available modes of operation: real-time.**
@@ -388,7 +388,7 @@ PokitDok's Identity Management (IdM) API queries an EMPI (Enterprise Master Pati
 
 Within the Identity Management product, there are three availalbe interfaces: Identity, Identity History and Identity Match. The Identity API provides the foundational POST/PUT/GET capability for respectively inserting, updating and retrieving identities in the system. The Identity system updates and returns a single best record while simultaneously tracking the historical updates made to the entity. The Identity History API provides access to the historical versions of an identity. Lastly, the Identity Match API supports the execution of a tune-able and configurable match job which detects duplicates across a historical data load.
 
-Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
+Learn more about our [Identity Management workflows](https://platform.pokitdok.com/workflows#anchor-idm).
 
 ##### Identity
 
@@ -401,7 +401,7 @@ Learn more about our [Identity Management workflows.](https://platform.pokitdok.
 
 The /identity/ endpoint accepts the following parameters:
 
-| Field                 | Type     | Description                                                                                                        |
+| Parameter             | Type     | Description                                                                                                        |
 |:----------------------|:---------|:-------------------------------------------------------------------------------------------------------------------|
 | address.address_lines | {array}  | Address lines                                                                                                      |
 | address.city          | {string} | Name of city in which to search for identity records (e.g. "San Mateo" or "Charleston")                            |
@@ -422,9 +422,9 @@ The /identity/ endpoint accepts the following parameters:
 | suffix                | {string} | Suffix                                                                                                             |
 | uuid                  | {uuid}   | Identity resource unique identifier                                                                                |
 
-Each identifier, or identifiers list entry, represents an external system utilized by a provider at a specific location. Fields within an identifier entry include:
+Each identifier, or identifiers list entry, represents an external system utilized by a provider at a specific location. Parameters within an identifier entry include:
 
-| Field         | Type     | Description                                        |
+| Parameter     | Type     | Description                                        |
 |:--------------|:---------|:---------------------------------------------------|
 | location      | {array}  | Optional: GeoJSON array of \[longitude, latitude\] |
 | provider_uuid | {uuid}   | The unique identifier for the provider             |
@@ -460,8 +460,6 @@ The id parameter, if present, overrides other search parameters.
 
 We store a historical chain of the updates to a given consumer while also maintaining a single best record for the duration of the data record. The Identity History endpoint gives you access to historical snapshots of the identity.
 
-Learn more about our (Identity Management workflows.)[https://platform.pokitdok.com/workflows#anchor-idm]
-
 | Endpoint                              | HTTP Method | Description                                                                                     |
 |:--------------------------------------|:------------|:------------------------------------------------------------------------------------------------|
 | /identity/{uuid}/history              | GET         | Returns an identity record's change history including the insert date and historical version id |
@@ -471,12 +469,10 @@ Learn more about our (Identity Management workflows.)[https://platform.pokitdok.
 
 The Identity Match API supports supports the execution of a tune-able and configurable match job which detects duplicates across a historical data load. This endpoint operates asynchronously. There are three components of the API which can be adjusted to find the best set of matches across your historical data: the match algorithm, the search fields and the match weight. The different match algorithms can be set for exact or approximate string matching. The use of different source and search fields allows for the detection of transposition within an entity's values. Lastly, setting different match weights allows you to control the importance of any individual field level match.
 
-Learn more about our [Identity Management workflows.](https://platform.pokitdok.com/workflows#anchor-idm)
-
 | Endpoint        | HTTP Method | Description                                                     |
 |:----------------|:------------|:----------------------------------------------------------------|
 | /identity/match | POST        | Creates an identity duplication job. Returns the activity uuid. |
-=======
+
 | Endpoint           | HTTP Method | Description                                                                      |
 |:-------------------|:------------|:---------------------------------------------------------------------------------|
 | /identity/{uuid}   | GET         | Returns a list containing a single identity resource                             |
