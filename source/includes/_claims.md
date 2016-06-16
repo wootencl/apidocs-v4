@@ -3154,7 +3154,7 @@ pd.claims({
         "service_date": "2015-10-10",
         "unit_type": "units"
       },
-      {
+
         "procedure_code": "86663",
         "charge_amount": "2",
         "unit_count": "1.0",
@@ -3403,7 +3403,7 @@ The /claims/ endpoint accepts the following parameters:
 | subscriber                                    | Information about the insurance subscriber as it appears on their policy. Uses the subscriber [object](#claims-subscriber-object).                                                                                                                                                    |                                                    |
 | trading_partner_id                            | Required: Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.                                                                                                                                                             |                                                    |
 | transaction_code                              | Required: The type of claim transaction that is being submitted (e.g. "chargeable"). A full list of possible values is included [below](#transaction-code).                                                                                                                           |                                                    |
-| coordination_of_benefits                      | Optional: Information related to the coordination of benefits for additional payers. [object](#claims-coordination-of-benefits-object) |
+| coordination_of_benefits                      | Required for Secondary: Information related to the coordination of benefits for additional payers. [object](#claims-coordination-of-benefits-object) |
 A claim goes through an entire lifecycle after its transmission to a payer.
 For details on this process, and how the [Claims Status](#claims-status)
 Endpoint ties in, see our [claims API workflow](https://pokitdok.com/developers/api/#api-claim-submission).
@@ -3491,8 +3491,8 @@ The /claims/ response contains an activity and thus returns the same object as t
 |:--------------------------------------|:------------------------------------------------------------------------------------------------------------------|
 | subscriber                            | Required: The subscriber listed on the additional payer. May be the same as the original payer. Has additional required fields. Uses the other subscriber model [object](#claims-other-subscriber-object). |
 | other_payer                           | Required: Some primary payers require identifying information about payers involved in the COB. Uses Other Payer model [object](#claims-other-payer-object). |
-| claim_level_adjustments               | Situational Requirement: Only when submitting to secondary payer. Information related to adjustements made on the claim level. Uses Claim Level Adjustments model [object](#claims-claim-level-adjustments-object). |
-| line_level_adjustments                | Situational Requirement: Only when submitting to secondary payer. Information related to adjustements made on the line level. Uses Line Level Adjustments model [object](#claims-line-level-adjustments-object). |
+| claim_level_adjustments               | Required for Secondary: Only when submitting to secondary payer. Information related to adjustements made on the claim level. Uses Claim Level Adjustments model [object](#claims-claim-level-adjustments-object). |
+| line_level_adjustments                | Required for Secondary: Only when submitting to secondary payer. Information related to adjustements made on the line level. Uses Line Level Adjustments model [object](#claims-line-level-adjustments-object). |
 
 <a name="claims-other-subscriber-object"></a>
 ###Other Subscriber object
@@ -3508,8 +3508,8 @@ The /claims/ response contains an activity and thus returns the same object as t
 | middle_name                        | The subscriber’s middle name as specified on their policy.                                                                                                                                                                                                                            |                                                    |
 | phone                              | The subscriber's phone number.                                                                                                                                                                                                                                                        |                                                    |
 | gender                             | The subscriber’s gender as specified on their policy.                                                                                                                                                                                                                                 | 11a: Insured's sex                                 |
-| group_number                       | Optional: The subscriber’s group or policy number as specified on their policy.                                                                                                                                                                                                       | 11:      Employer's policy number or group number  |
-| group_name                         | Optional: The subscriber’s group name as specified on their policy.                                                                                                                                                                                                                   | 11b: Employer's name or school name                |
+| group_number                       | The subscriber’s group or policy number as specified on their policy.                                                                                                                                                                                                       | 11:      Employer's policy number or group number  |
+| group_name                         | The subscriber’s group name as specified on their policy.                                                                                                                                                                                                                   | 11b: Employer's name or school name                |
 | member_id                          | Required: The subscriber’s member identifier.                                                                                                                                                                                                                                         | 1a: Insured's ID number                            |
 | last_name                          | Required: The subscriber’s last name as specified on their policy.                                                                                                                                                                                                                    | 4: Insured's name                                  |
 | ssn                                | The subscriber’s ssn name as specified on their policy.                                                                                                                                                                                                                               |                                                    |
