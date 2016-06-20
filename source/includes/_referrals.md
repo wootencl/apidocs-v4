@@ -207,6 +207,7 @@ Map<String, Object> results = client.referrals(query);
 
 ```json
 {
+    "client_id": "<client_id>",
     "event": {
         "category": "specialty_care_review",
         "certification_type": "initial",
@@ -267,6 +268,7 @@ The /referrals/ endpoint uses the same object for both its parameters and respon
 
 | Parameter                                     | Description                                                                                                                                                                                                                           |
 |:----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| client_id                                     | The unique identifier associated with the client making the eligibility request.                                                                                                                                                      |
 | event                                         | The patient event that is being submitted for approval.                                                                                                                                                                               |
 | event.category                                | The category of the event being submitted for review. For referrals to specialists, a category value of "specialty_care_review" should always be used.                                                                                |
 | event.delivery.units                          | The units of services being requested.                                                                                                                                                                                                |
@@ -288,8 +290,8 @@ The /referrals/ endpoint uses the same object for both its parameters and respon
 | event.review.certification_action             | Indicates the outcome of the review. For example, "certified_in_total" will be returned when the event is certified/authorized.  A full list of possible values can be found [below](#referral_certaction).                           |
 | event.review.certification_number             | The review certification/reference number.                                                                                                                                                                                            |
 | event.review.decision_reason                  | If the event is not authorized, the reason for that decision.  A full list of possible values can be found [below](#referral_decision).                                                                                               |
-| event.review.event_start_date                 | Effective date of referral.                                                                                                                                                                                                      |
-| event.review.event_end_date                   | End date for referral.                                                                                                                                                                                                           |
+| event.review.event_start_date                 | Effective date of referral.                                                                                                                                                                                                           |
+| event.review.event_end_date                   | End date for referral.                                                                                                                                                                                                                |
 | event.review.second_surgical_opinion_required | Boolean of whether or not a second surgical opinion is required.                                                                                                                                                                      |
 | event.type                                    | The type of service being requested. For example, a value of consultation would be used when referring to a specialist for an initial consultation.                                                                                   |
 | event.start_date                              | Optional: The start date of the given event. For a single date, provide only event.start_date. For a date range, provide event.start_date and event.end_date. Given in ISO8601 (YYYY-MM-DD).                                          |
