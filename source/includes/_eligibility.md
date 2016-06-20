@@ -551,6 +551,7 @@ Map<String, Object> results = client.eligibility(query);
 
 ```json
 {   
+    "client_id": "<client_id>",
     "coverage": {
         "active": false
         },
@@ -578,6 +579,7 @@ eligibility request:
 
 ```json
 {
+    "client_id": "<client_id>",
     "coverage": {
         "service_date": "2014-06-25"
     },
@@ -603,6 +605,7 @@ eligibility request:
 
 ```json
 {
+    "client_id": "<client_id>",
     "coverage": {
         "service_date": "2014-06-25"
     },
@@ -629,6 +632,7 @@ a CPT code:
 
 ```json
 {
+    "client_id": "<client_id>",
     "coverage": {
         "service_date": "2014-06-25"
     },
@@ -653,7 +657,9 @@ a CPT code:
 > Sample eligibility response for a successfully executed eligibility request:
 
 ```json
-{    "summary": {
+{   
+    "client_id": "<client_id>", 
+    "summary": {
          "deductible": {
              "individual": {
                   "in_network": {
@@ -1084,6 +1090,7 @@ a CPT code:
 
 ```json
 {
+    "client_id": "<client_id>",
     "coverage": {
         "active": true,
         "coinsurance": [
@@ -1528,6 +1535,7 @@ The /eligibility/ endpoint accepts the following parameters:
 | cpt_code                   | The CPT code that should be used to request specific eligibility information. Note: requests based on CPT code are not supported by all trading partners.                                                       |
 | payer                      | The payer associated with a request. Uses the payer [object](#eligibility-payer).                                                                                                                               |
 | member.birth_date          | The named insured’s birth date as specified on their policy. May be omitted if member.id is provided. In ISO8601 format (YYYY-MM-DD).                                                                           |
+| member.gender              | The member's gender.                                                                                                                                                                                            |
 | member.first_name          | The named insured’s first name as specified on their policy.                                                                                                                                                    |
 | member.middle_name         | The named insured’s middle name as specified on their policy.                                                                                                                                                   |
 | member.suffix              | The named insured’s suffix.                                                                                                                                                                                     |
@@ -1558,6 +1566,7 @@ The /eligibility/ response contains the following fields:
 
 | Field                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |:----------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| client_id                                           | The unique identifier associated with the client making the eligibility request.                                                                                                                                                                                                                                                                                                                                                                                                      |
 | coverage.active                                     | A boolean value that is true when the member has active coverage. It is false when membership information could not be returned or when inactive coverage is indicated by the trading partner.                                                                                                                                                                                                                                                                                        |
 | coverage.coverage_details                           | Additional information relating to the coverage.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | coverage.coverage_details.status                    | The status of the coverage.                                                                                                                                                                                                                                                                                                                                                                                                                                                           |

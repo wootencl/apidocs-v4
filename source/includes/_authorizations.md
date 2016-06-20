@@ -235,6 +235,7 @@ client.authorizations(query);
 
 ```json
 {
+    "client_id": "<client_id>",
     "event": {
         "category": "health_services_review",
         "certification_type": "initial",
@@ -285,6 +286,7 @@ client.authorizations(query);
 
 ```
 {
+    "client_id": "<client_id>",
     "patient": {
         "birth_date": "1970-02-25",
         "first_name": "Jane",
@@ -344,6 +346,7 @@ The /authorizations/ endpoint uses the same object for both its parameters and r
 
 | Field                             | Description                                                                                                                                                                                  |
 |:----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| client_id                         | The unique identifier associated with the client making the eligibility request.                                                                                                                                        |
 | event                             | The patient event, service or procedure that is being submitted for review.                                                                                                                                        |
 | event.category                    | The category of the event being submitted for review. A full list of possible values can be found [below](#category).                                                                                                                                        |
 | event.certification_type          | The type of certification being requested. For new authorization requests, a certification value of "initial" should be used.                                                                |
