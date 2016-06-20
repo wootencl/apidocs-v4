@@ -644,8 +644,8 @@ The /schedule/slots/ POST endpoint accepts the following parameters:
 | pd_provider_uuid | {uuid}         | The PokitDok unique identifier for the provider record.                                                     |
 | location         | {geo-location} | The geo-location of the provider's physical address, formatted [latitude, longitude].                       |
 | appointment_type | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.                          |
-| start_date       | {datetime}     | The beginning date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).       |
-| end_date         | {datetime}     | The ending date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).          |
+| start_date       | {datetime}     | The beginning date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).       |
+| end_date         | {datetime}     | The ending date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).          |
 
 | Endpoint                                      | HTTP Method | Description                                                                                                                                       | Scope          |
 |:----------------------------------------------|:------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
@@ -660,8 +660,8 @@ The /schedule/appointments/ endpoint accepts the following parameters:
 | Field            | Type           | Description                                                                                                                     |
 |:-----------------|:---------------|:--------------------------------------------------------------------------------------------------------------------------------|
 | appointment_type | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.                                              |
-| start_date       | {datetime}     | The beginning date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).                           |
-| end_date         | {datetime}     | The ending date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).                              |
+| start_date       | {datetime}     | The beginning date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).                           |
+| end_date         | {datetime}     | The ending date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).                              |
 | patient_uuid     | {uuid}         | The PokitDok unique identifier for the patient that has booked an appointment.                                                  |
 | pd_provider_uuid | {uuid}         | The PokitDok unique identifier for the provider that has an open appointment slot.                                              |
 | location         | {geo-location} | The geo-location of the physical address where the provider that has an open appointment slot, formatted [latitude, longitude]. |
@@ -684,17 +684,17 @@ The /schedule/appointments/{pd_appointment_uuid} endpoint for updating an appoin
 
 Both the /schedule/slots/ (POST) and /schedule/appointments (GET/PUT) endpoints' response includes the following fields:
 
-| Field                   | Type           | Description                                                                                             |
-|:------------------------|:---------------|:--------------------------------------------------------------------------------------------------------|
-| pd_appointment_uuid     | {uuid}         | The PokitDok unique identifier for the appointment.                                                     |
-| provider_scheduler_uuid | {string}       | The provider's scheduler unique identifier.                                                             |
-| appointment_id          | {string}       | The appointment identifier.                                                                             | 
-| appointment_type        | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.                      |
-| start_date              | {datetime}     | The beginning date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).   |
-| end_date                | {datetime}     | The ending date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).      |
-| booked                  | {boolean}      | Whether or not the appointment has been booked.                                                         |
-| patient                 | {object}       | Patient associated with the appointment. Uses the patient [object](#scheduling_patient_object).         | 
-| description             | {string}       | Brief description of the appointment.                                                                   |
+| Field                   | Type           | Description                                                                                                |
+|:------------------------|:---------------|:-----------------------------------------------------------------------------------------------------------|
+| pd_appointment_uuid     | {uuid}         | The PokitDok unique identifier for the appointment.                                                        |
+| provider_scheduler_uuid | {string}       | The provider's scheduler unique identifier.                                                                |
+| appointment_id          | {string}       | The appointment identifier.                                                                                | 
+| appointment_type        | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.                         |
+| start_date              | {datetime}     | The beginning date and UTC time of the appointment query. In ISO8601 format (YYYYY-MM-DDThh:mm:ss.ssssss). |
+| end_date                | {datetime}     | The ending date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).     |
+| booked                  | {boolean}      | Whether or not the appointment has been booked.                                                            |
+| patient                 | {object}       | Patient associated with the appointment. Uses the patient [object](#scheduling_patient_object).            |  
+| description             | {string}       | Brief description of the appointment.                                                                      |
 
 
 <a name="scheduling_patient_object"></a>

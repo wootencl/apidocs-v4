@@ -258,7 +258,7 @@ The /enrollment/snapshot GET response includes the following fields:
 
 | Field                  | Type      | Description                                                              												                           |
 |:-----------------------|:----------|:----------------------------------------------------------------------------------------------------------------------------|
-| snapshot_date          | {datetime}| The date of the snapshot. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).                                 				 							 |
+| snapshot_date          | {datetime}| The date of the snapshot. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).                                 				 							 |
 | trading_partner_id     | {string}	 | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) endpoint.			       |
 | snapshot_id            | {string}  | The id of the snapshot.                                 				 													                                   |
 

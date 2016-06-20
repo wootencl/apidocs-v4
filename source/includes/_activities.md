@@ -303,7 +303,7 @@ Field | Type | Description
 ----- | ---- | -----------
 callback_url | {string} | The URL that will be invoked to notify the client application that this Activity has completed. You must use https for callback URLs used by your application. For added security, a callback URL can be defined in the application.
 history | {object array} | Historical status of the progress of this Activity.
-history.record_dt | {datetime} | The date time associated with the history. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).
+history.record_dt | {datetime} | The date time associated with the history. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).
 history.name | {string} | State name associated with the history.
 history.title | {string} | State title associated with the history.  
 id | {string} | ID of this Activity.
@@ -315,7 +315,7 @@ remaining_transitions | {array} | The list of remaining state transitions that t
 result | {dict} | The result of the activity processing.  This will be populated with the latest response from a trading partner.
 result_history | {object array} | A list of result values that have been received from a trading partner.  This list will be present when a request results in more than one response from a trading partner.  The most recent response will always be available in the result field for convenience.
 result_history.result | {dict} | The result associated with the result.
-result_history.record_dt | {datetime} | The date time associated with the result. In ISO8601 format (YYYY-MM-DDThh:mm:ssTZD).
+result_history.record_dt | {datetime} | The date time associated with the result. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).
 state | {dict} | Current state of this Activity.
 transition_path | {array} | The list of state transitions that will be used for this Activity.
 units_of_work | {int} | The number of 'units of work' that the activity is operating on. This will typically be 1 for real-time requests like /eligibility/. When uploading batch X12 files via the /files/ endpoint, this will be the number of ‘transactions’ within that file. For example, if a client application POSTs a file of 20 eligibility requests to the /files/ API, the units_of_work value for that activity will be 20 after the X12 file has been analyzed. If an activity does show a value greater than 1 for units_of_work, the client application can fetch detailed information about each one of the activities processing those units of work by using the /activities/?parent_id=<activity_id> API.
