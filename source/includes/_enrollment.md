@@ -863,7 +863,10 @@ Map<String, Object> results = client.enrollment(query);
 Following the X12 834 format, the Benefits Enrollment API eases the creation and transmission process
 of benefits enrollment and maintenance files. Applications can use the Enrollment
 endpoint to submit new enrollments, enrollment changes due to life events and
-plan termination. These files are submitted asynchronously via batch mode.
+plan termination. These files are submitted asynchronously via batch mode. In addition, the Enrollment
+endpoint has the ability to accept an individual enrollment request. At this time, the number of trading 
+partners with the ability to accept individual enrollment files is limited. For more information on individual 
+request please [contact us](/contact).
 
 File transmission is performed depending on carrier and group requirements. The
 Benefits Enrollment API can be utilized for all enrollment requirements
