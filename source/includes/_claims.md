@@ -3494,7 +3494,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 | Field                              | Description                                                                                                                                                                                                                                                                           | CMS 1500                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | address                            | The subscriber’s address information as specified on their policy. Uses an address [object](#claims-address).                                                                                                                                                                          | 7: Insured's address                               |
-| birth_date                         | The subscriber’s birth date as specified on their policy.                                                                                                                                                                                                                             | 11a: Insured's date of birth                       |
+| birth_date                         | The subscriber’s birth date as specified on their policy. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                             | 11a: Insured's date of birth                       |
 | claim_filing_code                  | Indicates the type of payment for the claim. It is an optional field and when left blank or not passed in the request, defaults to "mutually_defined". A full list of possible values is included [below](#filing).                                                                   |                                                    |
 | claim_filing_code                  | Indicates the type of payment for the claim. It is an optional field and when left blank or not passed in the request, defaults to "mutually_defined". A full list of possible values is included [below](#filing).                                                                   |                                                    |
 | first_name                         | Required: The subscriber’s first name as specified on their policy.                                                                                                                                                                                                                   |                                                    |
@@ -3518,7 +3518,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 
 
 <a name="claims-claim-level-adjustments-object"></a>
-###Claim Level Adjustments object
+###Claim Level Adjustments object:
 | Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | claim_adjustment_group_code        | Required for Secondary: Code which defines the reason for the adjustments. [object](#claim-adjustment-group-codes) |
@@ -3529,7 +3529,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 | amount_owed                        | Required for Secondary: Claim level amount owed by the patient. |
 
 <a name="claims-claim-level-adjustment-items"></a>
-###Claim Level Adjustment Items object
+###Claim Level Adjustment Items object:
 | Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | claim_adjustment_reason_code       | Required for Secondary: Reason code as provided in the 835 response from the primary payer. |
@@ -3537,14 +3537,14 @@ The /claims/ response contains an activity and thus returns the same object as t
 | adjustment_quantity                | Required for Secondary: Adjustment quantity as specified for the secondary payer. |
 
 <a name="claims-line-level-adjustments-object"></a>
-###Line Level Adjustments object
+###Line Level Adjustments object:
 | Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | adjustments                        | Required for Secondary: List of line level adjustments with reason, amount, and quantity. [object](#claims-line-level-adjustment-items) |
 
 
 <a name="claims-line-level-adjustment-items"></a>
-###Line Level Adjustment Items object
+###Line Level Adjustment Items object:
 | Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | adjustment_amount                  | Required for Secondary: Adjustment amount as specified for the secondary payer. |
@@ -3556,7 +3556,7 @@ The /claims/ response contains an activity and thus returns the same object as t
 
 
 <a name="claims-line-level-adjustment-information-items"></a>
-###Line Level Adjustment Information Items object
+###Line Level Adjustment Information Items object:
 | Field                              | Description                                                                                                                                                                                                                                                                           |
 |:---------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|
 | claim_adjustment_group_code        | Group code describing the type of adjustment [object](#claim-adjustment-group-codes) |

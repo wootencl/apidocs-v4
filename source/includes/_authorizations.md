@@ -397,21 +397,21 @@ If the authorization request is sent using a real-time interface, an authorizati
 <a name="service_review_member_object"></a>
 ###Member object:
 
-| Field                             | Description                                                           |
-|:----------------------------------|:----------------------------------------------------------------------|
-| birth_date                        | The member’s birth date as specified on their policy.                 |
-| gender                            | The member's gender (Male, Female, Unknown)                           |
-| last_name                         | The member’s last name as specified on their policy.                  |
-| first_name                        | The member’s first name as specified on their policy.                 |
-| middle_name                       | The member’s middle name as specified on their policy.                |
-| suffix                            | The suffix for the member                                             |
-| id                                | The member identifier.                                                |
-| last_menstrual_date               | The last menstrual date of the member.                                |
-| group_number                      | The group number of the patient.                                      |
-| ssn                               | The ssn of the member.                                                |
-| estimated_birth_date              | The estimated date of birth of the patient.                           |
-| illness_date                      | The date the member became ill.                                       |
-| accident_date                     | The date of the member's accident.                                                                                                                                     |
+| Field                             | Description                                                                           |
+|:----------------------------------|:--------------------------------------------------------------------------------------|
+| birth_date                        | The member’s birth date as specified on their policy. In ISO8601 format (YYYY-MM-DD). |
+| gender                            | The member's gender (Male, Female, Unknown)                                           |
+| last_name                         | The member’s last name as specified on their policy.                                  |
+| first_name                        | The member’s first name as specified on their policy.                                 |
+| middle_name                       | The member’s middle name as specified on their policy.                                |
+| suffix                            | The suffix for the member                                                             |
+| id                                | The member identifier.                                                                |
+| last_menstrual_date               | The last menstrual date of the member. In ISO8601 format (YYYY-MM-DD).                |
+| group_number                      | The group number of the patient.                                                      |
+| ssn                               | The ssn of the member.                                                                |
+| estimated_birth_date              | The estimated date of birth of the patient. In ISO8601 format (YYYY-MM-DD).           |
+| illness_date                      | The date the member became ill. In ISO8601 format (YYYY-MM-DD).                       |
+| accident_date                     | The date of the member's accident. In ISO8601 format (YYYY-MM-DD).                                                                                                                                    |
 
 <a name="service_review_provider_object"></a>
 ###Provider object:
