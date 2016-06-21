@@ -48,7 +48,7 @@ client.providers(query)
     ],
     "licensures": [
       {
-        "expiration_date": "2017-06-30",
+        "expiration_date": "2017-06-25",
         "number": "27210",
         "state": "SC",
         "status": "active",
@@ -219,7 +219,7 @@ client.providers(query)
       ],
       "licensures": [
         {
-          "expiration_date": "2017-06-30",
+          "expiration_date": "2017-06-25",
           "number": "28487",
           "state": "SC",
           "status": "active",
@@ -394,7 +394,7 @@ The response from the /providers/ endpoints contain the following fields:
 
 | Field                                 | Type      | Description                                                                                                              |
 |:--------------------------------------|:----------|:-------------------------------------------------------------------------------------------------------------------------|
-| provider.birth_date                   | {string}  | Optional: The provider's birth year                                                                                      |
+| provider.birth_date                   | {string}  | Optional: The provider's birth year. In ISO8601 format (YYYY-MM-DD).                                                     |
 | provider.board_certifications         | {array}   | Optional: The provider's board certifications                                                                            |
 | provider.board_subcertifications      | {array}   | Optional/Deprecated: The provider's board sub-certifications                                                             |
 | provider.degree                       | {string}  | Optional: The provider's degree ("MD" or "DO")                                                                           |
@@ -412,8 +412,8 @@ The response from the /providers/ endpoints contain the following fields:
 | provider.licenses.year                | {string}  | Optional: License year                                                                                                   |
 | provider.licenses.role                | {string}  | Optional/Deprecated: License role                                                                                        |
 | provider.licensures                   | {array}   | Optional: State licensure information                                                                                    |
-| provider.licensures.as_of_date        | {string}  | Optional: Licensure as of date (ISO-8601)                                                                                |
-| provider.licensures.expiration_date   | {string}  | Optional: Licensure expiration date                                                                                      |
+| provider.licensures.as_of_date        | {string}  | Optional: Licensure as of date. In ISO8601 format (YYYY-MM-DD).                                                          |
+| provider.licensures.expiration_date   | {string}  | Optional: Licensure expiration date. In ISO8601 format (YYYY-MM-DD).                                                     |
 | provider.licensures.number            | {string}  | Optional: Licensure number                                                                                               |
 | provider.licensures.status            | {string}  | Optional: Licensure status ('active', 'inactive')                                                                        |
 | provider.licensures.state             | {string}  | Optional: Licensure state                                                                                                |
@@ -429,7 +429,7 @@ The response from the /providers/ endpoints contain the following fields:
 | provider.locations.zipcode            | {string}  | Zip code                                                                                                                 |
 | provider.locations.county             | {string}  | County                                                                                                                   |
 | provider.locations.role               | {list}    | Optional: Address role(s). One or both of: ('mailing' or 'practice').  When missing the address is the practice address. |
-| provider.locations.suite              | {string}  | Optional: Address suite																								   |
+| provider.locations.suite              | {string}  | Optional: Address suite																								                                                   |
 | provider.middle_name                  | {string}  | Optional: The provider's middle name or initial                                                                          |
 | provider.npi                          | {string}  | The provider's NPI                                                                                                       |
 | provider.organization_name            | {string}  | Optional: The business practice name                                                                                     |

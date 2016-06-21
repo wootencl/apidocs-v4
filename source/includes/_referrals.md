@@ -15,7 +15,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "diagnoses": [
             {
                 "code": "H72.90",
-                "date": "2014-09-30"
+                "date": "2014-09-25"
             }
         ],
         "place_of_service": "office",
@@ -28,7 +28,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "type": "consultation"
     },
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -54,7 +54,7 @@ client.referrals({
         "diagnoses": [
             {
                 "code": "H72.90",
-                "date": "2014-09-30"
+                "date": "2014-09-25"
             }
         ],
         "place_of_service": "office",
@@ -67,7 +67,7 @@ client.referrals({
         "type": "consultation"
     },
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -94,7 +94,7 @@ client.referrals({
 						{"diagnoses", new Dictionary<string, string>[] {
 							new Dictionary<string, string> {
 								{"code", "H72.90"},
-								{"date", "2014-09-30"}
+								{"date", "2014-09-25"}
 							}}},
 						{"place_of_service", "office"},
 						{"provider", new Dictionary<string, string> {
@@ -106,7 +106,7 @@ client.referrals({
 						{"type", "consultation"},
 					}},
 				{"patient", new Dictionary<string, string> {
-						{"birth_date", "1970-01-01"},
+						{"birth_date", "1970-01-25"},
 						{"first_name", "JANE"},
 						{"last_name", "DOE"},
 						{"id", "1234567890"}
@@ -132,7 +132,7 @@ client.referrals({
         "diagnoses": [
             {
                 "code": "H72.90",
-                "date": "2014-09-30"
+                "date": "2014-09-25"
             }
         ],
         "place_of_service": "office",
@@ -145,7 +145,7 @@ client.referrals({
         "type": "consultation"
     },
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -173,7 +173,7 @@ buf.append("        },");
 buf.append("        \"diagnoses\": [");
 buf.append("            {");
 buf.append("                \"code\": \"H72.90\",");
-buf.append("                \"date\": \"2014-09-30\"");
+buf.append("                \"date\": \"2014-09-25\"");
 buf.append("            }");
 buf.append("        ],");
 buf.append("        \"place_of_service\": \"office\",");
@@ -186,7 +186,7 @@ buf.append("        },");
 buf.append("        \"type\": \"consultation\"");
 buf.append("    },");
 buf.append("    \"patient\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"JANE\",");
 buf.append("        \"last_name\": \"DOE\",");
 buf.append("        \"id\": \"1234567890\"");
@@ -218,7 +218,7 @@ Map<String, Object> results = client.referrals(query);
         "diagnoses": [
             {
                 "code": "H72.90",
-                "date": "2014-09-30"
+                "date": "2014-09-25"
             }
         ],
         "place_of_service": "office",
@@ -235,7 +235,7 @@ Map<String, Object> results = client.referrals(query);
         "type": "consultation"
     },
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -281,21 +281,21 @@ The /referrals/ endpoint uses the same object for both its parameters and respon
 | event.delivery.quantity_qualifier             | The qualifier used to indicate the quantity type. (e.g. visits, month, hours, units, days)                                                                                                                                            |
 | event.diagnoses                               | An array of diagnosis information related to the event.                                                                                                                                                                               |
 | event.diagnoses.code                          | The diagnosis code. (e.g. H72.90)                                                                                                                                                                                                     |
-| event.diagnoses.date                          | The date of the diagnosis.                                                                                                                                                                                                            |
+| event.diagnoses.date                          | The date of the diagnosis. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                            |
 | event.place_of_service                        | The location where health care services are rendered.                                                                                                                                                                                 |
 | event.provider                                | Information about the provider being requested for this event. The object used for provider can be seen [below](#referral_service_review_provider_object).                                                                            |
-| event.admission_date                          | The date the patient was admitted.                                                                                                                                                                                                    |
-| event.discharge_date                          | The date the patient was discharged.                                                                                                                                                                                                  |
+| event.admission_date                          | The date the patient was admitted. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                    |
+| event.discharge_date                          | The date the patient was discharged. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                  |
 | event.review                                  | Information about the outcome of a health care services review.                                                                                                                                                                       |
 | event.review.certification_action             | Indicates the outcome of the review. For example, "certified_in_total" will be returned when the event is certified/authorized.  A full list of possible values can be found [below](#referral_certaction).                           |
 | event.review.certification_number             | The review certification/reference number.                                                                                                                                                                                            |
 | event.review.decision_reason                  | If the event is not authorized, the reason for that decision.  A full list of possible values can be found [below](#referral_decision).                                                                                               |
-| event.review.event_start_date                 | Effective date of referral.                                                                                                                                                                                                           |
-| event.review.event_end_date                   | End date for referral.                                                                                                                                                                                                                |
+| event.review.event_start_date                 | Effective date of referral. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                           |
+| event.review.event_end_date                   | End date for referral. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                |
 | event.review.second_surgical_opinion_required | Boolean of whether or not a second surgical opinion is required.                                                                                                                                                                      |
 | event.type                                    | The type of service being requested. For example, a value of consultation would be used when referring to a specialist for an initial consultation.                                                                                   |
-| event.start_date                              | Optional: The start date of the given event. For a single date, provide only event.start_date. For a date range, provide event.start_date and event.end_date. Given in ISO8601 (YYYY-MM-DD).                                          |
-| event.end_date                                | Optional: The end date of the given event. Only provide the end_date if the start_date is also given. Given in ISO8601 (YYYY-MM-DD).                                                                                                  |
+| event.start_date                              | Optional: The start date of the given event. For a single date, provide only event.start_date. For a date range, provide event.start_date and event.end_date. In ISO8601 format (YYYY-MM-DD).                                         |
+| event.end_date                                | Optional: The end date of the given event. Only provide the end_date if the start_date is also given. In ISO8601 format (YYYY-MM-DD).                                                                                                 |
 | follow_up_action                              | When a referral request is rejected, a follow up action will be provided to inform your application how to proceed. See the possibilities [below](#referral_follow_up_action).                                                        |
 | patient                                       | The patient for the referral. The object used for the patient can be seen [below](#referral_service_review_member_object).                                                                                                            |
 | originating_company_id                        | The id of the company where the request originated.                                                                                                                                                                                   |
@@ -316,21 +316,21 @@ Interested in requesting authorization for a particular service for a patient? S
 <a name="referral_service_review_member_object"></a>
 ###Member object:
 
-| Field                             | Description                                                           |
-|:----------------------------------|:----------------------------------------------------------------------|
-| birth_date                        | The member’s birth date as specified on their policy.                 |
-| gender                            | The member's gender (Male, Female, Unknown)                           |
-| last_name                         | The member’s last name as specified on their policy.                  |
-| first_name                        | The member’s first name as specified on their policy.                 |
-| middle_name                       | The member’s middle name as specified on their policy.                |
-| suffix                            | The suffix for the member                                             |
-| id                                | The member identifier.                                                |
-| last_menstrual_date               | The last menstrual date of the member.                                |
-| group_number                      | The group number of the patient.                                      |
-| ssn                               | The ssn of the member.                                                |
-| estimated_birth_date              | The estimated date of birth of the patient.                           |
-| illness_date                      | The date the member became ill.                                       |
-| accident_date                     | The date of the member's accident.                                    |
+| Field                             | Description                                                                           |
+|:----------------------------------|:--------------------------------------------------------------------------------------|
+| birth_date                        | The member’s birth date as specified on their policy. In ISO8601 format (YYYY-MM-DD). |
+| gender                            | The member's gender (Male, Female, Unknown)                                           |
+| last_name                         | The member’s last name as specified on their policy.                                  |
+| first_name                        | The member’s first name as specified on their policy.                                 |
+| middle_name                       | The member’s middle name as specified on their policy.                                |
+| suffix                            | The suffix for the member                                                             |
+| id                                | The member identifier.                                                                |
+| last_menstrual_date               | The last menstrual date of the member. In ISO8601 format (YYYY-MM-DD).                |
+| group_number                      | The group number of the patient.                                                      |
+| ssn                               | The ssn of the member.                                                                |
+| estimated_birth_date              | The estimated date of birth of the patient. In ISO8601 format (YYYY-MM-DD).           |
+| illness_date                      | The date the member became ill. In ISO8601 format (YYYY-MM-DD).                       |
+| accident_date                     | The date of the member's accident. In ISO8601 format (YYYY-MM-DD).                     |
 
 <a name="referral_service_review_provider_object"></a>
 ###Provider object:

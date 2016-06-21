@@ -4,7 +4,7 @@
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -14,7 +14,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
+    "service_date": "2014-01-25",
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/claims/status
 ```
@@ -22,7 +22,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 client.claims_status({
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -32,7 +32,7 @@ client.claims_status({
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
+    "service_date": "2014-01-25",
     "trading_partner_id": "MOCKPAYER"
 })
 ```
@@ -42,7 +42,7 @@ client.claimsStatus(
 			new Dictionary<string, object> {
 				{"patient", new Dictionary<string, object> {
 						{"id", "W000000000"},
-						{"birth_date", "1970-01-01"},
+						{"birth_date", "1970-01-25"},
 						{"first_name", "Jane"},
 						{"last_name", "Doe"}
 					}},
@@ -51,7 +51,7 @@ client.claimsStatus(
 						{"last_name", "AYA-AY"},
 						{"first_name", "JEROME"}
 					}},
-				{"service_date", "2014-01-01"},
+				{"service_date", "2014-01-25"},
 				{"trading_partner_id", "MOCKPAYER"}
 			});
 ```
@@ -59,7 +59,7 @@ client.claimsStatus(
 ```ruby
 client.claims_status({
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -69,7 +69,7 @@ client.claims_status({
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
+    "service_date": "2014-01-25",
     "trading_partner_id": "MOCKPAYER"
 })
 ```
@@ -79,7 +79,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"patient\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"JANE\",");
 buf.append("        \"last_name\": \"DOE\",");
 buf.append("        \"id\": \"1234567890\"");
@@ -89,7 +89,7 @@ buf.append("        \"first_name\": \"Jerome\",");
 buf.append("        \"last_name\": \"Aya-Ay\",");
 buf.append("        \"npi\": \"1467560003\"");
 buf.append("    },");
-buf.append("    \"service_date\": \"2014-01-01\",");
+buf.append("    \"service_date\": \"2014-01-25\",");
 buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
@@ -102,7 +102,7 @@ Map<String, Object> results = client.claimsStatus(query);
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "patient": {
-        "birth_date": "2000-01-01",
+        "birth_date": "2000-01-25",
         "first_name": "JOHN",
         "last_name": "DOE",
         "id": "1234567890"
@@ -112,9 +112,9 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
+    "service_date": "2014-01-25",
     "subscriber": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -126,7 +126,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 client.claims_status({
     "patient": {
-        "birth_date": "2000-01-01",
+        "birth_date": "2000-01-25",
         "first_name": "JOHN",
         "last_name": "DOE",
         "id": "1234567890"
@@ -136,9 +136,9 @@ client.claims_status({
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
+    "service_date": "2014-01-25",
     "subscriber": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -150,7 +150,7 @@ client.claims_status({
 ```csharp
 client.claimsStatus(new Dictionary<string, object> {
     {"patient", new Dictionary<string, string> {
-        {"birth_date", "2000-01-01"},
+        {"birth_date", "2000-01-25"},
         {"first_name", "JOHN"},
         {"last_name", "DOE"},
         {"id", "1234567890"}
@@ -160,9 +160,9 @@ client.claimsStatus(new Dictionary<string, object> {
         {"last_name", "Aya-Ay"},
         {"npi", "1467560003"}
     }},
-    {"service_date", "2014-01-01"},
+    {"service_date", "2014-01-25"},
     {"subscriber", new Dictionary<string, string> {
-        {"birth_date", "1970-01-01"},
+        {"birth_date", "1970-01-25"},
         {"first_name", "JANE"},
         {"last_name", "DOE"},
         {"id", "1234567890"}
@@ -175,7 +175,7 @@ client.claimsStatus(new Dictionary<string, object> {
 ```ruby
 client.claims_status({
     "patient": {
-        "birth_date": "2000-01-01",
+        "birth_date": "2000-01-25",
         "first_name": "JOHN",
         "last_name": "DOE",
         "id": "1234567890"
@@ -185,9 +185,9 @@ client.claims_status({
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
+    "service_date": "2014-01-25",
     "subscriber": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -201,7 +201,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"patient\": {");
-buf.append("        \"birth_date\": \"2000-01-01\",");
+buf.append("        \"birth_date\": \"2000-01-25\",");
 buf.append("        \"first_name\": \"JOHN\",");
 buf.append("        \"last_name\": \"DOE\",");
 buf.append("        \"id\": \"1234567890\"");
@@ -211,9 +211,9 @@ buf.append("        \"first_name\": \"Jerome\",");
 buf.append("        \"last_name\": \"Aya-Ay\",");
 buf.append("        \"npi\": \"1467560003\"");
 buf.append("    },");
-buf.append("    \"service_date\": \"2014-01-01\",");
+buf.append("    \"service_date\": \"2014-01-25\",");
 buf.append("    \"subscriber\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"JANE\",");
 buf.append("        \"last_name\": \"DOE\",");
 buf.append("        \"id\": \"1234567890\"");
@@ -230,7 +230,7 @@ Map<String, Object> results = client.claimsStatus(query);
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -240,8 +240,8 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
-    "service_end_date": "2014-01-04",
+    "service_date": "2014-01-25",
+    "service_end_date": "2014-01-25",
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/claims/status
 ```
@@ -249,7 +249,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 client.claims_status({
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -259,8 +259,8 @@ client.claims_status({
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
-    "service_end_date": "2014-01-04",
+    "service_date": "2014-01-25",
+    "service_end_date": "2014-01-25",
     "trading_partner_id": "MOCKPAYER"
 })
 ```
@@ -268,7 +268,7 @@ client.claims_status({
 ```csharp
 client.claimsStatus(new Dictionary<string, object> {
     {"patient", new Dictionary<string, string> {
-        {"birth_date", "1970-01-01"},
+        {"birth_date", "1970-01-25"},
         {"first_name", "JANE"},
         {"last_name", "DOE"},
         {"id", "1234567890"}
@@ -278,8 +278,8 @@ client.claimsStatus(new Dictionary<string, object> {
         {"last_name", "Aya-Ay"},
         {"npi", "1467560003"}
     }},
-    {"service_date", "2014-01-01"},
-    {"service_end_date", "2014-01-04"},
+    {"service_date", "2014-01-25"},
+    {"service_end_date", "2014-01-25"},
     {"trading_partner_id", "MOCKPAYER"}
 });
 ```
@@ -287,7 +287,7 @@ client.claimsStatus(new Dictionary<string, object> {
 ```ruby
 client.claims_status({
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -297,8 +297,8 @@ client.claims_status({
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
-    "service_end_date": "2014-01-04",
+    "service_date": "2014-01-25",
+    "service_end_date": "2014-01-25",
     "trading_partner_id": "MOCKPAYER"
 })
 ```
@@ -308,7 +308,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"patient\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"JANE\",");
 buf.append("        \"last_name\": \"DOE\",");
 buf.append("        \"id\": \"1234567890\"");
@@ -318,8 +318,8 @@ buf.append("        \"first_name\": \"Jerome\",");
 buf.append("        \"last_name\": \"Aya-Ay\",");
 buf.append("        \"npi\": \"1467560003\"");
 buf.append("    },");
-buf.append("    \"service_date\": \"2014-01-01\",");
-buf.append("    \"service_end_date\": \"2014-01-04\",");
+buf.append("    \"service_date\": \"2014-01-25\",");
+buf.append("    \"service_end_date\": \"2014-01-25\",");
 buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
 
@@ -332,7 +332,7 @@ Map<String, Object> results = client.claimsStatus(query);
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -342,7 +342,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
+    "service_date": "2014-01-25",
     "tracking_id": "ABC12345",
     "trading_partner_id": "MOCKPAYER"
 }' https://platform.pokitdok.com/api/v4/claims/status
@@ -351,7 +351,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
 ```python
 client.claims_status({
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -361,7 +361,7 @@ client.claims_status({
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
+    "service_date": "2014-01-25",
     "tracking_id": "ABC12345",
     "trading_partner_id": "MOCKPAYER"
 })
@@ -370,7 +370,7 @@ client.claims_status({
 ```csharp
 client.claimsStatus(new Dictionary<string, object> {
     {"patient", new Dictionary<string, string> {
-        {"birth_date", "1970-01-01"},
+        {"birth_date", "1970-01-25"},
         {"first_name", "JANE"},
         {"last_name", "DOE"},
         {"id", "1234567890"}
@@ -380,7 +380,7 @@ client.claimsStatus(new Dictionary<string, object> {
         {"last_name", "Aya-Ay"},
         {"npi", "1467560003"}
     }},
-    {"service_date", "2014-01-01"},
+    {"service_date", "2014-01-25"},
     {"tracking_id", "ABC12345"},
     {"trading_partner_id", "MOCKPAYER"}
 });
@@ -389,7 +389,7 @@ client.claimsStatus(new Dictionary<string, object> {
 ```ruby
 client.claims_status({
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -399,7 +399,7 @@ client.claims_status({
         "last_name": "Aya-Ay",
         "npi": "1467560003"
     },
-    "service_date": "2014-01-01",
+    "service_date": "2014-01-25",
     "tracking_id": "ABC12345",
     "trading_partner_id": "MOCKPAYER"
 })
@@ -410,7 +410,7 @@ StringBuffer buf = new StringBuffer();
 
 buf.append("{");
 buf.append("    \"patient\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"JANE\",");
 buf.append("        \"last_name\": \"DOE\",");
 buf.append("        \"id\": \"1234567890\"");
@@ -420,7 +420,7 @@ buf.append("        \"first_name\": \"Jerome\",");
 buf.append("        \"last_name\": \"Aya-Ay\",");
 buf.append("        \"npi\": \"1467560003\"");
 buf.append("    },");
-buf.append("    \"service_date\": \"2014-01-01\",");
+buf.append("    \"service_date\": \"2014-01-25\",");
 buf.append("    \"tracking_id\": \"ABC12345\",");
 buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
 buf.append("}");
@@ -444,8 +444,8 @@ any matching claims:
                     "amount": "0",
                     "currency": "USD"
                 },
-                "service_date": "2014-01-01",
-                "service_end_date": "2014-01-01",
+                "service_date": "2014-01-25",
+                "service_end_date": "2014-01-25",
                 "statuses": [
                     {
                         "claim_payment_amount": {
@@ -454,7 +454,7 @@ any matching claims:
                         },
                         "status_category": "Acknowledgement/Not Found-The claim/encounter can not be found in the adjudication system.",
                         "status_code": "Claim/encounter not found.",
-                        "status_effective_date": "2014-07-29",
+                        "status_effective_date": "2014-07-25",
                         "total_claim_amount": {
                             "amount": "0",
                             "currency": "USD"
@@ -511,7 +511,7 @@ name, and they are unable to find a match:
                 {  
                     "status_code":"Entity's National Provider Identifier (NPI).",
                     "status_category":"Data Search Unsuccessful - The payer is unable to return status on the requested claim(s) based on the submitted search criteria.",
-                    "status_effective_date":"2015-09-01",
+                    "status_effective_date":"2015-09-25",
                     "status_category_code":"D0"
                 }
             ]
@@ -536,7 +536,7 @@ has been paid:
     "patient": {
         "claims": [
             {
-                "adjudication_finalized_date": "2014-06-20",
+                "adjudication_finalized_date": "2014-06-25",
                 "applied_to_deductible": false,
                 "check_number": "08608-000000000",
                 "claim_control_number": "EV30000WY00",
@@ -544,9 +544,9 @@ has been paid:
                     "amount": "156",
                     "currency": "USD"
                 },
-                "remittance_date": "2014-06-24",
-                "service_date": "2014-06-17",
-                "service_end_date": "2014-06-17",
+                "remittance_date": "2014-06-25",
+                "service_date": "2014-06-25",
+                "service_end_date": "2014-06-25",
                 "services": [
                     {
                         "charge_amount": {
@@ -558,13 +558,13 @@ has been paid:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2014-06-17",
-                        "service_end_date": "2014-06-17",
+                        "service_date": "2014-06-25",
+                        "service_end_date": "2014-06-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
                                 "status_code": "Processed according to contract provisions (Contract refers to provisions that exist between the Health Plan and a Provider of Health Care Services)",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     },
@@ -578,13 +578,13 @@ has been paid:
                             "amount": "72",
                             "currency": "USD"
                         },
-                        "service_date": "2014-06-17",
-                        "service_end_date": "2014-06-17",
+                        "service_date": "2014-06-25",
+                        "service_end_date": "2014-06-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Payment-The claim/line has been paid.",
                                 "status_code": "Processed according to contract provisions (Contract refers to provisions that exist between the Health Plan and a Provider of Health Care Services)",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     },
@@ -598,13 +598,13 @@ has been paid:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2014-06-17",
-                        "service_end_date": "2014-06-17",
+                        "service_date": "2014-06-25",
+                        "service_end_date": "2014-06-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
                                 "status_code": "Processed according to contract provisions (Contract refers to provisions that exist between the Health Plan and a Provider of Health Care Services)",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     },
@@ -618,13 +618,13 @@ has been paid:
                             "amount": "48",
                             "currency": "USD"
                         },
-                        "service_date": "2014-06-17",
-                        "service_end_date": "2014-06-17",
+                        "service_date": "2014-06-25",
+                        "service_end_date": "2014-06-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Payment-The claim/line has been paid.",
                                 "status_code": "Processed according to contract provisions (Contract refers to provisions that exist between the Health Plan and a Provider of Health Care Services)",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     },
@@ -638,29 +638,29 @@ has been paid:
                             "amount": "36",
                             "currency": "USD"
                         },
-                        "service_date": "2014-06-17",
-                        "service_end_date": "2014-06-17",
+                        "service_date": "2014-06-25",
+                        "service_end_date": "2014-06-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Payment-The claim/line has been paid.",
                                 "status_code": "Processed according to contract provisions (Contract refers to provisions that exist between the Health Plan and a Provider of Health Care Services)",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     }
                 ],
                 "statuses": [
                     {
-                        "adjudication_finalized_date": "2014-06-20",
+                        "adjudication_finalized_date": "2014-06-25",
                         "check_number": "08608-000000000",
                         "claim_payment_amount": {
                             "amount": "156",
                             "currency": "USD"
                         },
-                        "remittance_date": "2014-06-24",
+                        "remittance_date": "2014-06-25",
                         "status_category": "Finalized/Payment-The claim/line has been paid.",
                         "status_code": "Processed according to contract provisions (Contract refers to provisions that exist between the Health Plan and a Provider of Health Care Services)",
-                        "status_effective_date": "2014-07-29",
+                        "status_effective_date": "2014-07-25",
                         "total_claim_amount": {
                             "amount": "214",
                             "currency": "USD"
@@ -706,16 +706,16 @@ has been paid:
     "patient": {
         "claims": [
             {
-                "adjudication_finalized_date": "2013-07-24",
+                "adjudication_finalized_date": "2013-07-25",
                 "applied_to_deductible": false,
                 "claim_control_number": "EM000000000",
                 "claim_payment_amount": {
                     "amount": "0",
                     "currency": "USD"
                 },
-                "remittance_date": "2013-07-30",
-                "service_date": "2013-07-15",
-                "service_end_date": "2013-07-15",
+                "remittance_date": "2013-07-25",
+                "service_date": "2013-07-25",
+                "service_end_date": "2013-07-25",
                 "services": [
                     {
                         "charge_amount": {
@@ -727,12 +727,12 @@ has been paid:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2013-07-15",
-                        "service_end_date": "2013-07-15",
+                        "service_date": "2013-07-25",
+                        "service_end_date": "2013-07-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     },
@@ -746,12 +746,12 @@ has been paid:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2013-07-15",
-                        "service_end_date": "2013-07-15",
+                        "service_date": "2013-07-25",
+                        "service_end_date": "2013-07-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     },
@@ -765,26 +765,26 @@ has been paid:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2013-07-15",
-                        "service_end_date": "2013-07-15",
+                        "service_date": "2013-07-25",
+                        "service_end_date": "2013-07-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     }
                 ],
                 "statuses": [
                     {
-                        "adjudication_finalized_date": "2013-07-24",
+                        "adjudication_finalized_date": "2013-07-25",
                         "claim_payment_amount": {
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "remittance_date": "2013-07-30",
+                        "remittance_date": "2013-07-25",
                         "status_category": "Finalized/Denial-The claim/line has been denied.",
-                        "status_effective_date": "2014-07-29",
+                        "status_effective_date": "2014-07-25",
                         "total_claim_amount": {
                             "amount": "975",
                             "currency": "USD"
@@ -798,16 +798,16 @@ has been paid:
                 "tracking_id": "D92BD44D-9F9F-4DE1-890B-61EF86"
             },
             {
-                "adjudication_finalized_date": "2013-08-23",
+                "adjudication_finalized_date": "2013-08-25",
                 "applied_to_deductible": false,
                 "claim_control_number": "EH000000000",
                 "claim_payment_amount": {
                     "amount": "0",
                     "currency": "USD"
                 },
-                "remittance_date": "2013-08-27",
-                "service_date": "2013-07-15",
-                "service_end_date": "2013-07-15",
+                "remittance_date": "2013-08-25",
+                "service_date": "2013-07-25",
+                "service_end_date": "2013-07-25",
                 "services": [
                     {
                         "charge_amount": {
@@ -819,12 +819,12 @@ has been paid:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2013-07-15",
-                        "service_end_date": "2013-07-15",
+                        "service_date": "2013-07-25",
+                        "service_end_date": "2013-07-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     },
@@ -838,12 +838,12 @@ has been paid:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2013-07-15",
-                        "service_end_date": "2013-07-15",
+                        "service_date": "2013-07-25",
+                        "service_end_date": "2013-07-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     },
@@ -857,26 +857,26 @@ has been paid:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2013-07-15",
-                        "service_end_date": "2013-07-15",
+                        "service_date": "2013-07-25",
+                        "service_end_date": "2013-07-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     }
                 ],
                 "statuses": [
                     {
-                        "adjudication_finalized_date": "2013-08-23",
+                        "adjudication_finalized_date": "2013-08-25",
                         "claim_payment_amount": {
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "remittance_date": "2013-08-27",
+                        "remittance_date": "2013-08-25",
                         "status_category": "Finalized/Denial-The claim/line has been denied.",
-                        "status_effective_date": "2014-07-29",
+                        "status_effective_date": "2014-07-25",
                         "total_claim_amount": {
                             "amount": "975",
                             "currency": "USD"
@@ -923,7 +923,7 @@ been denied (not paid) and the charges are applied to the deductible:
     "patient": {
         "claims": [
             {
-                "adjudication_finalized_date": "2014-04-04",
+                "adjudication_finalized_date": "2014-04-25",
                 "applied_to_deductible": true,
                 "check_number": "814000000000000",
                 "claim_control_number": "E6Y0C7NQG00",
@@ -931,9 +931,9 @@ been denied (not paid) and the charges are applied to the deductible:
                     "amount": "0",
                     "currency": "USD"
                 },
-                "remittance_date": "2014-04-14",
-                "service_date": "2014-03-26",
-                "service_end_date": "2014-03-26",
+                "remittance_date": "2014-04-25",
+                "service_date": "2014-03-25",
+                "service_end_date": "2014-03-25",
                 "services": [
                     {
                         "charge_amount": {
@@ -945,13 +945,13 @@ been denied (not paid) and the charges are applied to the deductible:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2014-03-26",
-                        "service_end_date": "2014-03-26",
+                        "service_date": "2014-03-25",
+                        "service_end_date": "2014-03-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
                                 "status_code": "Processed according to contract provisions (Contract refers to provisions that exist between the Health Plan and a Provider of Health Care Services)",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     },
@@ -965,29 +965,29 @@ been denied (not paid) and the charges are applied to the deductible:
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "service_date": "2014-03-26",
-                        "service_end_date": "2014-03-26",
+                        "service_date": "2014-03-25",
+                        "service_end_date": "2014-03-25",
                         "statuses": [
                             {
                                 "status_category": "Finalized/Denial-The claim/line has been denied.",
                                 "status_code": "Processed according to contract provisions (Contract refers to provisions that exist between the Health Plan and a Provider of Health Care Services)",
-                                "status_effective_date": "2014-07-29"
+                                "status_effective_date": "2014-07-25"
                             }
                         ]
                     }
                 ],
                 "statuses": [
                     {
-                        "adjudication_finalized_date": "2014-04-04",
+                        "adjudication_finalized_date": "2014-04-25",
                         "check_number": "814000000000000",
                         "claim_payment_amount": {
                             "amount": "0",
                             "currency": "USD"
                         },
-                        "remittance_date": "2014-04-14",
+                        "remittance_date": "2014-04-25",
                         "status_category": "Finalized/Denial-The claim/line has been denied.",
                         "status_code": "Processed according to contract provisions (Contract refers to provisions that exist between the Health Plan and a Provider of Health Care Services)",
-                        "status_effective_date": "2014-07-29",
+                        "status_effective_date": "2014-07-25",
                         "total_claim_amount": {
                             "amount": "427",
                             "currency": "USD"
@@ -1051,8 +1051,8 @@ The /claims/status endpoint accepts the following parameters:
 | provider.tax_id                          | The provider’s tax identifier.                                                                                                                                                                                                                                                                       |
 | provider.npi                             | The NPI for the billing provider.                                                                                                                                                                                                                                                                    |
 | provider.organization_name               | The provider’s name when the provider is an organization. first_name and last_name should be omitted when sending organization_name.                                                                                                                                                                 |
-| service_date                             | The date services were performed or started for the claim service period.                                                                                                                                                                                                                            |
-| service_end_date                         | Optional: The date services ended for the claim service period.                                                                                                                                                                                                                                      |
+| service_date                             | The date services were performed or started for the claim service period. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                            |
+| service_end_date                         | Optional: The date services ended for the claim service period. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                      |
 | subscriber                               | Optional: The subscriber associated with the claim. Specify when the patient is not the subscriber. Uses the member [object](#claims_status_member_object).                                                                                                                                          |
 | tracking_id                              | Optional: The payer's claim tracking id. Specify this value to refine the search criteria for a claim. If a payer claim control number was returned on the claim submission, this number should be used in the tracking id field for the greatest chance of returning valid claim status information.|
 | trading_partner_id                       | Unique id for the intended trading partner, as specified by the [Trading Partners](#trading-partners) Endpoint.                                                                                                                                                                                      |
@@ -1078,8 +1078,8 @@ The /claim/status response contains the following fields:
 | payer                                                 | Information associated with the payer of the claim.                                                                                                                                                                                                                                                                                                |
 | payer.name                                            | The name of the payer                                                                                                                                                                                                                                                                                                                              |
 | payer.id                                              | The unique identifier of the payer.                                                                                                                                                                                                                                                                                                                |
-| payer.date_received                                   | The the date the payer received the claim.                                                                                                                                                                                                                                                                                                         |
-| payer.date_received                                   | The the date the payer processed the claim.                                                                                                                                                                                                                                                                                                        |
+| payer.date_received                                   | The the date the payer received the claim. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                         |
+| payer.date_received                                   | The the date the payer processed the claim. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                        |
 | submitter                                             | Information associated with the submitter of the claim status request.                                                                                                                                                                                                                                                                             |
 | submitter.first_name                                  | The submitter’s first name when the submitter is an individual.                                                                                                                                                                                                                                                                                    |
 | submitter.middle_name                                 | The submitter’s middle name when the submitter is an individual.                                                                                                                                                                                                                                                                                   |
@@ -1111,7 +1111,7 @@ The /claim/status response contains the following fields:
 | providers.amount_returned                             | The monetary amount returned based on claims. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                   |
 | patient                                               | Information about a patient including any matching claims.                                                                                                                                                                                                                                                                                         |
 | patient.claims                                        | A list of matching claims returned by the trading partner for a claims status request.                                                                                                                                                                                                                                                             |
-| patient.claims.adjudication_finalized_date            | The date adjudication was finalized for the claim.                                                                                                                                                                                                                                                                                                 |
+| patient.claims.adjudication_finalized_date            | The date adjudication was finalized for the claim. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                 |
 | patient.claims.applied_to_deductible                  | Boolean that indicates whether or not claim charges are applied to the deductible.                                                                                                                                                                                                                                                                 |
 | patient.claims.patient_control_number                 | The control number associated with a patient. This number is assigned by the payer.                                                                                                                                                                                                                                                                |
 | patient.claims.claim_id_number                        | The id number associated with a claim.                                                                                                                                                                                                                                                                                                             |
@@ -1122,15 +1122,15 @@ The /claim/status response contains the following fields:
 | patient.claims.check_number                           | The check or EFT trace number for a claim payment.                                                                                                                                                                                                                                                                                                 |
 | patient.claims.claim_control_number                   | The Payer's Claim Control Number.                                                                                                                                                                                                                                                                                                                  |
 | patient.claims.claim_payment_amount                   | The amount that's been paid on the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                       |
-| patient.claims.remittance_date                        | The date the check was issued or EFT funds became available.                                                                                                                                                                                                                                                                                       |
-| patient.claims.service_date                           | The date services were performed or started for the claim service period.                                                                                                                                                                                                                                                                          |
-| patient.claims.service_end_date                       | The date services ended for the claim service period.                                                                                                                                                                                                                                                                                              |
+| patient.claims.remittance_date                        | The date the check was issued or EFT funds became available. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                       |
+| patient.claims.service_date                           | The date services were performed or started for the claim service period. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                          |
+| patient.claims.service_end_date                       | The date services ended for the claim service period. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                              |
 | patient.claims.services                               | A list of services linked to the claim.                                                                                                                                                                                                                                                                                                            |
 | patient.claims.services.charge_amount                 | The amount charged for a particular service on the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                       |
 | patient.claims.services.cpt_code                      | The CPT code indicating the type of service that was performed.                                                                                                                                                                                                                                                                                    |
 | patient.claims.services.payment_amount                | The amount paid for a particular service on the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                          |
-| patient.claims.services.service_date                  | The date the service was performed or started for the claim service period.                                                                                                                                                                                                                                                                        |
-| patient.claims.services.service_end_date              | The date the service ended for the claim service period.                                                                                                                                                                                                                                                                                           |
+| patient.claims.services.service_date                  | The date the service was performed or started for the claim service period. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                        |
+| patient.claims.services.service_end_date              | The date the service ended for the claim service period. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                           |
 | patient.claims.services.statuses                      | A listing of status information for the claim. Uses the status information [object](#claims_status_status_information).                                                                                                                                                                                                                            |
 | patient.claims.services.line_item_control_number      | The line item control number associated with a patient's service.                                                                                                                                                                                                                                                                                  |
 | patient.claims.services.pharmacy_prescription_number  | The pharmacy prescription number associated with a service.                                                                                                                                                                                                                                                                                        |
@@ -1145,15 +1145,15 @@ The /claim/status response contains the following fields:
 <a name="claims_status_member_object"></a>
 ###Member object:
 
-| Field                             | Description                                                           |
-|:----------------------------------|:----------------------------------------------------------------------|
-| birth_date                        | The members’s birth date as specified on their policy.                |
-| gender                            | The member's gender (Male, Female, Unknown)                           |
-| last_name                         | The member’s last name as specified on their policy.                  |
-| first_name                        | The member’s first name as specified on their policy.                 |
-| middle_name                       | The member’s middle name as specified on their policy.                |
-| suffix                            | The suffix for the member                                             |
-| id                                | The member identifier.                                                |
+| Field                             | Description                                                                                           |
+|:----------------------------------|:------------------------------------------------------------------------------------------------------|
+| birth_date                        | The members’s birth date as specified on their policy. In ISO8601 format (YYYY-MM-DD).                |
+| gender                            | The member's gender (Male, Female, Unknown)                                                           |
+| last_name                         | The member’s last name as specified on their policy.                                                  |
+| first_name                        | The member’s first name as specified on their policy.                                                 |
+| middle_name                       | The member’s middle name as specified on their policy.                                                |
+| suffix                            | The suffix for the member                                                                             |
+| id                                | The member identifier.                                                                                |
 
 <a name="claims_status_status_information"></a>
 ###Status Information object:
@@ -1162,15 +1162,15 @@ The /claim/status response contains the following fields:
 |:----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | status_category                   | A verbose message about the general category of the claim's status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).            |
 | status_category_code              | The code indicating the general category of the claim's status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).                   |
-| status_effective_date             | The effective date associated with a claim's status                                                                                                                                                                                                                                                                                                |
+| status_effective_date             | The effective date associated with a claim's status. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                               |
 | secondary_status_category         | A verbose message about the general category of the claim's status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).            |
 | secondary_status_category_code    | The code indicating the general category of the claim's status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).                   |
 | secondary_status_code             | Indicates the status of the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).       |
 | tertiary_status_category          | A verbose message about the general category of the claim's status (e.g. accepted, rejected, etc.). This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).            |
 | tertiary_status_category_code     | The code indicating the general category of the claim's status. The status category code is more appropriate for use by the software using the claims status API to categorize the information. A full listing of codes can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).                   |
 | tertiary_status_code              | Indicates the status of the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).       |
-| adjudication_finalized_date       | Date that the claim is paid or declined.                                                                                                                                                                                                                                                                                                           |
-| remittance_date                   | The date the check was issued or EFT funds became available.                                                                                                                                                                                                                                                                                       |
+| adjudication_finalized_date       | Date that the claim is paid or declined. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                                           |
+| remittance_date                   | The date the check was issued or EFT funds became available. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                                                                                                       |
 | status_code                       | Indicates the status of the claim. This status code provides more detail to support the status category. This value is suitable for display to users of a system utilizing the claims status API. A full listing of possible values can be found [here](http://www.wpc-edi.com/reference/codelists/healthcare/claim-status-category-codes/).       |
 | total_claim_amount                | The total monetary amount of the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                         |
 | claim_payment_amount              | The amount that's been paid on the claim. Uses the monetary amount [object](#claims-status-monetary-amount).                                                                                                                                                                                                                                       |

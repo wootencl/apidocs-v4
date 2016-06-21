@@ -13,7 +13,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "diagnoses": [
             {
                 "code": "R10.9",
-                "date": "2016-01-01"
+                "date": "2016-01-25"
             }
         ],
         "place_of_service": "office",
@@ -32,7 +32,7 @@ curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/j
         "type": "diagnostic_medical"
     },
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -58,7 +58,7 @@ client.authorizations({
         "diagnoses": [
             {
                 "code": "R10.9",
-                "date": "2016-01-01"
+                "date": "2016-01-25"
             }
         ],
         "place_of_service": "office",
@@ -77,7 +77,7 @@ client.authorizations({
         "type": "diagnostic_medical"
     },
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -103,7 +103,7 @@ client.authorizations({
         "diagnoses": [
             {
                 "code": "R10.9",
-                "date": "2016-01-01"
+                "date": "2016-01-25"
             }
         ],
         "place_of_service": "office",
@@ -122,7 +122,7 @@ client.authorizations({
         "type": "diagnostic_medical"
     },
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -148,7 +148,7 @@ client.authorizations(
             }},
             {"diagnoses", new Object[] {new Dictionary<string, string> {
                     {"code", "R10.9"},
-                    {"date", "2016-01-01"}
+                    {"date", "2016-01-25"}
             }}},
             {"place_of_service", "office"},
             {"provider", new Dictionary<string, string> {
@@ -168,7 +168,7 @@ client.authorizations(
             {"type", "diagnostic_medical"}
         }},
         {"patient", new Dictionary<string, string> {
-            {"birth_date", "1970-01-01"},
+            {"birth_date", "1970-01-25"},
             {"first_name", "JANE"},
             {"last_name", "DOE"},
             {"id", "1234567890"}
@@ -195,7 +195,7 @@ buf.append("        },");
 buf.append("        \"diagnoses\": [");
 buf.append("            {");
 buf.append("                \"code\": \"R10.9\",");
-buf.append("                \"date\": \"2016-01-01\"");
+buf.append("                \"date\": \"2016-01-25\"");
 buf.append("            }");
 buf.append("        ],");
 buf.append("        \"place_of_service\": \"office\",");
@@ -214,7 +214,7 @@ buf.append("        ],");
 buf.append("        \"type\": \"diagnostic_medical\"");
 buf.append("    },");
 buf.append("    \"patient\": {");
-buf.append("        \"birth_date\": \"1970-01-01\",");
+buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"JANE\",");
 buf.append("        \"last_name\": \"DOE\",");
 buf.append("        \"id\": \"1234567890\"");
@@ -246,7 +246,7 @@ client.authorizations(query);
         "diagnoses": [
             {
                 "code": "R10.9",
-                "date": "2016-01-01"
+                "date": "2016-01-25"
             }
         ],
         "place_of_service": "office",
@@ -269,7 +269,7 @@ client.authorizations(query);
         "type": "diagnostic_medical"
     },
     "patient": {
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "JANE",
         "last_name": "DOE",
         "id": "1234567890"
@@ -288,7 +288,7 @@ client.authorizations(query);
 {
     "client_id": "<client_id>",
     "patient": {
-        "birth_date": "1970-02-02",
+        "birth_date": "1970-02-25",
         "first_name": "Jane",
         "last_name": "Doe",
         "id": "W000000000"
@@ -359,27 +359,27 @@ The /authorizations/ endpoint uses the same object for both its parameters and r
 | event.delivery.quantity_qualifier | The qualifier used to indicate the quantity type. (e.g. visits, month, hours, units, days)                                                                                                   |
 | event.diagnoses                   | An array of diagnosis information related to the event.                                                                                                                                      |
 | event.diagnoses.code              | The diagnosis code. (e.g. R10.9)                                                                                                                                                            |
-| event.diagnoses.date              | The date of the diagnosis.                                                                                                                                                                   |
+| event.diagnoses.date              | The date of the diagnosis. In ISO8601 format (YYYY-MM-DD).                                                                                                                                                                  |
 | event.place_of_service            | The location where health care services are rendered.                                                                                                                                        |
 | event.provider                    | Information about the provider being requested for this event. The object used for provider can be seen [below](#service_review_provider_object).                                                                                                                               |
 | event.services                    | List of services linked to the event.                                                                                                                               |
 | event.services.amount             | The amount paid for a service.                                                                                                                              |
 | event.services.cpt_code           | The CPT code indicating the type of service that was performed.                                                                                                                               |
-| event.services.date               | The date of the service.                                                                                                                             |
+| event.services.date               | The date of the service. In ISO8601 format (YYYY-MM-DD).                                                                                                                            |
 | event.services.measurement        | Type of event services measurement. Possibilities: international_unit, minutes, and unit.                                                                                                                             |
 | event.services.quantity           | The quantity of services being requested.                                                                                                                              |
-| event.admission_date              | The date the patient was admitted.                                                                                                                             |
-| event.discharge_date              | The date the patient was discharged.                                                                                                                             |
+| event.admission_date              | The date the patient was admitted. In ISO8601 format (YYYY-MM-DD).                                                                                                                            |
+| event.discharge_date              | The date the patient was discharged. In ISO8601 format (YYYY-MM-DD).                                                                                                                            |
 | event.review                      | Information about the outcome of a health care services review.                                                                                                                                    |
 | event.review.certification_action | Indicates the outcome of the review. For example, "certified_in_total" will be returned when the event is certified/authorized.  A full list of possible values can be found [below](#certaction). |
 | event.review.certification_number | The review certification/reference number.                                                                                                                                                         |
 | event.review.decision_reason      | If the event is not authorized, the reason for that decision.  A full list of possible values can be found [below](#decision).                                                                     |
-| event.review.event_start_date     | Effective date of authorization.                                                                |
-| event.review.event_end_date       | End date for authorization.                                                                     |
+| event.review.event_start_date     | Effective date of authorization. In ISO8601 format (YYYY-MM-DD).                                                               |
+| event.review.event_end_date       | End date for authorization. In ISO8601 format (YYYY-MM-DD).                                                                    |
 | event.review.second_surgical_opinion_required      | Boolean of whether or not a second surgical opinion is required.                                                                     |
 | event.type                        | The type of service being requested. For example, a value of "diagnostic_medical" would be used when an abdominal ultrasound for a patient. A full list of these values can be found under the eligibility section [below](#service-type).                                                  |
-| event.start_date                  | Optional: The start date of the given event. For a single date, provide only event.start_date. For a date range, provide event.start_date and event.end_date. Given in ISO8601 (YYYY-MM-DD). |
-| event.end_date                    | Optional: The end date of the given event. Only provide the end_date if the start_date is also given. Given in ISO8601 (YYYY-MM-DD).                                                         |
+| event.start_date                  | Optional: The start date of the given event. For a single date, provide only event.start_date. For a date range, provide event.start_date and event.end_date. In ISO8601 format (YYYY-MM-DD). |
+| event.end_date                    | Optional: The end date of the given event. Only provide the end_date if the start_date is also given. In ISO8601 format (YYYY-MM-DD).                                                         |
 | follow_up_action                  | When an authorization request is rejected, a follow up action will be provided to inform your application how to proceed. See the possibilities [below](#follow_up_action).                                           |
 | patient                           | The patient for the authorization. The object used for the patient can be seen [below](#service_review_member_object).                                                                                                                                       |
 | originating_company_id            | The id of the company where the request originated.                                                                                                                                     |

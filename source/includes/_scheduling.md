@@ -201,7 +201,7 @@ client.request(endpoint, method, data);
 {   "uuid": "2773f6ff-00cb-460f-823f-5ff2208511e7",
     "email": "peg@emailprovider.com",
     "phone": "5553331122",
-    "birth_date": "1990-01-13",
+    "birth_date": "1990-01-25",
     "first_name": "Peg",
     "last_name": "Patient",
     "member_id": "PD20150001"
@@ -215,8 +215,8 @@ curl -s -XPOST -H "Authorization: Bearer $ACCESS_TOKEN" - H "Content-Type: appli
     "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
     "location": [32.788110, -79.932364],
     "appointment_type": "AT1",
-    "start_date": "2014-12-16T15:09:34.197709",
-    "end_date": "2014-12-16T16:09:34.197717"
+    "start_date": "2014-12-25T15:09:34.197709",
+    "end_date": "2014-12-25T16:09:34.197717"
     }' https://platform.pokitdok.com/api/v4/schedule/slots/
 ```
 
@@ -225,8 +225,8 @@ client.schedule_slots({
     "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
     "location": [32.788110, -79.932364],
     "appointment_type": "AT1",
-    "start_date": "2014-12-16T15:09:34.197709",
-    "end_date": "2014-12-16T16:09:34.197717"
+    "start_date": "2014-12-25T15:09:34.197709",
+    "end_date": "2014-12-25T16:09:34.197717"
 })
 ```
 
@@ -236,8 +236,8 @@ client.createSlot(
         {"pd_provider_uuid", "b691b7f9-bfa8-486d-a689-214ae47ea6f8"},
         {"location", new Object[] {32.78811, -79.932364}},
         {"appointment_type", "AT1"},
-        {"start_date", "2014-12-16T15:09:34.197709"},
-        {"end_date", "2014-12-16T16:09:34.197717"}
+        {"start_date", "2014-12-25T15:09:34.197709"},
+        {"end_date", "2014-12-25T16:09:34.197717"}
     });
 ```
 
@@ -246,8 +246,8 @@ client.schedule_slots({
     "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
     "location": [32.788110, -79.932364],
     "appointment_type": "AT1",
-    "start_date": "2014-12-16T15:09:34.197709",
-    "end_date": "2014-12-16T16:09:34.197717"
+    "start_date": "2014-12-25T15:09:34.197709",
+    "end_date": "2014-12-25T16:09:34.197717"
 })
 ```
 
@@ -258,8 +258,8 @@ buf.append("{");
 buf.append("    \"pd_provider_uuid\": \"b691b7f9-bfa8-486d-a689-214ae47ea6f8\",");
 buf.append("    \"location\": [32.788110, -79.932364],");
 buf.append("    \"appointment_type\": \"AT1\",");
-buf.append("    \"start_date\": \"2014-12-16T15:09:34.197709\",");
-buf.append("    \"end_date\": \"2014-12-16T16:09:34.197717\"");
+buf.append("    \"start_date\": \"2014-12-25T15:09:34.197709\",");
+buf.append("    \"end_date\": \"2014-12-25T16:09:34.197717\"");
 buf.append("}");
 
 JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
@@ -274,8 +274,8 @@ Map<String, Object> results = client.scheduleSlots(query);
     "provider_scheduler_uuid": "8b21efa4-8535-11e4-a6cb-0800272e8da1",
     "appointment_id": "W4MEM00001",
     "appointment_type": "AT1",
-    "start_date": "2014-12-16T15:09:34.197709",
-    "end_date": "2014-12-16T16:09:34.197717",
+    "start_date": "2014-12-25T15:09:34.197709",
+    "end_date": "2014-12-25T16:09:34.197717",
     "booked": false
 }
 ```
@@ -307,34 +307,34 @@ client.request(endpoint, method);
 > Example scheduling request used to query for open slots and booked appointments:
 
 ```shell
-curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/schedule/appointments/?appointment_type=SS1&start_date=2015-01-14T08:00:00&end_date=2015-01-16T17:00:00&patient_uuid=8ae236ff-9ccc-44b0-8717-42653cd719d0"
+curl -s -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/schedule/appointments/?appointment_type=SS1&start_date=2015-01-25T08:00:00&end_date=2015-01-25T17:00:00&patient_uuid=8ae236ff-9ccc-44b0-8717-42653cd719d0"
 ```
 
 ```python
-client.appointments(appointment_type='SS1', start_date='2015-01-14T08:00:00',
-    end_date='2015-01-16T17:00:00', patient_uuid='8ae236ff-9ccc-44b0-8717-42653cd719d0')
+client.appointments(appointment_type='SS1', start_date='2015-01-25T08:00:00',
+    end_date='2015-01-25T17:00:00', patient_uuid='8ae236ff-9ccc-44b0-8717-42653cd719d0')
 ```
 
 ```csharp
 client.appointments(
     new Dictionary<string, string> {
         {"appointment_type", "SS1"},
-        {"start_date", "2015-01-14T08:00:00"},
-        {"end_date", "2015-01-16T17:00:00"},
+        {"start_date", "2015-01-25T08:00:00"},
+        {"end_date", "2015-01-25T17:00:00"},
         {"patient_uuid", "8ae236ff-9ccc-44b0-8717-42653cd719d0"}
     });
 ```
 
 ```ruby
-client.appointments({appointment_type: 'SS1', start_date: '2015-01-14T08:00:00',
-    end_date: '2015-01-16T17:00:00', patient_uuid: '8ae236ff-9ccc-44b0-8717-42653cd719d0'})
+client.appointments({appointment_type: 'SS1', start_date: '2015-01-25T08:00:00',
+    end_date: '2015-01-25T17:00:00', patient_uuid: '8ae236ff-9ccc-44b0-8717-42653cd719d0'})
 ```
 
 ```java
 HashMap<String, String> query = new HashMap<String, String>();
 query.put("appointment_type", "SS1");
-query.put("start_date", "2015-01-14T08:00:00");
-query.put("end_date", "2015-01-16T17:00:00");
+query.put("start_date", "2015-01-25T08:00:00");
+query.put("end_date", "2015-01-25T17:00:00");
 query.put("patient_uuid", "8ae236ff-9ccc-44b0-8717-42653cd719d0");
 
 client.appointments(query);
@@ -354,13 +354,13 @@ client.appointments(query);
         "_uuid": "8b21f7b0-8535-11e4-a6cb-0800272e8da1",
         "phone": "800-555-1212",
         "member_id": "M000001",
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "email": "john@johndoe.com"
       },
       "booked": true,
       "provider_scheduler_uuid": "8b21efa4-8535-11e4-a6cb-0800272e8da1",
-      "start_date": "2014-12-16T15:09:34.197709",
-      "end_date": "2014-12-16T16:09:34.197717"
+      "start_date": "2014-12-25T15:09:34.197709",
+      "end_date": "2014-12-25T16:09:34.197717"
     }
 ]
 ```
@@ -401,13 +401,13 @@ client.appointments("bf8440b1-fd20-4994-bb28-e3981833e796");
         "_uuid": "8b21f7b0-8535-11e4-a6cb-0800272e8da1",
         "phone": "800-555-1212",
         "member_id": "M000001",
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "email": "john@johndoe.com"
       },
       "booked": true,
       "provider_scheduler_uuid": "8b21efa4-8535-11e4-a6cb-0800272e8da1",
-      "start_date": "2014-12-16T15:09:34.197709",
-      "end_date": "2014-12-16T16:09:34.197717"
+      "start_date": "2014-12-25T15:09:34.197709",
+      "end_date": "2014-12-25T16:09:34.197717"
     }
 ]
 ```
@@ -420,7 +420,7 @@ curl -s -XPUT -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: applica
         "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
         "email": "john@hondoe.com",
         "phone": "800-555-1212",
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "John",
         "last_name": "Doe",
         "member_id": "M000001"
@@ -434,7 +434,7 @@ client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
         "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
         "email": "john@hondoe.com",
         "phone": "800-555-1212",
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "John",
         "last_name": "Doe",
         "member_id": "M000001"
@@ -451,7 +451,7 @@ client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
             {"uuid", "500ef469-2767-4901-b705-425e9b6f7f83"},
             {"email", "john@johndoe.com"},
             {"phone", "800-555-1212"},
-            {"birth_date", "1970-01-01"},
+            {"birth_date", "1970-01-25"},
             {"first_name", "John"},
             {"last_name", "Doe"},
             {"member_id", "M000001"}}}
@@ -464,7 +464,7 @@ client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
         "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
         "email": "john@hondoe.com",
         "phone": "800-555-1212",
-        "birth_date": "1970-01-01",
+        "birth_date": "1970-01-25",
         "first_name": "John",
         "last_name": "Doe",
         "member_id": "M000001"
@@ -480,7 +480,7 @@ buf.append("\"patient\": {");
 buf.append("    \"_uuid\": \"500ef469-2767-4901-b705-425e9b6f7f83\",");
 buf.append("    \"email\": \"john@hondoe.com\",");
 buf.append("    \"phone\": \"800-555-1212\",");
-buf.append("    \"birth_date\": \"1970-01-01\",");
+buf.append("    \"birth_date\": \"1970-01-25\",");
 buf.append("    \"first_name\": \"John\",");
 buf.append("    \"last_name\": \"Doe\",");
 buf.append("    \"member_id\": \"M000001\"");
@@ -504,14 +504,14 @@ Map<String, Object> results = client.bookAppointment("ef987691-0a19-447f-814d-f8
       "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
       "phone": "800-555-1212",
       "member_id": "M000001",
-      "birth_date": "1970-01-01",
+      "birth_date": "1970-01-25",
       "email": "john@hondoe.com"
     },
     "booked": true,
     "description": "Welcome to M0d3rN Healthcare",
     "provider_scheduler_uuid": "e781c97c-8535-11e4-b0b3-0800272e8da1",
-    "start_date": "2014-12-16T15:12:09.176207",
-    "end_date": "2014-12-16T16:12:09.176215"
+    "start_date": "2014-12-25T15:12:09.176207",
+    "end_date": "2014-12-25T16:12:09.176215"
 }
 ```
 
@@ -553,8 +553,8 @@ client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', query);
     "booked": false,
     "description": "Welcome to M0d3rN Healthcare",
     "provider_scheduler_uuid": "956a9e10-8536-11e4-ba5d-0800272e8da1",
-    "start_date": "2014-12-16T15:17:00.948099",
-    "end_date": "2014-12-16T16:17:00.948117"
+    "start_date": "2014-12-25T15:17:00.948099",
+    "end_date": "2014-12-25T16:17:00.948117"
 }
 ```
 
@@ -639,13 +639,13 @@ The /schedule/patient/ endpoint response returns a patient [object](#scheduling_
 
 The /schedule/slots/ POST endpoint accepts the following parameters:
 
-| Parameter        | Type           | Description                                                                           |
-|:-----------------|:---------------|:--------------------------------------------------------------------------------------|
-| pd_provider_uuid | {uuid}         | The PokitDok unique identifier for the provider record.                               |
-| location         | {geo-location} | The geo-location of the provider's physical address, formatted [latitude, longitude]. |
-| appointment_type | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.    |
-| start_date       | {datetime}     | The beginning date and UTC time of the appointment query, formatted as ISO8601.       |
-| end_date         | {datetime}     | The ending date and UTC time of the appointment query, formatted as ISO8601.          |
+| Parameter        | Type           | Description                                                                                                 |
+|:-----------------|:---------------|:------------------------------------------------------------------------------------------------------------|
+| pd_provider_uuid | {uuid}         | The PokitDok unique identifier for the provider record.                                                     |
+| location         | {geo-location} | The geo-location of the provider's physical address, formatted [latitude, longitude].                       |
+| appointment_type | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.                          |
+| start_date       | {datetime}     | The beginning date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).       |
+| end_date         | {datetime}     | The ending date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).          |
 
 | Endpoint                                      | HTTP Method | Description                                                                                                                                       | Scope          |
 |:----------------------------------------------|:------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:---------------|
@@ -660,8 +660,8 @@ The /schedule/appointments/ endpoint accepts the following parameters:
 | Field            | Type           | Description                                                                                                                     |
 |:-----------------|:---------------|:--------------------------------------------------------------------------------------------------------------------------------|
 | appointment_type | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.                                              |
-| start_date       | {datetime}     | The beginning date and UTC time of the appointment query, formatted as ISO8601.                                                 |
-| end_date         | {datetime}     | The ending date and UTC time of the appointment query, formatted as ISO8601.                                                    |
+| start_date       | {datetime}     | The beginning date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).                           |
+| end_date         | {datetime}     | The ending date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).                              |
 | patient_uuid     | {uuid}         | The PokitDok unique identifier for the patient that has booked an appointment.                                                  |
 | pd_provider_uuid | {uuid}         | The PokitDok unique identifier for the provider that has an open appointment slot.                                              |
 | location         | {geo-location} | The geo-location of the physical address where the provider that has an open appointment slot, formatted [latitude, longitude]. |
@@ -684,29 +684,29 @@ The /schedule/appointments/{pd_appointment_uuid} endpoint for updating an appoin
 
 Both the /schedule/slots/ (POST) and /schedule/appointments (GET/PUT) endpoints' response includes the following fields:
 
-| Field                   | Type           | Description                                                                                    |
-|:------------------------|:---------------|:-----------------------------------------------------------------------------------------------|
-| pd_appointment_uuid     | {uuid}         | The PokitDok unique identifier for the appointment.                                            |
-| provider_scheduler_uuid | {string}       | The provider's scheduler unique identifier.                                                    |
-| appointment_id          | {string}       | The appointment identifier.                                                                    | 
-| appointment_type        | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.             |
-| start_date              | {datetime}     | The beginning date and UTC time of the appointment query, formatted as ISO8601.                |
-| end_date                | {datetime}     | The ending date and UTC time of the appointment query, formatted as ISO8601.                   |
-| booked                  | {boolean}      | Whether or not the appointment has been booked.                                                |
-| patient                 | {object}       | Patient associated with the appointment. Uses the patient [object](#scheduling_patient_object).| 
-| description             | {string}       | Brief description of the appointment.                                                          |
+| Field                   | Type           | Description                                                                                                |
+|:------------------------|:---------------|:-----------------------------------------------------------------------------------------------------------|
+| pd_appointment_uuid     | {uuid}         | The PokitDok unique identifier for the appointment.                                                        |
+| provider_scheduler_uuid | {string}       | The provider's scheduler unique identifier.                                                                |
+| appointment_id          | {string}       | The appointment identifier.                                                                                | 
+| appointment_type        | {string}       | The "appointment_type" used to identify a specific appointment procedure/category.                         |
+| start_date              | {datetime}     | The beginning date and UTC time of the appointment query. In ISO8601 format (YYYYY-MM-DDThh:mm:ss.ssssss). |
+| end_date                | {datetime}     | The ending date and UTC time of the appointment query. In ISO8601 format (YYYY-MM-DDThh:mm:ss.ssssss).     |
+| booked                  | {boolean}      | Whether or not the appointment has been booked.                                                            |
+| patient                 | {object}       | Patient associated with the appointment. Uses the patient [object](#scheduling_patient_object).            |  
+| description             | {string}       | Brief description of the appointment.                                                                      |
 
 
 <a name="scheduling_patient_object"></a>
 ###Patient object:
 
-| Field            | Type           | Description                                             |
-|:-----------------|:---------------|:--------------------------------------------------------|
-| uuid             | {uuid}         | The patient's unique identifier.                        |
-| email            | {email}        | The patient's email.                                    |
-| phone            | {string}       | The patient's phone number.                             |
-| birth_date       | {date}         | The patient's date of birth.                            |
-| first_name       | {string}       | The patient's first name.                               |
-| last_name        | {string}       | The patient's last name.                                |
-| member_id        | {string}       | The patient's member id.                                |
+| Field            | Type           | Description                                                 |
+|:-----------------|:---------------|:------------------------------------------------------------|
+| uuid             | {uuid}         | The patient's unique identifier.                            |
+| email            | {email}        | The patient's email.                                        |
+| phone            | {string}       | The patient's phone number.                                 |
+| birth_date       | {date}         | The patient's date of birth. In ISO8601 format (YYYY-MM-DD).|
+| first_name       | {string}       | The patient's first name.                                   |
+| last_name        | {string}       | The patient's last name.                                    |
+| member_id        | {string}       | The patient's member id.                                    |
 

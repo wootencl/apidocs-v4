@@ -60,7 +60,7 @@ client.claimsConvert("test_claim.837");
                         "J101"
                     ],
                     "procedure_code": "99213",
-                    "service_date": "2014-06-01",
+                    "service_date": "2014-06-25",
                     "unit_count": "1.0",
                     "unit_type": "units"
                 }
@@ -89,7 +89,7 @@ client.claimsConvert("test_claim.837");
                 "state": "SC",
                 "zipcode": "29301"
             },
-            "birth_date": "1970-01-01",
+            "birth_date": "1970-01-25",
             "claim_filing_code": "mutually_defined",
             "first_name": "Jane",
             "gender": "female",
