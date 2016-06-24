@@ -1,5 +1,5 @@
 ## Eligibility
-> Example eligibility request to determine general health benefit coverage:
+> Example eligibility request to determine general health benefit coverage using the `primary_search_option`:
 
 ```shell
 curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
@@ -80,6 +80,357 @@ buf.append("        \"birth_date\": \"1970-01-25\",");
 buf.append("        \"first_name\": \"Jane\",");
 buf.append("        \"last_name\": \"Doe\",");
 buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = client.eligibility(query);
+```
+
+> Example eligibility request to determine general health benefit coverage using the `no_first_name_search` search option:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "member": {
+        "birth_date": "1970-01-25",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+
+```python
+client.eligibility({
+    "member": {
+        "birth_date": "1970-01-25",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```csharp
+ client.eligibility (
+			new Dictionary<string, object> {
+			 	{"member", new Dictionary<string, object> {
+					{"id", "W000000000"},
+					{"birth_date", "1970-01-25"},
+					{"last_name", "Doe"}
+					}},
+				{"provider", new Dictionary<string, object> {
+					{"npi", "1467560003"},
+					{"last_name", "AYA-AY"},
+					{"first_name", "JEROME"}
+					}},
+				{"service_types", new string[] { "health_benefit_plan_coverage" }},
+				{"trading_partner_id", "MOCKPAYER"}
+		});
+```
+
+```ruby
+client.eligibility({
+    "member": {
+        "birth_date": "1970-01-25",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-25\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = client.eligibility(query);
+```
+
+> Example eligibility request to determine general health benefit coverage using the `no_birth_date_search` search option:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "member": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+
+```python
+client.eligibility({
+    "member": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```csharp
+ client.eligibility (
+			new Dictionary<string, object> {
+			 	{"member", new Dictionary<string, object> {
+					{"id", "W000000000"},
+					{"first_name", "Jane"},
+					{"last_name", "Doe"}
+					}},
+				{"provider", new Dictionary<string, object> {
+					{"npi", "1467560003"},
+					{"last_name", "AYA-AY"},
+					{"first_name", "JEROME"}
+					}},
+				{"service_types", new string[] { "health_benefit_plan_coverage" }},
+				{"trading_partner_id", "MOCKPAYER"}
+		});
+```
+
+```ruby
+client.eligibility({
+    "member": {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = client.eligibility(query);
+```
+
+> Example eligibility request to determine general health benefit coverage using the `no_name_search` search option:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "member": {
+        "birth_date": "1970-01-25",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+
+```python
+client.eligibility({
+    "member": {
+        "birth_date": "1970-01-25",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```csharp
+ client.eligibility (
+			new Dictionary<string, object> {
+			 	{"member", new Dictionary<string, object> {
+					{"id", "W000000000"},
+					{"birth_date", "1970-01-25"}
+					}},
+				{"provider", new Dictionary<string, object> {
+					{"npi", "1467560003"},
+					{"last_name", "AYA-AY"},
+					{"first_name", "JEROME"}
+					}},
+				{"service_types", new string[] { "health_benefit_plan_coverage" }},
+				{"trading_partner_id", "MOCKPAYER"}
+		});
+```
+
+```ruby
+client.eligibility({
+    "member": {
+        "birth_date": "1970-01-25",
+        "id": "W000000000"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-25\",");
+buf.append("        \"id\": \"W000000000\"");
+buf.append("    },");
+buf.append("    \"provider\": {");
+buf.append("        \"first_name\": \"JEROME\",");
+buf.append("        \"last_name\": \"AYA-AY\",");
+buf.append("        \"npi\": \"1467560003\"");
+buf.append("    },");
+buf.append("    \"trading_partner_id\": \"MOCKPAYER\"");
+buf.append("}");
+
+JSONObject query = (JSONObject) JSONValue.parse(buf.toString());
+Map<String, Object> results = client.eligibility(query);
+```
+
+> Example eligibility request to determine general health benefit coverage using the `no_id_search` search option:
+
+```shell
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -XPOST -d '{
+    "member": {
+        "birth_date": "1970-01-25",
+        "first_name": "Jane",
+        "last_name": "Doe"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+}' https://platform.pokitdok.com/api/v4/eligibility/
+```
+
+```python
+client.eligibility({
+    "member": {
+        "birth_date": "1970-01-25",
+        "first_name": "Jane",
+        "last_name": "Doe"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```csharp
+ client.eligibility (
+			new Dictionary<string, object> {
+			 	{"member", new Dictionary<string, object> {
+					{"birth_date", "1970-01-25"},
+					{"first_name", "Jane"},
+					{"last_name", "Doe"}
+					}},
+				{"provider", new Dictionary<string, object> {
+					{"npi", "1467560003"},
+					{"last_name", "AYA-AY"},
+					{"first_name", "JEROME"}
+					}},
+				{"service_types", new string[] { "health_benefit_plan_coverage" }},
+				{"trading_partner_id", "MOCKPAYER"}
+		});
+```
+
+```ruby
+client.eligibility({
+    "member": {
+        "birth_date": "1970-01-25",
+        "first_name": "Jane",
+        "last_name": "Doe"
+    },
+    "provider": {
+        "first_name": "JEROME",
+        "last_name": "AYA-AY",
+        "npi": "1467560003"
+    },
+    "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```java
+StringBuffer buf = new StringBuffer();
+
+buf.append("{");
+buf.append("    \"member\": {");
+buf.append("        \"birth_date\": \"1970-01-25\",");
+buf.append("        \"first_name\": \"Jane\",");
+buf.append("        \"last_name\": \"Doe\"");
 buf.append("    },");
 buf.append("    \"provider\": {");
 buf.append("        \"first_name\": \"JEROME\",");
