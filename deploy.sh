@@ -9,7 +9,9 @@ echo "Enter release tag, followed by [ENTER]: "
 read tag_name
 
 git checkout -b "$tag_name"
-echo "Created release branch $tag_name."
+echo "Created release branch $tag_name with commits different from master:"
+
+git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative master.."$tag_name" | grep -v "Merge"
 
 echo "Enter staging bucket name, followed by [ENTER]: "
 read staging
