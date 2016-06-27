@@ -382,8 +382,8 @@ The /providers/ endpoint accepts the following search parameters:
 | middle_name       | {string} | The provider's middle name                                                                                                                          |
 | last_name         | {string} | The provider's last name                                                                                                                            |
 | gender            | {string} | The provider's gender                                                                                                                               |
+| organization_name | {string} | The business practice name                                                                                                                          |
 | name              | {string} | Queries against full_name, organization_name, and other_organization_name                                                                           |
-| last_name         | {string} | The provider's last name                                                                                                                            |
 | radius            | {string} | Search distance from geographic centerpoint, with unit (e.g. "1mi")                                                                                 |
 | specialty         | {string} | The provider's specialty name (e.g. "rheumatology").  Partial name-prefixes may be specified (e.g. "rheum")                                         |
 | state             | {string} | Name of U.S. state in which to search for providers (e.g. "CA" or "SC")                                                                             |
