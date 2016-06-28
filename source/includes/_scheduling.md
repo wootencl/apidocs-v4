@@ -417,13 +417,12 @@ client.appointments("bf8440b1-fd20-4994-bb28-e3981833e796");
 ```shell
 curl -s -XPUT -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: application/json" -d '{
     "patient": {
-        "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
+        "uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
         "email": "john@hondoe.com",
         "phone": "800-555-1212",
         "birth_date": "1970-01-25",
         "first_name": "John",
-        "last_name": "Doe",
-        "member_id": "M000001"
+        "last_name": "Doe"
         },
     "description": "Welcome to M0d3rN Healthcare"}' "https://platform.pokitdok.com/api/v4/schedule/appointments/ef987691-0a19-447f-814d-f8f3abbf4859"
 ```
@@ -431,13 +430,12 @@ curl -s -XPUT -H "Authorization: Bearer $ACCESS_TOKEN" -H "Content-Type: applica
 ```python
 client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
     "patient": {
-        "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
+        "uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
         "email": "john@hondoe.com",
         "phone": "800-555-1212",
         "birth_date": "1970-01-25",
         "first_name": "John",
-        "last_name": "Doe",
-        "member_id": "M000001"
+        "last_name": "Doe"
     },
     "description": "Welcome to M0d3rN Healthcare"
 })
@@ -453,21 +451,19 @@ client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
             {"phone", "800-555-1212"},
             {"birth_date", "1970-01-25"},
             {"first_name", "John"},
-            {"last_name", "Doe"},
-            {"member_id", "M000001"}}}
+            {"last_name", "Doe"}}}
     });
 ```
 
 ```ruby
 client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
     "patient": {
-        "_uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
+        "uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
         "email": "john@hondoe.com",
         "phone": "800-555-1212",
         "birth_date": "1970-01-25",
         "first_name": "John",
-        "last_name": "Doe",
-        "member_id": "M000001"
+        "last_name": "Doe"
     },
     "description": "Welcome to M0d3rN Healthcare"
 })
@@ -477,13 +473,12 @@ client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
 StringBuffer buf = new StringBuffer();
 buf.append("{");
 buf.append("\"patient\": {");
-buf.append("    \"_uuid\": \"500ef469-2767-4901-b705-425e9b6f7f83\",");
+buf.append("    \"uuid\": \"500ef469-2767-4901-b705-425e9b6f7f83\",");
 buf.append("    \"email\": \"john@hondoe.com\",");
 buf.append("    \"phone\": \"800-555-1212\",");
 buf.append("    \"birth_date\": \"1970-01-25\",");
 buf.append("    \"first_name\": \"John\",");
-buf.append("    \"last_name\": \"Doe\",");
-buf.append("    \"member_id\": \"M000001\"");
+buf.append("    \"last_name\": \"Doe\"");
 buf.append("},");
 buf.append("\"description\": \"Welcome to M0d3rN Healthcare\"");
 buf.append("}");
