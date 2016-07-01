@@ -177,8 +177,11 @@ client.post('/schedule/patient/', data={
 ```
 
 ```ruby
-# Currently not supported in this language.
-```
+client.request('/schedule/patient/', "POST", nil, {
+    pd_patient_uuid: "2773f6ff-00cb-460f-823f-5ff2208511e7",
+    pd_provider_uuid: "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
+    location: [32.788110, -79.932364]
+})```
 
 ```csharp
 string endpoint = "/schedule/patient/";
@@ -243,11 +246,11 @@ client.createSlot(
 
 ```ruby
 client.schedule_slots({
-    "pd_provider_uuid": "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
-    "location": [32.788110, -79.932364],
-    "appointment_type": "AT1",
-    "start_date": "2014-12-25T15:09:34.197709",
-    "end_date": "2014-12-25T16:09:34.197717"
+    pd_provider_uuid: "b691b7f9-bfa8-486d-a689-214ae47ea6f8",
+    location: [32.788110, -79.932364],
+    appointment_type: "AT1",
+    start_date: "2014-12-25T15:09:34.197709",
+    end_date: "2014-12-25T16:09:34.197717"
 })
 ```
 
@@ -291,7 +294,7 @@ client.delete('/schedule/slots/ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2')
 ```
 
 ```ruby
-# Currently not supported in this language.
+client.request('/schedule/slots/ab21e95b-8fa6-41d4-98b9-9a1f6fcff0d2', 'DELETE')
 ```
 
 ```csharp
@@ -457,15 +460,15 @@ client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
 
 ```ruby
 client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {
-    "patient": {
-        "uuid": "500ef469-2767-4901-b705-425e9b6f7f83",
-        "email": "john@hondoe.com",
-        "phone": "800-555-1212",
-        "birth_date": "1970-01-25",
-        "first_name": "John",
-        "last_name": "Doe"
+    patient: {
+        uuid: "500ef469-2767-4901-b705-425e9b6f7f83",
+        email: "john@hondoe.com",
+        phone: "800-555-1212",
+        birth_date: "1970-01-25",
+        first_name: "John",
+        last_name: "Doe"
     },
-    "description": "Welcome to M0d3rN Healthcare"
+    description: "Welcome to M0d3rN Healthcare"
 })
 ```
 
@@ -521,7 +524,7 @@ client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', {"description": 
 ```
 
 ```ruby
-client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', { "description": "Welcome to M0d3rN Healthcare" })
+client.book_appointment('ef987691-0a19-447f-814d-f8f3abbf4859', { description: "Welcome to M0d3rN Healthcare" })
 ```
 
 ```csharp

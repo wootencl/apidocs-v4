@@ -119,7 +119,8 @@ client.put(url, data={'transition': 'cancel'})
 ```
 
 ```ruby
-# Currently not supported in this language.
+url = '/activities/5776759b0640fd278d20ce8e'
+results = client.request(url, 'PUT', nil, {transition: 'cancel'})
 ```
 
 ```csharp
