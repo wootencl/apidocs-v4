@@ -12,11 +12,11 @@ of files and JSON payloads to any PokitDok endpoint for any given CRUD operation
 ```
 
 ```python
-client.request("/eligibility/", "POST", ExampleRequests.EligibilityRequest);
+client.request("/eligibility/", "POST", ExampleRequests.EligibilityRequest)
 ```
 
 ```ruby
-client.request("/eligibility/", "POST", nil, 'eligibility_request.json');
+client.request("/eligibility/", "POST", nil, 'eligibility_request.json')
 ```
 
 ```csharp
@@ -24,11 +24,11 @@ client.request("/eligibility/", "POST", ExampleRequests.EligibilityRequest);
 ```
 
 ```python
-client.request("/identity/4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae", "PUT", ExampleRequests.UpdateIdentityRequest);
+client.request("/identity/4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae", "PUT", ExampleRequests.UpdateIdentityRequest)
 ```
 
 ```ruby
-client.request("/identity/4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae", "PUT", nil, 'update_identity_request.json');
+client.request("/identity/4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae", "PUT", nil, 'update_identity_request.json')
 ```
 
 ```csharp
