@@ -1877,7 +1877,7 @@ The Eligibility endpoint allows you to request eligibility for service types. Th
 allows you to specify particular service(s), however, if no service type is specified the
 request will be made for general benefit coverage (health_benefit_plan_coverage). Some trading partners may not support specific service type inquiries. A full listing of possible service_types values is included [below](#service-type).
 
-Some trading partners allow combinations of the below parameters to return a successful eligibility response.  PokitDok will be adding details on available search options per trading partner in the near future.
+Some trading partners allow combinations of the below parameters to return a successful eligibility response.  PokitDok now only requires those specific parameters required by the trading partner being called. Details on available search options per trading partner can be found by using the [Trading Partners](#trading-partners) endpoint.  There are example eligibility requests for each of the search option combinations to the right as well.
 
 The /eligibility/ endpoint accepts the following parameters:
 
