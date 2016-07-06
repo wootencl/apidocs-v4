@@ -116,7 +116,7 @@ client.enrollmentSnapshot("5317f51527a27620f2ec7533");
 ```
 
 ```ruby
-client.enrollment_snapshots({snapshot_id='5317f51527a27620f2ec7533'})
+client.enrollment_snapshots({snapshot_id: '5317f51527a27620f2ec7533'})
 ```
 
 ```java
@@ -148,7 +148,7 @@ client.enrollmentSnapshotData("5317f51527a27620f2ec7533");
 ```
 
 ```ruby
-client.enrollment_snapshot_data('5317f51527a27620f2ec7533')
+client.enrollment_snapshot_data(snapshot_id: '5317f51527a27620f2ec7533')
 ```
 
 ```java
