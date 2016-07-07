@@ -101,47 +101,47 @@ client.claims({
 
 ```ruby
 client.claims({
-    "transaction_code": "chargeable",
-    "trading_partner_id": "MOCKPAYER",
-    "billing_provider": {
-        "taxonomy_code": "207Q00000X",
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003",
-        "address": {
-            "address_lines": [
+    transaction_code: "chargeable",
+    trading_partner_id: "MOCKPAYER",
+    billing_provider: {
+        taxonomy_code: "207Q00000X",
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003",
+        address: {
+            address_lines: [
                 "8311 WARREN H ABERNATHY HWY"
             ],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "tax_id": "123456789"
+        tax_id: "123456789"
     },
-    "subscriber": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "member_id": "W000000000",
-        "address": {
-            "address_lines": ["123 N MAIN ST"],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+    subscriber: {
+        first_name: "Jane",
+        last_name: "Doe",
+        member_id: "W000000000",
+        address: {
+            address_lines: ["123 N MAIN ST"],
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "birth_date": "1970-01-25",
-        "gender": "female"
+        birth_date: "1970-01-25",
+        gender: "female"
     },
-    "claim": {
-        "total_charge_amount": 60.0,
-        "service_lines": [
+    claim: {
+        total_charge_amount: 60.0,
+        service_lines: [
             {
-                "procedure_code": "99213",
-                "charge_amount": 60.0,
-                "unit_count": 1.0,
-                "diagnosis_codes": [
+                procedure_code: "99213",
+                charge_amount: 60.0,
+                unit_count: 1.0,
+                diagnosis_codes: [
                     "J10.1"
                 ],
-                "service_date": "2016-01-25"
+                service_date: "2016-01-25"
             }
         ]
     }
@@ -492,62 +492,62 @@ client.claims({
 
 ```ruby
 client.claims({
-    "transaction_code": "chargeable",
-    "trading_partner_id": "MOCKPAYER",
-    "billing_provider": {
-        "taxonomy_code": "207Q00000X",
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003",
-        "address": {
-            "address_lines": [
+    transaction_code: "chargeable",
+    trading_partner_id: "MOCKPAYER",
+    billing_provider: {
+        taxonomy_code: "207Q00000X",
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003",
+        address: {
+            address_lines: [
                 "8311 WARREN H ABERNATHY HWY"
             ],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "tax_id": "123456789"
+        tax_id: "123456789"
     },
-    "patient": {
-        "first_name": "John",
-        "last_name": "Doe",
-        "member_id": "W000000000",
-        "address": {
-            "address_lines": ["123 N MAIN ST"],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+    patient: {
+        first_name: "John",
+        last_name: "Doe",
+        member_id: "W000000000",
+        address: {
+            address_lines: ["123 N MAIN ST"],
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "birth_date": "1971-01-25",
-        "gender": "male",
-        "relationship": "child"
+        birth_date: "1971-01-25",
+        gender: "male",
+        relationship: "child"
     },
-    "subscriber": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "member_id": "W000000000",
-        "address": {
-            "address_lines": ["123 N MAIN ST"],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+    subscriber: {
+        first_name: "Jane",
+        last_name: "Doe",
+        member_id: "W000000000",
+        address: {
+            address_lines: ["123 N MAIN ST"],
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "birth_date": "1970-01-25",
-        "gender": "female"
+        birth_date: "1970-01-25",
+        gender: "female"
     },
-    "claim": {
-        "total_charge_amount": 100.0,
-        "service_lines": [
+    claim: {
+        total_charge_amount: 100.0,
+        service_lines: [
             {
-                "procedure_code": "99201",
-                "procedure_modifier_codes": ["GT"],
-                "charge_amount": 100.0,
-                "unit_count": 1.0,
-                "diagnosis_codes": [
+                procedure_code: "99201",
+                procedure_modifier_codes: ["GT"],
+                charge_amount: 100.0,
+                unit_count: 1.0,
+                diagnosis_codes: [
                     "J10.1"
                 ],
-                "service_date": "2016-01-25"
+                service_date: "2016-01-25"
             }
         ]
     }
@@ -793,52 +793,52 @@ client.claims({
 
 ```ruby
 client.claims({
-    "application_data": {
-        "patient_id": "ABC1234XYZ",
-        "location_id": 123,
-        "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
+    application_data: {
+        patient_id: "ABC1234XYZ",
+        location_id: 123,
+        transaction_uuid: "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
     },
-    "transaction_code": "chargeable",
-    "trading_partner_id": "MOCKPAYER",
-    "billing_provider": {
-        "taxonomy_code": "207Q00000X",
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003",
-        "address": {
-            "address_lines": [
+    transaction_code: "chargeable",
+    trading_partner_id: "MOCKPAYER",
+    billing_provider: {
+        taxonomy_code: "207Q00000X",
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003",
+        address: {
+            address_lines: [
                 "8311 WARREN H ABERNATHY HWY"
             ],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "tax_id": "123456789"
+        tax_id: "123456789"
     },
-    "subscriber": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "member_id": "W000000000",
-        "address": {
-            "address_lines": ["123 N MAIN ST"],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+    subscriber: {
+        first_name: "Jane",
+        last_name: "Doe",
+        member_id: "W000000000",
+        address: {
+            address_lines: ["123 N MAIN ST"],
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "birth_date": "1970-01-25",
-        "gender": "female"
+        birth_date: "1970-01-25",
+        gender: "female"
     },
-    "claim": {
-        "total_charge_amount": 60.0,
-        "service_lines": [
+    claim: {
+        total_charge_amount: 60.0,
+        service_lines: [
             {
-                "procedure_code": "99213",
-                "charge_amount": 60.0,
-                "unit_count": 1.0,
-                "diagnosis_codes": [
+                procedure_code: "99213",
+                charge_amount: 60.0,
+                unit_count: 1.0,
+                diagnosis_codes: [
                     "J10.1"
                 ],
-                "service_date": "2016-01-25"
+                service_date: "2016-01-25"
             }
         ]
     }
@@ -1058,49 +1058,49 @@ client.claims({
 
 ```ruby
 client.claims({
-    "transaction_code": "chargeable",
-    "trading_partner_id": "MOCKPAYER",
-    "billing_provider": {
-        "taxonomy_code": "207Q00000X",
-        "first_name": "JEROME",
-        "last_name": "AYA-AY",
-        "npi": "1467560003",
-        "address": {
-            "address_lines": [
+    transaction_code: "chargeable",
+    trading_partner_id: "MOCKPAYER",
+    billing_provider: {
+        taxonomy_code: "207Q00000X",
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003",
+        address: {
+            address_lines: [
                 "1703 John B White Blvd, Unit A"
             ],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "tax_id": "123456789"
+        tax_id: "123456789"
     },
-    "subscriber": {
-        "first_name": "JOHN",
-        "last_name": "DOE",
-        "member_id": "W199000000",
-        "address": {
-            "address_lines": ["123 MAIN ST"],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+    subscriber: {
+        first_name: "JOHN",
+        last_name: "DOE",
+        member_id: "W199000000",
+        address: {
+            address_lines: ["123 MAIN ST"],
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "birth_date": "1970-01-25",
-        "gender": "male"
+        birth_date: "1970-01-25",
+        gender: "male"
     },
-    "claim": {
-        "place_of_service": "office",
-        "total_charge_amount": 150.0,
-        "patient_paid_amount": 150.0,
-        "service_lines": [
+    claim: {
+        place_of_service: "office",
+        total_charge_amount: 150.0,
+        patient_paid_amount: 150.0,
+        service_lines: [
             {
-                "procedure_code": "11100",
-                "charge_amount": 150.00,
-                "unit_count": 1.0,
-                "diagnosis_codes": [
+                procedure_code: "11100",
+                charge_amount: 150.00,
+                unit_count: 1.0,
+                diagnosis_codes: [
                     "L90.9"
                 ],
-                "service_date": "2016-03-25"
+                service_date: "2016-03-25"
             }
         ]
     }
@@ -1314,48 +1314,48 @@ client.claims({
 
 ```ruby
 client.claims({
-    "transaction_code": "chargeable",
-    "trading_partner_id": "MOCKPAYER",
-    "billing_provider": {
-        "taxonomy_code": "207Q00000X",
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003",
-        "address": {
-            "address_lines": [
+    transaction_code: "chargeable",
+    trading_partner_id: "MOCKPAYER",
+    billing_provider: {
+        taxonomy_code: "207Q00000X",
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003",
+        address: {
+            address_lines: [
                 "8311 WARREN H ABERNATHY HWY"
             ],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "tax_id": "123456789"
+        tax_id: "123456789"
     },
-    "subscriber": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "member_id": "W000000000",
-        "address": {
-            "address_lines": ["123 N MAIN ST"],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+    subscriber: {
+        first_name: "Jane",
+        last_name: "Doe",
+        member_id: "W000000000",
+        address: {
+            address_lines: ["123 N MAIN ST"],
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "birth_date": "1970-01-25",
-        "gender": "female"
+        birth_date: "1970-01-25",
+        gender: "female"
     },
-    "claim": {
-        "total_charge_amount": 100.0,
-        "service_lines": [
+    claim: {
+        total_charge_amount: 100.0,
+        service_lines: [
             {
-                "procedure_code": "99201",
-                "procedure_modifier_codes": ["GT"],
-                "charge_amount": 100.0,
-                "unit_count": 1.0,
-                "diagnosis_codes": [
+                procedure_code: "99201",
+                procedure_modifier_codes: ["GT"],
+                charge_amount: 100.0,
+                unit_count: 1.0,
+                diagnosis_codes: [
                     "W51.XXXA"
                 ],
-                "service_date": "2016-05-25"
+                service_date: "2016-05-25"
             }
         ]
     }
@@ -1564,48 +1564,48 @@ client.claims({
 
 ```ruby
 client.claims({
-    "callback_url": "https://yourapp.com/claims/status",
-    "transaction_code": "chargeable",
-    "trading_partner_id": "MOCKPAYER",
-    "billing_provider": {
-        "taxonomy_code": "207Q00000X",
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003",
-        "address": {
-            "address_lines": [
+    callback_url: "https://yourapp.com/claims/status",
+    transaction_code: "chargeable",
+    trading_partner_id: "MOCKPAYER",
+    billing_provider: {
+        taxonomy_code: "207Q00000X",
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003",
+        address: {
+            address_lines: [
                 "8311 WARREN H ABERNATHY HWY"
             ],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "tax_id": "123456789"
+        tax_id: "123456789"
     },
-    "subscriber": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "member_id": "W000000000",
-        "address": {
-            "address_lines": ["123 N MAIN ST"],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+    subscriber: {
+        first_name: "Jane",
+        last_name: "Doe",
+        member_id: "W000000000",
+        address: {
+            address_lines: ["123 N MAIN ST"],
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "birth_date": "1970-01-25",
-        "gender": "female"
+        birth_date: "1970-01-25",
+        gender: "female"
     },
-    "claim": {
-        "total_charge_amount": 60.0,
-        "service_lines": [
+    claim: {
+        total_charge_amount: 60.0,
+        service_lines: [
             {
-                "procedure_code": "99213",
-                "charge_amount": 60.0,
-                "unit_count": 1.0,
-                "diagnosis_codes": [
+                procedure_code: "99213",
+                charge_amount: 60.0,
+                unit_count: 1.0,
+                diagnosis_codes: [
                     "W53.21XA"
                 ],
-                "service_date": "2016-05-25"
+                service_date: "2016-05-25"
             }
         ]
     }
@@ -1885,86 +1885,86 @@ client.claims({
 
 ```ruby
 client.claims({
-  "billing_provider": {
-    "address": {
-      "address_lines": [
+  billing_provider: {
+    address: {
+      address_lines: [
         "100 New Street"
       ],
-      "city": "New Town",
-      "state": "CA",
-      "zipcode": "941001001"
+      city: "New Town",
+      state: "CA",
+      zipcode: "941001001"
     },
-    "npi": "1467560003",
-    "organization_name": "TEST FACILITY,LLC",
-    "taxonomy_code": "251G00000X",
-    "tax_id": "123456789"
+    npi: "1467560003",
+    organization_name: "TEST FACILITY,LLC",
+    taxonomy_code: "251G00000X",
+    tax_id: "123456789"
   },
-  "claim": {
-    "admission_date": "2016-02-25",
-    "statement_date": "2016-04-25",
-    "statement_end_date": "2016-04-25",
-    "admission_type": "elective",
-    "admission_source": "not_available",
-    "patient_status": "still_patient",
-    "attending_provider": {
-      "npi": "1467560003",
-      "first_name": "JEAN",
-      "last_name": "SMITH",
-      "taxonomy_code": "251G00000X"
+  claim: {
+    admission_date: "2016-02-25",
+    statement_date: "2016-04-25",
+    statement_end_date: "2016-04-25",
+    admission_type: "elective",
+    admission_source: "not_available",
+    patient_status: "still_patient",
+    attending_provider: {
+      npi: "1467560003",
+      first_name: "JEAN",
+      last_name: "SMITH",
+      taxonomy_code: "251G00000X"
     },
-    "claim_frequency": "interim_continuing_claims",
-    "direct_payment": "y",
-    "information_release": "informed_consent",
-    "medical_record_number": "661",
-    "facility_type": "nonhospital_based_hospice",
-    "plan_participation": "assigned",
-    "occurrence_information": [
+    claim_frequency: "interim_continuing_claims",
+    direct_payment: "y",
+    information_release: "informed_consent",
+    medical_record_number: "661",
+    facility_type: "nonhospital_based_hospice",
+    plan_participation: "assigned",
+    occurrence_information: [
       {
-        "occurrence_type": "hospice_certification",
-        "occurrence_date": "2014-03-25"
+        occurrence_type: "hospice_certification",
+        occurrence_date: "2014-03-25"
       }
     ],
-    "value_information": [
+    value_information: [
       {
-        "value_type": "service_furnished_location_number",
-        "value": "36420"
+        value_type: "service_furnished_location_number",
+        value: "36420"
       }
     ],
-    "service_lines": [
+    service_lines: [
       {
-        "charge_amount": "4000",
-        "diagnosis_codes": [
+        charge_amount: "4000",
+        diagnosis_codes: [
           "29411"
         ],
-        "procedure_code": "Q5002",
-        "revenue_code": "0651",
-        "service_date": "2016-04-25",
-        "unit_count": "31",
-        "unit_type": "days",
-        "provider_control_number": "6750000"
+        procedure_code: "Q5002",
+        revenue_code: "0651",
+        service_date: "2016-04-25",
+        unit_count: "31",
+        unit_type: "days",
+        provider_control_number: "6750000"
       }
     ],
-    "total_charge_amount": "4000"
+    total_charge_amount: "4000"
   },
-  "subscriber": {
-    "address": {
-      "address_lines": [
+  subscriber: {
+    address: {
+      address_lines: [
         "1234 MAIN AVE"
       ],
-      "city": "NEW TOWN",
-      "state": "CA",
-      "zipcode": "941001001"
+      city: "NEW TOWN",
+      state: "CA",
+      zipcode: "941001001"
     },
-    "birth_date": "1930-07-25",
-    "claim_filing_code": "medicare_part_a",
-    "first_name": "JOHN",
-    "gender": "male",
-    "last_name": "SMITH",
-    "member_id": "R12345678",
-    "payer_responsibility": "primary"
+    birth_date: "1930-07-25",
+    claim_filing_code: "medicare_part_a",
+    first_name: "JOHN",
+    gender: "male",
+    last_name: "SMITH",
+    member_id: "R12345678",
+    payer_responsibility: "primary"
   },
-  "trading_partner_id": "MOCKPAYER",
-  "transaction_code": "chargeable"
+  trading_partner_id: "MOCKPAYER",
+  transaction_code: "chargeable"
 })
 ```
 
@@ -2245,51 +2245,51 @@ client.claims({
 
 ```ruby
 client.claims({
-    "callback_url": "https://your-application.com/callback/1234",
-    "application_data": {
-        "mock_claim_payment": true
+    callback_url: "https://your-application.com/callback/1234",
+    application_data: {
+        mock_claim_payment: true
     },
-    "transaction_code": "chargeable",
-    "trading_partner_id": "MOCKPAYER",
-    "billing_provider": {
-        "taxonomy_code": "207Q00000X",
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003",
-        "address": {
-            "address_lines": [
+    transaction_code: "chargeable",
+    trading_partner_id: "MOCKPAYER",
+    billing_provider: {
+        taxonomy_code: "207Q00000X",
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003",
+        address: {
+            address_lines: [
                 "8311 WARREN H ABERNATHY HWY"
             ],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "tax_id": "123456789"
+        tax_id: "123456789"
     },
-    "subscriber": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "member_id": "W000000000",
-        "address": {
-            "address_lines": ["123 N MAIN ST"],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+    subscriber: {
+        first_name: "Jane",
+        last_name: "Doe",
+        member_id: "W000000000",
+        address: {
+            address_lines: ["123 N MAIN ST"],
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "birth_date": "1970-01-25",
-        "gender": "female"
+        birth_date: "1970-01-25",
+        gender: "female"
     },
-    "claim": {
-        "total_charge_amount": 60.0,
-        "service_lines": [
+    claim: {
+        total_charge_amount: 60.0,
+        service_lines: [
             {
-                "procedure_code": "99213",
-                "charge_amount": 60.0,
-                "unit_count": 1.0,
-                "diagnosis_codes": [
+                procedure_code: "99213",
+                charge_amount: 60.0,
+                unit_count: 1.0,
+                diagnosis_codes: [
                     "W56.22XA"
                 ],
-                "service_date": "2016-05-25"
+                service_date: "2016-05-25"
             }
         ]
     }
@@ -2517,54 +2517,54 @@ client.claims({
 
 ```ruby
 client.claims({
-    "transaction_code": "chargeable",
-    "trading_partner_id": "MOCKPAYER",
-    "billing_provider": {
-        "taxonomy_code": "207Q00000X",
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003",
-        "address": {
-            "address_lines": [
+    transaction_code: "chargeable",
+    trading_partner_id: "MOCKPAYER",
+    billing_provider: {
+        taxonomy_code: "207Q00000X",
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003",
+        address: {
+            address_lines: [
                 "8311 WARREN H ABERNATHY HWY"
             ],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "tax_id": "123456789"
+        tax_id: "123456789"
     },
-    "subscriber": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "member_id": "W000000000",
-        "address": {
-            "address_lines": ["123 N MAIN ST"],
-            "city": "SPARTANBURG",
-            "state": "SC",
-            "zipcode": "29301"
+    subscriber: {
+        first_name: "Jane",
+        last_name: "Doe",
+        member_id: "W000000000",
+        address: {
+            address_lines: ["123 N MAIN ST"],
+            city: "SPARTANBURG",
+            state: "SC",
+            zipcode: "29301"
         },
-        "birth_date": "1970-01-25",
-        "gender": "female"
+        birth_date: "1970-01-25",
+        gender: "female"
     },
-    "claim": {
-        "total_charge_amount": 60.0,
-        "rendering_provider": {
-              "npi": "1467560003",
-              "first_name": "JANE",
-              "last_name": "DOE",
-              "taxonomy_code": "207N00000X"
+    claim: {
+        total_charge_amount: 60.0,
+        rendering_provider: {
+              npi: "1467560003",
+              first_name: "JANE",
+              last_name: "DOE",
+              taxonomy_code: "207N00000X"
 
  },
-        "service_lines": [
+        service_lines: [
             {
-                "procedure_code": "99213",
-                "charge_amount": 60.0,
-                "unit_count": 1.0,
-                "diagnosis_codes": [
+                procedure_code: "99213",
+                charge_amount: 60.0,
+                unit_count: 1.0,
+                diagnosis_codes: [
                     "V91.35"
                 ],
-                "service_date": "2016-05-25"
+                service_date: "2016-05-25"
             }
         ]
     }
@@ -2787,50 +2787,50 @@ client.claims({
 
 ```ruby
 client.claims({
-  "transaction_code": "chargeable",
-  "trading_partner_id": "MOCKPAYER",
-  "billing_provider": {
-    "taxonomy_code": "207Q00000X",
-    "first_name": "Jerome",
-    "last_name": "Aya-Ay",
-    "npi": "1467560003",
-    "address": {
-      "address_lines": [
+  transaction_code: "chargeable",
+  trading_partner_id: "MOCKPAYER",
+  billing_provider: {
+    taxonomy_code: "207Q00000X",
+    first_name: "Jerome",
+    last_name: "Aya-Ay",
+    npi: "1467560003",
+    address: {
+      address_lines: [
         "8311 WARREN H ABERNATHY HWY"
       ],
-      "city": "SPARTANBURG",
-      "state": "SC",
-      "zipcode": "29301"
+      city: "SPARTANBURG",
+      state: "SC",
+      zipcode: "29301"
     },
-    "tax_id": "123456789"
+    tax_id: "123456789"
   },
-  "subscriber": {
-    "first_name": "Jane",
-    "last_name": "Doe",
-    "member_id": "W000000000",
-    "address": {
-      "address_lines": [
+  subscriber: {
+    first_name: "Jane",
+    last_name: "Doe",
+    member_id: "W000000000",
+    address: {
+      address_lines: [
         "123 N MAIN ST"
       ],
-      "city": "SPARTANBURG",
-      "state": "SC",
-      "zipcode": "29301"
+      city: "SPARTANBURG",
+      state: "SC",
+      zipcode: "29301"
     },
-    "birth_date": "1970-01-25",
-    "gender": "female"
+    birth_date: "1970-01-25",
+    gender: "female"
   },
-  "claim": {
-    "total_charge_amount": 60.0,
-    "service_lines": [
+  claim: {
+    total_charge_amount: 60.0,
+    service_lines: [
       {
-        "procedure_code": "99213",
-        "charge_amount": 60.0,
-        "unit_count": 1.0,
-        "diagnosis_codes": [
+        procedure_code: "99213",
+        charge_amount: 60.0,
+        unit_count: 1.0,
+        diagnosis_codes: [
           "X35.XXXD"
         ],
-        "service_date": "2016-04-25",
-        "service_end_date": "2016-05-25"
+        service_date: "2016-04-25",
+        service_end_date: "2016-05-25"
       }
     ]
   }
@@ -2942,7 +2942,7 @@ Map<String, Object> results = client.claims(query);
 > Sample Claims request for sending COB (Coordination of Benefits) between two payers for Payer A.
 
 ```python
-pd.claims({
+client.claims({
     "trading_partner_id": "MOCKPAYER",
     "transaction_code": "chargeable",
     "receiver": {
@@ -3068,7 +3068,7 @@ pd.claims({
 > Sample Claims request for sending COB (Coordination of Benefits) between two payers for Payer B.
 
 ```python
-pd.claims({
+client.claims({
   "trading_partner_id": "MOCKPAYER",
   "transaction_code": "chargeable",
   "receiver": {

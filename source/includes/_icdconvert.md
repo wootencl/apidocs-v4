@@ -15,7 +15,7 @@ client.icdConvert("250.12");
 ```
 
 ```ruby
-client.icd_convert('250.12')
+client.icd_convert({code: '250.12'})
 ```
 
 ```java

@@ -58,19 +58,19 @@ client.claimsStatus(
 
 ```ruby
 client.claims_status({
-    "patient": {
-        "birth_date": "1970-01-25",
-        "first_name": "JANE",
-        "last_name": "DOE",
-        "id": "1234567890"
+    patient: {
+        birth_date: "1970-01-25",
+        first_name: "JANE",
+        last_name: "DOE",
+        id: "1234567890"
     },
-    "provider": {
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003"
+    provider: {
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003"
     },
-    "service_date": "2014-01-25",
-    "trading_partner_id": "MOCKPAYER"
+    service_date: "2014-01-25",
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -174,25 +174,25 @@ client.claimsStatus(new Dictionary<string, object> {
 
 ```ruby
 client.claims_status({
-    "patient": {
-        "birth_date": "2000-01-25",
-        "first_name": "JOHN",
-        "last_name": "DOE",
-        "id": "1234567890"
+    patient: {
+        birth_date: "2000-01-25",
+        first_name: "JOHN",
+        last_name: "DOE",
+        id: "1234567890"
     },
-    "provider": {
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003"
+    provider: {
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003"
     },
-    "service_date": "2014-01-25",
-    "subscriber": {
-        "birth_date": "1970-01-25",
-        "first_name": "JANE",
-        "last_name": "DOE",
-        "id": "1234567890"
+    service_date: "2014-01-25",
+    subscriber: {
+        birth_date: "1970-01-25",
+        first_name: "JANE",
+        last_name: "DOE",
+        id: "1234567890"
     },
-    "trading_partner_id": "MOCKPAYER"
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -286,20 +286,20 @@ client.claimsStatus(new Dictionary<string, object> {
 
 ```ruby
 client.claims_status({
-    "patient": {
-        "birth_date": "1970-01-25",
-        "first_name": "JANE",
-        "last_name": "DOE",
-        "id": "1234567890"
+    patient: {
+        birth_date: "1970-01-25",
+        first_name: "JANE",
+        last_name: "DOE",
+        id: "1234567890"
     },
-    "provider": {
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003"
+    provider: {
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003"
     },
-    "service_date": "2014-01-25",
-    "service_end_date": "2014-01-25",
-    "trading_partner_id": "MOCKPAYER"
+    service_date: "2014-01-25",
+    service_end_date: "2014-01-25",
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -388,20 +388,20 @@ client.claimsStatus(new Dictionary<string, object> {
 
 ```ruby
 client.claims_status({
-    "patient": {
-        "birth_date": "1970-01-25",
-        "first_name": "JANE",
-        "last_name": "DOE",
-        "id": "1234567890"
+    patient: {
+        birth_date: "1970-01-25",
+        first_name: "JANE",
+        last_name: "DOE",
+        id: "1234567890"
     },
-    "provider": {
-        "first_name": "Jerome",
-        "last_name": "Aya-Ay",
-        "npi": "1467560003"
+    provider: {
+        first_name: "Jerome",
+        last_name: "Aya-Ay",
+        npi: "1467560003"
     },
-    "service_date": "2014-01-25",
-    "tracking_id": "ABC12345",
-    "trading_partner_id": "MOCKPAYER"
+    service_date: "2014-01-25",
+    tracking_id: "ABC12345",
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 

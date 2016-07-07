@@ -122,40 +122,40 @@ client.referrals({
 
 ```ruby
 client.referrals({
-    "event": {
-        "category": "specialty_care_review",
-        "certification_type": "initial",
-        "delivery": {
-            "quantity": 1,
-            "quantity_qualifier": "visits"
+    event: {
+        category: "specialty_care_review",
+        certification_type: "initial",
+        delivery: {
+            quantity: 1,
+            quantity_qualifier: "visits"
         },
-        "diagnoses": [
+        diagnoses: [
             {
-                "code": "H72.90",
-                "date": "2014-09-25"
+                code: "H72.90",
+                date: "2014-09-25"
             }
         ],
-        "place_of_service": "office",
-        "provider": {
-            "first_name": "JOHN",
-            "npi": "1154387751",
-            "last_name": "FOSTER",
-            "phone": "8645822900"
+        place_of_service: "office",
+        provider: {
+            first_name: "JOHN",
+            npi: "1154387751",
+            last_name: "FOSTER",
+            phone: "8645822900"
         },
-        "type": "consultation"
+        type: "consultation"
     },
-    "patient": {
-        "birth_date": "1970-01-25",
-        "first_name": "JANE",
-        "last_name": "DOE",
-        "id": "1234567890"
+    patient: {
+        birth_date: "1970-01-25",
+        first_name: "JANE",
+        last_name: "DOE",
+        id: "1234567890"
     },
-    "provider": {
-        "first_name": "CHRISTINA",
-        "last_name": "BERTOLAMI",
-        "npi": "1619131232"
+    provider: {
+        first_name: "CHRISTINA",
+        last_name: "BERTOLAMI",
+        npi: "1619131232"
     },
-    "trading_partner_id": "MOCKPAYER"
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 

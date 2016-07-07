@@ -119,7 +119,8 @@ client.put(url, data={'transition': 'cancel'})
 ```
 
 ```ruby
-# Currently not supported in this language.
+url = '/activities/5776759b0640fd278d20ce8e'
+results = client.request(url, 'PUT', nil, {transition: 'cancel'})
 ```
 
 ```csharp
@@ -292,7 +293,7 @@ Endpoint | HTTP Method | Description
 -------- | ----------- | -----------
 /activities/ | GET | List current activities. A query string parameter ‘parent_id’ may also be used with this API to get information about sub-activities that were initiated from a batch file upload.
 /activities/{id} | GET | Return detailed information about the specified activity. API applications will receive an activity ID in the API response for all operations that are asynchronous.
-/activities/{id} | PUT | Used for canceling pending activities that a client application no longer wishes to execute.
+/activities/{id} | PUT | Used for canceling activities that a client application no longer wishes to execute. This functionality cannot be used for activities after they have left a scheduled state and been transmitted to the trading partner.
 
 
 The /activities/ response includes the following fields:

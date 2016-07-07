@@ -5,18 +5,49 @@ To guarantee clients have reliable access to the newest PokitDok endpoints,
 a generic request handler is built into most clients. This allows for the sending
 of files and JSON payloads to any PokitDok endpoint for any given CRUD operation.
 
-> Example calls using the generic request handler
+> Example calls using the generic request handler:
 
+```shell
+# Curl requests are already formatted as 'General Request' methods
+```
+
+```python
+client.request("/eligibility/", "POST", ExampleRequests.EligibilityRequest)
+```
+
+```ruby
+client.request("/eligibility/", "POST", nil, 'eligibility_request.json')
+```
 
 ```csharp
 client.request("/eligibility/", "POST", ExampleRequests.EligibilityRequest);
 ```
 
-```csharp
-client.request("/identity/4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae", "PUT", ExampleRequests.CreateIdentityRequest);
+```python
+client.request("/identity/4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae", "PUT", ExampleRequests.UpdateIdentityRequest)
 ```
 
-> Example call sending a file using the generic request handler
+```ruby
+client.request("/identity/4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae", "PUT", nil, 'update_identity_request.json')
+```
+
+```csharp
+client.request("/identity/4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae", "PUT", ExampleRequests.UpdateIdentityRequest);
+```
+
+> Example call sending a file using the generic request handler:
+
+```shell
+# Curl requests are already formatted as 'General Request' methods
+```
+
+```python
+client.request("/files/", "POST", 'enrollment.834', 'MOCKPAYER')
+```
+
+```ruby
+client.request("/files/", "POST", 'enrollment.834', { trading_partner_id: 'MOCKPAYER' })
+```
 
 ```csharp
  client.request(

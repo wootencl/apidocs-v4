@@ -389,7 +389,7 @@ The /providers/ endpoint accepts the following search parameters:
 | state             | {string} | Name of U.S. state in which to search for providers (e.g. "CA" or "SC")                                                                             |
 | zipcode           | {string} | Geographic center point in which to search for providers (e.g. "94401")                                                                             |
 | sort              | {string} | Accepted values include 'distance' (default) or 'rank'.  'distance' sort requires city & state or zipcode parameters otherwise sort will be 'rank'. |
-
+| entity_types      | {string} | The entity type of the provider. Possibilities are individual, organization, and individual,organization.                                           |
 
 The response from the /providers/ endpoints contain the following fields:
 
@@ -455,3 +455,4 @@ The response from the /providers/ endpoints contain the following fields:
 | provider.twitter_url                  | {string}  | Optional: (verified providers only) Provider Twitter URL                                                                 |
 | provider.website_url                  | {string}  | Optional: (verified providers only) Provider website URL                                                                 |
 | distance                              | {string}  | Optional: When sort is 'distance' (default) this is the distance from the city & state or zipcode centroid               |
+| entity_type                           | {string}  | The entity type of the provider. Possibilities are individual and organization.                                          |

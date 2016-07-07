@@ -79,7 +79,7 @@ client.trading_partners('aetna')
 ```
 
 ```java
-client.tradingPartners("aetna");
+client.trading_partners({ trading_partner_id: 'aetna' })
 ```
 
 > Example response:

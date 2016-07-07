@@ -95,28 +95,28 @@ client.createIdentity(
 
 ```ruby
 client.create_identity({
-    "prefix": "Mr.",
-    "first_name": "Oscar",
-    "middle_name": "Harold",
-    "last_name": "Whitmire",
-    "suffix": "IV",
-    "birth_date": "2000-05-25",
-    "gender": "male",
-    "email": "oscar@pokitdok.com",
-    "phone": "555-555-5555",
-    "secondary_phone": "333-333-4444",
-    "address": {
-        "address_lines": ["1400 Anyhoo Avenue"],
-        "city": "Springfield",
-        "state": "IL",
-        "zipcode": "90210"
+    prefix: "Mr.",
+    first_name: "Oscar",
+    middle_name: "Harold",
+    last_name: "Whitmire",
+    suffix: "IV",
+    birth_date: "2000-05-25",
+    gender: "male",
+    email: "oscar@pokitdok.com",
+    phone: "555-555-5555",
+    secondary_phone: "333-333-4444",
+    address: {
+        address_lines: ["1400 Anyhoo Avenue"],
+        city: "Springfield",
+        state: "IL",
+        zipcode: "90210"
     },
-    "identifiers": [
+    identifiers: [
         {
-            "location": [-121.93831, 37.53901],
-            "provider_uuid": "1917f12b-fb6a-4016-93bc-adeb83204c83",
-            "system_uuid": "967d207f-b024-41cc-8cac-89575a1f6fef",
-            "value": "W90100-IG-88"
+            location: [-121.93831, 37.53901],
+            provider_uuid: "1917f12b-fb6a-4016-93bc-adeb83204c83",
+            system_uuid: "967d207f-b024-41cc-8cac-89575a1f6fef",
+            value: "W90100-IG-88"
 
         }
     ]
@@ -252,28 +252,28 @@ client.updateIdentity("881bc095-2068-43cb-9783-cce630364122",
 
 ```ruby
 client.update_identity("881bc095-2068-43cb-9783-cce630364122", {
-    "prefix": "Mr.",
-    "first_name": "Oscar",
-    "middle_name": "Harold",
-    "last_name": "Whitmire",
-    "suffix": "IV",
-    "birth_date": "2000-05-25",
-    "gender": "male",
-    "email": "oscar.whitmire@pokitdok.com",
-    "phone": "555-555-5555",
-    "secondary_phone": "333-333-4444",
-    "address": {
-        "address_lines": ["1400 Anyhoo Avenue"],
-        "city": "Springfield",
-        "state": "IL",
-        "zipcode": "90210"
+    prefix: "Mr.",
+    first_name: "Oscar",
+    middle_name: "Harold",
+    last_name: "Whitmire",
+    suffix: "IV",
+    birth_date: "2000-05-25",
+    gender: "male",
+    email: "oscar.whitmire@pokitdok.com",
+    phone: "555-555-5555",
+    secondary_phone: "333-333-4444",
+    address: {
+        address_lines: ["1400 Anyhoo Avenue"],
+        city: "Springfield",
+        state: "IL",
+        zipcode: "90210"
     },
-    "identifiers": [
+    identifiers: [
         {
-            "location": [-121.93831, 37.53901],
-            "provider_uuid": "1917f12b-fb6a-4016-93bc-adeb83204c83",
-            "system_uuid": "967d207f-b024-41cc-8cac-89575a1f6fef",
-            "value": "W90100-IG-88"
+            location: [-121.93831, 37.53901],
+            provider_uuid: "1917f12b-fb6a-4016-93bc-adeb83204c83",
+            system_uuid: "967d207f-b024-41cc-8cac-89575a1f6fef",
+            value: "W90100-IG-88"
 
         }
     ]
@@ -329,7 +329,7 @@ client.identity("4d04d8dc-3d0b-4ea1-8add-4dbc9619e1ae");
 ```
 
 ```ruby
-client.identity("881bc095-2068-43cb-9783-cce630364122")
+client.identity(identity_uuid: "881bc095-2068-43cb-9783-cce630364122")
 ```
 
 ```java

@@ -56,18 +56,18 @@ client.eligibility({
 
 ```ruby
 client.eligibility({
-    "member": {
-        "birth_date": "1970-01-25",
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "id": "W000000000"
+    member: {
+        birth_date: "1970-01-25",
+        first_name: "Jane",
+        last_name: "Doe",
+        id: "W000000000"
     },
-    "provider": {
-        "first_name": "JEROME",
-        "last_name": "AYA-AY",
-        "npi": "1467560003"
+    provider: {
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003"
     },
-    "trading_partner_id": "MOCKPAYER"
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -147,17 +147,17 @@ client.eligibility({
 
 ```ruby
 client.eligibility({
-    "member": {
-        "birth_date": "1970-01-25",
-        "last_name": "Doe",
-        "id": "W000000000"
+    member: {
+        birth_date: "1970-01-25",
+        last_name: "Doe",
+        id: "W000000000"
     },
-    "provider": {
-        "first_name": "JEROME",
-        "last_name": "AYA-AY",
-        "npi": "1467560003"
+    provider: {
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003"
     },
-    "trading_partner_id": "MOCKPAYER"
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -236,17 +236,17 @@ client.eligibility({
 
 ```ruby
 client.eligibility({
-    "member": {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "id": "W000000000"
+    member: {
+        first_name: "Jane",
+        last_name: "Doe",
+        id: "W000000000"
     },
-    "provider": {
-        "first_name": "JEROME",
-        "last_name": "AYA-AY",
-        "npi": "1467560003"
+    provider: {
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003"
     },
-    "trading_partner_id": "MOCKPAYER"
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -322,16 +322,16 @@ client.eligibility({
 
 ```ruby
 client.eligibility({
-    "member": {
-        "birth_date": "1970-01-25",
-        "id": "W000000000"
+    member: {
+        birth_date: "1970-01-25",
+        id: "W000000000"
     },
-    "provider": {
-        "first_name": "JEROME",
-        "last_name": "AYA-AY",
-        "npi": "1467560003"
+    provider: {
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003"
     },
-    "trading_partner_id": "MOCKPAYER"
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -409,17 +409,17 @@ client.eligibility({
 
 ```ruby
 client.eligibility({
-    "member": {
-        "birth_date": "1970-01-25",
-        "first_name": "Jane",
-        "last_name": "Doe"
+    member: {
+        birth_date: "1970-01-25",
+        first_name: "Jane",
+        last_name: "Doe"
     },
-    "provider": {
-        "first_name": "JEROME",
-        "last_name": "AYA-AY",
-        "npi": "1467560003"
+    provider: {
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003"
     },
-    "trading_partner_id": "MOCKPAYER"
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -481,6 +481,25 @@ client.eligibility({
     "trading_partner_id": "MOCKPAYER"
 })
 ```
+
+```ruby
+client.eligibility({
+    member: {
+        birth_date: "1970-01-25",
+        first_name: "Jane",
+        last_name: "Doe",
+        id: "W000000000",
+        group_number: "123456"
+    },
+    provider: {
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003"
+    },
+    trading_partner_id: "MOCKPAYER"
+})
+```
+
 
 ```csharp
 client.eligibility(
@@ -548,6 +567,18 @@ client.eligibility({
         "id": "W000000000"
     },
     "trading_partner_id": "MOCKPAYER"
+})
+```
+
+```ruby
+client.eligibility({
+    member: {
+        birth_date: "1970-01-25",
+        first_name: "Jane",
+        last_name: "Doe",
+        id: "W000000000"
+    },
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -642,16 +673,16 @@ client.eligibility(
 
 ```ruby
 client.eligibility({
-    "member": {
-        "birth_date": "1970-01-25",
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "id": "W000000000"
+    member: {
+        birth_date: "1970-01-25",
+        first_name: "Jane",
+        last_name: "Doe",
+        id: "W000000000"
     },
-    "provider": {
-        "first_name": "JEROME",
-        "last_name": "AYA-AY",
-        "npi": "1467560003"
+    provider: {
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003"
     },
     "service_types": [ "emergency_services" ],
     "trading_partner_id": "MOCKPAYER"
@@ -741,19 +772,19 @@ client.eligibility(
 
 ```ruby
 client.eligibility({
-    "member": {
-        "birth_date": "1970-01-25",
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "id": "W000000000"
+    member: {
+        birth_date: "1970-01-25",
+        first_name: "Jane",
+        last_name: "Doe",
+        id: "W000000000"
     },
-    "provider": {
-        "first_name": "JEROME",
-        "last_name": "AYA-AY",
-        "npi": "1467560003"
+    provider: {
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003"
     },
-    "cpt_code": "81291",
-    "trading_partner_id": "MOCKPAYER"
+    cpt_code: "81291",
+    trading_partner_id: "MOCKPAYER"
 })
 ```
 
@@ -851,22 +882,22 @@ client.eligibility(
 
 ```ruby
 client.eligiblity({
-    "member": {
-        "birth_date": "1970-01-25",
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "id": "W000000000"
+    member: {
+        birth_date: "1970-01-25",
+        first_name: "Jane",
+        last_name: "Doe",
+        id: "W000000000"
     },
-    "provider": {
-        "first_name": "JEROME",
-        "last_name": "AYA-AY",
-        "npi": "1467560003"
+    provider: {
+        first_name: "JEROME",
+        last_name: "AYA-AY",
+        npi: "1467560003"
     },
-    "trading_partner_id": "MOCKPAYER",
-    "application_data": {
-        "patient_id": "ABC1234XYZ",
-        "location_id": 123,
-        "transaction_uuid": "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
+    trading_partner_id: "MOCKPAYER",
+    application_data: {
+        patient_id: "ABC1234XYZ",
+        location_id: 123,
+        transaction_uuid: "93f38f1b-b2cd-4da1-8b55-c6e3ab380dbf"
     }
 })
 ```
