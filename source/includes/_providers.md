@@ -2,7 +2,7 @@
 > Example fetching provider information by NPI:
 
 ```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/1467560003
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/providers/1467560003"
 ```
 
 ```python
@@ -126,7 +126,7 @@ client.providers(query)
 > Example searching providers by zipcode and specialty:
 
 ```shell
-curl -i -H "Authorization: Bearer $ACCESS_TOKEN" https://platform.pokitdok.com/api/v4/providers/?zipcode=29307&specialty=rheumatology&radius=3mi
+curl -i -H "Authorization: Bearer $ACCESS_TOKEN" "https://platform.pokitdok.com/api/v4/providers/?zipcode=29307&specialty=rheumatology&radius=3mi"
 ```
 
 ```python
